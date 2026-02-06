@@ -1,0 +1,9 @@
+{
+  // Configuración base de Nuxt
+  "extends": "./.nuxt/tsconfig.json",
+  "compilerOptions": {
+    // Estas son las reglas que te pide el aviso para reducir errores
+    "strict": true,
+    "forceConsistentCasingInFileNames": true
+  }
+}
