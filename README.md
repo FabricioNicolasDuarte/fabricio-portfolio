@@ -58,22 +58,27 @@ Beyond this portfolio, my technical arsenal includes:
 To run this project locally, follow these steps:
 
 ### 1. Clone the repository
-```bash
-git clone [https://github.com/YOUR-USERNAME/fabricio-portfolio.git](https://github.com/YOUR-USERNAME/fabricio-portfolio.git)
+
+git clone 
+
 cd fabricio-portfolio
+
 2. Install dependencies
-Bash
+
 # Using npm
 npm install
+
 3. Run Development Server
-Bash
+
 npm run dev
 The app will be available at http://localhost:3000.
 
 4. Build for Production
-Bash
+
 npm run build
+
 📂 Project Structure
+
 fabricio-portfolio/
 ├── components/       # Atomic Vue components (Hero, About, TechStack)
 ├── pages/            # Nuxt file-system routing (Home, Blog)
@@ -81,8 +86,9 @@ fabricio-portfolio/
 ├── assets/           # Global styles (CSS)
 ├── app.vue           # Root layout component
 └── nuxt.config.ts    # Nuxt configuration file
+
 📬 Contact
-Fabricio Nicolás Duarte Tech Lead | Full Stack Developer | Data Science Student
+
 
 📧 Email: fabricioduarteoficial@gmail.com
 
@@ -90,4 +96,3 @@ Fabricio Nicolás Duarte Tech Lead | Full Stack Developer | Data Science Student
 
 📱 WhatsApp: +54 9 370 402-2201
 
-<p align="center"> <small>&copy; 2026 Fabricio Duarte. All Rights Reserved.</small> </p>
