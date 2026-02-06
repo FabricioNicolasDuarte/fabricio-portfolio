@@ -22,7 +22,7 @@
           </h2>
           
           <p class="text-slate-400 text-lg mb-10 leading-relaxed max-w-2xl font-light">
-            Soy <strong>Fabricio Duarte</strong>. Mi enfoque combina la precisión técnica del desarrollo <em>Full Stack</em> con la visión macro de la consultoría. Construyo arquitecturas escalables que resuelven problemas críticos en dos mundos opuestos: la velocidad del <strong>Venture Capital</strong> y la solidez del <strong>Sector Público</strong>.
+            Soy <strong>Fabricio Duarte</strong>. Mi enfoque combina la precisión técnica del desarrollo <em>Full Stack</em> con la visión macro de la consultoría. Construyo arquitecturas escalables que resuelven problemas críticos en mundos opuestos: la velocidad del <strong>Venture Capital</strong>, la solidez del <strong>Sector Público o la heterogeneidad del sector Privado</strong>.
           </p>
 
           <div class="w-full">
