@@ -21,7 +21,7 @@ useHead({
     { property: 'og:type', content: 'website' },
     { property: 'og:url', content: 'https://fabricioduarte.tech' },
     { property: 'og:title', content: 'Fabricio Duarte | Ingeniería de Software & Estrategia' },
-    { property: 'og:description', content: 'Transformando el Agro y el Estado con tecnología escalable. Mira mi portafolio profesional.' },
+    { property: 'og:description', content: 'Transformando el sector público y privado con tecnología escalable. Mira mi portafolio profesional.' },
     
     // IMPORTANTE: La imagen debe tener URL completa (https://...) para que WhatsApp la detecte
     // Asegúrate de que 'profile.jpg' esté en tu carpeta /public/images/

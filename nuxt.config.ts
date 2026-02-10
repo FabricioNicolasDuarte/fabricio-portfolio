@@ -12,7 +12,7 @@ export default defineNuxtConfig({
     head: {
       title: 'Fabricio Duarte | LeadTech Developer',
       meta: [
-        { name: 'description', content: 'Portafolio de Fabricio Duarte. Transformando realidad conTecnología y Datos.' },
+        { name: 'description', content: 'Portafolio de Fabricio Duarte. Transformando realidad con Tecnología y Datos.' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' }
       ],
       link: [
