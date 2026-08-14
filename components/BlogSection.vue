@@ -7,9 +7,9 @@
       
       <div class="text-center mb-20" v-motion-slide-visible-once-bottom>
         <span class="text-primary-500 font-bold tracking-widest text-sm uppercase mb-2 block">Blog & Recursos</span>
-        <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Artículos & Insights</h2>
+        <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Notas de trabajo</h2>
         <p class="text-slate-400 max-w-2xl mx-auto text-lg">
-          Reflexiones sobre tecnología, gestión pública y el futuro del desarrollo de software.
+          IA de campo, BI institucional y automatización: lo que queda cuando el demo termina.
         </p>
       </div>
 
@@ -65,27 +65,27 @@
 const posts = [
   {
     slug: 'ia-ganaderia', 
-    title: 'IA en el Campo: El caso Nutrogan',
+    title: 'IA que escribe en el dominio, no en el chat',
     category: 'Inteligencia Artificial',
-    color: 'text-primary-400', // Color ajustado para el dark mode
+    color: 'text-primary-400',
     image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1965&auto=format&fit=crop',
-    excerpt: 'Cómo utilizamos TensorFlow y Visión Artificial para estimar la condición corporal del ganado vacuno sin conexión a internet.'
+    excerpt: 'De Nutrogan (visión offline) a SIGAG: voz, Gemini y Next Best Action. Si la IA no crea una OT o un pesaje, no sirve en el potrero.'
   },
   {
     slug: 'govtech-burocracia',
-    title: 'De la Burocracia al Click',
-    category: 'Gestión Pública',
+    title: 'El tablero no es el producto: la decisión sí',
+    category: 'Datos & Estado',
     color: 'text-indigo-400',
-    image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop',
-    excerpt: 'Mi experiencia en la Modernización del Estado y cómo la tecnología aborda la ineficiencia y burocracia estatal.'
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop',
+    excerpt: 'Superset, Power BI y GIS institucional. Cómo intervengo en motores de BI y sistemas del Estado para que el dato llegue a quien gobierna.'
   },
   {
     slug: 'arquitectura-vue',
-    title: 'Arquitectura Limpia con Vue 3',
-    category: 'Desarrollo',
+    title: 'Automatizar el aburrido: sync, colas y ETL',
+    category: 'Automatización',
     color: 'text-emerald-400',
-    image: 'https://images.unsplash.com/photo-1555099962-4199c345e5dd?q=80&w=2070&auto=format&fit=crop',
-    excerpt: 'Qué stack tecnológico elegir.'
+    image: 'https://images.unsplash.com/photo-1518186285589-2f7649de83e0?q=80&w=1974&auto=format&fit=crop',
+    excerpt: 'Offline-first, webhooks, Celery y reportes. La automatización seria es la que no se ve: conciliar, sincronizar y auditar sin que nadie pulse F5.'
   }
 ]
 </script>

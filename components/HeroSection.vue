@@ -1,80 +1,85 @@
 <template>
-  <section id="hero" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-slate-950">
-    
-    <div class="absolute inset-0 overflow-hidden pointer-events-none">
-      <div class="absolute -top-[30%] -left-[10%] w-[70%] h-[70%] rounded-full bg-primary-500/10 blur-[120px]"></div>
-      <div class="absolute bottom-[0%] right-[0%] w-[50%] h-[50%] rounded-full bg-emerald-500/10 blur-[100px]"></div>
-      <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
+  <section id="top" class="relative mx-auto max-w-6xl px-5 pb-20 pt-16 sm:px-8 sm:pb-28 sm:pt-24">
+    <div class="mb-8 inline-flex animate-rise items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-3 py-1.5 text-xs font-medium text-cyan-200">
+      <span class="relative flex h-2 w-2">
+        <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-400 opacity-75"></span>
+        <span class="relative inline-flex h-2 w-2 rounded-full bg-cyan-400"></span>
+      </span>
+      Resistencia, Chaco · Ciencia de Datos (UGR) en curso
     </div>
 
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      
-      <div 
-        class="inline-flex items-center px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md text-slate-300 text-sm font-medium mb-8 shadow-lg hover:border-primary-500/30 transition-colors cursor-default"
-        v-motion-fade-visible-once
-      >
-        <span class="relative flex h-2 w-2 mr-3">
-          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-          <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-        </span>
-        Disponible para Proyectos Innovadores
+    <div class="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_300px]">
+      <div>
+        <p class="animate-rise font-display text-sm font-medium tracking-widest text-cyan-300/80 uppercase">
+          Data · Analytics · Automation
+        </p>
+        <h1 class="mt-3 animate-rise font-display text-5xl font-bold leading-[1.05] tracking-tight sm:text-7xl">
+          Fabricio
+          <span class="shine-text">Duarte</span>
+        </h1>
+        <p class="mt-6 max-w-xl animate-rise text-lg leading-relaxed text-slate-300" style="animation-delay: 80ms">
+          Datos, producto y consultoría. Ocho años en transformación digital
+          (Estado, salud, real estate y agrotech): SQL, BI, n8n e IA aplicada
+          en sistemas que ya están en producción.
+        </p>
+        <p class="mt-4 max-w-xl animate-rise text-[15px] leading-relaxed text-slate-400" style="animation-delay: 140ms">
+          Técnico Universitario en Programación (UTN, mención de honor, promedio 9.40).
+          Licenciatura en Ciencia de Datos en la
+          <a class="text-cyan-300 underline decoration-cyan-500/40 underline-offset-4 hover:text-cyan-200" href="https://ugr.edu.ar/carreras/ciclo-de-licenciatura-en-ciencia-de-datos/" target="_blank" rel="noopener noreferrer">Universidad del Gran Rosario</a>
+          (2023–2027, en curso). Más de 10 productos desplegados y comercializados.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3 animate-rise" style="animation-delay: 200ms">
+          <a href="/cv-fabricio.pdf" download="CV_Fabricio_Duarte.pdf" class="rounded-full bg-cyan-400 px-6 py-2.5 text-sm font-semibold text-slate-950 shadow-[0_0_32px_rgba(34,211,238,0.35)] transition hover:bg-cyan-300 hover:shadow-[0_0_48px_rgba(34,211,238,0.5)]">
+            Descargar CV
+          </a>
+          <a href="https://github.com/FabricioNicolasDuarte" target="_blank" rel="noopener noreferrer" class="rounded-full border border-white/15 px-6 py-2.5 text-sm text-slate-200 transition hover:border-cyan-400/50 hover:text-white">
+            GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/fabricio-nicolas-duarte-313139113/" target="_blank" rel="noopener noreferrer" class="rounded-full border border-white/15 px-6 py-2.5 text-sm text-slate-200 transition hover:border-cyan-400/50 hover:text-white">
+            LinkedIn
+          </a>
+        </div>
       </div>
 
-      <h1 
-        class="text-5xl md:text-7xl font-bold text-white tracking-tight mb-6 leading-tight"
-        v-motion-slide-visible-once-bottom
-      >
-        Transformando Ideas en <br class="hidden md:block" />
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 via-blue-400 to-emerald-400">
-          Software de Impacto
-        </span>
-      </h1>
-
-      <p 
-        class="mt-6 max-w-2xl mx-auto text-xl text-slate-400 mb-10 leading-relaxed font-light"
-        v-motion-slide-visible-once-bottom
-        :delay="200"
-      >
-        Ingeniería de Software y Data Science aplicados al mundo real. <br class="hidden sm:block"/> 
-        Desde la modernización estatal (GovTech) hasta el futuro del agro con <strong>Skadia</strong>.
-      </p>
-
-      <div 
-        class="flex flex-col sm:flex-row justify-center gap-5"
-        v-motion-slide-visible-once-bottom
-        :delay="300"
-      >
-        <button 
-          @click="scrollToProjects" 
-          class="group relative px-8 py-4 bg-white text-slate-950 font-bold rounded-full shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] transition-all transform hover:-translate-y-1 flex items-center justify-center gap-2 overflow-hidden"
-        >
-          <span class="relative z-10">Ver Proyectos</span>
-          <ArrowRightIcon class="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform" />
-          
-          <div class="absolute inset-0 bg-gradient-to-r from-primary-400 to-emerald-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-        </button>
-        
-        <a 
-          href="/cv-fabricio.pdf" 
-          download="CV_Fabricio_Duarte.pdf"
-          class="px-8 py-4 bg-slate-800/50 backdrop-blur-md text-white font-semibold rounded-full border border-white/10 hover:bg-slate-800 hover:border-white/30 transition-all flex items-center justify-center gap-2 cursor-pointer"
-        >
-          <DownloadIcon class="w-5 h-5" />
-          Descargar CV
-        </a>
+      <div class="relative mx-auto w-full max-w-[260px] animate-float lg:max-w-none">
+        <div class="absolute -inset-3 animate-spinSlow rounded-full bg-[conic-gradient(from_180deg,#22d3ee,#818cf8,#22d3ee)] opacity-70 blur-[1px]"></div>
+        <div class="relative overflow-hidden rounded-[1.4rem] border border-white/10 bg-slate-950 p-1">
+          <img src="/images/profile.jpg" alt="Fabricio Duarte" class="aspect-[4/5] w-full rounded-[1.1rem] object-cover" />
+        </div>
       </div>
+    </div>
 
+    <ol class="mt-16 grid gap-3 sm:grid-cols-4">
+      <li
+        v-for="(step, i) in pipeline"
+        :key="step"
+        class="glass group relative overflow-hidden rounded-2xl px-4 py-4 text-center transition duration-300 hover:-translate-y-1 hover:border-cyan-400/40"
+        :style="{ animationDelay: `${i * 80}ms` }"
+      >
+        <span class="mb-2 block font-mono text-[10px] tracking-widest text-cyan-400/80">0{{ i + 1 }}</span>
+        <span class="text-sm font-medium text-slate-100">{{ step }}</span>
+        <span class="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-0 transition group-hover:opacity-100"></span>
+      </li>
+    </ol>
+
+    <div class="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4">
+      <div v-for="s in stats" :key="s.label" class="glass rounded-2xl p-5 transition hover:border-cyan-400/30">
+        <p class="text-[11px] uppercase tracking-wider text-slate-500">{{ s.label }}</p>
+        <p class="mt-2 font-display text-3xl font-semibold text-white">
+          <CountUp v-if="s.n != null" :to="s.n" :suffix="s.suffix || ''" />
+          <span v-else>{{ s.value }}</span>
+        </p>
+      </div>
     </div>
   </section>
 </template>
 
 <script setup>
-import { ArrowRight as ArrowRightIcon, Download as DownloadIcon } from 'lucide-vue-next'
-
-const scrollToProjects = () => {
-  const element = document.getElementById('projects')
-  if (element) {
-    element.scrollIntoView({ behavior: 'smooth' })
-  }
-}
+const pipeline = ['Fuente', 'n8n / ETL', 'Modelo', 'BI / acción']
+const stats = [
+  { label: 'Promedio UTN', value: '9.40' },
+  { label: 'Software comercializado', n: 10, suffix: '+' },
+  { label: 'Consultoría', value: '8 años' },
+  { label: 'Mención de honor', value: 'UTN' },
+]
 </script>

@@ -3,4 +3,33 @@
 @tailwind utilities;
 
 html { scroll-behavior: smooth; }
-body { @apply bg-slate-950 text-slate-200 antialiased; }
+
+body {
+  background: #030712;
+  color: #e2e8f0;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: #22d3ee;
+  color: #030712;
+}
+
+.glass {
+  background: rgba(15, 23, 42, 0.62);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(148, 163, 184, 0.14);
+}
+
+.shine-text {
+  background: linear-gradient(90deg, #67e8f9, #c4b5fd, #67e8f9);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shine 6s linear infinite;
+}
+
+@keyframes shine {
+  to { background-position: 200% center; }
+}

@@ -1,10 +1,10 @@
 <template>
-  <div>
+  <main>
     <HeroSection />
-    <AboutSection />
+    <ToolsMarquee />
     <ProjectsSection />
+    <ExperienceSection />
+    <SkillsSection />
     <VideoSection />
-    <TechStack />
-    <BlogSection />
-  </div>
+  </main>
 </template>

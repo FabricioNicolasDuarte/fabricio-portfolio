@@ -1,55 +1,53 @@
 <template>
-  <nav class="fixed w-full z-50 top-0 transition-all duration-300" :class="isScrolled ? 'bg-slate-950/80 backdrop-blur-md border-b border-slate-800' : 'bg-transparent'">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
-        <div class="flex-shrink-0 cursor-pointer" @click="scrollToSection('hero')">
-          <span class="text-xl font-bold text-white tracking-tight">
-            fabricioduarte<span class="text-primary-400">.tech</span>
-          </span>
-        </div>
-        
-        <div class="hidden md:block">
-          <div class="ml-10 flex items-baseline space-x-8">
-            <button v-for="item in navItems" :key="item.name" @click="scrollToSection(item.id)" class="text-slate-300 hover:text-primary-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">
-              {{ item.name }}
-            </button>
-          </div>
-        </div>
-
-        <div class="-mr-2 flex md:hidden">
-          <button type="button" class="bg-slate-900 inline-flex items-center justify-center p-2 rounded-md text-slate-400 hover:text-white hover:bg-slate-800 focus:outline-none">
-            <MenuIcon class="h-6 w-6" />
+  <header class="sticky top-0 z-50">
+    <div class="mx-auto max-w-6xl px-5 pt-4 sm:px-8">
+      <div class="glass flex h-14 items-center justify-between rounded-full px-4 sm:px-6">
+        <a href="#top" class="font-display text-sm font-semibold tracking-tight text-white" @click.prevent="go('top')">
+          FD<span class="text-cyan-400">.</span>
+        </a>
+        <nav class="hidden items-center gap-6 text-sm text-slate-400 md:flex">
+          <button
+            v-for="item in items"
+            :key="item.id"
+            class="transition hover:text-cyan-300"
+            @click="go(item.id)"
+          >
+            {{ item.label }}
+          </button>
+        </nav>
+        <div class="flex items-center gap-3">
+          <a href="/cv-fabricio.pdf" download="CV_Fabricio_Duarte.pdf" class="rounded-full bg-white/10 px-3 py-1.5 text-xs font-semibold text-cyan-200 transition hover:bg-cyan-400 hover:text-slate-950">
+            CV
+          </a>
+          <button type="button" class="text-sm text-slate-300 md:hidden" :aria-expanded="open" @click="open = !open">
+            {{ open ? 'Cerrar' : 'Menú' }}
           </button>
         </div>
       </div>
+      <div v-if="open" class="glass mt-2 space-y-1 rounded-2xl px-5 py-3 md:hidden">
+        <button v-for="item in items" :key="item.id" class="block w-full py-2 text-left text-sm text-slate-300" @click="go(item.id)">
+          {{ item.label }}
+        </button>
+      </div>
     </div>
-  </nav>
+  </header>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
-import { Menu as MenuIcon } from 'lucide-vue-next'
-
-const isScrolled = ref(false)
-const navItems = [
-  { name: 'Inicio', id: 'hero' },
-  { name: 'Sobre Mí', id: 'about' },
-  { name: 'Proyectos', id: 'projects' },
-  { name: 'Stack', id: 'stack' },
-  { name: 'Contacto', id: 'footer' },
+import { ref } from 'vue'
+const open = ref(false)
+const items = [
+  { id: 'work', label: 'Trabajo' },
+  { id: 'path', label: 'Recorrido' },
+  { id: 'skills', label: 'Stack' },
+  { id: 'contact', label: 'Contacto' },
 ]
-
-const handleScroll = () => {
-  isScrolled.value = window.scrollY > 20
-}
-
-const scrollToSection = (id) => {
-  const element = document.getElementById(id)
-  if (element) {
-    element.scrollIntoView({ behavior: 'smooth' })
+const go = (id) => {
+  open.value = false
+  if (id === 'top') {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+    return
   }
+  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
 }
-
-onMounted(() => window.addEventListener('scroll', handleScroll))
-onUnmounted(() => window.removeEventListener('scroll', handleScroll))
 </script>

@@ -15,25 +15,37 @@
           </div>
 
           <h2 class="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
-            Ingeniería de Software & <br />
+            Datos, IA y <br />
             <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 via-cyan-400 to-emerald-400">
-              Estrategia Digital
+              Automatización
             </span>
           </h2>
           
           <p class="text-slate-400 text-lg mb-10 leading-relaxed max-w-2xl font-light">
-            Soy <strong>Fabricio Duarte</strong>. Mi enfoque combina la precisión técnica del desarrollo <em>Full Stack</em> con la visión macro de la consultoría. Construyo arquitecturas escalables que resuelven problemas críticos en mundos opuestos: la velocidad del <strong>Venture Capital</strong>, la solidez del <strong>Sector Público o la heterogeneidad del sector Privado</strong>.
+            Soy <strong class="text-slate-200">Fabricio Duarte</strong>. No construyo pantallas que muestran números:
+            diseño sistemas que <em>deciden</em>. Combino ciencia de datos, modelos de IA y automatización
+            de procesos con ingeniería full stack — en el agro (Skadia), en plataformas de producción
+            y en el Estado.
           </p>
 
           <div class="w-full">
-            <div class="flex space-x-6 border-b border-slate-800 mb-8">
+            <div class="flex flex-wrap gap-x-6 gap-y-2 border-b border-slate-800 mb-8">
+              <button 
+                @click="activeTab = 'datos'"
+                class="pb-4 text-sm font-bold uppercase tracking-wide transition-all duration-300 border-b-2 flex items-center gap-2"
+                :class="activeTab === 'datos' ? 'border-primary-500 text-primary-400' : 'border-transparent text-slate-500 hover:text-slate-300'"
+              >
+                <BrainIcon class="w-4 h-4" />
+                Datos &amp; IA
+              </button>
+
               <button 
                 @click="activeTab = 'skadia'"
                 class="pb-4 text-sm font-bold uppercase tracking-wide transition-all duration-300 border-b-2 flex items-center gap-2"
                 :class="activeTab === 'skadia' ? 'border-emerald-500 text-emerald-400' : 'border-transparent text-slate-500 hover:text-slate-300'"
               >
                 <LeafIcon class="w-4 h-4" />
-                AgroTech (Skadia)
+                AgroTech
               </button>
               
               <button 
@@ -42,28 +54,55 @@
                 :class="activeTab === 'govtech' ? 'border-indigo-500 text-indigo-400' : 'border-transparent text-slate-500 hover:text-slate-300'"
               >
                 <BuildingIcon class="w-4 h-4" />
-                GovTech & Consultoría
+                Plataforma &amp; Estado
               </button>
             </div>
 
-            <div class="min-h-[220px] relative">
+            <div class="min-h-[240px] relative">
+
+              <div v-if="activeTab === 'datos'" v-motion-fade class="space-y-6">
+                <div class="p-6 rounded-2xl bg-gradient-to-br from-sky-950/40 to-slate-900/50 border border-primary-500/20 backdrop-blur-sm">
+                  <h3 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
+                    <span class="text-primary-400">◆</span> Del dato crudo a la acción
+                  </h3>
+                  <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                    Mi trabajo cruza tres capas: capturar (campo, padrones, transacciones),
+                    modelar (umbrales, visión, LLMs) y ejecutar (alertas, OT, reportes, webhooks).
+                  </p>
+                  <ul class="space-y-3">
+                    <li class="flex items-start gap-3 text-sm text-slate-400">
+                      <CheckCircleIcon class="w-5 h-5 text-primary-500 shrink-0" />
+                      <span><strong class="text-slate-200">IA aplicada:</strong> visión (condición corporal), orquestador de voz con Gemini, Next Best Action en campo.</span>
+                    </li>
+                    <li class="flex items-start gap-3 text-sm text-slate-400">
+                      <CheckCircleIcon class="w-5 h-5 text-primary-500 shrink-0" />
+                      <span><strong class="text-slate-200">Ciencia de datos &amp; BI:</strong> motores de GMD/ITH/carga, Apache Superset, Power BI, RLS y KPIs operativos.</span>
+                    </li>
+                    <li class="flex items-start gap-3 text-sm text-slate-400">
+                      <CheckCircleIcon class="w-5 h-5 text-primary-500 shrink-0" />
+                      <span><strong class="text-slate-200">Automatización:</strong> sync offline, colas, conciliación, ETL, reportes PDF/Excel y auditoría de cambios.</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
               
               <div v-if="activeTab === 'skadia'" v-motion-fade class="space-y-6">
                 <div class="p-6 rounded-2xl bg-gradient-to-br from-emerald-950/30 to-slate-900/50 border border-emerald-500/20 backdrop-blur-sm">
                   <h3 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
-                    <span class="text-emerald-400">⚡</span> Co-Founder @ Skadia Startup
+                    <span class="text-emerald-400">◆</span> Co-Founder @ Skadia
                   </h3>
                   <p class="text-slate-300 text-sm leading-relaxed mb-4">
-                    Desarrollo ecosistemas <strong>Deep Tech</strong> para el agro. Nos especializamos en mitigar riesgos climáticos y productivos mediante software.
+                    Productos Deep Tech para el agro. El TFI Nutrogan (UTN 2025) evolucionó a
+                    <strong>SIGAG Mobile</strong>: decisiones de campo que funcionan sin red.
                   </p>
                   <ul class="space-y-3">
                     <li class="flex items-start gap-3 text-sm text-slate-400">
                       <CheckCircleIcon class="w-5 h-5 text-emerald-500 shrink-0" />
-                      <span><strong>Arquitectura Offline-First:</strong> Apps críticas que funcionan sin conexión en el campo profundo.</span>
+                      <span><strong class="text-slate-200">Offline-first + IA:</strong> WatermelonDB, voz, visión y umbrales productivos (GMD, ITH, SENASA).</span>
                     </li>
                     <li class="flex items-start gap-3 text-sm text-slate-400">
                       <CheckCircleIcon class="w-5 h-5 text-emerald-500 shrink-0" />
-                      <span><strong>IoT & Clima:</strong> Integración de sensores y algoritmos predictivos para riego y siembra.</span>
+                      <span><strong class="text-slate-200">Clima y nutrición:</strong> meteorología operativa, raciones y “qué hacer ahora” en el potrero.</span>
                     </li>
                   </ul>
                 </div>
@@ -72,19 +111,21 @@
               <div v-if="activeTab === 'govtech'" v-motion-fade class="space-y-6">
                 <div class="p-6 rounded-2xl bg-gradient-to-br from-indigo-950/30 to-slate-900/50 border border-indigo-500/20 backdrop-blur-sm">
                   <h3 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
-                    <span class="text-indigo-400">🏛️</span> Modernización del Estado
+                    <span class="text-indigo-400">◆</span> Plataformas de datos y Estado
                   </h3>
                   <p class="text-slate-300 text-sm leading-relaxed mb-4">
-                    Más de 8 años transformando procesos burocráticos en flujos digitales eficientes para ministerios y gabinetes provinciales.
+                    Más de 8 años en modernización pública, y trabajo de plataforma:
+                    BI embebido, identidad federada, padrones y automatización de cobros.
+                    También intervengo en sistemas que no construí: los hago usables y medibles.
                   </p>
                   <ul class="space-y-3">
                     <li class="flex items-start gap-3 text-sm text-slate-400">
                       <CheckCircleIcon class="w-5 h-5 text-indigo-500 shrink-0" />
-                      <span><strong>Despapelización (Workflows):</strong> Sistemas de trazabilidad de expedientes y firma digital.</span>
+                      <span><strong class="text-slate-200">Inteligencia institucional:</strong> tableros Superset/Power BI, GIS de conectividad, consulta de registros.</span>
                     </li>
                     <li class="flex items-start gap-3 text-sm text-slate-400">
                       <CheckCircleIcon class="w-5 h-5 text-indigo-500 shrink-0" />
-                      <span><strong>Data-Driven Policy:</strong> Tableros de control (BI) para la toma de decisiones basada en datos reales.</span>
+                      <span><strong class="text-slate-200">Intervenciones:</strong> fork y operación de Apache Superset; reingeniería visual de Compras (Chaco); SIREG.</span>
                     </li>
                   </ul>
                 </div>
@@ -117,7 +158,7 @@
              <div class="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent z-20 pointer-events-none">
                 <div class="border-l-4 border-primary-500 pl-4">
                   <h3 class="text-2xl font-bold text-white">Fabricio Duarte</h3>
-                  <p class="text-slate-300 text-sm mt-1">Tech Lead & Innovator</p>
+                  <p class="text-slate-300 text-sm mt-1">Datos · IA · Automatización</p>
                 </div>
              </div>
 
@@ -134,25 +175,25 @@
 
 <script setup>
 import { ref } from 'vue'
-import { Leaf as LeafIcon, Building2 as BuildingIcon, CheckCircle as CheckCircleIcon } from 'lucide-vue-next'
+import {
+  Leaf as LeafIcon,
+  Building2 as BuildingIcon,
+  CheckCircle as CheckCircleIcon,
+  Brain as BrainIcon
+} from 'lucide-vue-next'
 
-// Estado para las pestañas
-const activeTab = ref('skadia')
-
-// Lógica del Video
+const activeTab = ref('datos')
 const profileVideo = ref(null)
 
 const playVideo = () => {
   if (profileVideo.value) {
-    profileVideo.value.play().catch(e => console.error("Video play prevented:", e))
+    profileVideo.value.play().catch(() => {})
   }
 }
 
 const pauseVideo = () => {
   if (profileVideo.value) {
     profileVideo.value.pause()
-    // Opcional: Si quieres que vuelva al inicio al sacar el mouse
-    // profileVideo.value.currentTime = 0 
   }
 }
 </script>

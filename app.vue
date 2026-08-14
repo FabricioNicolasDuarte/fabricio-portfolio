@@ -1,47 +1,34 @@
 <template>
-  <div class="bg-slate-950 min-h-screen font-sans selection:bg-primary-500 selection:text-white">
+  <div class="relative min-h-screen font-sans text-slate-100">
+    <DataField />
+    <div class="pointer-events-none fixed inset-0 -z-[9] bg-[radial-gradient(ellipse_at_top,rgba(99,102,241,0.12),transparent_55%)]"></div>
     <NavBar />
-    
     <NuxtPage />
-    
     <AppFooter />
   </div>
 </template>
 
 <script setup>
-// Configuración Global de SEO y Meta Tags
 useHead({
-  // Título que aparece en la pestaña del navegador
-  title: 'Fabricio Duarte | GovTech & AgroTech Engineer',
-  
+  title: 'Fabricio Duarte — Ciencia de datos, analítica y automatización',
   meta: [
-    { name: 'description', content: 'Ingeniería de Software & Estrategia Digital Escalable. Especialista en soluciones Offline-First para el Agro y Modernización del Estado.' },
-    
-    // --- Open Graph (Para tarjetas de WhatsApp, LinkedIn, Facebook) ---
+    {
+      name: 'description',
+      content:
+        'Ciclo de Licenciatura en Ciencia de Datos, Universidad del Gran Rosario. Data engineering, BI, n8n, IA aplicada. Formosa, Argentina.',
+    },
     { property: 'og:type', content: 'website' },
     { property: 'og:url', content: 'https://fabricioduarte.tech' },
-    { property: 'og:title', content: 'Fabricio Duarte | Ingeniería de Software & Estrategia' },
-    { property: 'og:description', content: 'Transformando el sector público y privado con tecnología escalable. Mira mi portafolio profesional.' },
-    
-    // IMPORTANTE: La imagen debe tener URL completa (https://...) para que WhatsApp la detecte
-    // Asegúrate de que 'profile.jpg' esté en tu carpeta /public/images/
+    { property: 'og:title', content: 'Fabricio Duarte — Datos, analítica y automatización' },
+    {
+      property: 'og:description',
+      content: 'Ciencia de datos (UGR). SQL, BI, n8n, plataformas de producción.',
+    },
     { property: 'og:image', content: 'https://fabricioduarte.tech/images/profile.jpg' },
-    { property: 'og:image:width', content: '1200' },
-    { property: 'og:image:height', content: '630' },
-
-    // --- Twitter Card ---
     { name: 'twitter:card', content: 'summary_large_image' },
-    { name: 'twitter:title', content: 'Fabricio Duarte | Tech Portfolio' },
-    { name: 'twitter:description', content: 'Ingeniería de Software & Estrategia Digital Escalable.' },
-    { name: 'twitter:image', content: 'https://fabricioduarte.tech/images/profile.jpg' }
+    { name: 'twitter:title', content: 'Fabricio Duarte — Datos, analítica y automatización' },
+    { name: 'twitter:description', content: 'Ciencia de datos UGR. Engineering, analytics, n8n.' },
+    { name: 'twitter:image', content: 'https://fabricioduarte.tech/images/profile.jpg' },
   ],
-  
-  link: [
-    { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-  ],
-  
-  htmlAttrs: {
-    lang: 'es' // Define el idioma para Google
-  }
 })
 </script>

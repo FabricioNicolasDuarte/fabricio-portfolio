@@ -75,62 +75,67 @@ const articleId = route.params.id
 const articles = [
   {
     id: 'ia-ganaderia',
-    title: 'IA en el Campo: El caso Nutrogan',
+    title: 'IA que escribe en el dominio, no en el chat',
     category: 'Inteligencia Artificial',
-    date: 'Febrero 2026',
+    date: 'Agosto 2026',
     image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1965&auto=format&fit=crop',
     content: `
-      <p class="lead">La ganadería de precisión enfrenta un obstáculo gigante en Latinoamérica: la conectividad. De nada sirve tener algoritmos complejos en la nube si no hay señal en el corral. Con <strong>Nutrogan</strong>, decidimos abordar este problema con un enfoque "Offline-First".</p>
+      <p class="lead">En el potrero no hay WiFi y no hay tiempo para un chatbot educado. La IA sirve si <strong>registra un pesaje, aísla un animal o arma una orden de trabajo</strong>. Esa es la línea que va de Nutrogan a SIGAG.</p>
       
-      <h2>El Desafío Técnico</h2>
-      <p>Necesitábamos estimar la condición corporal de vacas Brangus mediante fotos tomadas con un celular estándar, sin enviar datos a internet. Esto implicaba correr modelos de Deep Learning directamente en el dispositivo móvil.</p>
+      <h2>Nutrogan: visión sin nube</h2>
+      <p>El TFI (UTN 2025) nació como PWA offline-first en <strong>Quasar + Supabase</strong>. La condición corporal se estima en el dispositivo con <strong>TensorFlow.js</strong>: una foto, una inferencia, una ración. Si no hay señal, el dato espera en el teléfono.</p>
 
-      <h2>La Solución: TensorFlow Lite + Flutter</h2>
-      <p>Utilizamos <strong>Flutter</strong> para el desarrollo de la app por su capacidad de compilar a código nativo de alto rendimiento. Para la IA, entrenamos un modelo de red neuronal convolucional (CNN) en Python usando TensorFlow, y luego lo cuantizamos (optimizamos) para convertirlo a <strong>TensorFlow Lite</strong>.</p>
+      <h2>SIGAG: de mirar a decidir</h2>
+      <p>El producto de campo da el siguiente paso. Un orquestador de voz combina parser offline y <strong>Gemini</strong> (vía Edge, no keys en el cliente). Cada intención tiene riesgo: consultar es barato; dar de baja un animal exige confirmación. El resultado no es un párrafo: es una fila en WatermelonDB.</p>
       
-      <h3>Resultados Clave</h3>
+      <h3>Lo que mido</h3>
       <ul>
-        <li>Inferencia en menos de <strong>200ms</strong> en dispositivos gama media.</li>
-        <li>Cálculo automático de raciones de alimento basado en la lectura.</li>
-        <li>Sincronización diferida con MongoDB al recuperar señal 4G/WiFi.</li>
+        <li><strong>Next Best Action</strong> en el dashboard: qué hacer ahora, no un ranking de KPIs.</li>
+        <li>Motores de umbral: GMD, ITH, carga animal, criterios SENASA.</li>
+        <li>Salud de sync visible: si la cola de IA o el pull fallan, el capataz lo ve.</li>
       </ul>
     `
   },
   {
     id: 'govtech-burocracia',
-    title: 'De la Burocracia al Click',
-    category: 'Gestión Pública',
-    date: 'Enero 2026',
-    image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop',
+    title: 'El tablero no es el producto: la decisión sí',
+    category: 'Datos & Estado',
+    date: 'Agosto 2026',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop',
     content: `
-       <p class="lead">Durante mis años como asesor en el sector público, vi cómo expedientes de vital importancia dormían en escritorios por procesos manuales ineficientes. La tecnología no es un lujo, es una herramienta de transparencia.</p>
+      <p class="lead">Un dashboard sin dueño es un screensaver caro. En el Estado y en plataformas institucionales el trabajo de datos es <strong>quién ve qué, con qué retraso y para qué acción</strong>.</p>
 
-      <h2>El Proyecto Docu-Flow</h2>
-      <p>Creamos una plataforma integral para la digitalización de expedientes con un objetivo claro: transparencia y trazabilidad. Si un trámite se detiene, el sistema debe decirnos dónde y por qué.</p>
+      <h2>Construir el portal, intervenir el motor</h2>
+      <p>En el portal de tableros embebí <strong>Apache Superset y Power BI</strong> con control de acceso y RLS. En paralelo intervine el propio Superset: embed seguro, mapas, CSP, operación en cluster. No reescribí el motor de BI. Lo hice usable en producción.</p>
 
-      <h2>Stack Tecnológico Robusto</h2>
-      <p>Para el estado, la estabilidad es ley. Elegimos:</p>
+      <h2>El mismo criterio fuera del escritorio</h2>
+      <p>GIS de establecimientos y conectividad, consulta pública de registros (SIREG, Chaco) y reingeniería visual de Compras (Contaduría General) son la misma tesis: el sistema ya existía; el dato no llegaba a la persona correcta.</p>
       <ul>
-        <li><strong>Laravel (PHP):</strong> Seguridad robusta y manejo de roles (Spatie).</li>
-        <li><strong>Vue.js:</strong> Interfaces reactivas rápidas para los administrativos.</li>
-        <li><strong>MySQL:</strong> Integridad de datos transaccionales garantizada.</li>
+        <li>Identidad federada (quién entra) + RLS (qué ve).</li>
+        <li>KPIs y mapas, no planillas sueltas.</li>
+        <li>Intervenciones de producto sobre software que no nació conmigo.</li>
       </ul>
     `
   },
   {
     id: 'arquitectura-vue',
-    title: 'Arquitectura Limpia con Vue 3',
-    category: 'Desarrollo',
-    date: 'Diciembre 2025',
-    image: 'https://images.unsplash.com/photo-1555099962-4199c345e5dd?q=80&w=2070&auto=format&fit=crop',
+    title: 'Automatizar el aburrido: sync, colas y ETL',
+    category: 'Automatización',
+    date: 'Agosto 2026',
+    image: 'https://images.unsplash.com/photo-1518186285589-2f7649de83e0?q=80&w=1974&auto=format&fit=crop',
     content: `
-      <p class="lead">En el mundo del desarrollo web, la velocidad lo es todo. Velocidad de carga para el usuario y velocidad de desarrollo para el programador.</p>
+      <p class="lead">La automatización que importa no es un zapier de marketing. Es el job que concilia a las 3 a.m., el sync que no borra el potrero y el reporte que sale sin que nadie exporte a Excel a mano.</p>
 
-      <h2>SEO y Performance</h2>
-      <p>A diferencia de una SPA tradicional, Nuxt ofrece <strong>Server Side Rendering (SSR)</strong>. Esto es crucial para webs institucionales que necesitan ser indexadas por Google.</p>
+      <h2>Campo: sync que no miente</h2>
+      <p>En SIGAG el dispositivo es la fuente de verdad hasta que hay red. Cola, backoff, timeout duro, tombstones y un chip de salud. Si lo local y la nube no cierran, el sistema <strong>para y pregunta</strong>: no hace wipe silencioso.</p>
 
-      <h2>La ventaja de Tailwind</h2>
-      <p>Combinado con el sistema de componentes de Vue, logramos un código modular y mantenible, reduciendo el tiempo de desarrollo en un 40% comparado con CSS tradicional.</p>
+      <h2>Plataforma: colas y legados</h2>
+      <p>En producción institucional la automatización es otra: workers, notificaciones asíncronas, procesamiento por lotes, API sobre un padrón que no se puede migrar de un día para el otro. El patrón es el mismo que en el agro: <strong>capturar, validar, ejecutar, auditar</strong>.</p>
+      <ul>
+        <li>Celery / Redis para lo que no puede vivir en el request HTTP.</li>
+        <li>ETL y reportes PDF/Excel como interfaz de datos, no como afterthought.</li>
+        <li>Auditoría de cambios: si algo se automatizó, tiene que poder explicarse.</li>
+      </ul>
     `
   }
 ]
