@@ -2,11 +2,11 @@
   <section id="work" class="relative mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-24">
     <div class="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
       <div>
-        <p class="text-xs font-medium tracking-widest text-cyan-400 uppercase">Seleccionado</p>
-        <h2 class="mt-2 font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl">Trabajo</h2>
+        <p class="text-xs font-medium tracking-widest text-cyan-400 uppercase">Impacto</p>
+        <h2 class="mt-2 font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl">Trabajo seleccionado</h2>
         <p class="mt-3 max-w-lg text-[15px] leading-relaxed text-slate-400">
-          Datos, automatización y producto. Cada sistema ECOM por separado.
-          Lo que no está en un repo público se describe a nivel de responsabilidad.
+          Resultados en producción: plataformas de datos, producto y automatización.
+          Detalle operativo sensible se omite a propósito.
         </p>
       </div>
       <div class="flex flex-wrap gap-2">
@@ -71,12 +71,12 @@ const filters = [
 const work = [
   {
     featured: true,
-    kind: 'Automatización',
+    kind: 'Automatización · integración',
     title: 'Orquestación operativa — n8n',
     summary:
-      'Flujos self-hosted que unen sistemas que no hablan entre sí: webhooks de cobros y padrones, planillas de staging, mails, WhatsApp y jobs nocturnos. Prototipo en Make; producción en n8n. Power Automate donde el organismo vive en Microsoft 365. Apps Script para reportes que antes se armaban a mano. El criterio: si un humano copia de A hacia B más de una vez por semana, el flujo lo hace el motor.',
-    role: 'Diseño de flujos e integración. 2024–actualidad.',
-    tags: ['n8n', 'Make', 'Power Automate', 'Apps Script', 'webhooks', 'Google Sheets'],
+      'Diseño e implementación de flujos self-hosted que integran sistemas heterogéneos: webhooks, staging en planillas, notificaciones y jobs programados. Prototipado en Make; producción en n8n. Power Automate y Apps Script donde el entorno es Microsoft 365 o Google Workspace. Objetivo: eliminar trabajo manual repetitivo con trazabilidad.',
+    role: 'Arquitectura de flujos e integración. 2024–actualidad.',
+    tags: ['n8n', 'Make', 'Power Automate', 'Apps Script', 'webhooks', 'TypeScript'],
     cats: ['auto', 'de'],
   },
   {
@@ -84,9 +84,9 @@ const work = [
     kind: 'Producto · datos · IA',
     title: 'SIGAG Mobile',
     summary:
-      'App de campo offline-first. Persistencia local, sync, voz con LLM, visión y motores (GMD, ITH, sanidad, next-best-action). El dato nace en el potrero y alimenta el modelo cuando hay red.',
-    role: 'Co-founder, producto y datos. Skadia / Axia, 2022–actualidad.',
-    tags: ['Expo', 'SQL local', 'Supabase', 'Gemini', 'n8n (alertas)'],
+      'Plataforma agropecuaria offline-first para captura en campo: persistencia local (WatermelonDB), sincronización, voz con LLM, visión y motores de decisión (GMD, ITH, sanidad, next-best-action). El dato operativo nace sin red y alimenta analítica e IA cuando hay conectividad.',
+    role: 'Co-founder · producto y datos. Skadia / Axia, 2022–actualidad.',
+    tags: ['Expo', 'TypeScript', 'WatermelonDB', 'Supabase', 'Gemini', 'n8n'],
     cats: ['product', 'de', 'da', 'auto'],
   },
   {
@@ -94,9 +94,9 @@ const work = [
     kind: 'Analytics · ECOM',
     title: 'Tableros institucionales',
     summary:
-      'Portal de analítica: Apache Superset y Power BI embebidos, RLS por entidad, identidad federada. Capa entre el dato operativo y quien decide.',
+      'Portal de analítica con Apache Superset y Power BI embebidos, RLS por entidad e identidad federada. Capa de decisión sobre datos operativos con control de acceso institucional.',
     role: 'Ingeniería de datos. 2023–actualidad.',
-    tags: ['Superset', 'Power BI', 'RLS', 'SQL', 'DAX'],
+    tags: ['Superset', 'Power BI', 'RLS', 'SQL', 'DAX', 'Nuxt'],
     cats: ['ecom', 'da', 'de'],
   },
   {
@@ -104,7 +104,7 @@ const work = [
     kind: 'Data engineering · ECOM',
     title: 'Apache Superset — operación',
     summary:
-      'Embed, Mapbox, CSP y cluster. El motor de BI queda usable en producción institucional, no como laboratorio.',
+      'Operación de BI en cluster: embed, Mapbox, CSP y hardening para uso institucional continuo.',
     role: 'Ops de BI. 2023–actualidad.',
     tags: ['Superset', 'SQL', 'Docker', 'Mapbox'],
     cats: ['ecom', 'de', 'da'],
@@ -114,9 +114,9 @@ const work = [
     kind: 'Data engineering · ECOM',
     title: 'Servicios a clientes',
     summary:
-      'Establecimientos, conectividad, GIS, KPIs, auditoría y export CSV/Excel/PDF. Operación convertida en dataset consultable.',
+      'Backend Django para establecimientos, conectividad, GIS, KPIs, auditoría y exportación (CSV/Excel/PDF). Operación convertida en dataset consultable y gobernado.',
     role: 'Backend y datos. 2023–actualidad.',
-    tags: ['Django', 'PostgreSQL', 'PostGIS', 'ETL'],
+    tags: ['Django', 'PostgreSQL', 'PostGIS', 'Python', 'ETL'],
     cats: ['ecom', 'de', 'da'],
   },
   {
@@ -124,9 +124,9 @@ const work = [
     kind: 'Automatización · ECOM',
     title: 'Pasarela de cobros',
     summary:
-      'Conciliación por colas, webhooks y lotes. n8n dispara avisos cuando un lote falla. Sin detalle de proveedores.',
+      'Conciliación asíncrona con colas Celery/Redis, webhooks y lotes. Alertas automatizadas ante fallos de sincronización.',
     role: 'Integración. 2023–actualidad.',
-    tags: ['Celery', 'Redis', 'n8n', 'SQL'],
+    tags: ['Django', 'Celery', 'Redis', 'n8n', 'SQL'],
     cats: ['ecom', 'de', 'auto'],
   },
   {
@@ -134,9 +134,9 @@ const work = [
     kind: 'Data engineering · ECOM',
     title: 'Personas / padrón',
     summary:
-      'Consulta sobre legado SQL Server + PostgreSQL, API y panel. El padrón no se migra: se expone.',
+      'Capa de consulta y API sobre legado SQL Server y PostgreSQL: exposición controlada del padrón sin reescritura completa del sistema de origen.',
     role: 'Integración de datos. 2024–actualidad.',
-    tags: ['SQL Server', 'PostgreSQL', 'DRF'],
+    tags: ['SQL Server', 'PostgreSQL', 'Django', 'DRF'],
     cats: ['ecom', 'de'],
   },
   {
@@ -144,31 +144,31 @@ const work = [
     kind: 'Producto · EdTech · comercializado',
     title: 'EDU-API / SIGCL',
     summary:
-      'Sistema de gestión educativa: API REST con Laravel Sanctum, carga masiva, alumnos, roles granulares y reportes académicos automáticos. Licencia comercializada en USD 4.500 más mantenimiento mensual. En GitHub, SIGCL cubre sedes, matrículas, asistencia, actas y certificados.',
-    role: 'Producto y desarrollo. Licencia vendida + mantenimiento.',
-    tags: ['Laravel', 'Vue.js', 'MySQL', 'Sanctum'],
+      'Plataforma de gestión educativa: API REST con Laravel Sanctum, carga masiva, roles granulares y reportes académicos. Licencia comercializada (USD 4.500 + mantenimiento).',
+    role: 'Producto y desarrollo.',
+    tags: ['Laravel', 'PHP', 'Vue', 'MySQL', 'Sanctum'],
     cats: ['product', 'da'],
     href: 'https://github.com/FabricioNicolasDuarte/SIGCL',
   },
   {
     featured: false,
-    kind: 'Académico · datos',
+    kind: 'Académico · producto',
     title: 'Nutrogan — TFI UTN 2025',
     summary:
-      'Ecosistema ganadero offline-first (TFI UTN 2025, máxima calificación). Visión por computadora (TensorFlow / PyTorch) para condición corporal en Brangus. Testing automatizado y despliegue continuo. Base de SIGAG.',
-    role: 'Co-founder & lead. Skadia.',
-    tags: ['Vue', 'Quasar', 'PostgreSQL', 'ECharts'],
+      'PWA ganadera offline-first (máxima calificación UTN). Indicadores, GIS y visión. Base técnica de SIGAG.',
+    role: 'Tech lead. Equipo de tres.',
+    tags: ['Vue', 'Quasar', 'Pinia', 'PostgreSQL', 'TensorFlow.js'],
     cats: ['product', 'da', 'de'],
     href: 'https://github.com/FabricioNicolasDuarte/Nutrogan',
   },
   {
     featured: false,
-    kind: 'Analytics',
+    kind: 'Analytics · comercializado',
     title: 'Cocoma',
     summary:
-      'SaaS de estimación de costo y tiempo de software con COCOMO I y II. Arquitectura orientada a servicios. Comercializado en USD 1.500.',
-    role: 'Modelo y desarrollo. Software vendido.',
-    tags: ['PHP', 'microservicios', 'Docker', 'COCOMO'],
+      'SaaS de estimación de costo y tiempo de software (COCOMO I/II). Comercializado en USD 1.500.',
+    role: 'Modelo y desarrollo.',
+    tags: ['PHP', 'Laravel', 'Docker', 'analytics'],
     cats: ['da', 'product'],
     href: 'https://github.com/FabricioNicolasDuarte/Cocoma-App',
   },
@@ -177,9 +177,9 @@ const work = [
     kind: 'Datos espaciales',
     title: 'FormoBus',
     summary:
-      'PWA de transporte en Formosa: rutas, líneas, frecuencias e incidentes. Grafo urbano como dataset de servicio público.',
+      'PWA de transporte urbano en Formosa: rutas, frecuencias e incidentes como dataset de servicio público.',
     role: 'Producto. 2025.',
-    tags: ['PHP', 'MySQL', 'routing'],
+    tags: ['PHP', 'MySQL', 'PWA'],
     cats: ['product', 'da'],
     href: 'https://github.com/FabricioNicolasDuarte/formobus',
   },
@@ -188,9 +188,9 @@ const work = [
     kind: 'Datos públicos',
     title: 'SIREG — consulta pública',
     summary:
-      'Consulta de registros provinciales (Asuntos Registrales, Chaco). El ciudadano pregunta; el sistema responde.',
+      'Consulta ciudadana de registros provinciales (Asuntos Registrales, Chaco).',
     role: 'Producto e implementación. 2025–2026.',
-    tags: ['SQL', 'Django templates'],
+    tags: ['SQL', 'Django'],
     cats: ['da'],
   },
   {
@@ -198,9 +198,9 @@ const work = [
     kind: 'Analytics · visualización',
     title: 'Sistema de Compras — CGP Chaco',
     summary:
-      'KPIs y gráficos sobre el sistema de compras en uso. Comunicar el dato; no rehacer el core.',
+      'Capa de KPIs y visualización sobre el sistema de compras en operación.',
     role: 'Visualización y UX de datos. 2025–2026.',
-    tags: ['Chart.js', 'KPIs'],
+    tags: ['Chart.js', 'KPIs', 'JavaScript'],
     cats: ['da'],
   },
 ]

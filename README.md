@@ -6,7 +6,7 @@ Sitio personal: curriculum y trabajo seleccionado.
 
 - Sitio: [fabricioduarte.tech](https://fabricioduarte.tech)
 - Email: fabricioduarteoficial@gmail.com
-- LinkedIn: [fabricio-nicolas-duarte](https://www.linkedin.com/in/fabricio-nicolas-duarte-313139113/)
+- LinkedIn: [fabricionicolasduarte](https://www.linkedin.com/in/fabricionicolasduarte/)
 
 ## Local
 

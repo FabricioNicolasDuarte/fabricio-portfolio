@@ -2,12 +2,13 @@
   <section id="nutrogan" class="relative mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-24">
     <div class="grid items-center gap-10 lg:grid-cols-[0.85fr_1.15fr]">
       <div>
-        <p class="text-xs font-medium tracking-widest text-cyan-400 uppercase">TFI UTN · 2025</p>
+        <p class="text-xs font-medium tracking-widest text-cyan-400 uppercase">TFI UTN · 2025 · máxima calificación</p>
         <h2 class="mt-2 font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl">Nutrogan</h2>
         <p class="mt-4 text-[15px] leading-relaxed text-slate-400">
-          Trabajo final: gestión ganadera offline, indicadores y GIS.
-          Calificación máxima. Es el origen de SIGAG, no un video de cortesía.
+          Trabajo final de carrera: plataforma ganadera offline-first con indicadores,
+          GIS y visión. Base técnica del producto SIGAG en Skadia.
         </p>
+        <p class="mt-4 text-sm text-slate-500">Stack: Vue · Quasar · Pinia · PostgreSQL · TensorFlow.js</p>
         <p class="mt-4 text-sm">
           <a class="text-cyan-300 underline decoration-cyan-500/30 underline-offset-4 hover:text-cyan-200" href="https://github.com/FabricioNicolasDuarte/Nutrogan" target="_blank" rel="noopener noreferrer">github.com/FabricioNicolasDuarte/Nutrogan</a>
         </p>

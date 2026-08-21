@@ -1,9 +1,9 @@
 <template>
   <section id="skills" class="relative mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-24">
-    <p class="text-xs font-medium tracking-widest text-cyan-400 uppercase">Herramientas</p>
+    <p class="text-xs font-medium tracking-widest text-cyan-400 uppercase">Capacidades</p>
     <h2 class="mt-2 font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl">Stack</h2>
     <p class="mt-3 max-w-2xl text-[15px] leading-relaxed text-slate-400">
-      Prioridad: datos, producto y automatización. Cloud y diseño según el CV: uso general, no especialización.
+      Herramientas con las que entrego valor en producción. El eje es datos y sistemas; el resto sostiene el producto.
     </p>
 
     <div class="mt-12 grid grid-cols-1 gap-4 md:grid-cols-2">
@@ -31,37 +31,37 @@
 <script setup>
 const columns = [
   {
-    title: 'Lenguajes y datos',
-    blurb: 'Ingesta, modelado y serving.',
+    title: 'Datos e ingeniería',
+    blurb: 'Ingesta, modelado, serving y BI.',
     items: [
-      'PHP 8', 'JavaScript', 'Python', 'R', 'C', 'Dart', 'SQL',
-      'PostgreSQL', 'MySQL / MariaDB', 'SQL Server', 'MongoDB', 'Supabase', 'SQLite',
-      'pandas', 'dbt', 'Celery', 'Docker',
+      'SQL', 'PostgreSQL', 'PostGIS', 'SQL Server', 'MySQL', 'MongoDB', 'SQLite',
+      'Supabase', 'Django', 'DRF', 'Celery', 'Redis', 'ETL / ELT', 'pandas',
+      'Apache Superset', 'Power BI', 'DAX', 'Docker',
     ],
   },
   {
-    title: 'Frameworks, IA y automatización',
-    blurb: 'Producto, modelos y orquestación.',
+    title: 'Backend y producto web',
+    blurb: 'APIs y plataformas en producción.',
     items: [
-      'Laravel', 'Vue / Pinia', 'Quasar', 'Node.js', 'Expo', 'Flutter',
-      'TensorFlow', 'PyTorch', 'n8n', 'Make', 'Power Automate',
-      'Apps Script', 'REST', 'Sanctum',
+      'Python', 'PHP 8', 'TypeScript', 'JavaScript', 'Laravel', 'Vue 3', 'Nuxt',
+      'Pinia', 'Quasar', 'Node.js', 'REST', 'Sanctum', 'Postman',
     ],
   },
   {
-    title: 'Analytics, cloud y gestión',
-    blurb: 'De la métrica al tablero y al equipo.',
+    title: 'Mobile, IA y automatización',
+    blurb: 'Campo, modelos y orquestación.',
     items: [
-      'Apache Superset', 'Power BI', 'Google Colab', 'Google Sheets',
-      'AWS', 'Google Cloud', 'Azure', 'CI/CD', 'Git', 'Jira', 'Trello', 'Notion',
+      'Expo', 'React Native', 'Flutter', 'Dart', 'WatermelonDB',
+      'TensorFlow', 'PyTorch', 'Gemini', 'n8n', 'Make',
+      'Power Automate', 'Apps Script', 'webhooks',
     ],
   },
   {
-    title: 'Diseño y multimedia',
-    blurb: 'Contenido, tableros y documentación.',
+    title: 'Operación y oficio',
+    blurb: 'Entrega, equipos y documentación.',
     items: [
-      'Figma', 'Adobe XD', 'Photoshop', 'Illustrator',
-      'After Effects', 'Premiere', 'Audition', 'AutoCAD', 'SketchUp',
+      'Git', 'CI/CD', 'Jira', 'Scrum', 'Figma', 'Adobe XD',
+      'Photoshop', 'Illustrator', 'After Effects', 'Premiere',
     ],
   },
 ]

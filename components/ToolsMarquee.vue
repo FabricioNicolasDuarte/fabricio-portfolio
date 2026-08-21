@@ -16,9 +16,9 @@
 
 <script setup>
 const tools = [
-  'n8n', 'SQL', 'PostgreSQL', 'Laravel', 'Vue', 'Python', 'TensorFlow',
-  'Power BI', 'Docker', 'Node.js', 'Quasar', 'PyTorch', 'Jira',
-  'AWS', 'Figma', 'Supabase', 'CI/CD',
+  'Django', 'SQL', 'PostgreSQL', 'SQL Server', 'Apache Superset', 'Power BI',
+  'n8n', 'Laravel', 'Vue', 'Nuxt', 'TypeScript', 'Expo', 'WatermelonDB',
+  'Quasar', 'Pinia', 'Flutter', 'MongoDB', 'Celery', 'Python', 'PHP',
 ]
 const doubled = [...tools, ...tools]
 </script>

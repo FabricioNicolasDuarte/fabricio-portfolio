@@ -10,24 +10,24 @@
 
 <script setup>
 useHead({
-  title: 'Fabricio Duarte — Ciencia de datos, analítica y automatización',
+  title: 'Fabricio Duarte — Datos, analítica, automatización y producto',
   meta: [
     {
       name: 'description',
       content:
-        'Ciclo de Licenciatura en Ciencia de Datos, Universidad del Gran Rosario. Data engineering, BI, n8n, IA aplicada. Formosa, Argentina.',
+        'Ingeniería de datos y producto en producción: Django, SQL, Superset, Power BI, n8n, Vue/Nuxt, Expo. Formosa / Chaco, Argentina.',
     },
     { property: 'og:type', content: 'website' },
     { property: 'og:url', content: 'https://fabricioduarte.tech' },
     { property: 'og:title', content: 'Fabricio Duarte — Datos, analítica y automatización' },
     {
       property: 'og:description',
-      content: 'Ciencia de datos (UGR). SQL, BI, n8n, plataformas de producción.',
+      content: 'Pipelines, BI, automatización e IA aplicada. Django, SQL, n8n, producto offline-first.',
     },
     { property: 'og:image', content: 'https://fabricioduarte.tech/images/profile.jpg' },
     { name: 'twitter:card', content: 'summary_large_image' },
     { name: 'twitter:title', content: 'Fabricio Duarte — Datos, analítica y automatización' },
-    { name: 'twitter:description', content: 'Ciencia de datos UGR. Engineering, analytics, n8n.' },
+    { name: 'twitter:description', content: 'Data engineering, analytics, automation, product.' },
     { name: 'twitter:image', content: 'https://fabricioduarte.tech/images/profile.jpg' },
   ],
 })
