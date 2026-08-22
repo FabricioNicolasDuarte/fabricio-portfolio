@@ -10,7 +10,7 @@
         class="glass relative grid gap-3 rounded-2xl p-6 transition hover:border-cyan-400/30 md:grid-cols-[160px_1fr] md:gap-10"
         :class="job.featured ? 'border-cyan-400/25' : ''"
       >
-        <p class="pl-7 text-sm text-cyan-300/80 md:pl-0">{{ job.period }}</p>
+        <p class="pl-7 text-sm text-cyan-300/80 md:pl-0">{{ isEn ? (job.periodEn || job.period) : job.period }}</p>
         <span class="absolute left-[7px] top-7 h-2.5 w-2.5 rounded-full bg-cyan-400 shadow-[0_0_12px_#22d3ee] md:left-[181px]"></span>
         <div>
           <h3 class="text-lg font-semibold text-white">{{ isEn ? (job.titleEn || job.title) : job.title }}</h3>
@@ -21,9 +21,9 @@
               target="_blank"
               rel="noopener noreferrer"
               class="underline decoration-indigo-400/40 underline-offset-2 transition hover:text-cyan-300"
-              v-html="job.orgHtml || job.org"
+              v-html="isEn ? (job.orgHtmlEn || job.orgHtml || job.orgEn || job.org) : (job.orgHtml || job.org)"
             />
-            <span v-else v-html="job.orgHtml || job.org"></span>
+            <span v-else v-html="isEn ? (job.orgHtmlEn || job.orgEn || job.orgHtml || job.org) : (job.orgHtml || job.org)"></span>
           </p>
           <p class="mt-3 max-w-2xl text-[15px] leading-relaxed text-slate-400">{{ isEn ? (job.leadEn || job.lead) : job.lead }}</p>
           <ul v-if="(isEn ? (job.pointsEn || job.points) : job.points)?.length" class="mt-3 max-w-2xl space-y-1.5">
@@ -67,6 +67,7 @@ const jobs = [
   {
     featured: true,
     period: '2023 — actualidad',
+    periodEn: '2023 — present',
     title: 'Ingeniería de datos y software',
     titleEn: 'Data and software engineering',
     orgHref: 'https://www.ecom.com.ar/',
@@ -86,38 +87,54 @@ const jobs = [
   },
   {
     period: '2026 — actualidad',
+    periodEn: '2026 — present',
     title: 'Asesor tecnológico y de datos',
+    titleEn: 'Technology and data advisor',
     org: 'Consultoría independiente — Livio Gutiérrez (Presidencia NBCH)',
     orgHref: 'https://www.nbch.com.ar/institucional/autoridades',
     orgHtml: 'Consultoría independiente — <span class="text-cyan-300">Livio Gutiérrez</span> (Presidencia NBCH)',
+    orgHtmlEn: 'Independent consultancy — <span class="text-cyan-300">Livio Gutiérrez</span> (NBCH Presidency)',
     lead: 'Asesoramiento personal en tecnología, datos y modernización de procesos a Livio Gutiérrez, Presidente del Nuevo Banco del Chaco.',
+    leadEn: 'Personal advisory on technology, data, and process modernization for Livio Gutiérrez, President of Nuevo Banco del Chaco.',
     points: [],
   },
   {
     period: '2022 — actualidad',
+    periodEn: '2022 — present',
     title: 'Lead Developer & CTO',
     org: 'Skadia Startup',
     lead: 'Dirección técnica de productos digitales en agrotech.',
+    leadEn: 'Technical direction of digital products in agrotech.',
     points: [
       'Arquitectura, stack y pipelines CI/CD.',
       'Gestión de equipos con metodologías ágiles (Jira / Scrum).',
       'SIGAG: Sistema Integral de Gestión Agrícola Ganadera.',
     ],
+    pointsEn: [
+      'Architecture, stack, and CI/CD pipelines.',
+      'Team management with agile methods (Jira / Scrum).',
+      'SIGAG: Integrated Agricultural and Livestock Management System.',
+    ],
   },
   {
     period: '2023 — 2026',
     title: 'Asesor tecnológico y de comunicación',
+    titleEn: 'Technology and communications advisor',
     org: 'Consultoría independiente — Livio Gutiérrez (Coordinación de Gabinete, Chaco)',
     orgHref: 'https://www.nbch.com.ar/institucional/autoridades',
     orgHtml: 'Consultoría independiente — <span class="text-cyan-300">Livio Gutiérrez</span> (Coordinación de Gabinete, Chaco)',
+    orgHtmlEn: 'Independent consultancy — <span class="text-cyan-300">Livio Gutiérrez</span> (Cabinet Coordination, Chaco)',
     lead: 'Asesoramiento personal en comunicación y tecnología digital.',
+    leadEn: 'Personal advisory on communications and digital technology.',
     points: [],
   },
   {
     period: '2018 — actualidad',
+    periodEn: '2018 — present',
     title: 'Asesor tecnológico y de datos',
     titleEn: 'Technology and data advisor',
     org: 'Mg. Méd. Julián Bibolini · Min. Desarrollo Humano / UPLAB · Formosa',
+    orgEn: 'Mg. Med. Julián Bibolini · Ministry of Human Development / UPLAB · Formosa',
     lead: 'Datos sanitarios e indicadores institucionales para toma de decisión. Modernización de la gestión académica en la Facultad de Medicina.',
     leadEn: 'Health data and institutional indicators for decision-making. Academic management modernization at the Faculty of Medicine.',
     points: [
@@ -132,31 +149,43 @@ const jobs = [
   {
     period: '2019 — 2023',
     title: 'Asesor de comunicación y tecnología',
+    titleEn: 'Communications and technology advisor',
     org: 'Concejo Municipal de Presidencia Roque Sáenz Peña (Pedro Egea) · Chaco',
+    orgEn: 'Municipal Council of Presidencia Roque Sáenz Peña (Pedro Egea) · Chaco',
     lead: 'Transformación digital de canales institucionales y operación remota.',
+    leadEn: 'Digital transformation of institutional channels and remote operations.',
     points: [],
   },
   {
     period: '2015 — 2018',
     title: 'Asesor legislativo',
+    titleEn: 'Legislative advisor',
     org: 'Consultoría independiente — Cámara de Diputados del Chaco (Livio Gutiérrez)',
     orgHref: 'https://www.nbch.com.ar/institucional/autoridades',
     orgHtml: 'Consultoría independiente — Cámara de Diputados del Chaco (<span class="text-cyan-300">Livio Gutiérrez</span>)',
+    orgHtmlEn: 'Independent consultancy — Chaco Chamber of Deputies (<span class="text-cyan-300">Livio Gutiérrez</span>)',
     lead: 'Asesoramiento en comunicación y tecnología.',
+    leadEn: 'Advisory on communications and technology.',
     points: [],
   },
   {
     period: '2016 — 2017',
     title: 'Capacitador',
+    titleEn: 'Instructor',
     org: 'Plan Nacional de Alfabetización Digital · Ministerio de Modernización',
+    orgEn: 'National Digital Literacy Plan · Ministry of Modernization',
     lead: 'Capacitación en ofimática y herramientas digitales para inclusión laboral.',
+    leadEn: 'Training in office software and digital tools for labor inclusion.',
     points: [],
   },
   {
     period: '2016 — 2017',
     title: 'Asesor técnico',
+    titleEn: 'Technical advisor',
     org: 'Defensoría del Pueblo de Formosa — Defensor Adjunto Hugo Maldonado',
+    orgEn: 'Ombudsman’s Office of Formosa — Deputy Ombudsman Hugo Maldonado',
     lead: 'Asistencia técnica en gestión de reclamos y comunicación digital, en el ámbito de la Defensoría del Pueblo Adjunta.',
+    leadEn: 'Technical support for claims management and digital communications, in the Deputy Ombudsman’s office.',
     points: [],
   },
 ]
