@@ -17,10 +17,10 @@
         </nav>
         <div class="flex items-center gap-3">
         <div class="flex items-center gap-2">
-          <a href="/cv/cv-visual.html" target="_blank" class="rounded-full bg-white/10 px-3 py-1.5 text-xs font-semibold text-cyan-200 transition hover:bg-cyan-400 hover:text-slate-950">
+          <a href="/cv/cv-visual.pdf" download="CV_Fabricio_Duarte_Visual.pdf" class="rounded-full bg-white/10 px-3 py-1.5 text-xs font-semibold text-cyan-200 transition hover:bg-cyan-400 hover:text-slate-950">
             CV
           </a>
-          <a href="/cv/cv-ats.html" target="_blank" class="hidden rounded-full border border-white/10 px-3 py-1.5 text-xs text-slate-300 transition hover:border-cyan-400/40 sm:inline-block">
+          <a href="/cv/cv-ats.pdf" download="CV_Fabricio_Duarte_ATS.pdf" class="hidden rounded-full border border-white/10 px-3 py-1.5 text-xs text-slate-300 transition hover:border-cyan-400/40 sm:inline-block">
             ATS
           </a>
         </div>

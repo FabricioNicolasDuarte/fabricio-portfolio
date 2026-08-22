@@ -5,35 +5,37 @@
         <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-400 opacity-75"></span>
         <span class="relative inline-flex h-2 w-2 rounded-full bg-cyan-400"></span>
       </span>
-      Resistencia, Chaco · Disponible para roles de datos y producto
+      Resistencia, Chaco · Data Engineering & Analytics
     </div>
 
     <div class="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_300px]">
       <div>
         <p class="animate-rise font-display text-sm font-medium tracking-widest text-cyan-300/80 uppercase">
-          Data Engineering · Analytics · Automation · Product
+          Data Engineering · Business Intelligence · Automation
         </p>
         <h1 class="mt-3 animate-rise font-display text-5xl font-bold leading-[1.05] tracking-tight sm:text-7xl">
           Fabricio
           <span class="shine-text">Duarte</span>
         </h1>
         <p class="mt-6 max-w-xl animate-rise text-lg leading-relaxed text-slate-300" style="animation-delay: 80ms">
-          Convierto operación dispersa en sistemas de datos confiables:
-          pipelines, BI con gobernanza, automatización e IA aplicada —
-          en producción, no en demos.
+          Especialista en ingeniería de datos y visualización analítica.
+          Diseño e implemento arquitecturas de información —ingesta, transformación,
+          modelado dimensional y tableros con gobernanza— orientadas a la toma de
+          decisiones en entornos institucionales y de producto.
         </p>
         <p class="mt-4 max-w-xl animate-rise text-[15px] leading-relaxed text-slate-400" style="animation-delay: 140ms">
-          Técnico Universitario en Programación (UTN, mención de honor, promedio 9.40).
-          Licenciatura en Ciencia de Datos,
+          Experiencia en plataformas de producción con Django, SQL (PostgreSQL / SQL Server),
+          Apache Superset, Power BI, n8n y productos offline-first.
+          Técnico Universitario en Programación (UTN — Facultad Regional Resistencia, promedio 9.40).
+          Licenciatura en Ciencia de Datos en la
           <a class="text-cyan-300 underline decoration-cyan-500/40 underline-offset-4 hover:text-cyan-200" href="https://ugr.edu.ar/carreras/ciclo-de-licenciatura-en-ciencia-de-datos/" target="_blank" rel="noopener noreferrer">Universidad del Gran Rosario</a>.
-          Stack principal: Django, SQL (PostgreSQL / SQL Server), Superset, Power BI, n8n, Vue/Nuxt, Expo.
         </p>
         <div class="mt-8 flex flex-wrap gap-3 animate-rise" style="animation-delay: 200ms">
-          <a href="/cv/cv-visual.html" target="_blank" class="rounded-full bg-cyan-400 px-6 py-2.5 text-sm font-semibold text-slate-950 shadow-[0_0_32px_rgba(34,211,238,0.35)] transition hover:bg-cyan-300 hover:shadow-[0_0_48px_rgba(34,211,238,0.5)]">
-            CV visual
+          <a href="/cv/cv-visual.pdf" download="CV_Fabricio_Duarte_Visual.pdf" class="rounded-full bg-cyan-400 px-6 py-2.5 text-sm font-semibold text-slate-950 shadow-[0_0_32px_rgba(34,211,238,0.35)] transition hover:bg-cyan-300 hover:shadow-[0_0_48px_rgba(34,211,238,0.5)]">
+            Descargar CV visual
           </a>
-          <a href="/cv/cv-ats.html" target="_blank" class="rounded-full border border-cyan-400/40 bg-cyan-400/10 px-6 py-2.5 text-sm font-semibold text-cyan-100 transition hover:border-cyan-300 hover:bg-cyan-400/20">
-            CV ATS
+          <a href="/cv/cv-ats.pdf" download="CV_Fabricio_Duarte_ATS.pdf" class="rounded-full border border-cyan-400/40 bg-cyan-400/10 px-6 py-2.5 text-sm font-semibold text-cyan-100 transition hover:border-cyan-300 hover:bg-cyan-400/20">
+            Descargar CV ATS
           </a>
           <a href="https://github.com/FabricioNicolasDuarte" target="_blank" rel="noopener noreferrer" class="rounded-full border border-white/15 px-6 py-2.5 text-sm text-slate-200 transition hover:border-cyan-400/50 hover:text-white">
             GitHub
@@ -78,11 +80,11 @@
 </template>
 
 <script setup>
-const pipeline = ['Ingesta', 'Transformación', 'Modelo', 'Decisión']
+const pipeline = ['Ingesta', 'Modelado', 'Visualización', 'Decisión']
 const stats = [
   { label: 'Promedio UTN', value: '9.40' },
-  { label: 'Productos en mercado', n: 10, suffix: '+' },
+  { label: 'Productos desplegados', n: 10, suffix: '+' },
   { label: 'Años en tecnología', n: 8, suffix: '+' },
-  { label: 'Mención de honor', value: 'UTN' },
+  { label: 'Formación actual', value: 'Lic. UGR' },
 ]
 </script>

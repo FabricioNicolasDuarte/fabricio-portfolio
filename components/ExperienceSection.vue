@@ -8,12 +8,23 @@
         v-for="job in jobs"
         :key="job.period + job.org"
         class="glass relative grid gap-3 rounded-2xl p-6 transition hover:border-cyan-400/30 md:grid-cols-[160px_1fr] md:gap-10"
+        :class="job.featured ? 'border-cyan-400/25' : ''"
       >
         <p class="pl-7 text-sm text-cyan-300/80 md:pl-0">{{ job.period }}</p>
         <span class="absolute left-[7px] top-7 h-2.5 w-2.5 rounded-full bg-cyan-400 shadow-[0_0_12px_#22d3ee] md:left-[181px]"></span>
         <div>
           <h3 class="text-lg font-semibold text-white">{{ job.title }}</h3>
-          <p class="mt-0.5 text-sm text-indigo-300">{{ job.org }}</p>
+          <p class="mt-0.5 text-sm text-indigo-300">
+            <a
+              v-if="job.orgHref"
+              :href="job.orgHref"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="underline decoration-indigo-400/40 underline-offset-2 transition hover:text-cyan-300"
+              v-html="job.orgHtml || job.org"
+            />
+            <span v-else v-html="job.orgHtml || job.org"></span>
+          </p>
           <p class="mt-3 max-w-2xl text-[15px] leading-relaxed text-slate-400">{{ job.lead }}</p>
           <ul v-if="job.points?.length" class="mt-3 max-w-2xl space-y-1.5">
             <li v-for="p in job.points" :key="p" class="text-[14px] text-slate-400">— {{ p }}</li>
@@ -32,10 +43,10 @@
         </p>
         <p class="mt-5 font-medium text-white">Tecnicatura Universitaria en Programación</p>
         <p class="mt-1 text-sm text-slate-400">
-          UTN Formosa. Graduado con mención de honor. Promedio 9.40. TFI Nutrogan, 2025.
+          Universidad Tecnológica Nacional — Facultad Regional Resistencia. Graduado. Promedio general 9.40.
         </p>
         <p class="mt-5 font-medium text-white">Contador Público — ciclo básico</p>
-        <p class="mt-1 text-sm text-slate-400">UNaF. Incompleto. Base contable y financiera.</p>
+        <p class="mt-1 text-sm text-slate-400">Universidad Nacional de Formosa (UNaF). Incompleto. Base contable y financiera.</p>
       </div>
       <div class="glass rounded-2xl p-6">
         <h3 class="text-sm font-medium text-cyan-300">Idiomas</h3>
@@ -43,8 +54,8 @@
           Español nativo. Inglés técnico intermedio. Portugués intermedio.
         </p>
         <p class="mt-4 text-sm leading-relaxed text-slate-400">
-          Competencias complementarias en diseño (Figma, Adobe CC) aplicadas a tableros,
-          documentación de producto y comunicación técnica.
+          Competencias complementarias en diseño de interfaces y documentación visual
+          (Figma, Adobe CC) aplicadas a tableros y comunicación técnica de datos.
         </p>
       </div>
     </div>
@@ -54,38 +65,44 @@
 <script setup>
 const jobs = [
   {
+    featured: true,
+    period: '2023 — actualidad',
+    title: 'Ingeniería de datos y software',
+    orgHref: 'https://www.ecom.com.ar/',
+    orgHtml: '<span class="text-cyan-300 underline decoration-cyan-500/30">ECOM</span> Chaco S.A.',
+    lead: 'ECOM es la empresa tecnológica de la Provincia del Chaco (SAPEM): software, conectividad y modernización del Estado y el sector privado. Allí diseño, desarrollo y opero plataformas de datos en producción institucional.',
+    points: [
+      'Arquitectura de información y tableros analíticos (Apache Superset / Power BI) con seguridad por capas (RLS) e identidad federada.',
+      'Backend Django: GIS, KPIs, auditoría y exportación controlada de datasets.',
+      'Integración SQL Server / PostgreSQL y procesos asíncronos de conciliación (Celery / Redis).',
+    ],
+  },
+  {
     period: '2026 — actualidad',
     title: 'Asesor tecnológico y de datos',
-    org: 'Consultoría independiente — Presidencia NBCH (Livio Gutiérrez)',
-    lead: 'Asesoramiento personal en tecnología, datos y modernización de procesos al Presidente del Nuevo Banco del Chaco.',
+    org: 'Consultoría independiente — Livio Gutiérrez (Presidencia NBCH)',
+    orgHref: 'https://www.nbch.com.ar/institucional/autoridades',
+    orgHtml: 'Consultoría independiente — <span class="text-cyan-300">Livio Gutiérrez</span> (Presidencia NBCH)',
+    lead: 'Asesoramiento personal en tecnología, datos y modernización de procesos a Livio Gutiérrez, Presidente del Nuevo Banco del Chaco.',
     points: [],
   },
   {
     period: '2022 — actualidad',
     title: 'Lead Developer & CTO',
-    org: 'Skadia Startup & Axia (Paraguay)',
-    lead: 'Dirección técnica de productos digitales en agrotech y real estate.',
+    org: 'Skadia Startup',
+    lead: 'Dirección técnica de productos digitales en agrotech.',
     points: [
       'Arquitectura, stack y pipelines CI/CD.',
-      'Equipos ágiles (Jira / Scrum).',
-      'SIGAG: plataforma offline-first, visión, LLM y automatización.',
-    ],
-  },
-  {
-    period: '2023 — actualidad',
-    title: 'Ingeniería de datos y software',
-    org: 'ECOM S.A.',
-    lead: 'Diseño, desarrollo y operación de plataformas de datos en producción institucional.',
-    points: [
-      'BI con Apache Superset y Power BI (RLS, embed, identidad federada).',
-      'Backend Django: GIS, KPIs, auditoría y exportación.',
-      'Integración SQL Server / PostgreSQL y conciliación asíncrona (Celery/Redis).',
+      'Gestión de equipos con metodologías ágiles (Jira / Scrum).',
+      'SIGAG: Sistema Integral de Gestión Agrícola Ganadera.',
     ],
   },
   {
     period: '2023 — 2026',
     title: 'Asesor tecnológico y de comunicación',
     org: 'Consultoría independiente — Livio Gutiérrez (Coordinación de Gabinete, Chaco)',
+    orgHref: 'https://www.nbch.com.ar/institucional/autoridades',
+    orgHtml: 'Consultoría independiente — <span class="text-cyan-300">Livio Gutiérrez</span> (Coordinación de Gabinete, Chaco)',
     lead: 'Asesoramiento personal en comunicación y tecnología digital.',
     points: [],
   },
@@ -93,16 +110,16 @@ const jobs = [
     period: '2018 — actualidad',
     title: 'Asesor tecnológico y de datos',
     org: 'Mg. Méd. Julián Bibolini · Min. Desarrollo Humano / UPLAB · Formosa',
-    lead: 'Gestión y análisis de datos sanitarios para decisión estratégica. Modernización de gestión académica en Facultad de Medicina.',
+    lead: 'Gestión y análisis de datos sanitarios para decisión estratégica. Modernización de la gestión académica en la Facultad de Medicina.',
     points: [
-      'SIREG: consulta pública de registros provinciales.',
+      'SIREG: colaboración en consulta pública de registros provinciales.',
       'Compras CGP: indicadores y visualización.',
     ],
   },
   {
     period: '2019 — 2023',
     title: 'Asesor de comunicación y tecnología',
-    org: 'Concejo Municipal de Presidencia de la Plaza (P. Egea) · Chaco',
+    org: 'Concejo Municipal de Presidencia Roque Sáenz Peña (Pedro Egea) · Chaco',
     lead: 'Transformación digital de canales institucionales y operación remota.',
     points: [],
   },
@@ -110,6 +127,8 @@ const jobs = [
     period: '2015 — 2018',
     title: 'Asesor legislativo',
     org: 'Consultoría independiente — Cámara de Diputados del Chaco (Livio Gutiérrez)',
+    orgHref: 'https://www.nbch.com.ar/institucional/autoridades',
+    orgHtml: 'Consultoría independiente — Cámara de Diputados del Chaco (<span class="text-cyan-300">Livio Gutiérrez</span>)',
     lead: 'Asesoramiento en comunicación y tecnología.',
     points: [],
   },
@@ -123,8 +142,8 @@ const jobs = [
   {
     period: '2016 — 2017',
     title: 'Asesor técnico',
-    org: 'Defensoría del Pueblo de Formosa',
-    lead: 'Asistencia técnica en gestión de reclamos y comunicación digital.',
+    org: 'Defensoría del Pueblo de Formosa — Defensor Adjunto Hugo Maldonado',
+    lead: 'Asistencia técnica en gestión de reclamos y comunicación digital, en el ámbito de la Defensoría del Pueblo Adjunta.',
     points: [],
   },
 ]
