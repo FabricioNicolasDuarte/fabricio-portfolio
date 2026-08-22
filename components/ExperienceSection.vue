@@ -43,7 +43,8 @@
         </p>
         <p class="mt-5 font-medium text-white">{{ isEn ? 'University Technician in Programming' : 'Tecnicatura Universitaria en Programación' }}</p>
         <p class="mt-1 text-sm text-slate-400">
-          {{ isEn ? 'Universidad Tecnológica Nacional — Facultad Regional Resistencia. Graduated. GPA 9.40.' : 'Universidad Tecnológica Nacional — Facultad Regional Resistencia. Graduado. Promedio general 9.40.' }}
+          <a class="text-cyan-300 underline decoration-cyan-500/30 underline-offset-2" href="https://www.frre.utn.edu.ar/" target="_blank" rel="noopener noreferrer">Universidad Tecnológica Nacional — Facultad Regional Resistencia</a>.
+          {{ isEn ? 'Graduated. GPA 9.40.' : 'Graduado. Promedio general 9.40.' }}
         </p>
         <p class="mt-5 font-medium text-white">{{ isEn ? 'Public Accountant — basic cycle' : 'Contador Público — ciclo básico' }}</p>
         <p class="mt-1 text-sm text-slate-400">{{ isEn ? 'Universidad Nacional de Formosa (UNaF). Incomplete. Accounting and finance foundation.' : 'Universidad Nacional de Formosa (UNaF). Incompleto. Base contable y financiera.' }}</p>

@@ -21,7 +21,8 @@
           {{ copy.lead }}
         </p>
         <p class="mt-4 max-w-xl animate-rise text-[15px] leading-relaxed text-slate-400" style="animation-delay: 140ms">
-          {{ copy.body }}
+          {{ copy.bodyBefore }}
+          <a class="text-cyan-300 underline decoration-cyan-500/40 underline-offset-4 hover:text-cyan-200" href="https://www.frre.utn.edu.ar/" target="_blank" rel="noopener noreferrer">{{ copy.utn }}</a>{{ copy.bodyMid }}
           <a class="text-cyan-300 underline decoration-cyan-500/40 underline-offset-4 hover:text-cyan-200" href="https://ugr.edu.ar/carreras/ciclo-de-licenciatura-en-ciencia-de-datos/" target="_blank" rel="noopener noreferrer">Universidad del Gran Rosario</a>.
         </p>
         <div class="mt-8 flex flex-wrap gap-3 animate-rise" style="animation-delay: 200ms">
@@ -85,7 +86,9 @@ const copy = computed(() => isEn.value
   ? {
       badge: 'Resistencia, Chaco · Data Engineering & Analytics',
       lead: 'Data engineering and analytical visualization specialist. I design and implement information architectures — ingestion, transformation, dimensional modeling, and governed dashboards — for decision-making in institutional and product environments.',
-      body: 'Production platforms with Django, SQL (PostgreSQL / SQL Server), Apache Superset, Power BI, n8n, and offline-first products. University Technician in Programming (UTN — Facultad Regional Resistencia, GPA 9.40). B.S. in Data Science at ',
+      bodyBefore: 'Production platforms with Django, SQL (PostgreSQL / SQL Server), Apache Superset, Power BI, n8n, and offline-first products. University Technician in Programming (',
+      utn: 'UTN — Facultad Regional Resistencia',
+      bodyMid: ', GPA 9.40). B.S. in Data Science at ',
       cvVisual: 'Download visual CV',
       cvAts: 'Download ATS CV (EN)',
       pipeline: ['Ingest', 'Model', 'Visualize', 'Decide'],
@@ -99,7 +102,9 @@ const copy = computed(() => isEn.value
   : {
       badge: 'Resistencia, Chaco · Data Engineering & Analytics',
       lead: 'Especialista en ingeniería de datos y visualización analítica. Diseño e implemento arquitecturas de información —ingesta, transformación, modelado dimensional y tableros con gobernanza— orientadas a la toma de decisiones en entornos institucionales y de producto.',
-      body: 'Experiencia en plataformas de producción con Django, SQL (PostgreSQL / SQL Server), Apache Superset, Power BI, n8n y productos offline-first. Técnico Universitario en Programación (UTN — Facultad Regional Resistencia, promedio 9.40). Licenciatura en Ciencia de Datos en la ',
+      bodyBefore: 'Experiencia en plataformas de producción con Django, SQL (PostgreSQL / SQL Server), Apache Superset, Power BI, n8n y productos offline-first. Técnico Universitario en Programación (',
+      utn: 'UTN — Facultad Regional Resistencia',
+      bodyMid: ', promedio 9.40). Licenciatura en Ciencia de Datos en la ',
       cvVisual: 'Descargar CV visual',
       cvAts: 'Descargar CV ATS',
       pipeline: ['Ingesta', 'Modelado', 'Visualización', 'Decisión'],
