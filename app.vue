@@ -15,7 +15,7 @@ useHead({
     {
       name: 'description',
       content:
-        'Ingeniería de datos y producto en producción: Django, SQL, Superset, Power BI, n8n, Vue/Nuxt, Expo. Formosa / Chaco, Argentina.',
+        'Ingeniería de datos y producto en producción: Django, SQL, Superset, Power BI, n8n, Vue/Nuxt, Expo. Resistencia, Chaco, Argentina.',
     },
     { property: 'og:type', content: 'website' },
     { property: 'og:url', content: 'https://fabricioduarte.tech' },

@@ -2,12 +2,12 @@
   <section id="nutrogan" class="relative mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-24">
     <div class="grid items-center gap-10 lg:grid-cols-[0.85fr_1.15fr]">
       <div>
-        <p class="text-xs font-medium tracking-widest text-cyan-400 uppercase">Producto · agro · datos</p>
+        <p class="text-xs font-medium tracking-widest text-cyan-400 uppercase">{{ isEn ? 'Product · agri · data' : 'Producto · agro · datos' }}</p>
         <h2 class="mt-2 font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl">Nutrogan</h2>
         <p class="mt-4 text-[15px] leading-relaxed text-slate-400">
-          Plataforma ganadera offline-first para gestión de rodeos, indicadores productivos,
-          GIS y visión por computadora. Desarrollada en colaboración con el CEDEVA.
-          Constitutiva de la base técnica de SIGAG (Sistema Integral de Gestión Agrícola Ganadera).
+          {{ isEn
+            ? 'Offline-first livestock platform for herd management, productive indicators, GIS, and computer vision. Developed in collaboration with CEDEVA. Technical foundation of SIGAG (Integrated Agricultural and Livestock Management System).'
+            : 'Plataforma ganadera offline-first para gestión de rodeos, indicadores productivos, GIS y visión por computadora. Desarrollada en colaboración con el CEDEVA. Constitutiva de la base técnica de SIGAG (Sistema Integral de Gestión Agrícola Ganadera).' }}
         </p>
         <p class="mt-4 text-sm text-slate-500">Stack: Vue · Quasar · Pinia · PostgreSQL · TensorFlow.js</p>
         <p class="mt-4 text-sm">
@@ -25,3 +25,8 @@
     </div>
   </section>
 </template>
+
+<script setup>
+const { isEn } = useLocale()
+</script>
+

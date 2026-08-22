@@ -5,7 +5,7 @@
         <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-400 opacity-75"></span>
         <span class="relative inline-flex h-2 w-2 rounded-full bg-cyan-400"></span>
       </span>
-      Resistencia, Chaco · Data Engineering & Analytics
+      {{ copy.badge }}
     </div>
 
     <div class="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_300px]">
@@ -18,24 +18,22 @@
           <span class="shine-text">Duarte</span>
         </h1>
         <p class="mt-6 max-w-xl animate-rise text-lg leading-relaxed text-slate-300" style="animation-delay: 80ms">
-          Especialista en ingeniería de datos y visualización analítica.
-          Diseño e implemento arquitecturas de información —ingesta, transformación,
-          modelado dimensional y tableros con gobernanza— orientadas a la toma de
-          decisiones en entornos institucionales y de producto.
+          {{ copy.lead }}
         </p>
         <p class="mt-4 max-w-xl animate-rise text-[15px] leading-relaxed text-slate-400" style="animation-delay: 140ms">
-          Experiencia en plataformas de producción con Django, SQL (PostgreSQL / SQL Server),
-          Apache Superset, Power BI, n8n y productos offline-first.
-          Técnico Universitario en Programación (UTN — Facultad Regional Resistencia, promedio 9.40).
-          Licenciatura en Ciencia de Datos en la
+          {{ copy.body }}
           <a class="text-cyan-300 underline decoration-cyan-500/40 underline-offset-4 hover:text-cyan-200" href="https://ugr.edu.ar/carreras/ciclo-de-licenciatura-en-ciencia-de-datos/" target="_blank" rel="noopener noreferrer">Universidad del Gran Rosario</a>.
         </p>
         <div class="mt-8 flex flex-wrap gap-3 animate-rise" style="animation-delay: 200ms">
           <a href="/cv/cv-visual.pdf" download="CV_Fabricio_Duarte_Visual.pdf" class="rounded-full bg-cyan-400 px-6 py-2.5 text-sm font-semibold text-slate-950 shadow-[0_0_32px_rgba(34,211,238,0.35)] transition hover:bg-cyan-300 hover:shadow-[0_0_48px_rgba(34,211,238,0.5)]">
-            Descargar CV visual
+            {{ copy.cvVisual }}
           </a>
-          <a href="/cv/cv-ats.pdf" download="CV_Fabricio_Duarte_ATS.pdf" class="rounded-full border border-cyan-400/40 bg-cyan-400/10 px-6 py-2.5 text-sm font-semibold text-cyan-100 transition hover:border-cyan-300 hover:bg-cyan-400/20">
-            Descargar CV ATS
+          <a
+            :href="isEn ? '/cv/cv-ats-en.pdf' : '/cv/cv-ats.pdf'"
+            :download="isEn ? 'CV_Fabricio_Duarte_ATS_EN.pdf' : 'CV_Fabricio_Duarte_ATS.pdf'"
+            class="rounded-full border border-cyan-400/40 bg-cyan-400/10 px-6 py-2.5 text-sm font-semibold text-cyan-100 transition hover:border-cyan-300 hover:bg-cyan-400/20"
+          >
+            {{ copy.cvAts }}
           </a>
           <a href="https://github.com/FabricioNicolasDuarte" target="_blank" rel="noopener noreferrer" class="rounded-full border border-white/15 px-6 py-2.5 text-sm text-slate-200 transition hover:border-cyan-400/50 hover:text-white">
             GitHub
@@ -56,7 +54,7 @@
 
     <ol class="mt-16 grid gap-3 sm:grid-cols-4">
       <li
-        v-for="(step, i) in pipeline"
+        v-for="(step, i) in copy.pipeline"
         :key="step"
         class="glass group relative overflow-hidden rounded-2xl px-4 py-4 text-center transition duration-300 hover:-translate-y-1 hover:border-cyan-400/40"
         :style="{ animationDelay: `${i * 80}ms` }"
@@ -68,7 +66,7 @@
     </ol>
 
     <div class="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4">
-      <div v-for="s in stats" :key="s.label" class="glass rounded-2xl p-5 transition hover:border-cyan-400/30">
+      <div v-for="s in copy.stats" :key="s.label" class="glass rounded-2xl p-5 transition hover:border-cyan-400/30">
         <p class="text-[11px] uppercase tracking-wider text-slate-500">{{ s.label }}</p>
         <p class="mt-2 font-display text-3xl font-semibold text-white">
           <CountUp v-if="s.n != null" :to="s.n" :suffix="s.suffix || ''" />
@@ -80,11 +78,36 @@
 </template>
 
 <script setup>
-const pipeline = ['Ingesta', 'Modelado', 'Visualización', 'Decisión']
-const stats = [
-  { label: 'Promedio UTN', value: '9.40' },
-  { label: 'Productos desplegados', n: 10, suffix: '+' },
-  { label: 'Años en tecnología', n: 8, suffix: '+' },
-  { label: 'Formación actual', value: 'Lic. UGR' },
-]
+import { computed } from 'vue'
+
+const { isEn } = useLocale()
+const copy = computed(() => isEn.value
+  ? {
+      badge: 'Resistencia, Chaco · Data Engineering & Analytics',
+      lead: 'Data engineering and analytical visualization specialist. I design and implement information architectures — ingestion, transformation, dimensional modeling, and governed dashboards — for decision-making in institutional and product environments.',
+      body: 'Production platforms with Django, SQL (PostgreSQL / SQL Server), Apache Superset, Power BI, n8n, and offline-first products. University Technician in Programming (UTN — Facultad Regional Resistencia, GPA 9.40). B.S. in Data Science at ',
+      cvVisual: 'Download visual CV',
+      cvAts: 'Download ATS CV (EN)',
+      pipeline: ['Ingest', 'Model', 'Visualize', 'Decide'],
+      stats: [
+        { label: 'UTN GPA', value: '9.40' },
+        { label: 'Shipped products', n: 10, suffix: '+' },
+        { label: 'Years in tech', n: 8, suffix: '+' },
+        { label: 'Current degree', value: 'B.S. UGR' },
+      ],
+    }
+  : {
+      badge: 'Resistencia, Chaco · Data Engineering & Analytics',
+      lead: 'Especialista en ingeniería de datos y visualización analítica. Diseño e implemento arquitecturas de información —ingesta, transformación, modelado dimensional y tableros con gobernanza— orientadas a la toma de decisiones en entornos institucionales y de producto.',
+      body: 'Experiencia en plataformas de producción con Django, SQL (PostgreSQL / SQL Server), Apache Superset, Power BI, n8n y productos offline-first. Técnico Universitario en Programación (UTN — Facultad Regional Resistencia, promedio 9.40). Licenciatura en Ciencia de Datos en la ',
+      cvVisual: 'Descargar CV visual',
+      cvAts: 'Descargar CV ATS',
+      pipeline: ['Ingesta', 'Modelado', 'Visualización', 'Decisión'],
+      stats: [
+        { label: 'Promedio UTN', value: '9.40' },
+        { label: 'Productos desplegados', n: 10, suffix: '+' },
+        { label: 'Años en tecnología', n: 8, suffix: '+' },
+        { label: 'Formación actual', value: 'Lic. UGR' },
+      ],
+    })
 </script>

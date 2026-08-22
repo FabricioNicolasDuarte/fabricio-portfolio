@@ -15,7 +15,7 @@ export default defineNuxtConfig({
         {
           name: 'description',
           content:
-            'Licenciatura en Ciencia de Datos (UGR, en curso). Data engineering, analítica, n8n y BI. Formosa, Argentina.',
+            'Data engineering, analytics, BI and automation. Resistencia, Chaco, Argentina. Django, SQL, Superset, Power BI, n8n.',
         },
       ],
       link: [

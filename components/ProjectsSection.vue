@@ -2,10 +2,10 @@
   <section id="work" class="relative mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-24">
     <div class="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
       <div>
-        <p class="text-xs font-medium tracking-widest text-cyan-400 uppercase">Portafolio</p>
-        <h2 class="mt-2 font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl">Trabajo seleccionado</h2>
+        <p class="text-xs font-medium tracking-widest text-cyan-400 uppercase">{{ isEn ? 'Selected work' : 'Portafolio' }}</p>
+        <h2 class="mt-2 font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl">{{ isEn ? 'Work' : 'Trabajo seleccionado' }}</h2>
         <p class="mt-3 max-w-lg text-[15px] leading-relaxed text-slate-400">
-          Ingeniería de datos, visualización analítica, automatización y producto en producción.
+          {{ isEn ? 'Data engineering, analytical visualization, automation, and production products.' : 'Ingeniería de datos, visualización analítica, automatización y producto en producción.' }}
         </p>
       </div>
       <div class="flex flex-wrap gap-2">
@@ -31,10 +31,10 @@
         :class="item.featured ? 'md:col-span-2' : ''"
       >
         <div class="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-cyan-400/10 blur-3xl transition group-hover:bg-cyan-400/20"></div>
-        <p class="mb-2 text-[11px] font-medium tracking-wider text-cyan-300 uppercase">{{ item.kind }}</p>
+        <p class="mb-2 text-[11px] font-medium tracking-wider text-cyan-300 uppercase">{{ isEn ? (item.kindEn || item.kind) : item.kind }}</p>
         <h3 class="font-display text-2xl font-semibold tracking-tight text-white">{{ item.title }}</h3>
-        <p class="mt-3 max-w-3xl text-[15px] leading-relaxed text-slate-400">{{ item.summary }}</p>
-        <p class="mt-3 text-sm text-slate-500"><span class="text-slate-600">Rol · </span>{{ item.role }}</p>
+        <p class="mt-3 max-w-3xl text-[15px] leading-relaxed text-slate-400">{{ isEn ? (item.summaryEn || item.summary) : item.summary }}</p>
+        <p class="mt-3 text-sm text-slate-500"><span class="text-slate-600">{{ isEn ? 'Role · ' : 'Rol · ' }}</span>{{ isEn ? (item.roleEn || item.role) : item.role }}</p>
         <ul class="mt-4 flex flex-wrap gap-2">
           <li v-for="tag in item.tags" :key="tag" class="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[11px] text-slate-300">
             {{ tag }}
@@ -47,7 +47,7 @@
           rel="noopener noreferrer"
           class="mt-4 inline-flex items-center gap-1 text-sm text-cyan-300 transition hover:text-cyan-200"
         >
-          Repositorio →
+          {{ isEn ? 'Repo →' : 'Repositorio →' }}
         </a>
       </article>
     </div>
@@ -57,15 +57,25 @@
 <script setup>
 import { computed, ref } from 'vue'
 
+const { isEn } = useLocale()
 const active = ref('all')
-const filters = [
-  { id: 'all', label: 'Todo' },
-  { id: 'de', label: 'Data engineering' },
-  { id: 'da', label: 'Analytics' },
-  { id: 'auto', label: 'Automatización' },
-  { id: 'ecom', label: 'ECOM' },
-  { id: 'product', label: 'Producto' },
-]
+const filters = computed(() => isEn.value
+  ? [
+      { id: 'all', label: 'All' },
+      { id: 'de', label: 'Data engineering' },
+      { id: 'da', label: 'Analytics' },
+      { id: 'auto', label: 'Automation' },
+      { id: 'ecom', label: 'ECOM' },
+      { id: 'product', label: 'Product' },
+    ]
+  : [
+      { id: 'all', label: 'Todo' },
+      { id: 'de', label: 'Data engineering' },
+      { id: 'da', label: 'Analytics' },
+      { id: 'auto', label: 'Automatización' },
+      { id: 'ecom', label: 'ECOM' },
+      { id: 'product', label: 'Producto' },
+    ])
 
 const work = [
   {
@@ -74,7 +84,11 @@ const work = [
     title: 'SIGAG — Sistema Integral de Gestión Agrícola Ganadera',
     summary:
       'Plataforma de ganadería de precisión para operación en campo con arquitectura offline-first: captura y persistencia local (WatermelonDB), sincronización diferencial al recuperar conectividad, visión artificial para estimación de condición corporal y reconocimiento de animales, motores analíticos (GMD, ITH, carga, sanidad, next-best-action) e integración de inteligencia artificial conversacional con orquestador inteligente de alertas y flujos (n8n). El dato nace en el potrero y alimenta modelos y tableros cuando hay red.',
+    summaryEn:
+      'Precision livestock platform for field operations with an offline-first architecture: local capture and persistence (WatermelonDB), differential sync when connectivity returns, computer vision for body-condition estimation and animal recognition, analytic engines (ADG, THI, stocking, health, next-best-action), and conversational AI with an intelligent alert orchestrator (n8n). Data is born in the paddock and feeds models and dashboards when the network is back.',
     role: 'Co-founder · producto y datos. Skadia, 2022–actualidad.',
+    roleEn: 'Co-founder · product and data. Skadia, 2022–present.',
+    kindEn: 'Product · data · AI',
     tags: ['Expo', 'TypeScript', 'WatermelonDB', 'Visión artificial', 'LLM', 'n8n', 'Supabase'],
     cats: ['product', 'de', 'da', 'auto'],
   },
@@ -84,7 +98,11 @@ const work = [
     title: 'Orquestación operativa — n8n',
     summary:
       'Diseño e implementación de flujos self-hosted que integran sistemas heterogéneos: webhooks, staging, notificaciones y jobs programados. Prototipado en Make; producción en n8n. Power Automate y Apps Script según el ecosistema del cliente. Objetivo: automatizar procesos repetibles con trazabilidad y control de fallos.',
+    summaryEn:
+      'Design and implementation of self-hosted flows that integrate heterogeneous systems: webhooks, staging, notifications, and scheduled jobs. Prototyped in Make; production in n8n. Power Automate and Apps Script depending on the client ecosystem. Goal: automate repeatable processes with traceability and failure control.',
     role: 'Arquitectura de flujos e integración. 2024–actualidad.',
+    roleEn: 'Flow architecture and integration. 2024–present.',
+    kindEn: 'Automation · integration',
     tags: ['n8n', 'Make', 'Power Automate', 'Apps Script', 'webhooks'],
     cats: ['auto', 'de'],
   },
@@ -94,7 +112,11 @@ const work = [
     title: 'Tableros institucionales — Apache Superset & Power BI',
     summary:
       'Plataforma de inteligencia de negocios sobre datos consolidados: modelado, pipelines de actualización, embed institucional, RLS por entidad e identidad federada. Apache Superset y Power BI como capa de visualización para análisis multidimensional y soporte a la toma de decisiones con procesos robustos de gobernanza y auditoría.',
+    summaryEn:
+      'Business intelligence on consolidated data: modeling, refresh pipelines, institutional embed, entity-level RLS, and federated identity. Apache Superset and Power BI as the visualization layer for multidimensional analysis and decision support with governance and audit.',
     role: 'Ingeniería de datos. 2023–actualidad.',
+    roleEn: 'Data engineering. 2023–present.',
+    kindEn: 'Analytics · ECOM',
     tags: ['Apache Superset', 'Power BI', 'RLS', 'SQL', 'DAX'],
     cats: ['ecom', 'da', 'de'],
   },
