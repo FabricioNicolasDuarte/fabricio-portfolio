@@ -2,6 +2,8 @@
   <main>
     <HeroSection />
     <ToolsMarquee />
+    <ArchitectureSection />
+    <CaseStudySection />
     <ProjectsSection />
     <ExperienceSection />
     <SkillsSection />

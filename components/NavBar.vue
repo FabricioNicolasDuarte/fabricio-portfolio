@@ -42,8 +42,10 @@
 import { ref } from 'vue'
 const open = ref(false)
 const items = [
+  { id: 'architecture', label: 'Método' },
+  { id: 'caso', label: 'Caso' },
   { id: 'work', label: 'Trabajo' },
-  { id: 'path', label: 'Recorrido' },
+  { id: 'path', label: 'Trayectoria' },
   { id: 'skills', label: 'Stack' },
   { id: 'contact', label: 'Contacto' },
 ]
