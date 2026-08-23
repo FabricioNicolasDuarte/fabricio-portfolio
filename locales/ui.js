@@ -1,8 +1,10 @@
 export const ui = {
   es: {
     nav: {
+      skip: 'Saltar al contenido',
       method: 'Método',
       case: 'Caso',
+      skadia: 'Skadia',
       work: 'Trabajo',
       path: 'Trayectoria',
       stack: 'Stack',
@@ -102,9 +104,21 @@ export const ui = {
         },
       ],
       metrics: [
-        { label: 'Quién ve qué', value: 'Permisos reales', note: 'El recorte de datos sigue a la persona, no a un filtro de pantalla.' },
-        { label: 'Operación', value: 'Jobs + alertas', note: 'El refresco no depende de alguien armando una planilla a las 7 de la mañana.' },
-        { label: 'Uso real', value: 'Tablero embebido', note: 'Se consulta donde se trabaja. No es un archivo que se pierde en el mail.' },
+        { label: 'Animales (demo)', value: '2.000', note: 'Dataset de demostración del lakehouse: 90 días de pesadas.' },
+        { label: 'Ganancia diaria', value: '0,58 kg', note: 'ADG calculado en Airflow + PySpark (clip −1,2 / 2,4).' },
+        { label: 'BCS bajo', value: '23,69 %', note: 'Hacienda con condición corporal baja en el mismo corte.' },
+      ],
+    },
+    skadia: {
+      kicker: 'Producto',
+      title: 'Skadia',
+      body: 'El dato nace en el potrero. Tres líneas para Argentina y Paraguay: territorio y NDVI, visión y sanidad en lote, y ganadería de precisión (GMD, carga, ITH, BCS).',
+      cta: 'Abrir el sitio de Skadia →',
+      shotAlt: 'Sitio Skadia: capas de monitoreo, visión, potreros y captura en campo sobre un modelo 3D.',
+      lines: [
+        { name: 'Nutrogan', icon: '/skadia/producto-nutrogan.svg', blurb: 'Territorio, potreros y NDVI. Base técnica hecha con CEDEVA.' },
+        { name: 'SIGAG', icon: '/skadia/producto-sigag.svg', blurb: 'App de campo sin señal: visión, sanidad y lote. Sincroniza al volver la red.' },
+        { name: 'Ganadería de precisión', icon: '/skadia/ganaderia.svg', blurb: 'Lakehouse: ganancia diaria, carga, horas de calor y condición corporal.' },
       ],
     },
     work: {
@@ -113,6 +127,8 @@ export const ui = {
       intro: 'Ingeniería de datos, tableros, automatización y productos que ya están en uso.',
       role: 'Rol · ',
       repo: 'Repositorio →',
+      more: 'Ver el resto',
+      less: 'Mostrar menos',
       filters: [
         { id: 'all', label: 'Todo' },
         { id: 'de', label: 'Datos' },
@@ -164,8 +180,10 @@ export const ui = {
   },
   en: {
     nav: {
+      skip: 'Skip to content',
       method: 'Method',
       case: 'Case',
+      skadia: 'Skadia',
       work: 'Work',
       path: 'Path',
       stack: 'Stack',
@@ -265,9 +283,21 @@ export const ui = {
         },
       ],
       metrics: [
-        { label: 'Who sees what', value: 'Real permissions', note: 'Data scope follows the person, not a screen filter.' },
-        { label: 'Operations', value: 'Jobs + alerts', note: 'Refresh does not depend on someone building a spreadsheet at 7 a.m.' },
-        { label: 'Actual use', value: 'Embedded dashboard', note: 'People look where they work. It is not a file lost in email.' },
+        { label: 'Animals (demo)', value: '2,000', note: 'Lakehouse demo dataset: 90 days of weighings.' },
+        { label: 'Daily gain', value: '0.58 kg', note: 'ADG from Airflow + PySpark (clip −1.2 / 2.4).' },
+        { label: 'Low BCS', value: '23.69%', note: 'Share of cattle with low body condition in the same cut.' },
+      ],
+    },
+    skadia: {
+      kicker: 'Product',
+      title: 'Skadia',
+      body: 'The data starts in the paddock. Three product lines for Argentina and Paraguay: territory and NDVI, vision and herd health, and precision livestock (ADG, stocking, THI, BCS).',
+      cta: 'Open the Skadia site →',
+      shotAlt: 'Skadia site: monitoring, vision, paddocks, and field capture layers over a 3D model.',
+      lines: [
+        { name: 'Nutrogan', icon: '/skadia/producto-nutrogan.svg', blurb: 'Territory, paddocks, and NDVI. Technical base built with CEDEVA.' },
+        { name: 'SIGAG', icon: '/skadia/producto-sigag.svg', blurb: 'Field app without signal: vision, health, and lots. Syncs when the network is back.' },
+        { name: 'Precision livestock', icon: '/skadia/ganaderia.svg', blurb: 'Lakehouse: daily gain, stocking, heat hours, and body condition.' },
       ],
     },
     work: {
@@ -276,6 +306,8 @@ export const ui = {
       intro: 'Data engineering, dashboards, automation, and products already in use.',
       role: 'Role · ',
       repo: 'Repository →',
+      more: 'See the rest',
+      less: 'Show less',
       filters: [
         { id: 'all', label: 'All' },
         { id: 'de', label: 'Data' },
@@ -327,8 +359,10 @@ export const ui = {
   },
   pt: {
     nav: {
+      skip: 'Saltar para o conteúdo',
       method: 'Método',
       case: 'Caso',
+      skadia: 'Skadia',
       work: 'Trabalho',
       path: 'Trajetória',
       stack: 'Stack',
@@ -428,9 +462,21 @@ export const ui = {
         },
       ],
       metrics: [
-        { label: 'Quem vê o quê', value: 'Permissões reais', note: 'O recorte de dados segue a pessoa, não um filtro de tela.' },
-        { label: 'Operação', value: 'Jobs + alertas', note: 'A atualização não depende de alguém montar planilha às 7 da manhã.' },
-        { label: 'Uso real', value: 'Painel embutido', note: 'Consulta-se onde se trabalha. Não é arquivo perdido no e-mail.' },
+        { label: 'Animais (demo)', value: '2.000', note: 'Dataset de demonstração do lakehouse: 90 dias de pesagens.' },
+        { label: 'Ganho diário', value: '0,58 kg', note: 'GMD calculado no Airflow + PySpark (clip −1,2 / 2,4).' },
+        { label: 'BCS baixo', value: '23,69%', note: 'Gado com condição corporal baixa no mesmo recorte.' },
+      ],
+    },
+    skadia: {
+      kicker: 'Produto',
+      title: 'Skadia',
+      body: 'O dado nasce no piquete. Três linhas para Argentina e Paraguai: território e NDVI, visão e sanidade no lote, e pecuária de precisão (GMD, lotação, ITH, BCS).',
+      cta: 'Abrir o site da Skadia →',
+      shotAlt: 'Site Skadia: camadas de monitoramento, visão, piquetes e captura em campo sobre um modelo 3D.',
+      lines: [
+        { name: 'Nutrogan', icon: '/skadia/producto-nutrogan.svg', blurb: 'Território, piquetes e NDVI. Base técnica com o CEDEVA.' },
+        { name: 'SIGAG', icon: '/skadia/producto-sigag.svg', blurb: 'App de campo sem sinal: visão, sanidade e lote. Sincroniza quando a rede volta.' },
+        { name: 'Pecuária de precisão', icon: '/skadia/ganaderia.svg', blurb: 'Lakehouse: ganho diário, lotação, horas de calor e condição corporal.' },
       ],
     },
     work: {
@@ -439,6 +485,8 @@ export const ui = {
       intro: 'Engenharia de dados, painéis, automação e produtos já em uso.',
       role: 'Papel · ',
       repo: 'Repositório →',
+      more: 'Ver o restante',
+      less: 'Mostrar menos',
       filters: [
         { id: 'all', label: 'Tudo' },
         { id: 'de', label: 'Dados' },
@@ -490,8 +538,10 @@ export const ui = {
   },
   zh: {
     nav: {
+      skip: '跳到正文',
       method: '方法',
       case: '案例',
+      skadia: 'Skadia',
       work: '作品',
       path: '经历',
       stack: '技术栈',
@@ -591,9 +641,21 @@ export const ui = {
         },
       ],
       metrics: [
-        { label: '谁能看什么', value: '真正的权限', note: '数据范围跟着人走，不是屏幕上的筛选器。' },
-        { label: '运维', value: '任务 + 告警', note: '刷新不靠早上七点有人做表。' },
-        { label: '真正使用', value: '内嵌看板', note: '在工作的地方查看。不是邮件里丢失的文件。' },
+        { label: '牲畜（演示）', value: '2,000', note: 'Lakehouse 演示数据：90 天称重。' },
+        { label: '日增重', value: '0.58 kg', note: 'Airflow + PySpark 算出的 ADG（截断 −1.2 / 2.4）。' },
+        { label: '低体况', value: '23.69%', note: '同一批次中体况偏低的比例。' },
+      ],
+    },
+    skadia: {
+      kicker: '产品',
+      title: 'Skadia',
+      body: '数据从牧场开始。面向阿根廷和巴拉圭的三条产品线：地块与 NDVI、视觉与批次卫生、精准畜牧（日增重、载畜、热指数、体况）。',
+      cta: '打开 Skadia 站点 →',
+      shotAlt: 'Skadia 站点：监测、视觉、围场与田间采集图层叠在 3D 模型上。',
+      lines: [
+        { name: 'Nutrogan', icon: '/skadia/producto-nutrogan.svg', blurb: '地块、围场与 NDVI。与 CEDEVA 共建的技术基础。' },
+        { name: 'SIGAG', icon: '/skadia/producto-sigag.svg', blurb: '无信号也能用的田间应用：视觉、卫生、批次。有网后同步。' },
+        { name: '精准畜牧', icon: '/skadia/ganaderia.svg', blurb: 'Lakehouse：日增重、载畜量、热应激小时、体况。' },
       ],
     },
     work: {
@@ -602,6 +664,8 @@ export const ui = {
       intro: '数据工程、看板、自动化，以及已经在用的产品。',
       role: '职责 · ',
       repo: '代码仓库 →',
+      more: '查看其余',
+      less: '收起',
       filters: [
         { id: 'all', label: '全部' },
         { id: 'de', label: '数据' },

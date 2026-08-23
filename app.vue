@@ -1,5 +1,6 @@
 <template>
   <div class="relative min-h-screen font-sans text-slate-100">
+    <a href="#contenido" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-cyan-400 focus:px-4 focus:py-2 focus:text-slate-950">{{ t.nav.skip }}</a>
     <DataField />
     <div class="pointer-events-none fixed inset-0 -z-[9] bg-[radial-gradient(ellipse_at_top,rgba(99,102,241,0.12),transparent_55%)]"></div>
     <NavBar />
@@ -28,6 +29,34 @@ useHead({
     { name: 'twitter:title', content: () => t.value.meta.title },
     { name: 'twitter:description', content: () => t.value.meta.description },
     { name: 'twitter:image', content: 'https://fabricioduarte.tech/images/profile.jpg' },
+  ],
+  script: [
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Person',
+        name: 'Fabricio Nicolás Duarte',
+        jobTitle: 'Data Engineer',
+        url: 'https://fabricioduarte.tech',
+        email: 'mailto:fabricioduarteoficial@gmail.com',
+        address: { '@type': 'PostalAddress', addressLocality: 'Resistencia', addressRegion: 'Chaco', addressCountry: 'AR' },
+        alumniOf: [
+          { '@type': 'CollegeOrUniversity', name: 'Universidad Tecnológica Nacional — Facultad Regional Resistencia' },
+          { '@type': 'CollegeOrUniversity', name: 'Universidad del Gran Rosario' },
+        ],
+        knowsAbout: ['Data engineering', 'Business intelligence', 'Apache Superset', 'PySpark', 'Django', 'AgTech'],
+        sameAs: [
+          'https://www.linkedin.com/in/fabricionicolasduarte/',
+          'https://github.com/FabricioNicolasDuarte',
+          'https://fabricionicolasduarte.github.io/skadia-webgl/',
+        ],
+        worksFor: [
+          { '@type': 'Organization', name: 'ECOM Chaco' },
+          { '@type': 'Organization', name: 'Skadia' },
+        ],
+      }),
+    },
   ],
 })
 </script>

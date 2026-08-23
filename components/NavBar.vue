@@ -62,6 +62,7 @@ const meta = LOCALE_META
 const items = computed(() => [
   { id: 'architecture', label: t.value.nav.method },
   { id: 'caso', label: t.value.nav.case },
+  { id: 'skadia', label: t.value.nav.skadia },
   { id: 'work', label: t.value.nav.work },
   { id: 'path', label: t.value.nav.path },
   { id: 'skills', label: t.value.nav.stack },

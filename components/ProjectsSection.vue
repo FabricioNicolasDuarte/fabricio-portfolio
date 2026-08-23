@@ -49,6 +49,15 @@
         </a>
       </article>
     </div>
+    <div class="mt-8 flex justify-center" v-if="active === 'all' && work.length > PIN_COUNT">
+      <button
+        type="button"
+        class="rounded-full border border-white/15 px-4 py-2 text-sm text-slate-300 transition hover:border-cyan-400/40 hover:text-cyan-200"
+        @click="expanded = !expanded"
+      >
+        {{ expanded ? t.work.less : t.work.more }}
+      </button>
+    </div>
   </section>
 </template>
 
@@ -57,10 +66,13 @@ import { computed, ref } from 'vue'
 
 const { t, tx } = useLocale()
 const active = ref('all')
+const expanded = ref(false)
+const PIN_COUNT = 6
 const filters = computed(() => t.value.work.filters)
 
 const work = [
   {
+    pin: true,
     featured: true,
     kind: 'Producto · datos · IA',
     title: 'SIGAG — Sistema Integral de Gestión Agrícola Ganadera',
@@ -87,6 +99,7 @@ const work = [
     cats: ['product', 'de', 'da', 'auto', 'agtech'],
   },
   {
+    pin: true,
     featured: true,
     kind: 'Data engineering · AgTech',
     title: 'De las planillas del campo al tablero (Airflow + PySpark)',
@@ -117,6 +130,7 @@ const work = [
     ctaEn: 'Dashboard + repository →',
   },
   {
+    pin: true,
     featured: true,
     kind: 'Automatización · integración',
     title: 'Orquestación operativa — n8n',
@@ -136,6 +150,7 @@ const work = [
     cats: ['auto', 'de'],
   },
   {
+    pin: true,
     featured: false,
     kind: 'Analytics · ECOM',
     title: 'Tableros institucionales — Apache Superset & Power BI',
@@ -215,6 +230,7 @@ const work = [
     cats: ['ecom', 'de'],
   },
   {
+    pin: true,
     featured: false,
     kind: 'Producto · EdTech · comercializado',
     title: 'SIGCL — Sistema Integral de Gestión Curricular y Legal',
@@ -231,6 +247,7 @@ const work = [
     href: 'https://github.com/FabricioNicolasDuarte/SIGCL',
   },
   {
+    pin: true,
     featured: false,
     kind: 'Producto · agro · datos',
     title: 'Nutrogan',
@@ -307,8 +324,15 @@ const work = [
   },
 ]
 
-const visible = computed(() => {
+const filtered = computed(() => {
   if (active.value === 'all') return work
   return work.filter(w => w.cats.includes(active.value))
+})
+
+const visible = computed(() => {
+  const list = filtered.value
+  if (active.value !== 'all' || expanded.value) return list
+  const pinned = list.filter(w => w.pin)
+  return pinned.length ? pinned : list.slice(0, PIN_COUNT)
 })
 </script>

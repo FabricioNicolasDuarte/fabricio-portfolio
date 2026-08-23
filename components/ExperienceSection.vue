@@ -117,7 +117,7 @@ const jobs = [
     period: '2022 — actualidad',
     periodEn: '2022 — present',
     title: 'Lead Developer & CTO',
-    org: 'Skadia Startup',
+    org: 'Skadia',
     lead: 'Dirección técnica de productos digitales en agrotech.',
     leadEn: 'Technical direction of digital products in agrotech.',
     points: [
