@@ -99,8 +99,8 @@ const work = [
   {
     featured: true,
     kind: 'Data engineering · AgTech',
-    title: 'skadia-ganaderia-precision — Airflow, PySpark, Delta',
-    titleEn: 'skadia-ganaderia-precision — Airflow, PySpark, Delta',
+    title: 'skadia-data-engineering — Airflow, PySpark, Delta',
+    titleEn: 'skadia-data-engineering — Airflow, PySpark, Delta',
     summary:
       'Pipeline medallón (bronze/silver/gold) en Delta: DAG Airflow, jobs PySpark, MERGE por captured_at, cuarentena y quality gates. Gold: ADG (gap ≥ 7 d, clip, retiro sanitario), carga UA/ha, horas ITH en riesgo, % BCS < 4. Runtime Docker; Databricks Free Edition opcional. 2.000 animales × 90 días.',
     summaryEn:
