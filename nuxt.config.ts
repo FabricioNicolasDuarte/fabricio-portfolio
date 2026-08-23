@@ -6,6 +6,12 @@ export default defineNuxtConfig({
   devServer: {
     port: 3055,
   },
+  nitro: {
+    prerender: {
+      crawlLinks: true,
+      routes: ['/', '/agtech/lakehouse'],
+    },
+  },
   app: {
     head: {
       title: 'Fabricio Duarte — Ciencia de datos, analítica y automatización',

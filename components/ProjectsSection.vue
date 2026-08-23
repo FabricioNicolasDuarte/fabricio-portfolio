@@ -43,11 +43,11 @@
         <a
           v-if="item.href"
           :href="item.href"
-          target="_blank"
-          rel="noopener noreferrer"
+          :target="item.external === false ? undefined : '_blank'"
+          :rel="item.external === false ? undefined : 'noopener noreferrer'"
           class="mt-4 inline-flex items-center gap-1 text-sm text-cyan-300 transition hover:text-cyan-200"
         >
-          {{ isEn ? 'Repo →' : 'Repositorio →' }}
+          {{ isEn ? (item.ctaEn || 'Repo →') : (item.cta || 'Repositorio →') }}
         </a>
       </article>
     </div>
@@ -66,6 +66,7 @@ const filters = computed(() => isEn.value
       { id: 'da', label: 'Analytics' },
       { id: 'auto', label: 'Automation' },
       { id: 'ecom', label: 'ECOM' },
+      { id: 'agtech', label: 'AgTech' },
       { id: 'product', label: 'Product' },
     ]
   : [
@@ -74,6 +75,7 @@ const filters = computed(() => isEn.value
       { id: 'da', label: 'Analytics' },
       { id: 'auto', label: 'Automatización' },
       { id: 'ecom', label: 'ECOM' },
+      { id: 'agtech', label: 'AgTech' },
       { id: 'product', label: 'Producto' },
     ])
 
@@ -92,7 +94,27 @@ const work = [
     kindEn: 'Product · data · AI',
     tags: ['Expo', 'TypeScript', 'WatermelonDB', 'Visión artificial', 'LLM', 'n8n', 'Supabase'],
     tagsEn: ['Expo', 'TypeScript', 'WatermelonDB', 'Computer vision', 'LLM', 'n8n', 'Supabase'],
-    cats: ['product', 'de', 'da', 'auto'],
+    cats: ['product', 'de', 'da', 'auto', 'agtech'],
+  },
+  {
+    featured: true,
+    kind: 'Data engineering · AgTech',
+    title: 'Lakehouse Skadia — Airflow, PySpark, Databricks',
+    titleEn: 'Skadia lakehouse — Airflow, PySpark, Databricks',
+    summary:
+      'Lab de plataforma de datos sobre ganadería de precisión: DAG idempotente en Apache Airflow, PySpark y Delta (bronze/silver/gold), Databricks Free Edition o Spark local, quality gates y KPIs (ADG, carga, ITH, BCS). Prueba pública del stack de orquestación y Spark; complementa el producto de campo, no lo reemplaza. Dataset de demostración.',
+    summaryEn:
+      'Data-platform lab on precision livestock: idempotent Apache Airflow DAG, PySpark and Delta (bronze/silver/gold), Databricks Free Edition or local Spark, quality gates, and KPIs (ADG, stocking, THI, BCS). Public proof of orchestration and Spark; complements the field product. Demonstration dataset.',
+    role: 'Arquitectura de datos. Skadia lab · Fabricio Duarte.',
+    roleEn: 'Data architecture. Skadia lab · Fabricio Duarte.',
+    kindEn: 'Data engineering · AgTech',
+    tags: ['Airflow', 'PySpark', 'Databricks', 'Delta Lake', 'Docker'],
+    tagsEn: ['Airflow', 'PySpark', 'Databricks', 'Delta Lake', 'Docker'],
+    cats: ['agtech', 'de', 'da', 'product'],
+    href: '/agtech/lakehouse/',
+    external: false,
+    cta: 'Caso técnico →',
+    ctaEn: 'Technical case →',
   },
   {
     featured: true,
@@ -211,7 +233,7 @@ const work = [
     role: 'Tech lead. Skadia.',
     kindEn: 'Product · agri · data',
     tags: ['Vue', 'Quasar', 'Pinia', 'PostgreSQL', 'TensorFlow.js'],
-    cats: ['product', 'da', 'de'],
+    cats: ['product', 'da', 'de', 'agtech'],
     href: 'https://github.com/FabricioNicolasDuarte/Nutrogan',
   },
   {

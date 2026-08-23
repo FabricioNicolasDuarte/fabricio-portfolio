@@ -17,6 +17,7 @@
 <script setup>
 const tools = [
   'Django', 'SQL', 'PostgreSQL', 'SQL Server', 'Apache Superset', 'Power BI',
+  'Apache Airflow', 'PySpark', 'Databricks', 'Delta Lake',
   'n8n', 'Laravel', 'Vue', 'Nuxt', 'TypeScript', 'Expo', 'WatermelonDB',
   'Quasar', 'Pinia', 'Flutter', 'MongoDB', 'Celery', 'Python', 'PHP',
 ]

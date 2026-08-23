@@ -21,6 +21,9 @@
     </div>
 
     <p class="mt-6 text-sm text-slate-500">{{ copy.note }}</p>
+    <p class="mt-3 text-sm">
+      <a href="/agtech/lakehouse/" class="text-cyan-300 hover:text-cyan-200">{{ copy.lab }}</a>
+    </p>
   </section>
 </template>
 
@@ -32,11 +35,12 @@ const copy = computed(() => isEn.value
   ? {
       kicker: 'Method',
       title: 'Information architecture',
-      intro: 'The same pattern across institutional and product platforms: heterogeneous sources, data contract, analytic model, governed visualization, and exception automation.',
+      intro: 'The same pattern across institutional platforms and AgTech (Skadia): heterogeneous sources, data contract, analytic model, governed visualization, and exception automation. Lakehouse path: Airflow + PySpark + Databricks when the grain is Delta, not only SQL.',
       note: 'Layered security (RLS, federated identity) and export audit on the serving layer. Failed jobs are not silent: alerts are orchestrated.',
+      lab: 'AgTech lakehouse lab (Airflow · PySpark · Databricks) →',
       steps: [
         { title: 'Ingest', body: 'Transactional systems, GIS, registries, and staging files. The source is not rewritten: it is exposed under a contract.', tags: ['SQL Server', 'PostgreSQL', 'APIs', 'CSV'] },
-        { title: 'Transform', body: 'Idempotent ETL/ELT, async reconciliation, and quality rules. Batches, queues, and retries.', tags: ['Django', 'Celery', 'Redis', 'Python'] },
+        { title: 'Transform', body: 'Idempotent ETL/ELT, Spark jobs, and quality rules. Airflow DAGs or Celery — same contract, different runtime.', tags: ['Airflow', 'PySpark', 'Celery', 'Python'] },
         { title: 'Model', body: 'Analytic layer: facts, dimensions, and reusable metrics for dashboards and query APIs.', tags: ['SQL', 'PostGIS', 'datasets'] },
         { title: 'Visualize', body: 'Dashboards on consolidated data with embed, RLS, and federation. Institutional consumption, not a lab.', tags: ['Superset', 'Power BI', 'DAX'] },
         { title: 'Act', body: 'Exceptions, jobs, and notifications. If a batch fails, the flow detects it and escalates.', tags: ['n8n', 'webhooks', 'cron'] },
@@ -45,11 +49,12 @@ const copy = computed(() => isEn.value
   : {
       kicker: 'Método',
       title: 'Arquitectura de información',
-      intro: 'El mismo patrón en plataformas institucionales y de producto: fuentes heterogéneas, contrato de datos, modelo analítico, visualización gobernada y automatización de excepciones.',
+      intro: 'El mismo patrón en plataformas institucionales y AgTech (Skadia): fuentes heterogéneas, contrato de datos, modelo analítico, visualización gobernada y automatización de excepciones. Camino lakehouse: Airflow + PySpark + Databricks cuando el grano es Delta, no solo SQL.',
       note: 'Seguridad por capas (RLS, identidad federada) y auditoría de exportación en el serving. Los jobs fallidos no se silencian: se orquestan alertas.',
+      lab: 'Lab lakehouse AgTech (Airflow · PySpark · Databricks) →',
       steps: [
         { title: 'Ingesta', body: 'Sistemas transaccionales, GIS, padrones y archivos de staging. El origen no se reescribe: se expone con contrato.', tags: ['SQL Server', 'PostgreSQL', 'APIs', 'CSV'] },
-        { title: 'Transformación', body: 'ETL/ELT idempotente, conciliación asíncrona y reglas de calidad. Lotes, colas y reintentos.', tags: ['Django', 'Celery', 'Redis', 'Python'] },
+        { title: 'Transformación', body: 'ETL/ELT idempotente, jobs Spark y reglas de calidad. DAG Airflow o Celery: el mismo contrato, distinto runtime.', tags: ['Airflow', 'PySpark', 'Celery', 'Python'] },
         { title: 'Modelo', body: 'Capa analítica: hechos, dimensiones y métricas reutilizables para tableros y APIs de consulta.', tags: ['SQL', 'PostGIS', 'datasets'] },
         { title: 'Visualización', body: 'Dashboards de datos consolidados con embed, RLS y federación. Consumo institucional, no laboratorio.', tags: ['Superset', 'Power BI', 'DAX'] },
         { title: 'Acción', body: 'Excepciones, jobs y notificaciones. Si un lote falla, el flujo lo detecta y escala.', tags: ['n8n', 'webhooks', 'cron'] },
