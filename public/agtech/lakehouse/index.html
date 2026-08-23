@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>skadia-data-engineering — medallion Airflow / PySpark / Delta</title>
-  <meta name="description" content="Pipeline medallón Delta para ganadería de precisión. Airflow, PySpark, Databricks. Gold KPIs publicados." />
+  <title>De las planillas del campo al tablero — Fabricio Duarte</title>
+  <meta name="description" content="Proyecto de datos ganaderos: planillas de manga → Apache Airflow, PySpark, Delta Lake, Databricks → tablero con ADG, carga, ITH y BCS." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" />
   <style>
@@ -13,10 +13,13 @@
     body { margin: 0; font-family: "IBM Plex Sans", system-ui, sans-serif; background: #030712; color: #cbd5e1; line-height: 1.6; }
     .wrap { max-width: 58rem; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
     a { color: #22d3ee; }
-    h1 { font-size: clamp(1.5rem, 3vw, 2rem); color: #fff; font-weight: 600; margin: .35rem 0 1rem; }
+    h1 { font-size: clamp(1.65rem, 3.4vw, 2.35rem); color: #fff; font-weight: 600; margin: .4rem 0 .9rem; line-height: 1.2; }
     h2 { font-size: 0.78rem; letter-spacing: .14em; text-transform: uppercase; color: #22d3ee; margin: 2rem 0 .75rem; }
     .kicker { font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: #22d3ee; }
-    .lead { color: #94a3b8; max-width: 42rem; }
+    .lead { color: #cbd5e1; max-width: 44rem; font-size: 1.05rem; }
+    .sub { color: #94a3b8; max-width: 44rem; }
+    .tags { display: flex; flex-wrap: wrap; gap: .4rem; margin: 1.1rem 0 1.25rem; padding: 0; list-style: none; }
+    .tags li { border: 1px solid rgba(34,211,238,.4); color: #a5f3fc; border-radius: 999px; padding: .28rem .75rem; font-size: 12px; font-family: "IBM Plex Mono", monospace; }
     .frame { width: 100%; height: 560px; border: 1px solid rgba(34,211,238,.3); background: #020617; }
     .spec { width: 100%; border-collapse: collapse; font-size: 14px; }
     .spec th, .spec td { text-align: left; padding: .45rem .5rem; border-bottom: 1px solid #1e293b; vertical-align: top; }
@@ -24,46 +27,68 @@
     code { font-family: "IBM Plex Mono", monospace; font-size: 12.5px; color: #a5f3fc; }
     .btn { display: inline-block; margin: .35rem .5rem .35rem 0; padding: .55rem 1rem; border: 1px solid #22d3ee; color: #22d3ee; text-decoration: none; font-size: 14px; }
     .btn.solid { background: #22d3ee; color: #030712; }
+    .plain { margin: 0 0 .7rem; color: #94a3b8; }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <p><a href="/">← fabricioduarte.tech</a></p>
-    <p class="kicker">skadia-data-engineering</p>
-    <h1>Medallion pipeline · precision livestock</h1>
+    <p><a href="/">← Inicio</a></p>
+    <p class="kicker">Proyecto · ganadería de precisión · Skadia</p>
+    <h1>De las planillas del campo a un tablero de indicadores</h1>
     <p class="lead">
-      Orquestación Airflow, transformaciones PySpark sobre Delta Lake (bronze / silver / gold)
-      y ejecución equivalente en Databricks Free Edition o Spark <code>local[*]</code>.
-      Hechos: pesadas, rodeos, ITH horario, BCS, eventos sanitarios, ocupación diaria.
-      Serving: ADG, carga UA/ha, horas ITH en riesgo, % BCS &lt; 4.
+      En un establecimiento el peso de los animales, el clima, la condición corporal y los tratamientos
+      suelen estar en Excel o en planillas de manga. Este proyecto toma esas planillas, las ordena
+      y calcula cuatro números que importan en el día a día: <strong>cuánto gana el animal por día</strong>,
+      <strong>cuántos hay por hectárea</strong>, <strong>cuánto calor de riesgo hubo</strong> y
+      <strong>qué porcentaje está flaco</strong>.
     </p>
+    <p class="sub">
+      Abajo está el tablero ya calculado. El código para repetirlo en una PC está en GitHub
+      (Docker: Apache Airflow + PySpark). Si no hay cluster, Spark corre en la máquina.
+    </p>
+    <ul class="tags">
+      <li>Apache Airflow</li>
+      <li>PySpark</li>
+      <li>Delta Lake</li>
+      <li>Databricks</li>
+      <li>Docker Compose</li>
+      <li>Streamlit</li>
+      <li>Python</li>
+      <li>Quality gates</li>
+    </ul>
     <p>
-      <a class="btn solid" href="https://github.com/FabricioNicolasDuarte/skadia-data-engineering">Repositorio (código + Docker)</a>
-      <a class="btn" href="/agtech/dashboard.html">Abrir dashboard gold</a>
+      <a class="btn solid" href="https://github.com/FabricioNicolasDuarte/skadia-data-engineering">Repositorio en GitHub</a>
+      <a class="btn" href="/agtech/dashboard.html">Tablero a pantalla completa</a>
     </p>
 
-    <h2>Gold (snapshot publicado)</h2>
+    <h2>Tablero (resultado publicado)</h2>
     <iframe class="frame" title="Dashboard gold" src="/agtech/dashboard.html"></iframe>
 
-    <h2>Especificación</h2>
+    <h2>Qué ve alguien del campo</h2>
+    <p class="plain"><strong>ADG</strong> — kilos que gana el animal por día, entre una pesada y la siguiente.</p>
+    <p class="plain"><strong>Carga</strong> — cuánta hacienda hay por hectárea útil (no un conteo de un solo día).</p>
+    <p class="plain"><strong>ITH</strong> — horas de calor en las que el ganado está en estrés (índice temperatura-humedad).</p>
+    <p class="plain"><strong>BCS</strong> — porcentaje de animales flacos (condición corporal menor a 4 en escala 1–9).</p>
+
+    <h2>Qué ve alguien de datos</h2>
     <table class="spec">
-      <tr><th>Ingesta</th><td>Planillas CSV (<code>;</code>, <code>dd/MM/yyyy</code>). Corrección de pesada: mismo <code>pesada_id</code>, gana <code>captured_at</code> máximo (MERGE).</td></tr>
-      <tr><th>Bronze</th><td>Delta, overwrite de partición <code>ingest_date</code>. Sin pérdida de filas sucias.</td></tr>
-      <tr><th>Silver</th><td>Contrato de rangos; cuarentena; late-arriving = captura &gt; event_ts + 24 h.</td></tr>
-      <tr><th>Quality</th><td>Gates sobre PK, nulos, BCS 1–9, ITH físico, ratio late-arriving. Fallo aborta gold.</td></tr>
-      <tr><th>Gold ADG</th><td>Gap mínimo 7 días, clip (−1.2, 2.4) kg/d, exclusión en ventana de retiro sanitario.</td></tr>
-      <tr><th>Carga</th><td>Σ UA-día / (ha útil × días de la ventana), no cabezas/ha puntuales.</td></tr>
-      <tr><th>Runtime</th><td>DAG <code>skadia_medallion_ganaderia</code>. Spark driver 4 GB. Default 2 000 animales × 90 días.</td></tr>
+      <tr><th>Stack</th><td>Apache Airflow (DAG), PySpark, Delta Lake, Databricks Free Edition o Spark <code>local[*]</code>, Streamlit, Docker Compose.</td></tr>
+      <tr><th>Ingesta</th><td>CSV de manga (<code>;</code>, <code>dd/MM/yyyy</code>). Corrección de pesada: mismo <code>pesada_id</code>, gana <code>captured_at</code> (MERGE).</td></tr>
+      <tr><th>Bronze</th><td>Delta, overwrite de partición <code>ingest_date</code>. No se tiran filas sucias.</td></tr>
+      <tr><th>Silver</th><td>Contrato de rangos; cuarentena; late-arriving = captura &gt; evento + 24 h.</td></tr>
+      <tr><th>Quality</th><td>PK, nulos, BCS 1–9, ITH físico, tope de late-arriving. Si falla, no publica gold.</td></tr>
+      <tr><th>Gold ADG</th><td>Gap ≥ 7 días, clip (−1.2, 2.4) kg/d, exclusión en retiro sanitario.</td></tr>
+      <tr><th>Carga</th><td>Σ UA-día / (ha útil × días), no cabezas/ha puntuales.</td></tr>
+      <tr><th>Escala</th><td>DAG <code>skadia_medallion_ganaderia</code>. Default 2 000 animales × 90 días. Dataset de demostración.</td></tr>
     </table>
 
-    <h2>Reproducir en workstation</h2>
-    <p class="lead">Todo el runtime está en el repositorio (Compose, jobs, DAG, dashboard). No hace falta Databricks para la corrida local.</p>
-    <p>
-      <a class="btn solid" href="https://github.com/FabricioNicolasDuarte/skadia-data-engineering">github.com/FabricioNicolasDuarte/skadia-data-engineering</a>
-    </p>
+    <h2>Correrlo en una PC</h2>
+    <p class="sub">Hace falta Docker Desktop (~4 GB RAM). Databricks no es obligatorio.</p>
     <p><code>git clone https://github.com/FabricioNicolasDuarte/skadia-data-engineering.git</code></p>
+    <p><code>cd skadia-data-engineering</code></p>
     <p><code>docker compose up -d --build && docker compose run --rm pipeline run-all</code></p>
-    <p class="lead">Airflow: <code>http://localhost:8088</code> (admin/admin). Streamlit: <code>http://localhost:8501</code>. Requisitos: Docker Desktop, ~4 GB RAM.</p>
+    <p class="sub">Tablero local: <code>http://localhost:8501</code> · Airflow: <code>http://localhost:8088</code> (admin / admin)</p>
+    <p><a class="btn solid" href="https://github.com/FabricioNicolasDuarte/skadia-data-engineering">github.com/FabricioNicolasDuarte/skadia-data-engineering</a></p>
   </div>
 </body>
 </html>
