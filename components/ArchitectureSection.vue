@@ -35,9 +35,9 @@ const copy = computed(() => isEn.value
   ? {
       kicker: 'Method',
       title: 'Information architecture',
-      intro: 'The same pattern across institutional platforms and AgTech (Skadia): heterogeneous sources, data contract, analytic model, governed visualization, and exception automation. Lakehouse path: Airflow + PySpark + Databricks when the grain is Delta, not only SQL.',
+      intro: 'The same pattern across institutional and product platforms: heterogeneous sources, data contract, analytic model, governed visualization, and exception automation.',
       note: 'Layered security (RLS, federated identity) and export audit on the serving layer. Failed jobs are not silent: alerts are orchestrated.',
-      lab: 'AgTech lakehouse lab (Airflow · PySpark · Databricks) →',
+      lab: 'Demo project: Airflow + PySpark + Databricks (livestock pipeline) →',
       steps: [
         { title: 'Ingest', body: 'Transactional systems, GIS, registries, and staging files. The source is not rewritten: it is exposed under a contract.', tags: ['SQL Server', 'PostgreSQL', 'APIs', 'CSV'] },
         { title: 'Transform', body: 'Idempotent ETL/ELT, Spark jobs, and quality rules. Airflow DAGs or Celery — same contract, different runtime.', tags: ['Airflow', 'PySpark', 'Celery', 'Python'] },
@@ -49,9 +49,9 @@ const copy = computed(() => isEn.value
   : {
       kicker: 'Método',
       title: 'Arquitectura de información',
-      intro: 'El mismo patrón en plataformas institucionales y AgTech (Skadia): fuentes heterogéneas, contrato de datos, modelo analítico, visualización gobernada y automatización de excepciones. Camino lakehouse: Airflow + PySpark + Databricks cuando el grano es Delta, no solo SQL.',
+      intro: 'El mismo patrón en plataformas institucionales y de producto: fuentes heterogéneas, contrato de datos, modelo analítico, visualización gobernada y automatización de excepciones.',
       note: 'Seguridad por capas (RLS, identidad federada) y auditoría de exportación en el serving. Los jobs fallidos no se silencian: se orquestan alertas.',
-      lab: 'Lab lakehouse AgTech (Airflow · PySpark · Databricks) →',
+      lab: 'Proyecto demo: Airflow + PySpark + Databricks (pipeline ganadero) →',
       steps: [
         { title: 'Ingesta', body: 'Sistemas transaccionales, GIS, padrones y archivos de staging. El origen no se reescribe: se expone con contrato.', tags: ['SQL Server', 'PostgreSQL', 'APIs', 'CSV'] },
         { title: 'Transformación', body: 'ETL/ELT idempotente, jobs Spark y reglas de calidad. DAG Airflow o Celery: el mismo contrato, distinto runtime.', tags: ['Airflow', 'PySpark', 'Celery', 'Python'] },

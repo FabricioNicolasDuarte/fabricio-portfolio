@@ -3,79 +3,93 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Lakehouse ganadería de precisión — Fabricio Duarte</title>
-  <meta name="description" content="Lab Skadia: Apache Airflow, PySpark, Databricks y Delta Lake. Caso técnico en fabricioduarte.tech." />
+  <title>Pipeline ganadero (Airflow + PySpark) — Fabricio Duarte</title>
+  <meta name="description" content="Demo: planillas de manga a tablero con Airflow, PySpark, Delta y Databricks." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Space+Grotesk:wght@600&display=swap" />
   <style>
     :root { color-scheme: dark; }
     * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: Outfit, system-ui, sans-serif;
-      background: #030712;
-      color: #e2e8f0;
-      line-height: 1.55;
-    }
+    body { margin: 0; font-family: Outfit, system-ui, sans-serif; background: #030712; color: #e2e8f0; line-height: 1.55; }
     .wrap { max-width: 52rem; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
     a { color: #67e8f9; }
-    .kicker { letter-spacing: .18em; text-transform: uppercase; font-size: 11px; color: #22d3ee; }
-    h1 { font-family: "Space Grotesk", Outfit, sans-serif; font-size: clamp(1.8rem, 4vw, 2.6rem); margin: .4rem 0 1rem; color: #fff; }
+    .kicker { letter-spacing: .14em; text-transform: uppercase; font-size: 11px; color: #22d3ee; }
+    h1 { font-family: "Space Grotesk", Outfit, sans-serif; font-size: clamp(1.7rem, 4vw, 2.4rem); margin: .4rem 0 1rem; color: #fff; }
+    h2 { font-size: 1.15rem; color: #fff; margin: 2rem 0 .6rem; }
     .hero { width: 100%; height: 220px; object-fit: cover; border-radius: 16px; border: 1px solid rgba(34,211,238,.25); }
-    .tags { display: flex; flex-wrap: wrap; gap: .4rem; margin: 1rem 0 1.5rem; padding: 0; list-style: none; }
-    .tags li { border: 1px solid rgba(255,255,255,.12); border-radius: 999px; padding: .25rem .7rem; font-size: 12px; color: #cbd5e1; }
-    .grid { display: grid; gap: 1rem; }
+    .muted { color: #94a3b8; font-size: .98rem; }
+    ol.pipe { margin: 1rem 0 0; padding-left: 1.2rem; color: #cbd5e1; }
+    ol.pipe li { margin: .45rem 0; }
+    .grid { display: grid; gap: 1rem; margin-top: 1.25rem; }
     @media (min-width: 800px) { .grid { grid-template-columns: 1fr 1fr 1fr; } }
     .card { background: rgba(15,23,42,.7); border: 1px solid rgba(255,255,255,.08); border-radius: 16px; padding: 1.1rem; }
-    .card h2 { font-size: 1.05rem; color: #fff; margin: .35rem 0; }
-    .muted { color: #94a3b8; font-size: .95rem; }
-    .kpis { display: grid; grid-template-columns: repeat(2, 1fr); gap: .75rem; margin-top: 1.25rem; }
+    .card h3 { font-size: 1rem; color: #fff; margin: 0 0 .4rem; }
+    .kpis { display: grid; grid-template-columns: repeat(2, 1fr); gap: .75rem; margin-top: 1rem; }
     @media (min-width: 700px) { .kpis { grid-template-columns: repeat(4, 1fr); } }
-    .kpi span { display: block; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: #64748b; }
-    .kpi strong { font-size: 1.15rem; color: #fff; }
+    .kpi span { display: block; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: #64748b; }
+    .kpi strong { font-size: 1.05rem; color: #fff; }
+    code { font-size: .85rem; color: #a5f3fc; }
+    .tags { display: flex; flex-wrap: wrap; gap: .4rem; margin: 1rem 0; padding: 0; list-style: none; }
+    .tags li { border: 1px solid rgba(255,255,255,.12); border-radius: 999px; padding: .25rem .7rem; font-size: 12px; color: #cbd5e1; }
   </style>
 </head>
 <body>
   <div class="wrap">
     <p><a href="/">← Inicio</a></p>
-    <p class="kicker">Skadia · lab de plataforma de datos</p>
-    <h1>Lakehouse de ganadería de precisión</h1>
+    <p class="kicker">Proyecto demo · Skadia</p>
+    <h1>De la planilla de manga al tablero de 4 KPIs</h1>
     <p class="muted">
-      Prueba pública de <strong>Apache Airflow</strong>, <strong>PySpark</strong> y <strong>Databricks</strong>
-      (Free Edition; Spark local si no hay cluster) sobre el dominio Skadia: pesadas, rodeos, ITH, BCS y sanidad
-      en un medallón Delta bronze / silver / gold.
+      Proyecto que armé para mostrar uso de <strong>Apache Airflow</strong>, <strong>PySpark</strong> y
+      <strong>Databricks</strong> (si no hay cluster, Spark corre en Docker). Toma planillas tipo Excel de un campo
+      (pesadas, rodeos, clima/ITH, condición corporal, sanidad) y las deja en tablas Delta
+      bronze → silver → gold. El tablero muestra ADG, carga, ITH de riesgo y % BCS bajo.
     </p>
-    <img class="hero" src="/images/agtech-lakehouse.jpg" alt="HUD agritech" />
+    <img class="hero" src="/images/agtech-lakehouse.jpg" alt="" />
     <ul class="tags">
       <li>Apache Airflow</li>
       <li>PySpark</li>
       <li>Databricks</li>
       <li>Delta Lake</li>
-      <li>ADG · carga · ITH · BCS</li>
+      <li>Docker Compose</li>
+      <li>Streamlit</li>
     </ul>
+
+    <h2>Qué hace el pipeline</h2>
+    <ol class="pipe">
+      <li><strong>Landing:</strong> CSV de manga (incluye pesadas que llegan tarde, pesos raros, huecos de clima).</li>
+      <li><strong>Bronze:</strong> se guarda crudo en Delta, por fecha de ingesta.</li>
+      <li><strong>Silver:</strong> se limpia, se unen correcciones (la última captura gana) y lo inválido va a cuarentena.</li>
+      <li><strong>Quality gates:</strong> si falla PK, nulos o rangos, el DAG no publica gold.</li>
+      <li><strong>Gold + tablero:</strong> KPIs y gráficos. Airflow en el puerto 8088, tablero en 8501 (local).</li>
+    </ol>
+
     <div class="grid">
       <article class="card">
-        <p class="kicker">fabricioduarte.tech</p>
-        <h2>Qué muestro acá</h2>
-        <p class="muted">DAG idempotente, MERGE por late-arriving, quality gates y KPIs con reglas de producción.</p>
+        <h3>1. Entrada</h3>
+        <p class="muted">Planillas: hacienda, pesadas, potreros, BCS, sanidad, estación de clima, stock diario.</p>
       </article>
       <article class="card">
-        <p class="kicker">Skadia</p>
-        <h2>Dónde vive</h2>
-        <p class="muted">La startup es dueña del problema ganadero. Este lab es la capa de orquestación y analítica.</p>
+        <h3>2. Motor</h3>
+        <p class="muted">DAG de Airflow + jobs PySpark. Mismo código en Databricks Free Edition o Spark <code>local[*]</code>.</p>
       </article>
       <article class="card">
-        <p class="kicker">Corte</p>
-        <h2>No es SIGAG</h2>
-        <p class="muted">SIGAG es operación de campo. Este caso es el demo de lakehouse. Dataset de demostración.</p>
+        <h3>3. Salida</h3>
+        <p class="muted">Tablero oscuro (HUD) con cuatro indicadores y serie de 90 días.</p>
       </article>
     </div>
+
+    <h2>Indicadores del gold</h2>
     <div class="kpis">
-      <div class="card kpi"><span>ADG</span><strong>kg / día</strong></div>
-      <div class="card kpi"><span>Carga</span><strong>UA / ha</strong></div>
-      <div class="card kpi"><span>ITH riesgo</span><strong>% horas</strong></div>
-      <div class="card kpi"><span>BCS bajo</span><strong>% &lt; 4</strong></div>
+      <div class="card kpi"><span>ADG</span><strong>kg/día entre pesadas</strong></div>
+      <div class="card kpi"><span>Carga</span><strong>UA por hectárea útil</strong></div>
+      <div class="card kpi"><span>ITH</span><strong>% de horas en alerta</strong></div>
+      <div class="card kpi"><span>BCS</span><strong>% de animales &lt; 4</strong></div>
     </div>
+
+    <h2>Cómo correrlo en la máquina</h2>
+    <p class="muted">Repo local: <code>skadia-ganaderia-precision</code></p>
+    <p class="muted"><code>docker compose up -d --build</code><br /><code>docker compose run --rm pipeline run-all</code><br />Tablero: <code>http://localhost:8501</code> · Airflow: <code>http://localhost:8088</code> (admin / admin)</p>
+    <p class="muted">Escala del demo: 2.000 animales, 90 días, ~180.000 filas de ocupación diaria. Dataset de demostración (no es un establecimiento publicado).</p>
   </div>
 </body>
 </html>

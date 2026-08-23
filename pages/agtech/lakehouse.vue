@@ -4,7 +4,7 @@
 
     <p class="mt-8 text-xs font-medium tracking-widest text-cyan-400 uppercase">{{ copy.kicker }}</p>
     <h1 class="mt-2 font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl">{{ copy.title }}</h1>
-    <p class="mt-4 max-w-2xl text-[16px] leading-relaxed text-slate-400">{{ copy.lede }}</p>
+    <p class="mt-4 max-w-3xl text-[16px] leading-relaxed text-slate-400">{{ copy.lede }}</p>
 
     <div class="mt-8 overflow-hidden rounded-2xl border border-cyan-400/20">
       <img src="/images/agtech-lakehouse.jpg" alt="" class="h-56 w-full object-cover sm:h-80" />
@@ -14,23 +14,28 @@
       <li v-for="t in copy.tags" :key="t" class="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-slate-300">{{ t }}</li>
     </ul>
 
-    <div class="mt-12 grid gap-4 md:grid-cols-3">
+    <h2 class="mt-12 font-display text-xl font-semibold text-white">{{ copy.pipeTitle }}</h2>
+    <ol class="mt-4 list-decimal space-y-2 pl-5 text-[15px] leading-relaxed text-slate-400">
+      <li v-for="s in copy.steps" :key="s">{{ s }}</li>
+    </ol>
+
+    <div class="mt-10 grid gap-4 md:grid-cols-3">
       <article v-for="col in copy.cols" :key="col.title" class="glass rounded-2xl p-6">
-        <p class="text-[11px] font-medium tracking-wider text-cyan-400 uppercase">{{ col.kicker }}</p>
-        <h2 class="mt-2 font-display text-lg font-semibold text-white">{{ col.title }}</h2>
+        <h3 class="font-display text-lg font-semibold text-white">{{ col.title }}</h3>
         <p class="mt-2 text-[14px] leading-relaxed text-slate-400">{{ col.body }}</p>
       </article>
     </div>
 
-    <div class="mt-10 grid gap-4 sm:grid-cols-4">
+    <h2 class="mt-12 font-display text-xl font-semibold text-white">{{ copy.kpiTitle }}</h2>
+    <div class="mt-4 grid gap-4 sm:grid-cols-4">
       <div v-for="m in copy.kpis" :key="m.label" class="glass rounded-2xl px-5 py-4">
         <p class="text-[11px] uppercase tracking-wider text-slate-500">{{ m.label }}</p>
-        <p class="mt-1 font-display text-xl font-semibold text-white">{{ m.value }}</p>
+        <p class="mt-1 font-display text-lg font-semibold text-white">{{ m.value }}</p>
       </div>
     </div>
 
-    <p class="mt-10 max-w-3xl text-[15px] leading-relaxed text-slate-400">{{ copy.note }}</p>
-    <p class="mt-4 text-sm text-slate-500">{{ copy.local }}</p>
+    <h2 class="mt-12 font-display text-xl font-semibold text-white">{{ copy.runTitle }}</h2>
+    <p class="mt-3 max-w-3xl whitespace-pre-line text-[15px] leading-relaxed text-slate-400">{{ copy.run }}</p>
   </main>
 </template>
 
@@ -41,70 +46,64 @@ const { isEn } = useLocale()
 const copy = computed(() =>
   isEn.value
     ? {
-        kicker: 'Skadia · data platform lab',
-        title: 'Precision livestock lakehouse',
-        lede: 'A public proof that I run Apache Airflow, PySpark and Databricks (Free Edition, with Spark local as fallback) on the Skadia domain: weighings, herds, THI, BCS and health events into a bronze / silver / gold Delta medallion. Complementary to the field product (offline capture) — this is the orchestration and analytic layer.',
-        tags: ['Apache Airflow', 'PySpark', 'Databricks', 'Delta Lake', 'quality gates', 'ADG · stocking · THI · BCS'],
+        kicker: 'Demo project · Skadia',
+        title: 'From weighing sheets to a 4-KPI dashboard',
+        lede: 'A project I built to show Apache Airflow, PySpark and Databricks (Spark in Docker if there is no cluster). It takes farm-style CSVs — weighings, herds, weather/THI, body condition, health — and writes Delta tables bronze → silver → gold. The UI shows ADG, stocking rate, heat-stress hours and % low BCS.',
+        tags: ['Apache Airflow', 'PySpark', 'Databricks', 'Delta Lake', 'Docker Compose', 'Streamlit'],
+        pipeTitle: 'What the pipeline does',
+        steps: [
+          'Landing: manga CSVs (including late weighings and bad rows).',
+          'Bronze: raw Delta, partitioned by ingest date.',
+          'Silver: clean + MERGE (newest capture wins); rejects go to quarantine.',
+          'Quality gates: empty keys or out-of-range values stop gold.',
+          'Gold + dashboard: KPIs. Local Airflow :8088, Streamlit :8501.',
+        ],
         cols: [
-          {
-            kicker: 'fabricioduarte.tech',
-            title: 'What I show here',
-            body: 'Stack and method: idempotent DAG, MERGE for late-arriving scale files, quarantine instead of silent drops, KPIs with production rules (minimum weighing gap, sanitary withdrawal).',
-          },
-          {
-            kicker: 'Skadia',
-            title: 'Where it belongs',
-            body: 'The startup owns the livestock problem. This lab is how planillas become governed KPIs without rewriting the paddock app.',
-          },
-          {
-            kicker: 'Not SIGAG',
-            title: 'Clear split',
-            body: 'SIGAG is field operations. This repo is the lakehouse demo: same industry, different layer (Airflow + Spark). Dataset is a demonstration pack, unnamed establishments.',
-          },
+          { title: '1. Input', body: 'Spreadsheets: herd, weighings, paddocks, BCS, health, weather station, daily stock.' },
+          { title: '2. Engine', body: 'Airflow DAG + PySpark jobs. Same code on Databricks Free Edition or Spark local[*].' },
+          { title: '3. Output', body: 'Dark HUD dashboard with four KPIs and a 90-day series.' },
         ],
+        kpiTitle: 'Gold metrics',
         kpis: [
-          { label: 'ADG', value: 'kg / day' },
-          { label: 'Stocking', value: 'AU / ha' },
-          { label: 'THI risk', value: '% hours' },
-          { label: 'Low BCS', value: '% < 4' },
+          { label: 'ADG', value: 'kg/day between weighings' },
+          { label: 'Stocking', value: 'AU per usable hectare' },
+          { label: 'THI', value: '% of hours at risk' },
+          { label: 'BCS', value: '% of animals below 4' },
         ],
-        note: 'Run locally: Docker Compose (Airflow + Spark local[*]). Databricks notebooks in the same package when a Free Edition workspace is available.',
-        local: 'Repo: skadia-ganaderia-precision on this machine. Publish the GitHub URL when the remote exists.',
+        runTitle: 'Run on a laptop',
+        run: 'Repo: skadia-ganaderia-precision\ndocker compose up -d --build\ndocker compose run --rm pipeline run-all\nDashboard http://localhost:8501 · Airflow http://localhost:8088 (admin/admin)\nDemo scale: 2,000 animals × 90 days. Demonstration dataset.',
       }
     : {
-        kicker: 'Skadia · lab de plataforma de datos',
-        title: 'Lakehouse de ganadería de precisión',
-        lede: 'Prueba pública de Apache Airflow, PySpark y Databricks (Free Edition; Spark local si no hay cluster) sobre el dominio Skadia: pesadas, rodeos, ITH, BCS y sanidad en un medallón Delta bronze / silver / gold. Complementa el producto de campo (captura offline): esta capa es orquestación y analítica.',
-        tags: ['Apache Airflow', 'PySpark', 'Databricks', 'Delta Lake', 'quality gates', 'ADG · carga · ITH · BCS'],
+        kicker: 'Proyecto demo · Skadia',
+        title: 'De la planilla de manga al tablero de 4 KPIs',
+        lede: 'Proyecto que armé para mostrar Apache Airflow, PySpark y Databricks (si no hay cluster, Spark en Docker). Toma planillas tipo Excel — pesadas, rodeos, clima/ITH, condición corporal, sanidad — y las deja en Delta bronze → silver → gold. El tablero muestra ADG, carga, ITH de riesgo y % BCS bajo.',
+        tags: ['Apache Airflow', 'PySpark', 'Databricks', 'Delta Lake', 'Docker Compose', 'Streamlit'],
+        pipeTitle: 'Qué hace el pipeline',
+        steps: [
+          'Landing: CSV de manga (incluye pesadas tarde y filas sucias).',
+          'Bronze: Delta crudo, por fecha de ingesta.',
+          'Silver: limpia + MERGE (gana la captura más nueva); lo inválido va a cuarentena.',
+          'Quality gates: si rompe PK o rangos, no publica gold.',
+          'Gold + tablero: KPIs. Airflow local :8088, Streamlit :8501.',
+        ],
         cols: [
-          {
-            kicker: 'fabricioduarte.tech',
-            title: 'Qué muestro acá',
-            body: 'Stack y método: DAG idempotente, MERGE por late-arriving de balanza, cuarentena en vez de borrar en silencio, KPIs con reglas de producción (gap mínimo entre pesadas, retiro sanitario).',
-          },
-          {
-            kicker: 'Skadia',
-            title: 'Dónde vive',
-            body: 'La startup es dueña del problema ganadero. Este lab es cómo las planillas de manga pasan a KPIs gobernados sin reescribir la app del potrero.',
-          },
-          {
-            kicker: 'No es SIGAG',
-            title: 'Corte claro',
-            body: 'SIGAG es operación de campo. Este repo es el demo de lakehouse: misma industria, otra capa (Airflow + Spark). Dataset de demostración, establecimientos no nominados.',
-          },
+          { title: '1. Entrada', body: 'Planillas: hacienda, pesadas, potreros, BCS, sanidad, estación de clima, stock diario.' },
+          { title: '2. Motor', body: 'DAG de Airflow + jobs PySpark. El mismo código en Databricks Free Edition o Spark local[*].' },
+          { title: '3. Salida', body: 'Tablero oscuro (HUD) con cuatro indicadores y serie de 90 días.' },
         ],
+        kpiTitle: 'Indicadores del gold',
         kpis: [
-          { label: 'ADG', value: 'kg / día' },
-          { label: 'Carga', value: 'UA / ha' },
-          { label: 'ITH riesgo', value: '% horas' },
-          { label: 'BCS bajo', value: '% < 4' },
+          { label: 'ADG', value: 'kg/día entre pesadas' },
+          { label: 'Carga', value: 'UA por hectárea útil' },
+          { label: 'ITH', value: '% de horas en alerta' },
+          { label: 'BCS', value: '% de animales bajo 4' },
         ],
-        note: 'Corrida local: Docker Compose (Airflow + Spark local[*]). Notebooks Databricks en el mismo paquete cuando hay workspace Free Edition.',
-        local: 'Repo: skadia-ganaderia-precision. Cuando exista remoto en GitHub, esa URL reemplaza esta nota.',
+        runTitle: 'Cómo correrlo',
+        run: 'Repo: skadia-ganaderia-precision\ndocker compose up -d --build\ndocker compose run --rm pipeline run-all\nTablero http://localhost:8501 · Airflow http://localhost:8088 (admin/admin)\nEscala del demo: 2.000 animales × 90 días. Dataset de demostración.',
       }
 )
 
 useHead({
-  title: () => (isEn.value ? 'Precision livestock lakehouse — Fabricio Duarte' : 'Lakehouse ganadería de precisión — Fabricio Duarte'),
+  title: () => (isEn.value ? 'Livestock pipeline — Fabricio Duarte' : 'Pipeline ganadero — Fabricio Duarte'),
 })
 </script>

@@ -3,25 +3,22 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Skadia · lab lakehouse</title>
+  <title>Skadia · pipeline de datos</title>
   <style>
     body { margin: 0; background: #042f2e; color: #ecfdf5; font-family: system-ui, sans-serif; }
   </style>
 </head>
 <body>
-<section id="lakehouse-lab" style="max-width:720px;margin:2rem auto;padding:1.5rem;border:1px solid #134e4a;border-radius:16px;">
-  <p style="letter-spacing:.16em;text-transform:uppercase;font-size:11px;color:#5eead4;">Plataforma de datos · lab</p>
-  <h2 style="margin:.4rem 0 .6rem;font-size:1.5rem;">De la planilla de manga al KPI</h2>
+<section style="max-width:720px;margin:2rem auto;padding:1.5rem;border:1px solid #134e4a;border-radius:16px;">
+  <p style="letter-spacing:.14em;text-transform:uppercase;font-size:11px;color:#5eead4;">Demo de datos</p>
+  <h2 style="margin:.4rem 0 .6rem;font-size:1.5rem;">Planillas de manga → tablero de 4 KPIs</h2>
   <p style="line-height:1.55;color:#99f6e4;">
-    En Skadia el dato nace en el potrero. Este laboratorio muestra la capa de <strong>orquestación y lakehouse</strong>:
-    Apache Airflow, PySpark y Databricks (Spark local si no hay cluster), medallón Delta bronze/silver/gold,
-    quality gates y KPIs de ganadería de precisión (ADG, carga, ITH de riesgo, BCS).
-  </p>
-  <p style="line-height:1.55;color:#99f6e4;">
-    Es demostración de stack sobre el dominio Skadia — distinta de la app de campo (SIGAG). Establecimientos no nominados.
+    Pipeline con Apache Airflow, PySpark y Databricks: pesadas, rodeos, ITH, BCS y sanidad
+    en Delta (bronze / silver / gold) y un tablero con ADG, carga, ITH de riesgo y % BCS bajo.
+    Corre en Docker. Dataset de demostración.
   </p>
   <p style="margin-top:1rem;">
-    <a href="/agtech/lakehouse/" style="color:#5eead4;">Caso técnico (esta web) →</a>
+    <a href="/agtech/lakehouse/" style="color:#5eead4;">Ver el proyecto →</a>
   </p>
 </section>
 </body>
