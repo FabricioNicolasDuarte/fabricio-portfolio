@@ -1,0 +1,53 @@
+[
+  {
+    "estancia_id": "E-NORTE",
+    "ua_days": 48269.30000000268,
+    "cab_days": 59965,
+    "nombre": "Campo Norte Demo",
+    "hectareas_utiles": 3780.0,
+    "carga_ua_ha": 0.14188506760729772,
+    "adg_kg_dia": 0.5100320009841479,
+    "n_adg": 213,
+    "ith_h": 2158,
+    "ith_h_riesgo": 53,
+    "n_bcs": 801,
+    "n_bcs_bajo": 196,
+    "logical_date": "2026-08-22",
+    "ith_riesgo_pct": 2.4559777571825765,
+    "bcs_bajo_pct": 24.469413233458177
+  },
+  {
+    "estancia_id": "E-SUR",
+    "ua_days": 48996.30000000302,
+    "cab_days": 59867,
+    "nombre": "Campo Sur Demo",
+    "hectareas_utiles": 2280.0,
+    "carga_ua_ha": 0.23877339181288024,
+    "adg_kg_dia": 0.639935851920556,
+    "n_adg": 235,
+    "ith_h": 2159,
+    "ith_h_riesgo": 56,
+    "n_bcs": 794,
+    "n_bcs_bajo": 186,
+    "logical_date": "2026-08-22",
+    "ith_riesgo_pct": 2.5937934228809634,
+    "bcs_bajo_pct": 23.425692695214106
+  },
+  {
+    "estancia_id": "E-CENTRO",
+    "ua_days": 48662.40000000281,
+    "cab_days": 60010,
+    "nombre": "Campo Centro Demo",
+    "hectareas_utiles": 2790.0,
+    "carga_ua_ha": 0.1937968936678726,
+    "adg_kg_dia": 0.5834498303826787,
+    "n_adg": 257,
+    "ith_h": 2155,
+    "ith_h_riesgo": 54,
+    "n_bcs": 811,
+    "n_bcs_bajo": 188,
+    "logical_date": "2026-08-22",
+    "ith_riesgo_pct": 2.5058004640371228,
+    "bcs_bajo_pct": 23.181257706535142
+  }
+]

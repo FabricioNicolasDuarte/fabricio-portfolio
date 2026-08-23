@@ -3,93 +3,67 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Pipeline ganadero (Airflow + PySpark) — Fabricio Duarte</title>
-  <meta name="description" content="Demo: planillas de manga a tablero con Airflow, PySpark, Delta y Databricks." />
+  <title>skadia-ganaderia-precision — medallion Airflow / PySpark / Delta</title>
+  <meta name="description" content="Pipeline medallón Delta para ganadería de precisión. Airflow, PySpark, Databricks. Gold KPIs publicados." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Space+Grotesk:wght@600&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" />
   <style>
     :root { color-scheme: dark; }
     * { box-sizing: border-box; }
-    body { margin: 0; font-family: Outfit, system-ui, sans-serif; background: #030712; color: #e2e8f0; line-height: 1.55; }
-    .wrap { max-width: 52rem; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
-    a { color: #67e8f9; }
-    .kicker { letter-spacing: .14em; text-transform: uppercase; font-size: 11px; color: #22d3ee; }
-    h1 { font-family: "Space Grotesk", Outfit, sans-serif; font-size: clamp(1.7rem, 4vw, 2.4rem); margin: .4rem 0 1rem; color: #fff; }
-    h2 { font-size: 1.15rem; color: #fff; margin: 2rem 0 .6rem; }
-    .hero { width: 100%; height: 220px; object-fit: cover; border-radius: 16px; border: 1px solid rgba(34,211,238,.25); }
-    .muted { color: #94a3b8; font-size: .98rem; }
-    ol.pipe { margin: 1rem 0 0; padding-left: 1.2rem; color: #cbd5e1; }
-    ol.pipe li { margin: .45rem 0; }
-    .grid { display: grid; gap: 1rem; margin-top: 1.25rem; }
-    @media (min-width: 800px) { .grid { grid-template-columns: 1fr 1fr 1fr; } }
-    .card { background: rgba(15,23,42,.7); border: 1px solid rgba(255,255,255,.08); border-radius: 16px; padding: 1.1rem; }
-    .card h3 { font-size: 1rem; color: #fff; margin: 0 0 .4rem; }
-    .kpis { display: grid; grid-template-columns: repeat(2, 1fr); gap: .75rem; margin-top: 1rem; }
-    @media (min-width: 700px) { .kpis { grid-template-columns: repeat(4, 1fr); } }
-    .kpi span { display: block; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: #64748b; }
-    .kpi strong { font-size: 1.05rem; color: #fff; }
-    code { font-size: .85rem; color: #a5f3fc; }
-    .tags { display: flex; flex-wrap: wrap; gap: .4rem; margin: 1rem 0; padding: 0; list-style: none; }
-    .tags li { border: 1px solid rgba(255,255,255,.12); border-radius: 999px; padding: .25rem .7rem; font-size: 12px; color: #cbd5e1; }
+    body { margin: 0; font-family: "IBM Plex Sans", system-ui, sans-serif; background: #030712; color: #cbd5e1; line-height: 1.6; }
+    .wrap { max-width: 58rem; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+    a { color: #22d3ee; }
+    h1 { font-size: clamp(1.5rem, 3vw, 2rem); color: #fff; font-weight: 600; margin: .35rem 0 1rem; }
+    h2 { font-size: 0.78rem; letter-spacing: .14em; text-transform: uppercase; color: #22d3ee; margin: 2rem 0 .75rem; }
+    .kicker { font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: #22d3ee; }
+    .lead { color: #94a3b8; max-width: 42rem; }
+    .frame { width: 100%; height: 560px; border: 1px solid rgba(34,211,238,.3); background: #020617; }
+    .spec { width: 100%; border-collapse: collapse; font-size: 14px; }
+    .spec th, .spec td { text-align: left; padding: .45rem .5rem; border-bottom: 1px solid #1e293b; vertical-align: top; }
+    .spec th { color: #64748b; font-weight: 500; width: 11rem; }
+    code { font-family: "IBM Plex Mono", monospace; font-size: 12.5px; color: #a5f3fc; }
+    .btn { display: inline-block; margin: .35rem .5rem .35rem 0; padding: .55rem 1rem; border: 1px solid #22d3ee; color: #22d3ee; text-decoration: none; font-size: 14px; }
+    .btn.solid { background: #22d3ee; color: #030712; }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <p><a href="/">← Inicio</a></p>
-    <p class="kicker">Proyecto demo · Skadia</p>
-    <h1>De la planilla de manga al tablero de 4 KPIs</h1>
-    <p class="muted">
-      Proyecto que armé para mostrar uso de <strong>Apache Airflow</strong>, <strong>PySpark</strong> y
-      <strong>Databricks</strong> (si no hay cluster, Spark corre en Docker). Toma planillas tipo Excel de un campo
-      (pesadas, rodeos, clima/ITH, condición corporal, sanidad) y las deja en tablas Delta
-      bronze → silver → gold. El tablero muestra ADG, carga, ITH de riesgo y % BCS bajo.
+    <p><a href="/">← fabricioduarte.tech</a></p>
+    <p class="kicker">skadia-ganaderia-precision</p>
+    <h1>Medallion pipeline · precision livestock</h1>
+    <p class="lead">
+      Orquestación Airflow, transformaciones PySpark sobre Delta Lake (bronze / silver / gold)
+      y ejecución equivalente en Databricks Free Edition o Spark <code>local[*]</code>.
+      Hechos: pesadas, rodeos, ITH horario, BCS, eventos sanitarios, ocupación diaria.
+      Serving: ADG, carga UA/ha, horas ITH en riesgo, % BCS &lt; 4.
     </p>
-    <img class="hero" src="/images/agtech-lakehouse.jpg" alt="" />
-    <ul class="tags">
-      <li>Apache Airflow</li>
-      <li>PySpark</li>
-      <li>Databricks</li>
-      <li>Delta Lake</li>
-      <li>Docker Compose</li>
-      <li>Streamlit</li>
-    </ul>
+    <p>
+      <a class="btn solid" href="https://github.com/FabricioNicolasDuarte/skadia-ganaderia-precision">Repositorio (código + Docker)</a>
+      <a class="btn" href="/agtech/dashboard.html">Abrir dashboard gold</a>
+    </p>
 
-    <h2>Qué hace el pipeline</h2>
-    <ol class="pipe">
-      <li><strong>Landing:</strong> CSV de manga (incluye pesadas que llegan tarde, pesos raros, huecos de clima).</li>
-      <li><strong>Bronze:</strong> se guarda crudo en Delta, por fecha de ingesta.</li>
-      <li><strong>Silver:</strong> se limpia, se unen correcciones (la última captura gana) y lo inválido va a cuarentena.</li>
-      <li><strong>Quality gates:</strong> si falla PK, nulos o rangos, el DAG no publica gold.</li>
-      <li><strong>Gold + tablero:</strong> KPIs y gráficos. Airflow en el puerto 8088, tablero en 8501 (local).</li>
-    </ol>
+    <h2>Gold (snapshot publicado)</h2>
+    <iframe class="frame" title="Dashboard gold" src="/agtech/dashboard.html"></iframe>
 
-    <div class="grid">
-      <article class="card">
-        <h3>1. Entrada</h3>
-        <p class="muted">Planillas: hacienda, pesadas, potreros, BCS, sanidad, estación de clima, stock diario.</p>
-      </article>
-      <article class="card">
-        <h3>2. Motor</h3>
-        <p class="muted">DAG de Airflow + jobs PySpark. Mismo código en Databricks Free Edition o Spark <code>local[*]</code>.</p>
-      </article>
-      <article class="card">
-        <h3>3. Salida</h3>
-        <p class="muted">Tablero oscuro (HUD) con cuatro indicadores y serie de 90 días.</p>
-      </article>
-    </div>
+    <h2>Especificación</h2>
+    <table class="spec">
+      <tr><th>Ingesta</th><td>Planillas CSV (<code>;</code>, <code>dd/MM/yyyy</code>). Corrección de pesada: mismo <code>pesada_id</code>, gana <code>captured_at</code> máximo (MERGE).</td></tr>
+      <tr><th>Bronze</th><td>Delta, overwrite de partición <code>ingest_date</code>. Sin pérdida de filas sucias.</td></tr>
+      <tr><th>Silver</th><td>Contrato de rangos; cuarentena; late-arriving = captura &gt; event_ts + 24 h.</td></tr>
+      <tr><th>Quality</th><td>Gates sobre PK, nulos, BCS 1–9, ITH físico, ratio late-arriving. Fallo aborta gold.</td></tr>
+      <tr><th>Gold ADG</th><td>Gap mínimo 7 días, clip (−1.2, 2.4) kg/d, exclusión en ventana de retiro sanitario.</td></tr>
+      <tr><th>Carga</th><td>Σ UA-día / (ha útil × días de la ventana), no cabezas/ha puntuales.</td></tr>
+      <tr><th>Runtime</th><td>DAG <code>skadia_medallion_ganaderia</code>. Spark driver 4 GB. Default 2 000 animales × 90 días.</td></tr>
+    </table>
 
-    <h2>Indicadores del gold</h2>
-    <div class="kpis">
-      <div class="card kpi"><span>ADG</span><strong>kg/día entre pesadas</strong></div>
-      <div class="card kpi"><span>Carga</span><strong>UA por hectárea útil</strong></div>
-      <div class="card kpi"><span>ITH</span><strong>% de horas en alerta</strong></div>
-      <div class="card kpi"><span>BCS</span><strong>% de animales &lt; 4</strong></div>
-    </div>
-
-    <h2>Cómo correrlo en la máquina</h2>
-    <p class="muted">Repo local: <code>skadia-ganaderia-precision</code></p>
-    <p class="muted"><code>docker compose up -d --build</code><br /><code>docker compose run --rm pipeline run-all</code><br />Tablero: <code>http://localhost:8501</code> · Airflow: <code>http://localhost:8088</code> (admin / admin)</p>
-    <p class="muted">Escala del demo: 2.000 animales, 90 días, ~180.000 filas de ocupación diaria. Dataset de demostración (no es un establecimiento publicado).</p>
+    <h2>Reproducir en workstation</h2>
+    <p class="lead">Todo el runtime está en el repositorio (Compose, jobs, DAG, dashboard). No hace falta Databricks para la corrida local.</p>
+    <p>
+      <a class="btn solid" href="https://github.com/FabricioNicolasDuarte/skadia-ganaderia-precision">github.com/FabricioNicolasDuarte/skadia-ganaderia-precision</a>
+    </p>
+    <p><code>git clone https://github.com/FabricioNicolasDuarte/skadia-ganaderia-precision.git</code></p>
+    <p><code>docker compose up -d --build && docker compose run --rm pipeline run-all</code></p>
+    <p class="lead">Airflow: <code>http://localhost:8088</code> (admin/admin). Streamlit: <code>http://localhost:8501</code>. Requisitos: Docker Desktop, ~4 GB RAM.</p>
   </div>
 </body>
 </html>

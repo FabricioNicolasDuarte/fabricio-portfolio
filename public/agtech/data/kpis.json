@@ -1,0 +1,26 @@
+{
+  "logical_date": "2026-08-22",
+  "adg_kg_dia": 0.58,
+  "carga_cab_ha": 0.2258,
+  "carga_ua_ha": 0.1832,
+  "ith_riesgo_pct": 2.52,
+  "ith_horas_riesgo": 163,
+  "ith_horas_obs": 6472,
+  "bcs_bajo_pct": 23.69,
+  "late_arriving_pct": 15.48,
+  "n_pesadas": 59346,
+  "n_adg_intervalos": 705,
+  "n_animales_activos": 1935,
+  "n_animales": 2000,
+  "n_ocupacion_filas": 179842,
+  "ventana_dias": 90,
+  "ha_utiles": 8850.0,
+  "reglas_adg": {
+    "gap_min_dias": 7,
+    "retiro_tratamiento_dias": 7,
+    "adg_clip": [
+      -1.2,
+      2.4
+    ]
+  }
+}
