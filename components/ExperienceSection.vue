@@ -1,7 +1,7 @@
 <template>
   <section id="path" class="relative mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-24">
-    <p class="text-xs font-medium tracking-widest text-cyan-400 uppercase">{{ isEn ? 'Path' : 'Trayectoria' }}</p>
-    <h2 class="mt-2 mb-12 font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl">{{ isEn ? 'Experience' : 'Experiencia' }}</h2>
+    <p class="text-xs font-medium tracking-widest text-cyan-400 uppercase">{{ t.path.kicker }}</p>
+    <h2 class="mt-2 mb-12 font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl">{{ t.path.title }}</h2>
 
     <ol class="relative space-y-6 before:absolute before:bottom-4 before:left-[11px] before:top-4 before:w-px before:bg-gradient-to-b before:from-cyan-400 before:via-indigo-400/40 before:to-transparent md:before:left-[187px]">
       <li
@@ -10,10 +10,10 @@
         class="glass relative grid gap-3 rounded-2xl p-6 transition hover:border-cyan-400/30 md:grid-cols-[160px_1fr] md:gap-10"
         :class="job.featured ? 'border-cyan-400/25' : ''"
       >
-        <p class="pl-7 text-sm text-cyan-300/80 md:pl-0">{{ isEn ? (job.periodEn || job.period) : job.period }}</p>
+        <p class="pl-7 text-sm text-cyan-300/80 md:pl-0">{{ tx(job, 'period') }}</p>
         <span class="absolute left-[7px] top-7 h-2.5 w-2.5 rounded-full bg-cyan-400 shadow-[0_0_12px_#22d3ee] md:left-[181px]"></span>
         <div>
-          <h3 class="text-lg font-semibold text-white">{{ isEn ? (job.titleEn || job.title) : job.title }}</h3>
+          <h3 class="text-lg font-semibold text-white">{{ tx(job, 'title') }}</h3>
           <p class="mt-0.5 text-sm text-indigo-300">
             <a
               v-if="job.orgHref"
@@ -21,13 +21,13 @@
               target="_blank"
               rel="noopener noreferrer"
               class="underline decoration-indigo-400/40 underline-offset-2 transition hover:text-cyan-300"
-              v-html="isEn ? (job.orgHtmlEn || job.orgHtml || job.orgEn || job.org) : (job.orgHtml || job.org)"
+              v-html="tx(job, 'orgHtml') || tx(job, 'org')"
             />
-            <span v-else v-html="isEn ? (job.orgHtmlEn || job.orgEn || job.orgHtml || job.org) : (job.orgHtml || job.org)"></span>
+            <span v-else v-html="tx(job, 'orgHtml') || tx(job, 'org')"></span>
           </p>
-          <p class="mt-3 max-w-2xl text-[15px] leading-relaxed text-slate-400">{{ isEn ? (job.leadEn || job.lead) : job.lead }}</p>
-          <ul v-if="(isEn ? (job.pointsEn || job.points) : job.points)?.length" class="mt-3 max-w-2xl space-y-1.5">
-            <li v-for="p in (isEn ? (job.pointsEn || job.points) : job.points)" :key="p" class="text-[14px] text-slate-400">— {{ p }}</li>
+          <p class="mt-3 max-w-2xl text-[15px] leading-relaxed text-slate-400">{{ tx(job, 'lead') }}</p>
+          <ul v-if="tx(job, 'points')?.length" class="mt-3 max-w-2xl space-y-1.5">
+            <li v-for="p in tx(job, 'points')" :key="p" class="text-[14px] text-slate-400">— {{ p }}</li>
           </ul>
         </div>
       </li>
@@ -35,35 +35,31 @@
 
     <div class="mt-12 grid grid-cols-1 gap-4 md:grid-cols-2">
       <div class="glass rounded-2xl p-6">
-        <h3 class="text-sm font-medium text-cyan-300">{{ isEn ? 'Education' : 'Formación' }}</h3>
-        <p class="mt-3 font-medium text-white">{{ isEn ? 'B.S. in Data Science' : 'Licenciatura en Ciencia de Datos' }}</p>
+        <h3 class="text-sm font-medium text-cyan-300">{{ t.path.education }}</h3>
+        <p class="mt-3 font-medium text-white">{{ t.path.ds }}</p>
         <p class="mt-1 text-sm leading-relaxed text-slate-400">
-          {{ isEn ? 'Universidad del Gran Rosario. In progress.' : 'Universidad del Gran Rosario. En curso.' }}
-          <a class="text-cyan-300 underline decoration-cyan-500/30 underline-offset-2" href="https://ugr.edu.ar/carreras/ciclo-de-licenciatura-en-ciencia-de-datos/" target="_blank" rel="noopener noreferrer">{{ isEn ? 'UGR plan' : 'Plan UGR' }}</a>
+          {{ t.path.dsMeta }}
+          <a class="text-cyan-300 underline decoration-cyan-500/30 underline-offset-2" href="https://ugr.edu.ar/carreras/ciclo-de-licenciatura-en-ciencia-de-datos/" target="_blank" rel="noopener noreferrer">{{ t.path.ugrPlan }}</a>
         </p>
-        <p class="mt-5 font-medium text-white">{{ isEn ? 'University Technician in Programming' : 'Tecnicatura Universitaria en Programación' }}</p>
+        <p class="mt-5 font-medium text-white">{{ t.path.tech }}</p>
         <p class="mt-1 text-sm text-slate-400">
           <a class="text-cyan-300 underline decoration-cyan-500/30 underline-offset-2" href="https://www.frre.utn.edu.ar/" target="_blank" rel="noopener noreferrer">Universidad Tecnológica Nacional — Facultad Regional Resistencia</a>.
-          {{ isEn ? 'Graduated. GPA 9.40.' : 'Graduado. Promedio general 9.40.' }}
+          {{ t.path.techMeta }}
         </p>
-        <p class="mt-5 font-medium text-white">{{ isEn ? 'Public Accountant — basic cycle' : 'Contador Público — ciclo básico' }}</p>
-        <p class="mt-1 text-sm text-slate-400">{{ isEn ? 'Universidad Nacional de Formosa (UNaF). Incomplete. Accounting and finance foundation.' : 'Universidad Nacional de Formosa (UNaF). Incompleto. Base contable y financiera.' }}</p>
+        <p class="mt-5 font-medium text-white">{{ t.path.acc }}</p>
+        <p class="mt-1 text-sm text-slate-400">{{ t.path.accMeta }}</p>
       </div>
       <div class="glass rounded-2xl p-6">
-        <h3 class="text-sm font-medium text-cyan-300">{{ isEn ? 'Languages' : 'Idiomas' }}</h3>
-        <p class="mt-3 text-sm leading-relaxed text-slate-400">
-          {{ isEn ? 'Native Spanish. Intermediate technical English. Intermediate Portuguese.' : 'Español nativo. Inglés técnico intermedio. Portugués intermedio.' }}
-        </p>
-        <p class="mt-4 text-sm leading-relaxed text-slate-400">
-          {{ isEn ? 'Complementary skills in interface design and visual documentation (Figma, Adobe CC) applied to dashboards and technical data communication.' : 'Competencias complementarias en diseño de interfaces y documentación visual (Figma, Adobe CC) aplicadas a tableros y comunicación técnica de datos.' }}
-        </p>
+        <h3 class="text-sm font-medium text-cyan-300">{{ t.path.langs }}</h3>
+        <p class="mt-3 text-sm leading-relaxed text-slate-400">{{ t.path.langsBody }}</p>
+        <p class="mt-4 text-sm leading-relaxed text-slate-400">{{ t.path.extra }}</p>
       </div>
     </div>
   </section>
 </template>
 
 <script setup>
-const { isEn } = useLocale()
+const { t, tx } = useLocale()
 const jobs = [
   {
     featured: true,
@@ -71,19 +67,37 @@ const jobs = [
     periodEn: '2023 — present',
     title: 'Ingeniería de datos y software',
     titleEn: 'Data and software engineering',
+    titlePt: 'Engenharia de dados e software',
+    titleZh: '数据与软件工程',
+    period: '2023 — actualidad',
+    periodEn: '2023 — present',
+    periodPt: '2023 — atual',
+    periodZh: '2023 — 至今',
     orgHref: 'https://www.ecom.com.ar/',
     orgHtml: '<span class="text-cyan-300 underline decoration-cyan-500/30">ECOM</span> Chaco S.A.',
-    lead: 'ECOM es la empresa tecnológica de la Provincia del Chaco (SAPEM): software, conectividad y modernización del Estado y el sector privado. Allí diseño, desarrollo y opero plataformas de datos en producción institucional.',
-    leadEn: 'ECOM is the technology company of the Province of Chaco (SAPEM): software, connectivity, and public/private modernization. There I design, build, and operate data platforms in institutional production.',
+    lead: 'ECOM es la empresa de tecnología de la Provincia del Chaco. Ahí diseño y opero plataformas de datos que usan organismos todos los días: tableros, permisos y procesos que corren solos.',
+    leadEn: 'ECOM is the technology company of the Province of Chaco. There I design and run data platforms that agencies use every day: dashboards, permissions, and jobs that run on their own.',
+    leadPt: 'A ECOM é a empresa de tecnologia da Província do Chaco. Lá desenho e opero plataformas de dados que órgãos usam todo dia: painéis, permissões e processos automáticos.',
+    leadZh: 'ECOM 是查科省的科技公司。我在那里设计和运行机构每天使用的数据平台：看板、权限和自动任务。',
     points: [
-      'Arquitectura de información y tableros analíticos (Apache Superset / Power BI) con seguridad por capas (RLS) e identidad federada.',
-      'Backend Django: GIS, KPIs, auditoría y exportación controlada de datasets.',
-      'Integración SQL Server / PostgreSQL y procesos asíncronos de conciliación (Celery / Redis).',
+      'Tableros (Apache Superset / Power BI) con permisos por organismo: cada uno ve solo lo suyo.',
+      'Backend Django: mapas, indicadores, registro de quién consulta y exportaciones controladas.',
+      'Cruce de SQL Server y PostgreSQL, con procesos en segundo plano (Celery / Redis).',
     ],
     pointsEn: [
-      'Information architecture and analytics dashboards (Apache Superset / Power BI) with layered security (RLS) and federated identity.',
-      'Django backends: GIS, KPIs, audit trails, and controlled dataset export.',
-      'SQL Server / PostgreSQL integration and asynchronous reconciliation (Celery / Redis).',
+      'Dashboards (Apache Superset / Power BI) with per-agency permissions: each one sees only its own data.',
+      'Django backends: maps, indicators, a log of who queries, and controlled exports.',
+      'SQL Server and PostgreSQL together, with background jobs (Celery / Redis).',
+    ],
+    pointsPt: [
+      'Painéis (Apache Superset / Power BI) com permissão por órgão: cada um vê só o que é dele.',
+      'Backend Django: mapas, indicadores, registro de quem consulta e exportações controladas.',
+      'SQL Server e PostgreSQL juntos, com processos em segundo plano (Celery / Redis).',
+    ],
+    pointsZh: [
+      '看板（Apache Superset / Power BI）按机构授权：各看各的。',
+      'Django 后端：地图、指标、查询记录与受控导出。',
+      'SQL Server 与 PostgreSQL 对接，后台任务用 Celery / Redis。',
     ],
   },
   {

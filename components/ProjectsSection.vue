@@ -2,11 +2,9 @@
   <section id="work" class="relative mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-24">
     <div class="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
       <div>
-        <p class="text-xs font-medium tracking-widest text-cyan-400 uppercase">{{ isEn ? 'Selected work' : 'Portafolio' }}</p>
-        <h2 class="mt-2 font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl">{{ isEn ? 'Work' : 'Trabajo seleccionado' }}</h2>
-        <p class="mt-3 max-w-lg text-[15px] leading-relaxed text-slate-400">
-          {{ isEn ? 'Data engineering, analytical visualization, automation, and production products.' : 'Ingeniería de datos, visualización analítica, automatización y producto en producción.' }}
-        </p>
+        <p class="text-xs font-medium tracking-widest text-cyan-400 uppercase">{{ t.work.kicker }}</p>
+        <h2 class="mt-2 font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl">{{ t.work.title }}</h2>
+        <p class="mt-3 max-w-lg text-[15px] leading-relaxed text-slate-400">{{ t.work.intro }}</p>
       </div>
       <div class="flex flex-wrap gap-2">
         <button
@@ -31,12 +29,12 @@
         :class="item.featured ? 'md:col-span-2' : ''"
       >
         <div class="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-cyan-400/10 blur-3xl transition group-hover:bg-cyan-400/20"></div>
-        <p class="mb-2 text-[11px] font-medium tracking-wider text-cyan-300 uppercase">{{ isEn ? (item.kindEn || item.kind) : item.kind }}</p>
-        <h3 class="font-display text-2xl font-semibold tracking-tight text-white">{{ isEn ? (item.titleEn || item.title) : item.title }}</h3>
-        <p class="mt-3 max-w-3xl text-[15px] leading-relaxed text-slate-400">{{ isEn ? (item.summaryEn || item.summary) : item.summary }}</p>
-        <p class="mt-3 text-sm text-slate-500"><span class="text-slate-600">{{ isEn ? 'Role · ' : 'Rol · ' }}</span>{{ isEn ? (item.roleEn || item.role) : item.role }}</p>
+        <p class="mb-2 text-[11px] font-medium tracking-wider text-cyan-300 uppercase">{{ tx(item, 'kind') }}</p>
+        <h3 class="font-display text-2xl font-semibold tracking-tight text-white">{{ tx(item, 'title') }}</h3>
+        <p class="mt-3 max-w-3xl text-[15px] leading-relaxed text-slate-400">{{ tx(item, 'summary') }}</p>
+        <p class="mt-3 text-sm text-slate-500"><span class="text-slate-600">{{ t.work.role }}</span>{{ tx(item, 'role') }}</p>
         <ul class="mt-4 flex flex-wrap gap-2">
-          <li v-for="tag in (isEn ? (item.tagsEn || item.tags) : item.tags)" :key="tag" class="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[11px] text-slate-300">
+          <li v-for="tag in (tx(item, 'tags') || item.tags)" :key="tag" class="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[11px] text-slate-300">
             {{ tag }}
           </li>
         </ul>
@@ -47,7 +45,7 @@
           :rel="item.external === false ? undefined : 'noopener noreferrer'"
           class="mt-4 inline-flex items-center gap-1 text-sm text-cyan-300 transition hover:text-cyan-200"
         >
-          {{ isEn ? (item.ctaEn || 'Repo →') : (item.cta || 'Repositorio →') }}
+          {{ tx(item, 'cta') || t.work.repo }}
         </a>
       </article>
     </div>
@@ -57,41 +55,33 @@
 <script setup>
 import { computed, ref } from 'vue'
 
-const { isEn } = useLocale()
+const { t, tx } = useLocale()
 const active = ref('all')
-const filters = computed(() => isEn.value
-  ? [
-      { id: 'all', label: 'All' },
-      { id: 'de', label: 'Data engineering' },
-      { id: 'da', label: 'Analytics' },
-      { id: 'auto', label: 'Automation' },
-      { id: 'ecom', label: 'ECOM' },
-      { id: 'agtech', label: 'AgTech' },
-      { id: 'product', label: 'Product' },
-    ]
-  : [
-      { id: 'all', label: 'Todo' },
-      { id: 'de', label: 'Data engineering' },
-      { id: 'da', label: 'Analytics' },
-      { id: 'auto', label: 'Automatización' },
-      { id: 'ecom', label: 'ECOM' },
-      { id: 'agtech', label: 'AgTech' },
-      { id: 'product', label: 'Producto' },
-    ])
+const filters = computed(() => t.value.work.filters)
 
 const work = [
   {
     featured: true,
     kind: 'Producto · datos · IA',
     title: 'SIGAG — Sistema Integral de Gestión Agrícola Ganadera',
-    titleEn: 'SIGAG — Integrated Agricultural and Livestock Management System',
+    titleEn: 'SIGAG — Integrated farm and livestock system',
+    titlePt: 'SIGAG — Sistema integrado agrícola e pecuário',
+    titleZh: 'SIGAG — 农牧一体化系统',
     summary:
-      'Plataforma de ganadería de precisión para operación en campo con arquitectura offline-first: captura y persistencia local (WatermelonDB), sincronización diferencial al recuperar conectividad, visión artificial para estimación de condición corporal y reconocimiento de animales, motores analíticos (GMD, ITH, carga, sanidad, next-best-action) e integración de inteligencia artificial conversacional con orquestador inteligente de alertas y flujos (n8n). El dato nace en el potrero y alimenta modelos y tableros cuando hay red.',
+      'App para el campo sin señal: carga pesadas, reconoce animales, estima condición corporal y calcula indicadores (ganancia diaria, calor, carga). Cuando vuelve la red, sincroniza y alimenta tableros. Incluye alertas automáticas (n8n).',
     summaryEn:
-      'Precision livestock platform for field operations with an offline-first architecture: local capture and persistence (WatermelonDB), differential sync when connectivity returns, computer vision for body-condition estimation and animal recognition, analytic engines (ADG, THI, stocking, health, next-best-action), and conversational AI with an intelligent alert orchestrator (n8n). Data is born in the paddock and feeds models and dashboards when the network is back.',
-    role: 'Co-founder · producto y datos. Skadia, 2022–actualidad.',
+      'A farm app that works without signal: weighings, animal ID, body condition, and indicators (daily gain, heat stress, stocking). When the network is back it syncs and feeds dashboards. Alerts run on n8n.',
+    summaryPt:
+      'App de campo que funciona sem sinal: pesagens, identificação, condição corporal e indicadores (ganho diário, calor, lotação). Quando a rede volta, sincroniza e alimenta painéis. Alertas no n8n.',
+    summaryZh:
+      '无网络也能用的牧场应用：称重、识别、体况和指标（日增重、热应激、载畜量）。有网后同步并更新看板。告警走 n8n。',
+    role: 'Cofundador · producto y datos. Skadia, 2022–actualidad.',
     roleEn: 'Co-founder · product and data. Skadia, 2022–present.',
+    rolePt: 'Cofundador · produto e dados. Skadia, 2022–atual.',
+    roleZh: '联合创始人 · 产品与数据。Skadia，2022 至今。',
     kindEn: 'Product · data · AI',
+    kindPt: 'Produto · dados · IA',
+    kindZh: '产品 · 数据 · 人工智能',
     tags: ['Expo', 'TypeScript', 'WatermelonDB', 'Visión artificial', 'LLM', 'n8n', 'Supabase'],
     tagsEn: ['Expo', 'TypeScript', 'WatermelonDB', 'Computer vision', 'LLM', 'n8n', 'Supabase'],
     cats: ['product', 'de', 'da', 'auto', 'agtech'],
@@ -101,13 +91,23 @@ const work = [
     kind: 'Data engineering · AgTech',
     title: 'De las planillas del campo al tablero (Airflow + PySpark)',
     titleEn: 'From farm spreadsheets to a dashboard (Airflow + PySpark)',
+    titlePt: 'Das planilhas do campo ao painel (Airflow + PySpark)',
+    titleZh: '从牧场表格到看板（Airflow + PySpark）',
     summary:
-      'Toma planillas de manga (pesadas, clima, condición corporal, sanidad) y calcula ADG, carga, ITH de riesgo y % BCS bajo. Stack: Apache Airflow, PySpark, Delta Lake, Databricks o Spark local, Docker, Streamlit. Tablero publicado + código en GitHub.',
+      'Toma planillas de pesadas, clima y sanidad y calcula cuatro números: ganancia diaria, animales por hectárea, horas de calor de riesgo y porcentaje de hacienda flaca. Corre con Airflow y PySpark (Databricks o en la PC).',
     summaryEn:
-      'Loads manga sheets (weighings, weather, body condition, health) and computes ADG, stocking, heat-stress hours and % low BCS. Stack: Apache Airflow, PySpark, Delta Lake, Databricks or local Spark, Docker, Streamlit. Live dashboard + GitHub repo.',
+      'Takes weighing, weather and health sheets and computes four numbers: daily gain, animals per hectare, heat-stress hours, and the share of thin cattle. Runs on Airflow and PySpark (Databricks or on a laptop).',
+    summaryPt:
+      'Lê planilhas de pesagem, clima e sanidade e calcula quatro números: ganho diário, animais por hectare, horas de calor de risco e percentual de gado magro. Roda com Airflow e PySpark (Databricks ou no PC).',
+    summaryZh:
+      '读取称重、天气和卫生表格，算出四个数：日增重、每公顷牲畜、热应激小时、瘦弱比例。用 Airflow 和 PySpark 运行（Databricks 或本机）。',
     role: 'Pipeline y tablero.',
     roleEn: 'Pipeline and dashboard.',
+    rolePt: 'Pipeline e painel.',
+    roleZh: '流水线与看板。',
     kindEn: 'Data engineering · AgTech',
+    kindPt: 'Engenharia de dados · AgTech',
+    kindZh: '数据工程 · 农业科技',
     tags: ['Apache Airflow', 'PySpark', 'Delta Lake', 'Databricks', 'Docker', 'Streamlit'],
     tagsEn: ['Apache Airflow', 'PySpark', 'Delta Lake', 'Databricks', 'Docker', 'Streamlit'],
     cats: ['agtech', 'de', 'da', 'product'],
@@ -122,9 +122,13 @@ const work = [
     title: 'Orquestación operativa — n8n',
     titleEn: 'Operational orchestration — n8n',
     summary:
-      'Diseño e implementación de flujos self-hosted que integran sistemas heterogéneos: webhooks, staging, notificaciones y jobs programados. Prototipado en Make; producción en n8n. Power Automate y Apps Script según el ecosistema del cliente. Objetivo: automatizar procesos repetibles con trazabilidad y control de fallos.',
+      'Automatizo procesos que hoy se hacen a mano: avisos, cargas y cruces entre sistemas. Prototipo en Make; en producción uso n8n. Si un paso falla, queda registrado y se avisa.',
     summaryEn:
-      'Design and implementation of self-hosted flows that integrate heterogeneous systems: webhooks, staging, notifications, and scheduled jobs. Prototyped in Make; production in n8n. Power Automate and Apps Script depending on the client ecosystem. Goal: automate repeatable processes with traceability and failure control.',
+      'I automate work that is still done by hand: alerts, loads, and hand-offs between systems. Prototype in Make; production in n8n. If a step fails, it is logged and someone is notified.',
+    summaryPt:
+      'Automatizo o que ainda é feito à mão: avisos, cargas e cruzamentos entre sistemas. Protótipo no Make; produção no n8n. Se um passo falha, registra e avisa.',
+    summaryZh:
+      '把仍靠人手做的流程自动化：通知、装载、系统对接。原型用 Make，生产用 n8n。失败会记录并告警。',
     role: 'Arquitectura de flujos e integración. 2024–actualidad.',
     roleEn: 'Flow architecture and integration. 2024–present.',
     kindEn: 'Automation · integration',
@@ -137,9 +141,13 @@ const work = [
     title: 'Tableros institucionales — Apache Superset & Power BI',
     titleEn: 'Institutional dashboards — Apache Superset & Power BI',
     summary:
-      'Plataforma de inteligencia de negocios sobre datos consolidados: modelado, pipelines de actualización, embed institucional, RLS por entidad e identidad federada. Apache Superset y Power BI como capa de visualización para análisis multidimensional y soporte a la toma de decisiones con procesos robustos de gobernanza y auditoría.',
+      'Tableros sobre datos ya unificados: cada organismo ve solo lo suyo. Se actualizan solos y se pueden incrustar en el sistema de trabajo (Apache Superset y Power BI).',
     summaryEn:
-      'Business intelligence on consolidated data: modeling, refresh pipelines, institutional embed, entity-level RLS, and federated identity. Apache Superset and Power BI as the visualization layer for multidimensional analysis and decision support with governance and audit.',
+      'Dashboards on already-unified data: each organization sees only its own slice. They refresh on their own and can be embedded in the working system (Apache Superset and Power BI).',
+    summaryPt:
+      'Painéis sobre dados já unificados: cada órgão vê só o que é dele. Atualizam sozinhos e podem ir dentro do sistema de trabalho (Apache Superset e Power BI).',
+    summaryZh:
+      '基于已统一数据的看板：每个机构只看自己的范围。自动刷新，可嵌进业务系统（Apache Superset 与 Power BI）。',
     role: 'Ingeniería de datos. 2023–actualidad.',
     roleEn: 'Data engineering. 2023–present.',
     kindEn: 'Analytics · ECOM',

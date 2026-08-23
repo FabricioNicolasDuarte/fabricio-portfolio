@@ -1,0 +1,654 @@
+export const ui = {
+  es: {
+    nav: {
+      method: 'Método',
+      case: 'Caso',
+      work: 'Trabajo',
+      path: 'Trayectoria',
+      stack: 'Stack',
+      contact: 'Contacto',
+      menu: 'Menú',
+      close: 'Cerrar',
+    },
+    hero: {
+      badge: 'Resistencia, Chaco · Ingeniería de datos y analítica',
+      lead:
+        'Armo el camino del dato: lo saco de sistemas distintos, lo dejo consistente y lo pongo en tableros para que se pueda decidir. Trabajo en instituciones y en producto, en producción.',
+      bodyBefore:
+        'Plataformas reales con Django, SQL (PostgreSQL / SQL Server), Apache Superset, Power BI, n8n y apps que funcionan sin red. Técnico Universitario en Programación (',
+      utn: 'UTN — Facultad Regional Resistencia',
+      bodyMid: ', promedio 9.40). Licenciatura en Ciencia de Datos en la ',
+      ugr: 'Universidad del Gran Rosario',
+      cvVisual: 'Descargar CV visual',
+      cvAts: 'Descargar CV ATS',
+      pipeline: ['Entrada', 'Modelo', 'Tablero', 'Decisión'],
+      stats: [
+        { label: 'Promedio UTN', value: '9.40' },
+        { label: 'Productos en producción', n: 10, suffix: '+' },
+        { label: 'Años en tecnología', n: 8, suffix: '+' },
+        { label: 'Formación actual', value: 'Lic. UGR' },
+      ],
+    },
+    method: {
+      kicker: 'Cómo trabajo',
+      title: 'Del dato suelto a una decisión clara',
+      intro:
+        'Tomo información de varios sistemas, la unifico con reglas, la dejo lista para consultar y la muestro en tableros. Si un proceso falla, el sistema avisa: no se pierde en silencio.',
+      note:
+        'Cada persona ve solo lo que le corresponde (permisos por identidad). Queda registro de quién consulta o exporta. Los trabajos automáticos se reintentan y, si siguen fallando, escalan.',
+      lab: 'Ejemplo agtech: de las planillas del campo al tablero →',
+      steps: [
+        {
+          title: 'Recolectar',
+          body: 'Conecto bases, mapas, padrones y archivos. No reescribo el sistema original: lo expongo con un contrato claro (qué campos, qué tipos, qué frecuencia).',
+          tags: ['SQL Server', 'PostgreSQL', 'APIs', 'CSV'],
+        },
+        {
+          title: 'Preparar',
+          body: 'Limpio duplicados, unifico nombres y valido calidad. El mismo trabajo puede correr en Airflow, Spark o Celery: cambia el motor, no la regla.',
+          tags: ['Airflow', 'PySpark', 'Celery', 'Python'],
+        },
+        {
+          title: 'Organizar',
+          body: 'Armo tablas de hechos y dimensiones: números que se pueden repetir en cualquier tablero o API, con el mismo criterio.',
+          tags: ['SQL', 'PostGIS', 'datasets'],
+        },
+        {
+          title: 'Mostrar',
+          body: 'Tableros con datos ya consolidados. Se incrustan en el sistema de trabajo. No es un archivo que viaja por correo.',
+          tags: ['Superset', 'Power BI', 'DAX'],
+        },
+        {
+          title: 'Actuar',
+          body: 'Si un lote falla o un indicador se sale de rango, llega una alerta. El dato no termina en un gráfico: dispara una acción.',
+          tags: ['n8n', 'webhooks', 'cron'],
+        },
+      ],
+    },
+    caso: {
+      kicker: 'Un ejemplo',
+      title: 'Cuando hay datos, pero nadie puede decidir',
+      intro:
+        'Ejemplo típico —sin datos reales ni nombres internos—. Pasa cuando la información existe, pero está repartida, mal definida o sin control de acceso.',
+      cols: [
+        {
+          kicker: 'Antes',
+          title: 'Cada área con su número',
+          lines: [
+            'Los reportes se arman a mano, copiando de varias bases y planillas.',
+            'La misma métrica significa otra cosa según quién la calcule.',
+            'Casi cualquiera puede exportar; no queda claro quién vio qué.',
+          ],
+        },
+        {
+          kicker: 'Qué hago',
+          title: 'Unificar, modelar y mostrar',
+          accent: true,
+          lines: [
+            'Conecto el sistema viejo (SQL Server / PostgreSQL) y APIs, sin rehacer el core.',
+            'Proceso en lotes repetibles (Celery / Redis): si se corre dos veces, no duplica.',
+            'Tableros en Apache Superset o Power BI, con permisos por rol.',
+            'Alertas (n8n) si un proceso falla o un indicador se desvía.',
+          ],
+        },
+        {
+          kicker: 'Después',
+          title: 'Un número, una decisión',
+          lines: [
+            'Una métrica por entidad, igual en el tablero y en la exportación.',
+            'El tablero vive dentro del sistema de trabajo, no en un Excel suelto.',
+            'Queda registro de consultas y fallos a la vista.',
+          ],
+        },
+      ],
+      metrics: [
+        { label: 'Quién ve qué', value: 'Permisos reales', note: 'El recorte de datos sigue a la persona, no a un filtro de pantalla.' },
+        { label: 'Operación', value: 'Jobs + alertas', note: 'El refresco no depende de alguien armando una planilla a las 7 de la mañana.' },
+        { label: 'Uso real', value: 'Tablero embebido', note: 'Se consulta donde se trabaja. No es un archivo que se pierde en el mail.' },
+      ],
+    },
+    work: {
+      kicker: 'Portafolio',
+      title: 'Trabajo seleccionado',
+      intro: 'Ingeniería de datos, tableros, automatización y productos que ya están en uso.',
+      role: 'Rol · ',
+      repo: 'Repositorio →',
+      filters: [
+        { id: 'all', label: 'Todo' },
+        { id: 'de', label: 'Datos' },
+        { id: 'da', label: 'Analítica' },
+        { id: 'auto', label: 'Automatización' },
+        { id: 'ecom', label: 'ECOM' },
+        { id: 'agtech', label: 'AgTech' },
+        { id: 'product', label: 'Producto' },
+      ],
+    },
+    path: {
+      kicker: 'Trayectoria',
+      title: 'Experiencia',
+      education: 'Formación',
+      ds: 'Licenciatura en Ciencia de Datos',
+      dsMeta: 'Universidad del Gran Rosario. En curso.',
+      ugrPlan: 'Plan UGR',
+      tech: 'Tecnicatura Universitaria en Programación',
+      techMeta: 'Graduado. Promedio general 9.40.',
+      acc: 'Contador Público — ciclo básico',
+      accMeta: 'Universidad Nacional de Formosa (UNaF). Incompleto. Base contable y financiera.',
+      langs: 'Idiomas',
+      langsBody: 'Español nativo. Inglés técnico intermedio. Portugués intermedio. El sitio también está en chino simplificado (traducción).',
+      extra: 'Diseño de interfaces y documentación visual (Figma, Adobe CC) aplicadas a tableros y explicación de datos.',
+    },
+    skills: {
+      kicker: 'Capacidades',
+      intro: 'Producción: lo uso todos los días. Sólido: lo entrego solo. Aplicado: lo usé en proyectos reales, no es mi núcleo diario.',
+      bands: { prod: 'Producción', solid: 'Sólido', applied: 'Aplicado' },
+      g1: 'Datos e ingeniería',
+      g1b: 'Entrada, modelo, tableros.',
+      g2: 'Producto y automatización',
+      g2b: 'APIs, web, campo y flujos.',
+    },
+    video: {
+      kicker: 'Producto · agro · datos',
+      body: 'App ganadera que funciona sin señal: rodeos, indicadores, mapas y visión por computadora. Hecha junto al CEDEVA. Base técnica de SIGAG.',
+    },
+    footer: {
+      title: 'Ingeniería de datos y analítica aplicada',
+      body: 'Abierto a roles de ingeniería de datos, inteligencia de negocios, automatización y arquitectura de información. Resistencia, Chaco · remoto o híbrido. Español, inglés técnico y portugués.',
+      ats: 'CV ATS',
+      visual: 'CV visual',
+    },
+    meta: {
+      title: 'Fabricio Duarte — Datos, analítica, automatización y producto',
+      description: 'Ingeniería de datos y producto en producción: Django, SQL, Superset, Power BI, n8n, Vue/Nuxt, Expo. Resistencia, Chaco, Argentina.',
+    },
+  },
+  en: {
+    nav: {
+      method: 'Method',
+      case: 'Case',
+      work: 'Work',
+      path: 'Path',
+      stack: 'Stack',
+      contact: 'Contact',
+      menu: 'Menu',
+      close: 'Close',
+    },
+    hero: {
+      badge: 'Resistencia, Chaco · Data engineering & analytics',
+      lead:
+        'I take data out of scattered systems, make it consistent, and put it on dashboards people can actually decide with. Institutions and product — in production.',
+      bodyBefore:
+        'Live platforms with Django, SQL (PostgreSQL / SQL Server), Apache Superset, Power BI, n8n, and apps that work offline. University Technician in Programming (',
+      utn: 'UTN — Facultad Regional Resistencia',
+      bodyMid: ', GPA 9.40). B.S. in Data Science at ',
+      ugr: 'Universidad del Gran Rosario',
+      cvVisual: 'Download visual CV',
+      cvAts: 'Download ATS CV',
+      pipeline: ['Ingest', 'Model', 'Dashboard', 'Decide'],
+      stats: [
+        { label: 'UTN GPA', value: '9.40' },
+        { label: 'Products in production', n: 10, suffix: '+' },
+        { label: 'Years in tech', n: 8, suffix: '+' },
+        { label: 'Current degree', value: 'B.S. UGR' },
+      ],
+    },
+    method: {
+      kicker: 'How I work',
+      title: 'From messy data to a clear decision',
+      intro:
+        'I pull information from several systems, unify it with rules, make it queryable, and show it on dashboards. If a job fails, the system alerts — nothing dies in silence.',
+      note:
+        'People only see what they are allowed to see (identity-based access). Queries and exports are logged. Automated jobs retry, then escalate if they keep failing.',
+      lab: 'Agtech example: from farm spreadsheets to a dashboard →',
+      steps: [
+        {
+          title: 'Collect',
+          body: 'I connect databases, maps, registries, and files. I do not rewrite the source system: I expose it under a clear contract (fields, types, schedule).',
+          tags: ['SQL Server', 'PostgreSQL', 'APIs', 'CSV'],
+        },
+        {
+          title: 'Prepare',
+          body: 'I remove duplicates, align names, and check quality. The same work can run on Airflow, Spark, or Celery: the engine changes, the rule does not.',
+          tags: ['Airflow', 'PySpark', 'Celery', 'Python'],
+        },
+        {
+          title: 'Organize',
+          body: 'I build facts and dimensions: numbers you can reuse on any dashboard or API with the same definition.',
+          tags: ['SQL', 'PostGIS', 'datasets'],
+        },
+        {
+          title: 'Show',
+          body: 'Dashboards on already-consolidated data, embedded where people work. Not a file bouncing around in email.',
+          tags: ['Superset', 'Power BI', 'DAX'],
+        },
+        {
+          title: 'Act',
+          body: 'If a batch fails or a metric goes off-range, an alert fires. Data does not stop at a chart: it triggers an action.',
+          tags: ['n8n', 'webhooks', 'cron'],
+        },
+      ],
+    },
+    caso: {
+      kicker: 'An example',
+      title: 'When data exists, but nobody can decide',
+      intro:
+        'A typical pattern — no real data, no internal names. It happens when information exists but is split, poorly defined, or wide open.',
+      cols: [
+        {
+          kicker: 'Before',
+          title: 'Every team with its own number',
+          lines: [
+            'Reports are built by hand from several databases and spreadsheets.',
+            'The same metric means something else depending on who calculates it.',
+            'Almost anyone can export; there is no trail of who saw what.',
+          ],
+        },
+        {
+          kicker: 'What I do',
+          title: 'Unify, model, and show',
+          accent: true,
+          lines: [
+            'Connect the legacy system (SQL Server / PostgreSQL) and APIs, without rewriting the core.',
+            'Repeatable batches (Celery / Redis): running twice does not duplicate rows.',
+            'Dashboards in Apache Superset or Power BI, with role-based access.',
+            'Alerts (n8n) if a job fails or a metric drifts.',
+          ],
+        },
+        {
+          kicker: 'After',
+          title: 'One number, one decision',
+          lines: [
+            'One metric per entity, the same on the dashboard and in the export.',
+            'The dashboard lives inside the working system, not in a stray Excel file.',
+            'Queries are logged; failures are visible.',
+          ],
+        },
+      ],
+      metrics: [
+        { label: 'Who sees what', value: 'Real permissions', note: 'Data scope follows the person, not a screen filter.' },
+        { label: 'Operations', value: 'Jobs + alerts', note: 'Refresh does not depend on someone building a spreadsheet at 7 a.m.' },
+        { label: 'Actual use', value: 'Embedded dashboard', note: 'People look where they work. It is not a file lost in email.' },
+      ],
+    },
+    work: {
+      kicker: 'Portfolio',
+      title: 'Selected work',
+      intro: 'Data engineering, dashboards, automation, and products already in use.',
+      role: 'Role · ',
+      repo: 'Repository →',
+      filters: [
+        { id: 'all', label: 'All' },
+        { id: 'de', label: 'Data' },
+        { id: 'da', label: 'Analytics' },
+        { id: 'auto', label: 'Automation' },
+        { id: 'ecom', label: 'ECOM' },
+        { id: 'agtech', label: 'AgTech' },
+        { id: 'product', label: 'Product' },
+      ],
+    },
+    path: {
+      kicker: 'Path',
+      title: 'Experience',
+      education: 'Education',
+      ds: 'B.S. in Data Science',
+      dsMeta: 'Universidad del Gran Rosario. In progress.',
+      ugrPlan: 'UGR plan',
+      tech: 'University Technician in Programming',
+      techMeta: 'Graduated. GPA 9.40.',
+      acc: 'Public Accountant — basic cycle',
+      accMeta: 'Universidad Nacional de Formosa (UNaF). Incomplete. Accounting and finance foundation.',
+      langs: 'Languages',
+      langsBody: 'Native Spanish. Intermediate technical English. Intermediate Portuguese. The site is also available in Simplified Chinese (translation).',
+      extra: 'Interface design and visual documentation (Figma, Adobe CC) applied to dashboards and data explanation.',
+    },
+    skills: {
+      kicker: 'Skills',
+      intro: 'Production: I use it every day. Solid: I deliver it on my own. Applied: I used it on real projects; it is not my daily core.',
+      bands: { prod: 'Production', solid: 'Solid', applied: 'Applied' },
+      g1: 'Data & engineering',
+      g1b: 'Ingest, model, dashboards.',
+      g2: 'Product & automation',
+      g2b: 'APIs, web, field, and flows.',
+    },
+    video: {
+      kicker: 'Product · agri · data',
+      body: 'Livestock app that works without signal: herds, indicators, maps, and computer vision. Built with CEDEVA. Technical base of SIGAG.',
+    },
+    footer: {
+      title: 'Data engineering and applied analytics',
+      body: 'Open to roles in data engineering, business intelligence, automation, and information architecture. Resistencia, Chaco · remote or hybrid. Spanish, technical English, and Portuguese.',
+      ats: 'ATS CV',
+      visual: 'Visual CV',
+    },
+    meta: {
+      title: 'Fabricio Duarte — Data, analytics, automation, and product',
+      description: 'Data engineering and production products: Django, SQL, Superset, Power BI, n8n, Vue/Nuxt, Expo. Resistencia, Chaco, Argentina.',
+    },
+  },
+  pt: {
+    nav: {
+      method: 'Método',
+      case: 'Caso',
+      work: 'Trabalho',
+      path: 'Trajetória',
+      stack: 'Stack',
+      contact: 'Contato',
+      menu: 'Menu',
+      close: 'Fechar',
+    },
+    hero: {
+      badge: 'Resistencia, Chaco · Engenharia de dados e analytics',
+      lead:
+        'Tiro o dado de sistemas espalhados, deixo consistente e coloco em painéis para decidir de verdade. Instituições e produto — em produção.',
+      bodyBefore:
+        'Plataformas reais com Django, SQL (PostgreSQL / SQL Server), Apache Superset, Power BI, n8n e apps que funcionam offline. Técnico Universitário em Programação (',
+      utn: 'UTN — Facultad Regional Resistencia',
+      bodyMid: ', média 9,40). Licenciatura em Ciência de Dados na ',
+      ugr: 'Universidad del Gran Rosario',
+      cvVisual: 'Baixar CV visual',
+      cvAts: 'Baixar CV ATS',
+      pipeline: ['Entrada', 'Modelo', 'Painel', 'Decisão'],
+      stats: [
+        { label: 'Média UTN', value: '9.40' },
+        { label: 'Produtos em produção', n: 10, suffix: '+' },
+        { label: 'Anos em tecnologia', n: 8, suffix: '+' },
+        { label: 'Formação atual', value: 'Lic. UGR' },
+      ],
+    },
+    method: {
+      kicker: 'Como trabalho',
+      title: 'Do dado solto a uma decisão clara',
+      intro:
+        'Reúno informação de vários sistemas, unifico com regras, deixo pronta para consulta e mostro em painéis. Se um processo falha, o sistema avisa — nada some em silêncio.',
+      note:
+        'Cada pessoa vê só o que pode ver (acesso pela identidade). Consultas e exportações ficam registradas. Jobs automáticos tentam de novo e, se continuam falhando, escalam.',
+      lab: 'Exemplo agtech: das planilhas do campo ao painel →',
+      steps: [
+        {
+          title: 'Coletar',
+          body: 'Conecto bancos, mapas, cadastros e arquivos. Não reescrevo o sistema de origem: exponho com um contrato claro (campos, tipos, frequência).',
+          tags: ['SQL Server', 'PostgreSQL', 'APIs', 'CSV'],
+        },
+        {
+          title: 'Preparar',
+          body: 'Tiro duplicatas, unifico nomes e valido qualidade. O mesmo trabalho pode rodar no Airflow, Spark ou Celery: muda o motor, não a regra.',
+          tags: ['Airflow', 'PySpark', 'Celery', 'Python'],
+        },
+        {
+          title: 'Organizar',
+          body: 'Monto fatos e dimensões: números que se repetem em qualquer painel ou API, com o mesmo critério.',
+          tags: ['SQL', 'PostGIS', 'datasets'],
+        },
+        {
+          title: 'Mostrar',
+          body: 'Painéis com dados já consolidados, embutidos onde se trabalha. Não é um arquivo que viaja por e-mail.',
+          tags: ['Superset', 'Power BI', 'DAX'],
+        },
+        {
+          title: 'Agir',
+          body: 'Se um lote falha ou um indicador sai da faixa, chega um alerta. O dado não para no gráfico: dispara uma ação.',
+          tags: ['n8n', 'webhooks', 'cron'],
+        },
+      ],
+    },
+    caso: {
+      kicker: 'Um exemplo',
+      title: 'Quando há dados, mas ninguém consegue decidir',
+      intro:
+        'Padrão típico — sem dados reais nem nomes internos. Acontece quando a informação existe, mas está espalhada, mal definida ou sem controle de acesso.',
+      cols: [
+        {
+          kicker: 'Antes',
+          title: 'Cada área com o seu número',
+          lines: [
+            'Relatórios montados à mão a partir de vários bancos e planilhas.',
+            'A mesma métrica significa outra coisa conforme quem calcula.',
+            'Quase qualquer um exporta; não dá para saber quem viu o quê.',
+          ],
+        },
+        {
+          kicker: 'O que faço',
+          title: 'Unificar, modelar e mostrar',
+          accent: true,
+          lines: [
+            'Conecto o legado (SQL Server / PostgreSQL) e APIs, sem reescrever o núcleo.',
+            'Lotes repetíveis (Celery / Redis): rodar duas vezes não duplica.',
+            'Painéis no Apache Superset ou Power BI, com permissão por papel.',
+            'Alertas (n8n) se um processo falha ou um indicador desvia.',
+          ],
+        },
+        {
+          kicker: 'Depois',
+          title: 'Um número, uma decisão',
+          lines: [
+            'Uma métrica por entidade, igual no painel e na exportação.',
+            'O painel vive no sistema de trabalho, não num Excel solto.',
+            'Consultas registradas; falhas visíveis.',
+          ],
+        },
+      ],
+      metrics: [
+        { label: 'Quem vê o quê', value: 'Permissões reais', note: 'O recorte de dados segue a pessoa, não um filtro de tela.' },
+        { label: 'Operação', value: 'Jobs + alertas', note: 'A atualização não depende de alguém montar planilha às 7 da manhã.' },
+        { label: 'Uso real', value: 'Painel embutido', note: 'Consulta-se onde se trabalha. Não é arquivo perdido no e-mail.' },
+      ],
+    },
+    work: {
+      kicker: 'Portfólio',
+      title: 'Trabalho selecionado',
+      intro: 'Engenharia de dados, painéis, automação e produtos já em uso.',
+      role: 'Papel · ',
+      repo: 'Repositório →',
+      filters: [
+        { id: 'all', label: 'Tudo' },
+        { id: 'de', label: 'Dados' },
+        { id: 'da', label: 'Analytics' },
+        { id: 'auto', label: 'Automação' },
+        { id: 'ecom', label: 'ECOM' },
+        { id: 'agtech', label: 'AgTech' },
+        { id: 'product', label: 'Produto' },
+      ],
+    },
+    path: {
+      kicker: 'Trajetória',
+      title: 'Experiência',
+      education: 'Formação',
+      ds: 'Licenciatura em Ciência de Dados',
+      dsMeta: 'Universidad del Gran Rosario. Em andamento.',
+      ugrPlan: 'Plano UGR',
+      tech: 'Técnico Universitário em Programação',
+      techMeta: 'Formado. Média 9,40.',
+      acc: 'Contador Público — ciclo básico',
+      accMeta: 'Universidad Nacional de Formosa (UNaF). Incompleto. Base contábil e financeira.',
+      langs: 'Idiomas',
+      langsBody: 'Espanhol nativo. Inglês técnico intermediário. Português intermediário. O site também está em chinês simplificado (tradução).',
+      extra: 'Design de interfaces e documentação visual (Figma, Adobe CC) aplicados a painéis e explicação de dados.',
+    },
+    skills: {
+      kicker: 'Capacidades',
+      intro: 'Produção: uso todo dia. Sólido: entrego sozinho. Aplicado: usei em projetos reais; não é o núcleo diário.',
+      bands: { prod: 'Produção', solid: 'Sólido', applied: 'Aplicado' },
+      g1: 'Dados e engenharia',
+      g1b: 'Entrada, modelo, painéis.',
+      g2: 'Produto e automação',
+      g2b: 'APIs, web, campo e fluxos.',
+    },
+    video: {
+      kicker: 'Produto · agro · dados',
+      body: 'App pecuária que funciona sem sinal: rebanhos, indicadores, mapas e visão computacional. Feita com o CEDEVA. Base técnica do SIGAG.',
+    },
+    footer: {
+      title: 'Engenharia de dados e analytics aplicada',
+      body: 'Aberto a papéis de engenharia de dados, business intelligence, automação e arquitetura da informação. Resistencia, Chaco · remoto ou híbrido. Espanhol, inglês técnico e português.',
+      ats: 'CV ATS',
+      visual: 'CV visual',
+    },
+    meta: {
+      title: 'Fabricio Duarte — Dados, analytics, automação e produto',
+      description: 'Engenharia de dados e produto em produção: Django, SQL, Superset, Power BI, n8n, Vue/Nuxt, Expo. Resistencia, Chaco, Argentina.',
+    },
+  },
+  zh: {
+    nav: {
+      method: '方法',
+      case: '案例',
+      work: '作品',
+      path: '经历',
+      stack: '技术栈',
+      contact: '联系',
+      menu: '菜单',
+      close: '关闭',
+    },
+    hero: {
+      badge: '阿根廷查科省雷西斯滕西亚 · 数据工程与分析',
+      lead:
+        '我把分散系统里的数据拿出来，做成统一、可查询的信息，放到仪表盘上，让人真正能做决策。服务机构和产品，都在生产环境。',
+      bodyBefore:
+        '生产环境使用 Django、SQL（PostgreSQL / SQL Server）、Apache Superset、Power BI、n8n，以及可离线运行的应用。大学编程技术学位（',
+      utn: 'UTN — 雷西斯滕西亚地区学院',
+      bodyMid: '，平均分 9.40）。正在攻读数据科学学士：',
+      ugr: 'Universidad del Gran Rosario',
+      cvVisual: '下载视觉版简历',
+      cvAts: '下载 ATS 简历',
+      pipeline: ['采集', '建模', '看板', '决策'],
+      stats: [
+        { label: 'UTN 平均分', value: '9.40' },
+        { label: '已上线产品', n: 10, suffix: '+' },
+        { label: '从业年限', n: 8, suffix: '+' },
+        { label: '在读学位', value: 'UGR 学士' },
+      ],
+    },
+    method: {
+      kicker: '我怎么做',
+      title: '从零散数据到清楚决策',
+      intro:
+        '从多个系统取数，用规则统一，整理成可查询的数据，再放到看板。任务失败会告警，不会悄悄丢掉。',
+      note:
+        '按身份控制可见范围。查询和导出有记录。自动任务会重试，仍失败则升级处理。',
+      lab: '农业科技示例：从牧场表格到看板 →',
+      steps: [
+        {
+          title: '采集',
+          body: '连接数据库、地图、名册和文件。不重写原系统，而是约定字段、类型和更新频率后对外提供。',
+          tags: ['SQL Server', 'PostgreSQL', 'APIs', 'CSV'],
+        },
+        {
+          title: '清洗',
+          body: '去重、统一名称、校验质量。同一套规则可在 Airflow、Spark 或 Celery 上跑：换引擎，不换规则。',
+          tags: ['Airflow', 'PySpark', 'Celery', 'Python'],
+        },
+        {
+          title: '建模',
+          body: '建立事实表和维度表：同一口径的指标，可在任何看板或 API 里复用。',
+          tags: ['SQL', 'PostGIS', 'datasets'],
+        },
+        {
+          title: '展示',
+          body: '在已汇总的数据上做看板，嵌进日常系统。不是在邮件里传来传去的文件。',
+          tags: ['Superset', 'Power BI', 'DAX'],
+        },
+        {
+          title: '行动',
+          body: '批次失败或指标越界时发出告警。数据不只停在图表，会触发动作。',
+          tags: ['n8n', 'webhooks', 'cron'],
+        },
+      ],
+    },
+    caso: {
+      kicker: '一个例子',
+      title: '有数据，却做不了决定',
+      intro:
+        '常见情况——不含真实数据或内部系统名。信息存在，但分散、口径不统一，或谁都能导出。',
+      cols: [
+        {
+          kicker: '之前',
+          title: '每个部门一个数字',
+          lines: [
+            '报表靠人手从多个库和表格里抄。',
+            '同一个指标，谁算谁一套定义。',
+            '几乎谁都能导出，说不清谁看过什么。',
+          ],
+        },
+        {
+          kicker: '我做什么',
+          title: '统一、建模、展示',
+          accent: true,
+          lines: [
+            '对接旧系统（SQL Server / PostgreSQL）和 API，不重写核心。',
+            '可重复的批处理（Celery / Redis）：跑两遍不会重复写。',
+            '用 Apache Superset 或 Power BI 做看板，按角色授权。',
+            '任务失败或指标偏离时用 n8n 告警。',
+          ],
+        },
+        {
+          kicker: '之后',
+          title: '一个数字，一次决策',
+          lines: [
+            '每个主体一个指标，看板和导出口径相同。',
+            '看板嵌在工作系统里，不是散落的 Excel。',
+            '查询有记录，失败看得见。',
+          ],
+        },
+      ],
+      metrics: [
+        { label: '谁能看什么', value: '真正的权限', note: '数据范围跟着人走，不是屏幕上的筛选器。' },
+        { label: '运维', value: '任务 + 告警', note: '刷新不靠早上七点有人做表。' },
+        { label: '真正使用', value: '内嵌看板', note: '在工作的地方查看。不是邮件里丢失的文件。' },
+      ],
+    },
+    work: {
+      kicker: '作品集',
+      title: '精选工作',
+      intro: '数据工程、看板、自动化，以及已经在用的产品。',
+      role: '职责 · ',
+      repo: '代码仓库 →',
+      filters: [
+        { id: 'all', label: '全部' },
+        { id: 'de', label: '数据' },
+        { id: 'da', label: '分析' },
+        { id: 'auto', label: '自动化' },
+        { id: 'ecom', label: 'ECOM' },
+        { id: 'agtech', label: '农业科技' },
+        { id: 'product', label: '产品' },
+      ],
+    },
+    path: {
+      kicker: '经历',
+      title: '工作经验',
+      education: '教育',
+      ds: '数据科学学士',
+      dsMeta: 'Universidad del Gran Rosario。在读。',
+      ugrPlan: 'UGR 培养方案',
+      tech: '大学编程技术学位',
+      techMeta: '已毕业。平均分 9.40。',
+      acc: '注册会计师 — 基础阶段',
+      accMeta: 'Universidad Nacional de Formosa（UNaF）。未完成。会计与财务基础。',
+      langs: '语言',
+      langsBody: '西班牙语母语。中级专业英语。中级葡萄牙语。本站另有简体中文译本。',
+      extra: '界面设计与可视化文档（Figma、Adobe CC），用于看板和数据说明。',
+    },
+    skills: {
+      kicker: '能力',
+      intro: '生产：每天都用。扎实：可独立交付。应用过：真实项目用过，但不是日常核心。',
+      bands: { prod: '生产', solid: '扎实', applied: '应用过' },
+      g1: '数据与工程',
+      g1b: '采集、建模、看板。',
+      g2: '产品与自动化',
+      g2b: '接口、网页、田间与流程。',
+    },
+    video: {
+      kicker: '产品 · 农业 · 数据',
+      body: '可离线使用的畜牧应用：牛群、指标、地图与计算机视觉。与 CEDEVA 合作。是 SIGAG 的技术基础。',
+    },
+    footer: {
+      title: '数据工程与应用分析',
+      body: '开放数据工程、商业智能、自动化与信息架构相关岗位。查科省雷西斯滕西亚 · 远程或混合。西班牙语、专业英语、葡萄牙语。',
+      ats: 'ATS 简历',
+      visual: '视觉简历',
+    },
+    meta: {
+      title: 'Fabricio Duarte — 数据、分析、自动化与产品',
+      description: '生产级数据工程与产品：Django、SQL、Superset、Power BI、n8n、Vue/Nuxt、Expo。阿根廷查科省雷西斯滕西亚。',
+    },
+  },
+}

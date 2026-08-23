@@ -10,54 +10,24 @@
 
 <script setup>
 import { computed } from 'vue'
+import { LOCALE_META } from '~/composables/useLocale'
 
-const { locale, isEn } = useLocale()
-
-const title = computed(() =>
-  isEn.value
-    ? 'Fabricio Duarte — Data, analytics, automation, and product'
-    : 'Fabricio Duarte — Datos, analítica, automatización y producto'
-)
+const { locale, t } = useLocale()
 
 useHead({
-  htmlAttrs: { lang: () => locale.value },
-  title,
+  htmlAttrs: { lang: () => LOCALE_META[locale.value]?.html || 'es' },
+  title: computed(() => t.value.meta.title),
   meta: [
-    {
-      name: 'description',
-      content: () =>
-        isEn.value
-          ? 'Data engineering and production products: Django, SQL, Superset, Power BI, n8n, Vue/Nuxt, Expo. Resistencia, Chaco, Argentina.'
-          : 'Ingeniería de datos y producto en producción: Django, SQL, Superset, Power BI, n8n, Vue/Nuxt, Expo. Resistencia, Chaco, Argentina.',
-    },
+    { name: 'description', content: () => t.value.meta.description },
     { property: 'og:type', content: 'website' },
     { property: 'og:url', content: 'https://fabricioduarte.tech' },
-    {
-      property: 'og:title',
-      content: () =>
-        isEn.value
-          ? 'Fabricio Duarte — Data, analytics, and automation'
-          : 'Fabricio Duarte — Datos, analítica y automatización',
-    },
-    {
-      property: 'og:description',
-      content: () =>
-        isEn.value
-          ? 'Pipelines, BI, automation, and applied AI. Django, SQL, n8n, offline-first products.'
-          : 'Pipelines, BI, automatización e IA aplicada. Django, SQL, n8n, producto offline-first.',
-    },
+    { property: 'og:title', content: () => t.value.meta.title },
+    { property: 'og:description', content: () => t.value.meta.description },
     { property: 'og:image', content: 'https://fabricioduarte.tech/images/profile.jpg' },
     { name: 'twitter:card', content: 'summary_large_image' },
-    {
-      name: 'twitter:title',
-      content: () =>
-        isEn.value
-          ? 'Fabricio Duarte — Data, analytics, and automation'
-          : 'Fabricio Duarte — Datos, analítica y automatización',
-    },
-    { name: 'twitter:description', content: 'Data engineering, analytics, automation, product.' },
+    { name: 'twitter:title', content: () => t.value.meta.title },
+    { name: 'twitter:description', content: () => t.value.meta.description },
     { name: 'twitter:image', content: 'https://fabricioduarte.tech/images/profile.jpg' },
   ],
 })
 </script>
-
