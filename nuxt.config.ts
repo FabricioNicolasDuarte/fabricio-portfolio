@@ -14,7 +14,7 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       crawlLinks: true,
-      routes: ['/', '/agtech/lakehouse', '/casos/ecom', '/casos/skadia'],
+      routes: ['/', '/agtech/lakehouse', '/casos/ecom', '/casos/skadia', '/metodo', '/trabajo', '/skadia', '/trayectoria', '/agendar'],
     },
   },
   app: {

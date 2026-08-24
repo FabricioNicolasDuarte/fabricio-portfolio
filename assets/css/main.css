@@ -5,9 +5,18 @@
 html { scroll-behavior: smooth; }
 
 body {
-  background: #030712;
+  background: #020617;
   color: #e2e8f0;
   -webkit-font-smoothing: antialiased;
+}
+
+.site-grid {
+  background-color: #020617;
+  background-image:
+    linear-gradient(rgba(148, 163, 184, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.06) 1px, transparent 1px),
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(34, 211, 238, 0.12), transparent 55%);
+  background-size: 48px 48px, 48px 48px, 100% 100%;
 }
 
 ::selection {
@@ -27,7 +36,6 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: shine 6s linear infinite;
 }
 
 @keyframes shine {

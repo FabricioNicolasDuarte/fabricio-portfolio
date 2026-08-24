@@ -30,7 +30,6 @@ export const useLocale = () => {
     const l = locale.value
     const suffix = { es: '', en: 'En', pt: 'Pt', zh: 'Zh' }[l]
     if (suffix && item[key + suffix] != null) return item[key + suffix]
-    if (l !== 'es' && item[key + 'En'] != null) return item[key + 'En']
     return item[key]
   }
 

@@ -6,7 +6,7 @@
         <h2 class="mt-2 font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl">{{ t.work.title }}</h2>
         <p class="mt-3 max-w-lg text-[15px] leading-relaxed text-slate-400">{{ t.work.intro }}</p>
       </div>
-      <div class="flex flex-wrap gap-2">
+      <div v-if="!compact" class="flex flex-wrap gap-2">
         <button
           v-for="f in filters"
           :key="f.id"
@@ -49,7 +49,12 @@
         </a>
       </article>
     </div>
-    <div class="mt-8 flex justify-center" v-if="active === 'all' && work.length > PIN_COUNT">
+    <div class="mt-8 flex justify-center" v-if="compact">
+      <NuxtLink to="/trabajo" class="rounded-full border border-white/15 px-4 py-2 text-sm text-cyan-200 hover:border-cyan-400/40">
+        {{ t.work.more }}
+      </NuxtLink>
+    </div>
+    <div class="mt-8 flex justify-center" v-else-if="active === 'all' && work.length > PIN_COUNT">
       <button
         type="button"
         class="rounded-full border border-white/15 px-4 py-2 text-sm text-slate-300 transition hover:border-cyan-400/40 hover:text-cyan-200"
@@ -64,10 +69,11 @@
 <script setup>
 import { computed, ref } from 'vue'
 
+const props = defineProps({ compact: Boolean })
 const { t, tx } = useLocale()
 const active = ref('all')
 const expanded = ref(false)
-const PIN_COUNT = 6
+const PIN_COUNT = computed(() => (props.compact ? 3 : 6))
 const filters = computed(() => t.value.work.filters)
 
 const work = [
@@ -135,6 +141,8 @@ const work = [
     kind: 'Automatización · integración',
     title: 'Orquestación operativa — n8n',
     titleEn: 'Operational orchestration — n8n',
+    titlePt: 'Orquestração operacional — n8n',
+    titleZh: '运营编排 — n8n',
     summary:
       'Automatizo procesos que hoy se hacen a mano: avisos, cargas y cruces entre sistemas. Prototipo en Make; en producción uso n8n. Si un paso falla, queda registrado y se avisa.',
     summaryEn:
@@ -143,9 +151,10 @@ const work = [
       'Automatizo o que ainda é feito à mão: avisos, cargas e cruzamentos entre sistemas. Protótipo no Make; produção no n8n. Se um passo falha, registra e avisa.',
     summaryZh:
       '把仍靠人手做的流程自动化：通知、装载、系统对接。原型用 Make，生产用 n8n。失败会记录并告警。',
-    role: 'Arquitectura de flujos e integración. 2024–actualidad.',
-    roleEn: 'Flow architecture and integration. 2024–present.',
-    kindEn: 'Automation · integration',
+    kindPt: 'Automação · integração',
+    kindZh: '自动化 · 集成',
+    rolePt: 'Arquitetura de fluxos e integração. 2024–atual.',
+    roleZh: '流程架构与集成。2024 至今。',
     tags: ['n8n', 'Make', 'Power Automate', 'Apps Script', 'webhooks'],
     cats: ['auto', 'de'],
   },
@@ -155,6 +164,8 @@ const work = [
     kind: 'Analytics · ECOM',
     title: 'Tableros institucionales — Apache Superset & Power BI',
     titleEn: 'Institutional dashboards — Apache Superset & Power BI',
+    titlePt: 'Painéis institucionais — Apache Superset e Power BI',
+    titleZh: '机构看板 — Apache Superset 与 Power BI',
     summary:
       'Tableros sobre datos ya unificados: cada organismo ve solo lo suyo. Se actualizan solos y se pueden incrustar en el sistema de trabajo (Apache Superset y Power BI).',
     summaryEn:
@@ -163,9 +174,10 @@ const work = [
       'Painéis sobre dados já unificados: cada órgão vê só o que é dele. Atualizam sozinhos e podem ir dentro do sistema de trabalho (Apache Superset e Power BI).',
     summaryZh:
       '基于已统一数据的看板：每个机构只看自己的范围。自动刷新，可嵌进业务系统（Apache Superset 与 Power BI）。',
-    role: 'Ingeniería de datos. 2023–actualidad.',
-    roleEn: 'Data engineering. 2023–present.',
-    kindEn: 'Analytics · ECOM',
+    kindPt: 'Analytics · ECOM',
+    kindZh: '分析 · ECOM',
+    rolePt: 'Engenharia de dados. 2023–atual.',
+    roleZh: '数据工程。2023 至今。',
     tags: ['Apache Superset', 'Power BI', 'RLS', 'SQL', 'DAX'],
     cats: ['ecom', 'da', 'de'],
   },
@@ -174,6 +186,8 @@ const work = [
     kind: 'Data engineering · ECOM',
     title: 'Apache Superset — operación analítica',
     titleEn: 'Apache Superset — analytic operations',
+    titlePt: 'Apache Superset — operação analítica',
+    titleZh: 'Apache Superset — 分析运营',
     summary:
       'Operación de motor BI en producción: datasets, métricas, embed, Mapbox, CSP y despliegue en cluster. Tableros de datos consolidados para consumo institucional continuo, no entorno de laboratorio.',
     summaryEn:
@@ -189,6 +203,8 @@ const work = [
     kind: 'Data engineering · ECOM',
     title: 'Plataforma de Servicios e Instituciones',
     titleEn: 'Services and Institutions Platform',
+    titlePt: 'Plataforma de Serviços e Instituições',
+    titleZh: '服务与机构平台',
     summary:
       'Sistema de gestión de establecimientos, conectividad, GIS, KPIs, auditoría y exportación (CSV/Excel/PDF). Convierte operación territorial en datasets consultables y gobernados.',
     summaryEn:
@@ -204,6 +220,8 @@ const work = [
     kind: 'Automatización · integración',
     title: 'Pasarela de cobros',
     titleEn: 'Payment gateway',
+    titlePt: 'Gateway de pagamentos',
+    titleZh: '支付网关',
     summary:
       'Motor de conciliación asíncrona mediante colas, webhooks y procesamiento por lotes. Orquestación de avisos ante fallos de sincronización y control de estados de liquidación.',
     summaryEn:
@@ -219,6 +237,8 @@ const work = [
     kind: 'Data engineering · ECOM',
     title: 'Plataforma de Gestión de Personas Físicas y Jurídicas',
     titleEn: 'Individuals and Legal Entities Platform',
+    titlePt: 'Plataforma de Pessoas Físicas e Jurídicas',
+    titleZh: '自然人与法人平台',
     summary:
       'Capa de consulta y API sobre legado SQL Server y PostgreSQL: exposición controlada del padrón de personas físicas y jurídicas sin reescritura completa del sistema de origen.',
     summaryEn:
@@ -235,6 +255,8 @@ const work = [
     kind: 'Producto · EdTech · comercializado',
     title: 'SIGCL — Sistema Integral de Gestión Curricular y Legal',
     titleEn: 'SIGCL — Integrated Curricular and Legal Management System',
+    titlePt: 'SIGCL — Sistema Integral de Gestão Curricular e Legal',
+    titleZh: 'SIGCL — 课程与法律综合管理系统',
     summary:
       'Plataforma de gestión educativa: sedes, matrículas, asistencia, actas, certificados, series temporales y ranking académico. API REST con Laravel Sanctum, roles granulares y reportes. Licencia comercializada (USD 4.500 + mantenimiento).',
     summaryEn:
@@ -266,6 +288,8 @@ const work = [
     kind: 'Analytics · comercializado',
     title: 'Cocoma App: Cálculo y Gestión de Proyectos Tecnológicos',
     titleEn: 'Cocoma App: Cost and Management of Technology Projects',
+    titlePt: 'Cocoma App: Custo e gestão de projetos de tecnologia',
+    titleZh: 'Cocoma：科技项目成本与管理',
     summary:
       'Aplicación para estimación de costo y tiempo de software mediante modelos COCOMO I y II, escenarios what-if e informes. Comercializada en USD 1.500.',
     summaryEn:
@@ -297,6 +321,8 @@ const work = [
     kind: 'Datos públicos · colaboración',
     title: 'SIREG — consulta pública',
     titleEn: 'SIREG — public lookup',
+    titlePt: 'SIREG — consulta pública',
+    titleZh: 'SIREG — 公共查询',
     summary:
       'Colaboración en la implementación de consulta ciudadana de registros provinciales (Asuntos Registrales, Chaco).',
     summaryEn:
@@ -312,6 +338,8 @@ const work = [
     kind: 'Analytics · visualización',
     title: 'Sistema de Compras — CGP Chaco',
     titleEn: 'Procurement system — CGP Chaco',
+    titlePt: 'Sistema de compras — CGP Chaco',
+    titleZh: '采购系统 — CGP Chaco',
     summary:
       'Capa de KPIs y visualización analítica sobre el sistema de compras en operación.',
     summaryEn:
@@ -333,6 +361,7 @@ const visible = computed(() => {
   const list = filtered.value
   if (active.value !== 'all' || expanded.value) return list
   const pinned = list.filter(w => w.pin)
-  return pinned.length ? pinned : list.slice(0, PIN_COUNT)
+  const cap = PIN_COUNT.value
+  return pinned.length ? pinned.slice(0, cap) : list.slice(0, cap)
 })
 </script>

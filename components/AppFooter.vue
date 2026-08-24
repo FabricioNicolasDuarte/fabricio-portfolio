@@ -8,9 +8,9 @@
         </h2>
         <p class="relative mt-4 max-w-xl text-slate-400">{{ t.footer.body }}</p>
         <div class="relative mt-8 flex flex-wrap gap-3">
-          <a class="rounded-full bg-cyan-400 px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-[0_0_28px_rgba(34,211,238,0.3)] transition hover:bg-cyan-300" href="#book">
+          <NuxtLink to="/agendar" class="rounded-full bg-cyan-400 px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-[0_0_28px_rgba(34,211,238,0.3)] transition hover:bg-cyan-300">
             {{ t.nav.book }}
-          </a>
+          </NuxtLink>
           <a class="rounded-full border border-white/15 px-5 py-2.5 text-sm text-slate-200 transition hover:border-cyan-400/50" href="mailto:fabricioduarteoficial@gmail.com">
             fabricioduarteoficial@gmail.com
           </a>

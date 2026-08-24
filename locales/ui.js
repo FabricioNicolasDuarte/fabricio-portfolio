@@ -28,6 +28,7 @@ export const ui = {
       cvAts: 'Descargar CV ATS',
       book: 'Agendar 25 min',
       open: 'remoto · ART',
+      line: 'Ingeniería de datos · Inteligencia de negocios · Automatización',
       pipeline: ['Entrada', 'Modelo', 'Tablero', 'Decisión'],
       stats: [
         { label: 'Promedio UTN', value: '9.40' },
@@ -35,6 +36,12 @@ export const ui = {
         { label: 'Años en tecnología', n: 8, suffix: '+' },
         { label: 'Formación actual', value: 'Lic. UGR' },
       ],
+    },
+    home: {
+      metodo: 'Cómo unifico, modelo y muestro el dato. Cinco pasos, sin jerga de marketing.',
+      ecomTitle: 'Tableros institucionales',
+      ecom: 'Analítica en producción sobre SQL Server y PostgreSQL, con recorte por organismo.',
+      skadia: 'Del potrero al número repetible: SIGAG, Nutrogan y el lakehouse de demostración.',
     },
     method: {
       kicker: 'Cómo trabajo',
@@ -227,6 +234,7 @@ export const ui = {
       cvAts: 'Download ATS CV',
       book: 'Book 25 min',
       open: 'remote · ART',
+      line: 'Data engineering · Business intelligence · Automation',
       pipeline: ['Ingest', 'Model', 'Dashboard', 'Decide'],
       stats: [
         { label: 'UTN GPA', value: '9.40' },
@@ -234,6 +242,12 @@ export const ui = {
         { label: 'Years in tech', n: 8, suffix: '+' },
         { label: 'Current degree', value: 'B.S. UGR' },
       ],
+    },
+    home: {
+      metodo: 'How I unify, model, and show the data. Five steps. No slogans.',
+      ecomTitle: 'Institutional dashboards',
+      ecom: 'Production analytics on SQL Server and PostgreSQL, scoped by organization.',
+      skadia: 'From paddock to a reusable number: SIGAG, Nutrogan, and the demo lakehouse.',
     },
     method: {
       kicker: 'How I work',
@@ -426,6 +440,7 @@ export const ui = {
       cvAts: 'Baixar CV ATS',
       book: 'Agendar 25 min',
       open: 'remoto · ART',
+      line: 'Engenharia de dados · Business intelligence · Automação',
       pipeline: ['Entrada', 'Modelo', 'Painel', 'Decisão'],
       stats: [
         { label: 'Média UTN', value: '9.40' },
@@ -433,6 +448,12 @@ export const ui = {
         { label: 'Anos em tecnologia', n: 8, suffix: '+' },
         { label: 'Formação atual', value: 'Lic. UGR' },
       ],
+    },
+    home: {
+      metodo: 'Como unifico, modelo e mostro o dado. Cinco passos, sem slogan.',
+      ecomTitle: 'Painéis institucionais',
+      ecom: 'Analytics em produção sobre SQL Server e PostgreSQL, recortado por órgão.',
+      skadia: 'Do piquete ao número repetível: SIGAG, Nutrogan e o lakehouse de demonstração.',
     },
     method: {
       kicker: 'Como trabalho',
@@ -625,6 +646,7 @@ export const ui = {
       cvAts: '下载 ATS 简历',
       book: '预约 25 分钟',
       open: '远程 · ART',
+      line: '数据工程 · 商业智能 · 自动化',
       pipeline: ['采集', '建模', '看板', '决策'],
       stats: [
         { label: 'UTN 平均分', value: '9.40' },
@@ -632,6 +654,12 @@ export const ui = {
         { label: '从业年限', n: 8, suffix: '+' },
         { label: '在读学位', value: 'UGR 学士' },
       ],
+    },
+    home: {
+      metodo: '我如何统一、建模并展示数据。五步，没有口号。',
+      ecomTitle: '机构看板',
+      ecom: '生产环境分析：SQL Server 与 PostgreSQL，按机构划分范围。',
+      skadia: '从牧场到可复用数字：SIGAG、Nutrogan 与演示 lakehouse。',
     },
     method: {
       kicker: '我怎么做',

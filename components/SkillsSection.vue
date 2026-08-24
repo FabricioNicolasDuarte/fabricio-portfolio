@@ -1,7 +1,7 @@
 <template>
   <section id="skills" class="relative mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-24">
     <p class="text-xs font-medium tracking-widest text-cyan-400 uppercase">{{ t.skills.kicker }}</p>
-    <h2 class="mt-2 font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl">Stack</h2>
+        <h2 class="mt-2 font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl">{{ t.skills.kicker }}</h2>
     <p class="mt-3 max-w-2xl text-[15px] leading-relaxed text-slate-400">{{ t.skills.intro }}</p>
 
     <div class="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2">

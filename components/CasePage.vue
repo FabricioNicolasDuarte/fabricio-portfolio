@@ -8,8 +8,8 @@
     </ul>
     <p v-if="note" class="mt-6 text-sm text-slate-500">{{ note }}</p>
     <div class="mt-8 flex flex-wrap gap-3">
-      <NuxtLink to="/#book" class="rounded-full bg-cyan-400 px-5 py-2 text-sm font-semibold text-slate-950">{{ t.nav.book }}</NuxtLink>
-      <NuxtLink to="/" class="rounded-full border border-white/15 px-5 py-2 text-sm text-slate-300">{{ t.nav.work }}</NuxtLink>
+      <NuxtLink to="/agendar" class="rounded-full bg-cyan-400 px-5 py-2 text-sm font-semibold text-slate-950">{{ t.nav.book }}</NuxtLink>
+      <NuxtLink to="/trabajo" class="rounded-full border border-white/15 px-5 py-2 text-sm text-slate-300">{{ t.nav.work }}</NuxtLink>
     </div>
   </section>
 </template>
