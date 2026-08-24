@@ -8,7 +8,10 @@
         </h2>
         <p class="relative mt-4 max-w-xl text-slate-400">{{ t.footer.body }}</p>
         <div class="relative mt-8 flex flex-wrap gap-3">
-          <a class="rounded-full bg-cyan-400 px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-[0_0_28px_rgba(34,211,238,0.3)] transition hover:bg-cyan-300" href="mailto:fabricioduarteoficial@gmail.com">
+          <a class="rounded-full bg-cyan-400 px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-[0_0_28px_rgba(34,211,238,0.3)] transition hover:bg-cyan-300" href="#book">
+            {{ t.nav.book }}
+          </a>
+          <a class="rounded-full border border-white/15 px-5 py-2.5 text-sm text-slate-200 transition hover:border-cyan-400/50" href="mailto:fabricioduarteoficial@gmail.com">
             fabricioduarteoficial@gmail.com
           </a>
           <a class="rounded-full border border-white/15 px-5 py-2.5 text-sm text-slate-200 transition hover:border-cyan-400/50" href="tel:+543704022201">+54 370 402-2201</a>
@@ -16,8 +19,8 @@
           <a class="rounded-full border border-white/15 px-5 py-2.5 text-sm text-slate-200 transition hover:border-cyan-400/50" href="https://github.com/FabricioNicolasDuarte" target="_blank" rel="noopener noreferrer">GitHub</a>
           <a
             class="rounded-full border border-white/15 px-5 py-2.5 text-sm text-slate-200 transition hover:border-cyan-400/50"
-            :href="locale === 'es' ? '/cv/cv-ats.pdf' : '/cv/cv-ats-en.pdf'"
-            :download="locale === 'es' ? 'CV_Fabricio_Duarte_ATS.pdf' : 'CV_Fabricio_Duarte_ATS_EN.pdf'"
+            :href="atsCv.href"
+            :download="atsCv.file"
           >{{ t.footer.ats }}</a>
           <a class="rounded-full border border-white/15 px-5 py-2.5 text-sm text-slate-200 transition hover:border-cyan-400/50" href="/cv/cv-visual.pdf" download="CV_Fabricio_Duarte_Visual.pdf">{{ t.footer.visual }}</a>
         </div>
@@ -29,5 +32,5 @@
 
 <script setup>
 const year = new Date().getFullYear()
-const { t, locale } = useLocale()
+const { t, locale, atsCv } = useLocale()
 </script>

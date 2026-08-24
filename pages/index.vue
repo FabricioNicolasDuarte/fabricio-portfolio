@@ -9,5 +9,6 @@
     <ExperienceSection />
     <SkillsSection />
     <VideoSection />
+    <BookSection />
   </main>
 </template>

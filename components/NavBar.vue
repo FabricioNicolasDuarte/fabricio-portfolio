@@ -30,12 +30,19 @@
             CV
           </a>
           <a
-            :href="locale === 'es' ? '/cv/cv-ats.pdf' : '/cv/cv-ats-en.pdf'"
-            :download="locale === 'es' ? 'CV_Fabricio_Duarte_ATS.pdf' : 'CV_Fabricio_Duarte_ATS_EN.pdf'"
+            :href="atsCv.href"
+            :download="atsCv.file"
             class="hidden rounded-full border border-white/10 px-3 py-1.5 text-xs text-slate-300 transition hover:border-cyan-400/40 md:inline-block"
           >
             ATS
           </a>
+          <button
+            type="button"
+            class="rounded-full border border-white/10 px-2 py-1 text-[10px] text-slate-400 hover:border-cyan-400/40"
+            :aria-pressed="soundOn"
+            :title="soundOn ? t.nav.soundOff : t.nav.soundOn"
+            @click="toggleSound"
+          >{{ soundOn ? '♪' : '♪̸' }}</button>
           <button type="button" class="text-sm text-slate-300 lg:hidden" :aria-expanded="open" @click="open = !open">
             {{ open ? t.nav.close : t.nav.menu }}
           </button>
@@ -55,21 +62,20 @@ import { computed, ref } from 'vue'
 import { LOCALES, LOCALE_META } from '~/composables/useLocale'
 
 const open = ref(false)
-const { locale, setLocale, t } = useLocale()
+const { locale, setLocale, t, atsCv } = useLocale()
+const { enabled: soundOn, toggle: toggleSound, tap } = useUiSound()
 const locales = LOCALES
 const meta = LOCALE_META
 
 const items = computed(() => [
   { id: 'architecture', label: t.value.nav.method },
-  { id: 'caso', label: t.value.nav.case },
-  { id: 'skadia', label: t.value.nav.skadia },
   { id: 'work', label: t.value.nav.work },
-  { id: 'path', label: t.value.nav.path },
-  { id: 'skills', label: t.value.nav.stack },
-  { id: 'contact', label: t.value.nav.contact },
+  { id: 'skadia', label: t.value.nav.skadia },
+  { id: 'book', label: t.value.nav.book },
 ])
 
 const go = (id) => {
+  tap()
   open.value = false
   if (id === 'top') {
     window.scrollTo({ top: 0, behavior: 'smooth' })

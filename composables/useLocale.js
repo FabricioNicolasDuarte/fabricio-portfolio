@@ -20,6 +20,9 @@ export const useLocale = () => {
     if (import.meta.client) {
       localStorage.setItem('fd-locale', locale.value)
       document.documentElement.lang = LOCALE_META[locale.value].html
+      const url = new URL(window.location.href)
+      url.searchParams.set('lang', locale.value)
+      history.replaceState(null, '', url.pathname + url.search + url.hash)
     }
   }
 
@@ -34,12 +37,64 @@ export const useLocale = () => {
   onMounted(() => {
     if (hydrated.value) return
     hydrated.value = true
+    const fromUrl = new URLSearchParams(window.location.search).get('lang')
     const saved = localStorage.getItem('fd-locale')
-    if (LOCALES.includes(saved)) locale.value = saved
+    if (LOCALES.includes(fromUrl)) locale.value = fromUrl
+    else if (LOCALES.includes(saved)) locale.value = saved
     document.documentElement.lang = LOCALE_META[locale.value].html
   })
 
-  const t = computed(() => ui[locale.value] || ui.es)
+  const t = computed(() => {
+    const raw = ui[locale.value] || ui.es
+    const n = raw.nav || {}
+    const h = raw.hero || {}
+    const c = raw.caso || {}
+    const s = raw.skadia || {}
+    const f = raw.footer || {}
+    return {
+      ...raw,
+      nav: {
+        ...n,
+        skip: n.skip ?? n.skip,
+        soundOn: n.soundOn ?? n.soundOn,
+        soundOff: n.soundOff ?? n.soundOff,
+        close: n.close ?? n.close,
+      },
+      hero: {
+        ...h,
+        badge: h.badge ?? h.badge,
+        bodyBefore: h.bodyBefore ?? h.bodyBefore,
+        cvVisual: h.cvVisual ?? h.cvVisual,
+        cvAts: h.cvAts ?? h.cvAts,
+      },
+      caso: {
+        ...c,
+        demoTag: c.demoTag ?? c.demoTag,
+        moreEcom: c.moreEcom ?? c.moreEcom,
+        moreSkadia: c.moreSkadia ?? c.moreSkadia,
+      },
+      skadia: {
+        ...s,
+        shotAlt: s.shotAlt ?? s.shotAlt,
+        cta: s.cta ?? s.cta,
+      },
+      footer: {
+        ...f,
+        ats: f.ats ?? f.ats,
+        visual: f.visual ?? f.visual,
+      },
+    }
+  })
 
-  return { locale, isEn, setLocale, tx, t }
+  const atsCv = computed(() => {
+    if (locale.value === 'pt') {
+      return { href: '/cv/cv-ats-pt.pdf', file: 'CV_Fabricio_Duarte_ATS_PT.pdf' }
+    }
+    if (locale.value === 'es') {
+      return { href: '/cv/cv-ats.pdf', file: 'CV_Fabricio_Duarte_ATS.pdf' }
+    }
+    return { href: '/cv/cv-ats-en.pdf', file: 'CV_Fabricio_Duarte_ATS_EN.pdf' }
+  })
+
+  return { locale, isEn, setLocale, tx, t, atsCv }
 }

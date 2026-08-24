@@ -18,6 +18,13 @@ const { locale, t } = useLocale()
 useHead({
   htmlAttrs: { lang: () => LOCALE_META[locale.value]?.html || 'es' },
   title: computed(() => t.value.meta.title),
+  link: [
+    { rel: 'alternate', hreflang: 'es', href: 'https://fabricioduarte.tech/?lang=es' },
+    { rel: 'alternate', hreflang: 'en', href: 'https://fabricioduarte.tech/?lang=en' },
+    { rel: 'alternate', hreflang: 'pt-BR', href: 'https://fabricioduarte.tech/?lang=pt' },
+    { rel: 'alternate', hreflang: 'zh-CN', href: 'https://fabricioduarte.tech/?lang=zh' },
+    { rel: 'alternate', hreflang: 'x-default', href: 'https://fabricioduarte.tech/' },
+  ],
   meta: [
     { name: 'description', content: () => t.value.meta.description },
     { property: 'og:type', content: 'website' },

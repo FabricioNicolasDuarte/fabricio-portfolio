@@ -6,10 +6,15 @@ export default defineNuxtConfig({
   devServer: {
     port: 3055,
   },
+  runtimeConfig: {
+    public: {
+      bookUrl: process.env.NUXT_PUBLIC_BOOK_URL || '',
+    },
+  },
   nitro: {
     prerender: {
       crawlLinks: true,
-      routes: ['/', '/agtech/lakehouse'],
+      routes: ['/', '/agtech/lakehouse', '/casos/ecom', '/casos/skadia'],
     },
   },
   app: {

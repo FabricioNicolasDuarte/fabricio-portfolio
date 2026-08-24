@@ -14,6 +14,10 @@ const props = defineProps({
 const shown = ref(0)
 
 onMounted(() => {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    shown.value = props.to
+    return
+  }
   const start = performance.now()
   const step = (now) => {
     const t = Math.min(1, (now - start) / props.duration)

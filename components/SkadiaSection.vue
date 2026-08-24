@@ -39,6 +39,7 @@
       >
         {{ t.skadia.cta }}
       </a>
+      <NuxtLink to="/casos/skadia" class="mt-3 ml-4 inline-flex text-sm text-cyan-300 hover:text-cyan-200">{{ t.caso.moreSkadia }}</NuxtLink>
     </div>
   </section>
 </template>

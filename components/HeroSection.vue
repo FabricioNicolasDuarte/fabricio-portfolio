@@ -5,7 +5,7 @@
         <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-400 opacity-75"></span>
         <span class="relative inline-flex h-2 w-2 rounded-full bg-cyan-400"></span>
       </span>
-      {{ t.hero.badge }}
+      {{ t.hero.badge }} · {{ t.hero.open }}
     </div>
 
     <div class="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_300px]">
@@ -26,12 +26,15 @@
           <a class="text-cyan-300 underline decoration-cyan-500/40 underline-offset-4 hover:text-cyan-200" href="https://ugr.edu.ar/carreras/ciclo-de-licenciatura-en-ciencia-de-datos/" target="_blank" rel="noopener noreferrer">{{ t.hero.ugr }}</a>.
         </p>
         <div class="mt-8 flex flex-wrap gap-3 animate-rise" style="animation-delay: 200ms">
-          <a href="/cv/cv-visual.pdf" download="CV_Fabricio_Duarte_Visual.pdf" class="rounded-full bg-cyan-400 px-6 py-2.5 text-sm font-semibold text-slate-950 shadow-[0_0_32px_rgba(34,211,238,0.35)] transition hover:bg-cyan-300 hover:shadow-[0_0_48px_rgba(34,211,238,0.5)]">
+          <a href="#book" class="rounded-full bg-cyan-400 px-6 py-2.5 text-sm font-semibold text-slate-950 shadow-[0_0_32px_rgba(34,211,238,0.35)] transition hover:bg-cyan-300" @click="tap">
+            {{ t.hero.book }}
+          </a>
+          <a href="/cv/cv-visual.pdf" download="CV_Fabricio_Duarte_Visual.pdf" class="rounded-full border border-cyan-400/40 bg-cyan-400/10 px-6 py-2.5 text-sm font-semibold text-cyan-100 transition hover:border-cyan-300">
             {{ t.hero.cvVisual }}
           </a>
           <a
-            :href="locale === 'es' ? '/cv/cv-ats.pdf' : '/cv/cv-ats-en.pdf'"
-            :download="locale === 'es' ? 'CV_Fabricio_Duarte_ATS.pdf' : 'CV_Fabricio_Duarte_ATS_EN.pdf'"
+            :href="atsCv.href"
+            :download="atsCv.file"
             class="rounded-full border border-cyan-400/40 bg-cyan-400/10 px-6 py-2.5 text-sm font-semibold text-cyan-100 transition hover:border-cyan-300 hover:bg-cyan-400/20"
           >
             {{ t.hero.cvAts }}
@@ -79,5 +82,6 @@
 </template>
 
 <script setup>
-const { t, locale } = useLocale()
+const { t, locale, atsCv } = useLocale()
+const { tap } = useUiSound()
 </script>
