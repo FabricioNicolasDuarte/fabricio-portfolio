@@ -14,7 +14,6 @@
           width="1200"
           height="720"
         />
-        <figcaption class="mt-2 text-[11px] text-slate-500">{{ t.work.mockup }}</figcaption>
       </figure>
     </div>
     <ul class="mt-8 space-y-3 text-[15px] leading-relaxed text-slate-300">

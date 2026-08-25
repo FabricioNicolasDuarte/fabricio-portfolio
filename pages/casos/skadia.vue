@@ -65,9 +65,9 @@ const copy = computed(() => {
   return pack[locale.value] || pack.es
 })
 const shots = [
-  { src: '/mockups/skadia-web.jpg', alt: 'Montaje de la landing Skadia agtech.' },
-  { src: '/mockups/sigag.jpg', alt: 'Montaje SIGAG: centro de mando, GIS y asistente.' },
-  { src: '/mockups/skadia-lakehouse.png', alt: 'Montaje lakehouse: ADG, carga, ITH y BCS (demo).' },
+  { src: '/mockups/skadia-web.jpg', alt: 'Landing Skadia agtech.' },
+  { src: '/mockups/sigag.jpg', alt: 'SIGAG: centro de mando, GIS y asistente.' },
+  { src: '/mockups/skadia-lakehouse.png', alt: 'Lakehouse: ADG, carga, ITH y BCS (demo).' },
 ]
 useHead({ title: computed(() => `${copy.value.title} — Fabricio Duarte`) })
 </script>

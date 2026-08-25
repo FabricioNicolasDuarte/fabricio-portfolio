@@ -40,7 +40,7 @@ export const ui = {
       pipeline: ['Entrada', 'Modelo', 'Tablero', 'Decisión'],
       stats: [
         { label: 'Promedio UTN', value: '9.40' },
-        { label: 'Productos en producción', n: 10, suffix: '+' },
+        { label: 'Productos en producción', n: 25, suffix: '+' },
         { label: 'Años en tecnología', n: 8, suffix: '+' },
         { label: 'Formación actual', value: 'Lic. UGR' },
       ],
@@ -145,7 +145,7 @@ export const ui = {
       title: 'Skadia',
       body: 'El dato nace en el potrero. Tres líneas para Argentina y Paraguay: territorio y NDVI, visión y sanidad en lote, y ganadería de precisión (GMD, carga, ITH, BCS).',
       cta: 'Abrir el sitio de Skadia →',
-      shotAlt: 'Sitio Skadia: montaje de landing agtech sobre foto de cultivo.',
+      shotAlt: 'Sitio Skadia: landing agtech sobre foto de cultivo.',
       lines: [
         { name: 'Nutrogan', icon: '/skadia/producto-nutrogan.svg', blurb: 'Territorio, potreros y NDVI. Base técnica hecha con CEDEVA.' },
         { name: 'SIGAG', icon: '/skadia/producto-sigag.svg', blurb: 'App de campo sin señal: visión, sanidad y lote. Sincroniza al volver la red.' },
@@ -155,12 +155,11 @@ export const ui = {
     work: {
       kicker: 'Portafolio',
       title: 'Trabajo seleccionado',
-      intro: 'Ingeniería de datos, tableros, automatización y productos que ya están en uso.',
+      intro: 'Ingeniería de datos, tableros, automatización y más de 25 productos o sistemas en uso: ECOM, SIGAG, Nutrogan, SIGCL, sitios y tableros internos.',
       role: 'Rol · ',
       repo: 'Repositorio →',
       more: 'Ver el resto',
       less: 'Mostrar menos',
-      mockup: 'Montaje de producto. No es un recorte de un entorno con datos de terceros.',
       filters: [
         { id: 'all', label: 'Todo' },
         { id: 'de', label: 'Datos' },
@@ -197,7 +196,7 @@ export const ui = {
     },
     video: {
       kicker: 'Producto · agro · datos',
-      body: 'App ganadera que funciona sin señal: rodeos, indicadores, mapas y visión por computadora. Hecha junto al CEDEVA. Base técnica de SIGAG.',
+      body: 'App ganadera que funciona sin señal: rodeos, indicadores, mapas y visión por computadora. Hecha junto al CEDEVA. Está en uso. Base técnica de SIGAG.',
     },
     book: {
       kicker: 'Agenda',
@@ -263,7 +262,7 @@ export const ui = {
       pipeline: ['Ingest', 'Model', 'Dashboard', 'Decide'],
       stats: [
         { label: 'UTN GPA', value: '9.40' },
-        { label: 'Products in production', n: 10, suffix: '+' },
+        { label: 'Products in production', n: 25, suffix: '+' },
         { label: 'Years in tech', n: 8, suffix: '+' },
         { label: 'Current degree', value: 'B.S. UGR' },
       ],
@@ -378,12 +377,11 @@ export const ui = {
     work: {
       kicker: 'Portfolio',
       title: 'Selected work',
-      intro: 'Data engineering, dashboards, automation, and products already in use.',
+      intro: 'Data engineering, dashboards, automation, and 25+ products or systems in use.',
       role: 'Role · ',
       repo: 'Repository →',
       more: 'See the rest',
       less: 'Show less',
-      mockup: 'Product montage. Not a screenshot of a live environment with third-party data.',
       filters: [
         { id: 'all', label: 'All' },
         { id: 'de', label: 'Data' },
@@ -420,7 +418,7 @@ export const ui = {
     },
     video: {
       kicker: 'Product · agri · data',
-      body: 'Livestock app that works without signal: herds, indicators, maps, and computer vision. Built with CEDEVA. Technical base of SIGAG.',
+      body: 'Livestock app that works without signal: herds, indicators, maps, and computer vision. Built with CEDEVA. In use. Technical base of SIGAG.',
     },
     book: {
       kicker: 'Schedule',
@@ -486,7 +484,7 @@ export const ui = {
       pipeline: ['Entrada', 'Modelo', 'Painel', 'Decisão'],
       stats: [
         { label: 'Média UTN', value: '9.40' },
-        { label: 'Produtos em produção', n: 10, suffix: '+' },
+        { label: 'Produtos em produção', n: 25, suffix: '+' },
         { label: 'Anos em tecnologia', n: 8, suffix: '+' },
         { label: 'Formação atual', value: 'Lic. UGR' },
       ],
@@ -601,12 +599,11 @@ export const ui = {
     work: {
       kicker: 'Portfólio',
       title: 'Trabalho selecionado',
-      intro: 'Engenharia de dados, painéis, automação e produtos já em uso.',
+      intro: 'Engenharia de dados, painéis, automação e mais de 25 produtos ou sistemas em uso.',
       role: 'Função · ',
       repo: 'Repositório →',
       more: 'Ver o restante',
       less: 'Mostrar menos',
-      mockup: 'Montagem de produto. Não é recorte de um ambiente com dados de terceiros.',
       filters: [
         { id: 'all', label: 'Tudo' },
         { id: 'de', label: 'Dados' },
@@ -643,7 +640,7 @@ export const ui = {
     },
     video: {
       kicker: 'Produto · agro · dados',
-      body: 'App pecuária que funciona sem sinal: rebanhos, indicadores, mapas e visão computacional. Feita com o CEDEVA. Base técnica do SIGAG.',
+      body: 'App pecuária que funciona sem sinal: rebanhos, indicadores, mapas e visão computacional. Feita com o CEDEVA. Em uso. Base técnica do SIGAG.',
     },
     book: {
       kicker: 'Agenda',
@@ -709,7 +706,7 @@ export const ui = {
       pipeline: ['采集', '建模', '看板', '决策'],
       stats: [
         { label: 'UTN 平均分', value: '9.40' },
-        { label: '已上线产品', n: 10, suffix: '+' },
+        { label: '已上线产品', n: 25, suffix: '+' },
         { label: '从业年限', n: 8, suffix: '+' },
         { label: '在读学位', value: 'UGR 学士' },
       ],
@@ -824,12 +821,11 @@ export const ui = {
     work: {
       kicker: '作品集',
       title: '精选工作',
-      intro: '数据工程、看板、自动化，以及已经在用的产品。',
+      intro: '数据工程、看板、自动化，以及 25 个以上已在使用的产品或系统。',
       role: '职责 · ',
       repo: '代码仓库 →',
       more: '查看其余',
       less: '收起',
-      mockup: '产品合成图。不是含第三方数据的生产环境截图。',
       filters: [
         { id: 'all', label: '全部' },
         { id: 'de', label: '数据' },
@@ -866,7 +862,7 @@ export const ui = {
     },
     video: {
       kicker: '产品 · 农业 · 数据',
-      body: '可离线使用的畜牧应用：牛群、指标、地图与计算机视觉。与 CEDEVA 合作。是 SIGAG 的技术基础。',
+      body: '可离线使用的畜牧应用：牛群、指标、地图与计算机视觉。与 CEDEVA 合作。正在使用。是 SIGAG 的技术基础。',
     },
     book: {
       kicker: '预约',

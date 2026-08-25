@@ -41,7 +41,6 @@
           height="720"
           :class="item.featured ? 'max-h-[420px]' : 'max-h-[240px]'"
         />
-        <p v-if="item.shot" class="mt-2 text-[11px] text-slate-500">{{ t.work.mockup }}</p>
         <p class="mt-3 max-w-3xl text-[15px] leading-relaxed text-slate-400">{{ tx(item, 'summary') }}</p>
         <p class="mt-3 text-sm text-slate-500"><span class="text-slate-600">{{ t.work.role }}</span>{{ tx(item, 'role') }}</p>
         <ul class="mt-4 flex flex-wrap gap-2">
@@ -97,13 +96,13 @@ const work = [
     titlePt: 'SIGAG — Sistema integrado agrícola e pecuário',
     titleZh: 'SIGAG — 农牧一体化系统',
     summary:
-      'App para el campo sin señal: carga pesadas, reconoce animales, estima condición corporal y calcula indicadores (ganancia diaria, calor, carga). Cuando vuelve la red, sincroniza y alimenta tableros. Incluye alertas automáticas (n8n).',
+      'App para el campo sin señal: carga pesadas, reconoce animales, estima condición corporal y calcula indicadores (ganancia diaria, calor, carga). Cuando vuelve la red, sincroniza y alimenta tableros. Hay varias instalaciones vendidas. Incluye alertas automáticas (n8n).',
     summaryEn:
-      'A farm app that works without signal: weighings, animal ID, body condition, and indicators (daily gain, heat stress, stocking). When the network is back it syncs and feeds dashboards. Alerts run on n8n.',
+      'A farm app that works without signal: weighings, animal ID, body condition, and indicators (daily gain, heat stress, stocking). When the network is back it syncs and feeds dashboards. Several installations have been sold. Alerts run on n8n.',
     summaryPt:
-      'App de campo que funciona sem sinal: pesagens, identificação, condição corporal e indicadores (ganho diário, calor, lotação). Quando a rede volta, sincroniza e alimenta painéis. Alertas no n8n.',
+      'App de campo que funciona sem sinal: pesagens, identificação, condição corporal e indicadores (ganho diário, calor, lotação). Quando a rede volta, sincroniza e alimenta painéis. Várias instalações vendidas. Alertas no n8n.',
     summaryZh:
-      '无网络也能用的牧场应用：称重、识别、体况和指标（日增重、热应激、载畜量）。有网后同步并更新看板。告警走 n8n。',
+      '无网络也能用的牧场应用：称重、识别、体况和指标（日增重、热应激、载畜量）。有网后同步并更新看板。已售出多套安装。告警走 n8n。',
     role: 'Cofundador · producto y datos. Skadia, 2022–actualidad.',
     roleEn: 'Co-founder · product and data. Skadia, 2022–present.',
     rolePt: 'Cofundador · produto e dados. Skadia, 2022–atual.',
@@ -121,10 +120,10 @@ const work = [
     ctaPt: 'Caso Skadia →',
     ctaZh: 'Skadia 案例 →',
     shot: '/mockups/sigag.jpg',
-    shotAlt: 'Montaje SIGAG: centro de mando, GIS y asistente de campo.',
-    shotAltEn: 'SIGAG montage: command center, GIS, and field assistant.',
-    shotAltPt: 'Montagem SIGAG: centro de comando, GIS e assistente de campo.',
-    shotAltZh: 'SIGAG 合成：指挥中心、GIS 与田间助手。',
+    shotAlt: 'SIGAG: centro de mando, GIS y asistente de campo.',
+    shotAltEn: 'SIGAG: command center, GIS, and field assistant.',
+    shotAltPt: 'SIGAG: centro de comando, GIS e assistente de campo.',
+    shotAltZh: 'SIGAG：指挥中心、GIS 与田间助手。',
   },
   {
     pin: true,
@@ -159,10 +158,10 @@ const work = [
     ctaPt: 'Painel + repositório →',
     ctaZh: '看板 + 仓库 →',
     shot: '/mockups/skadia-lakehouse.png',
-    shotAlt: 'Montaje del lakehouse Skadia: ADG, carga, ITH y BCS (dataset de demostración).',
-    shotAltEn: 'Skadia lakehouse montage: ADG, stocking, THI and BCS (demo dataset).',
-    shotAltPt: 'Montagem do lakehouse Skadia: GMD, lotação, ITH e BCS (dataset de demonstração).',
-    shotAltZh: 'Skadia lakehouse 合成：日增重、载畜、ITH 与 BCS（演示数据）。',
+    shotAlt: 'Lakehouse Skadia: ADG, carga, ITH y BCS (dataset de demostración).',
+    shotAltEn: 'Skadia lakehouse: ADG, stocking, THI and BCS (demo dataset).',
+    shotAltPt: 'Lakehouse Skadia: GMD, lotação, ITH e BCS (dataset de demonstração).',
+    shotAltZh: 'Skadia lakehouse：日增重、载畜、ITH 与 BCS（演示数据）。',
   },
   {
     pin: false,
@@ -199,13 +198,13 @@ const work = [
     titlePt: 'Painéis institucionais — Apache Superset e Power BI',
     titleZh: '机构看板 — Apache Superset 与 Power BI',
     summary:
-      'Tableros sobre datos ya unificados: cada organismo ve solo lo suyo. Se actualizan solos y se pueden incrustar en el sistema de trabajo (Apache Superset y Power BI).',
+      'Tableros en Apache Superset (producción y prueba) y Power BI, de uso interno en ECOM: cada organismo ve solo lo suyo. Se actualizan solos y se pueden incrustar en el sistema de trabajo.',
     summaryEn:
-      'Dashboards on already-unified data: each organization sees only its own slice. They refresh on their own and can be embedded in the working system (Apache Superset and Power BI).',
+      'Apache Superset dashboards (production and test) and Power BI, used internally at ECOM: each organization sees only its own slice. They refresh on their own and can be embedded in the working system.',
     summaryPt:
-      'Painéis sobre dados já unificados: cada órgão vê só o que é dele. Atualizam sozinhos e podem ir dentro do sistema de trabalho (Apache Superset e Power BI).',
+      'Painéis no Apache Superset (produção e teste) e Power BI, de uso interno na ECOM: cada órgão vê só o que é dele. Atualizam sozinhos e podem ir dentro do sistema de trabalho.',
     summaryZh:
-      '基于已统一数据的看板：每个机构只看自己的范围。自动刷新，可嵌进业务系统（Apache Superset 与 Power BI）。',
+      'ECOM 内部使用的 Apache Superset（生产与测试）与 Power BI 看板：每个机构只看自己的范围。自动刷新，可嵌进业务系统。',
     kindPt: 'Analytics · ECOM',
     kindZh: '分析 · ECOM',
     role: 'Ingeniería de datos. 2023–actualidad.',
@@ -221,10 +220,10 @@ const work = [
     ctaPt: 'Caso ECOM →',
     ctaZh: 'ECOM 案例 →',
     shot: '/mockups/superset.png',
-    shotAlt: 'Montaje Apache Superset: filtros y tablero (sin datos de un organismo real).',
-    shotAltEn: 'Apache Superset montage: filters and dashboard (no live agency data).',
-    shotAltPt: 'Montagem Apache Superset: filtros e painel (sem dados de um órgão real).',
-    shotAltZh: 'Apache Superset 合成：筛选与看板（不含真实机构数据）。',
+    shotAlt: 'Apache Superset: filtros y tablero institucional.',
+    shotAltEn: 'Apache Superset: filters and institutional dashboard.',
+    shotAltPt: 'Apache Superset: filtros e painel institucional.',
+    shotAltZh: 'Apache Superset：筛选与机构看板。',
   },
   {
     featured: false,
@@ -276,10 +275,10 @@ const work = [
     tags: ['Django', 'PostgreSQL', 'PostGIS', 'Python', 'ETL'],
     cats: ['ecom', 'de', 'da'],
     shot: '/mockups/servicios-instituciones.png',
-    shotAlt: 'Montaje de plataforma de establecimientos y KPIs (sin datos operativos).',
-    shotAltEn: 'Establishments and KPI platform montage (no operational data).',
-    shotAltPt: 'Montagem da plataforma de estabelecimentos e KPIs (sem dados operacionais).',
-    shotAltZh: '场所与 KPI 平台合成（不含运营数据）。',
+    shotAlt: 'Plataforma de establecimientos y KPIs.',
+    shotAltEn: 'Establishments and KPI platform.',
+    shotAltPt: 'Plataforma de estabelecimentos e KPIs.',
+    shotAltZh: '场所与 KPI 平台。',
   },
   {
     featured: false,
@@ -340,13 +339,13 @@ const work = [
     titlePt: 'SIGCL — Sistema Integral de Gestão Curricular e Legal',
     titleZh: 'SIGCL — 课程与法律综合管理系统',
     summary:
-      'Plataforma de gestión educativa: sedes, matrículas, asistencia, actas, certificados, series temporales y ranking académico. API REST con Laravel Sanctum, roles granulares y reportes. Licencia comercializada (USD 4.500 + mantenimiento).',
+      'Plataforma de gestión educativa: sedes, matrículas, asistencia, actas, certificados, series temporales y ranking académico. Vendida cuatro veces (USD 4.500 + mantenimiento).',
     summaryEn:
-      'Education management platform: campuses, enrollment, attendance, minutes, certificates, time series, and academic ranking. REST API with Laravel Sanctum, granular roles, and reports. Commercial license (USD 4,500 + maintenance).',
+      'Education management platform: campuses, enrollment, attendance, minutes, certificates, time series, and academic ranking. Sold four times (USD 4,500 + maintenance).',
     summaryPt:
-      'Plataforma de gestão educacional: sedes, matrículas, frequência, atas, certificados, séries temporais e ranking acadêmico. API REST com Laravel Sanctum, papéis granulares e relatórios. Licença comercial (USD 4.500 + manutenção).',
+      'Plataforma de gestão educacional: sedes, matrículas, frequência, atas, certificados, séries temporais e ranking acadêmico. Vendida quatro vezes (USD 4.500 + manutenção).',
     summaryZh:
-      '教育管理平台：校区、招生、考勤、纪要、证书、时间序列与学业排名。Laravel Sanctum REST API、细粒度角色与报表。商业许可（4,500 美元 + 维护）。',
+      '教育管理平台：校区、招生、考勤、纪要、证书、时间序列与学业排名。已售出四次（4,500 美元 + 维护）。',
     role: 'Producto y desarrollo.',
     roleEn: 'Product and development.',
     rolePt: 'Produto e desenvolvimento.',
@@ -358,10 +357,10 @@ const work = [
     cats: ['product', 'da'],
     href: 'https://github.com/FabricioNicolasDuarte/SIGCL',
     shot: '/mockups/sigcl.png',
-    shotAlt: 'Montaje SIGCL: tablero educativo en escritorio y móvil.',
-    shotAltEn: 'SIGCL montage: education dashboard on desktop and mobile.',
-    shotAltPt: 'Montagem SIGCL: painel educacional em desktop e celular.',
-    shotAltZh: 'SIGCL 合成：桌面与手机上的教务看板。',
+    shotAlt: 'SIGCL: tablero educativo en escritorio y móvil.',
+    shotAltEn: 'SIGCL: education dashboard on desktop and mobile.',
+    shotAltPt: 'SIGCL: painel educacional em desktop e celular.',
+    shotAltZh: 'SIGCL：桌面与手机上的教务看板。',
   },
   {
     pin: true,
@@ -372,13 +371,13 @@ const work = [
     titlePt: 'Nutrogan',
     titleZh: 'Nutrogan',
     summary:
-      'Plataforma ganadera offline-first para gestión de rodeos, indicadores productivos, GIS y visión por computadora aplicada a condición corporal. Desarrollada en colaboración con el CEDEVA. Base técnica de SIGAG.',
+      'Plataforma ganadera offline-first para rodeos, indicadores, GIS y visión de condición corporal. Hecha con CEDEVA. Está en uso. Base técnica de SIGAG.',
     summaryEn:
-      'Offline-first livestock platform for herd management, productive indicators, GIS, and computer vision for body condition. Developed in collaboration with CEDEVA. Technical foundation of SIGAG.',
+      'Offline-first livestock platform for herds, indicators, GIS, and body-condition vision. Built with CEDEVA. In use. Technical foundation of SIGAG.',
     summaryPt:
-      'Plataforma pecuária offline-first para rebanhos, indicadores produtivos, GIS e visão computacional de condição corporal. Feita em colaboração com o CEDEVA. Base técnica do SIGAG.',
+      'Plataforma pecuária offline-first para rebanhos, indicadores, GIS e visão de condição corporal. Feita com o CEDEVA. Em uso. Base técnica do SIGAG.',
     summaryZh:
-      '离线优先畜牧平台：牛群、生产指标、GIS 与体况计算机视觉。与 CEDEVA 合作。是 SIGAG 的技术基础。',
+      '离线优先畜牧平台：牛群、指标、GIS 与体况视觉。与 CEDEVA 合作。正在使用。是 SIGAG 的技术基础。',
     role: 'Tech lead. Skadia.',
     roleEn: 'Tech lead. Skadia.',
     rolePt: 'Tech lead. Skadia.',
@@ -390,10 +389,10 @@ const work = [
     cats: ['product', 'da', 'de', 'agtech'],
     href: 'https://github.com/FabricioNicolasDuarte/Nutrogan',
     shot: '/mockups/nutrogan.jpg',
-    shotAlt: 'Montaje Nutrogan: potreros, mapa y gestión de recursos.',
-    shotAltEn: 'Nutrogan montage: paddocks, map, and resource management.',
-    shotAltPt: 'Montagem Nutrogan: piquetes, mapa e gestão de recursos.',
-    shotAltZh: 'Nutrogan 合成：围场、地图与资源管理。',
+    shotAlt: 'Nutrogan: potreros, mapa y gestión de recursos.',
+    shotAltEn: 'Nutrogan: paddocks, map, and resource management.',
+    shotAltPt: 'Nutrogan: piquetes, mapa e gestão de recursos.',
+    shotAltZh: 'Nutrogan：围场、地图与资源管理。',
   },
   {
     featured: false,
@@ -429,13 +428,13 @@ const work = [
     titlePt: 'FormoBus',
     titleZh: 'FormoBus',
     summary:
-      'PWA de transporte urbano en Formosa: rutas, líneas, frecuencias e incidentes como dataset de servicio público.',
+      'PWA de transporte urbano en Formosa: rutas, líneas, frecuencias e incidentes. Donada; la usa un organismo público.',
     summaryEn:
-      'Urban transit PWA in Formosa: routes, lines, frequencies, and incidents as a public-service dataset.',
+      'Urban transit PWA in Formosa: routes, lines, frequencies, and incidents. Donated; in use by a public agency.',
     summaryPt:
-      'PWA de transporte urbano em Formosa: rotas, linhas, frequências e incidentes como dataset de serviço público.',
+      'PWA de transporte urbano em Formosa: rotas, linhas, frequências e incidentes. Doada; um órgão público a usa.',
     summaryZh:
-      '福尔摩萨城市交通 PWA：线路、班次与事件，作为公共服务数据集。',
+      '福尔摩萨城市交通 PWA：线路、班次与事件。已捐赠，由公共机构使用。',
     role: 'Producto. 2025.',
     roleEn: 'Product. 2025.',
     rolePt: 'Produto. 2025.',

@@ -65,8 +65,8 @@ const copy = computed(() => {
   return pack[locale.value] || pack.es
 })
 const shots = [
-  { src: '/mockups/superset.png', alt: 'Montaje Apache Superset: filtros y tablero institucional.' },
-  { src: '/mockups/servicios-instituciones.png', alt: 'Montaje de establecimientos y KPIs (sin datos operativos).' },
+  { src: '/mockups/superset.png', alt: 'Apache Superset: filtros y tablero institucional.' },
+  { src: '/mockups/servicios-instituciones.png', alt: 'Plataforma de establecimientos y KPIs.' },
 ]
 useHead({ title: computed(() => `${copy.value.title} — Fabricio Duarte`) })
 </script>

@@ -22,7 +22,6 @@
           class="w-full object-cover object-top"
         />
       </a>
-      <p class="mt-2 text-[11px] text-slate-500">{{ t.work.mockup }}</p>
 
       <ul class="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-3">
         <li v-for="shot in shots" :key="shot.src" class="overflow-hidden rounded-2xl border border-white/10 bg-white/5">
