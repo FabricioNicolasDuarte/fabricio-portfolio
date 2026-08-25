@@ -21,12 +21,12 @@
       </div>
     </div>
 
-    <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+    <div class="grid grid-cols-1 gap-4" :class="compact ? '' : 'md:grid-cols-2'">
       <article
         v-for="item in visible"
         :key="item.title"
         class="group glass relative overflow-hidden rounded-2xl p-6 transition duration-300 hover:-translate-y-1 hover:border-lime-400/35 sm:p-7"
-        :class="item.featured ? 'md:col-span-2' : ''"
+        :class="item.featured && !compact ? 'md:col-span-2' : ''"
       >
         <div class="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-lime-400/10 blur-3xl transition group-hover:bg-lime-400/20"></div>
         <p class="mb-2 text-[11px] font-medium tracking-wider text-lime-300 uppercase">{{ tx(item, 'kind') }}</p>
@@ -39,7 +39,7 @@
           loading="lazy"
           width="1200"
           height="720"
-          :class="item.featured ? 'max-h-[420px]' : 'max-h-[240px]'"
+          :class="compact || item.featured ? 'max-h-[420px]' : 'max-h-[240px]'"
         />
         <p class="mt-3 max-w-3xl text-[15px] leading-relaxed text-slate-400">{{ tx(item, 'summary') }}</p>
         <p class="mt-3 text-sm text-slate-500"><span class="text-slate-600">{{ t.work.role }}</span>{{ tx(item, 'role') }}</p>
