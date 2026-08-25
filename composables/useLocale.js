@@ -11,9 +11,20 @@ export const LOCALE_META = {
 }
 
 export const useLocale = () => {
+  const route = useRoute()
   const locale = useState('locale', () => 'es')
   const hydrated = useState('locale-hydrated', () => false)
   const isEn = computed(() => locale.value === 'en')
+
+  const fromQuery = () => {
+    const q = String(route.query.lang || '')
+    return LOCALES.includes(q) ? q : null
+  }
+
+  if (import.meta.server) {
+    const q = fromQuery()
+    if (q) locale.value = q
+  }
 
   const setLocale = (next) => {
     locale.value = LOCALES.includes(next) ? next : 'es'
@@ -36,9 +47,9 @@ export const useLocale = () => {
   onMounted(() => {
     if (hydrated.value) return
     hydrated.value = true
-    const fromUrl = new URLSearchParams(window.location.search).get('lang')
+    const q = fromQuery()
     const saved = localStorage.getItem('fd-locale')
-    if (LOCALES.includes(fromUrl)) locale.value = fromUrl
+    if (q) locale.value = q
     else if (LOCALES.includes(saved)) locale.value = saved
     document.documentElement.lang = LOCALE_META[locale.value].html
   })

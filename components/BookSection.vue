@@ -5,16 +5,7 @@
       <h2 class="mt-2 font-display text-3xl font-semibold tracking-tight text-white sm:text-4xl">{{ t.book.title }}</h2>
       <p class="mt-3 max-w-2xl text-[15px] leading-relaxed text-slate-400">{{ t.book.body }}</p>
       <p class="mt-2 text-sm text-slate-500">{{ t.book.meta }}</p>
-
-      <a
-        v-if="bookUrl"
-        :href="bookUrl"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="mt-8 inline-flex rounded-full bg-cyan-400 px-6 py-2.5 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300"
-      >
-        {{ t.book.calendar }}
-      </a>
+      <p class="mt-4 text-sm text-cyan-200/90">fabricioduarteoficial@gmail.com</p>
 
       <form class="mt-8 grid max-w-xl gap-3" @submit.prevent="send">
         <label class="text-xs text-slate-500">
@@ -34,7 +25,7 @@
             class="mt-1 w-full rounded-xl border border-white/10 bg-slate-950/60 px-3 py-2 text-sm text-white outline-none focus:border-cyan-400/50"
           />
         </label>
-        <button type="submit" class="w-fit rounded-full border border-cyan-400/40 bg-cyan-400/10 px-5 py-2 text-sm font-semibold text-cyan-100 hover:bg-cyan-400/20">
+        <button type="submit" class="w-fit rounded-full bg-cyan-400 px-5 py-2 text-sm font-semibold text-slate-950 hover:bg-cyan-300">
           {{ t.book.submit }}
         </button>
       </form>
@@ -44,8 +35,6 @@
 
 <script setup>
 const { t } = useLocale()
-const config = useRuntimeConfig()
-const bookUrl = config.public.bookUrl || ''
 const when = ref('')
 const note = ref('')
 

@@ -1,6 +1,0 @@
-{
-  "rewrites": [
-    { "source": "/agtech/lakehouse", "destination": "/agtech/lakehouse/index.html" },
-    { "source": "/agtech/lakehouse/", "destination": "/agtech/lakehouse/index.html" }
-  ]
-}

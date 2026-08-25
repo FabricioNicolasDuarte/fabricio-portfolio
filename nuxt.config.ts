@@ -1,15 +1,10 @@
 export default defineNuxtConfig({
-  ssr: false,
+  ssr: true,
   devtools: { enabled: false },
   css: ['~/assets/css/main.css'],
   modules: ['@nuxtjs/tailwindcss'],
   devServer: {
     port: 3055,
-  },
-  runtimeConfig: {
-    public: {
-      bookUrl: process.env.NUXT_PUBLIC_BOOK_URL || '',
-    },
   },
   nitro: {
     prerender: {

@@ -187,7 +187,7 @@ export const ui = {
     book: {
       kicker: 'Agenda',
       title: 'Entrevista exploratoria, 25 minutos',
-      body: 'Un recruiter o hiring manager puede proponer un horario. Zona: Argentina (ART). La confirmación sale por mail; si más adelante hay Cal.com, el botón de calendario aparece solo.',
+      body: 'Un recruiter o hiring manager puede proponer un horario. Zona: Argentina (ART). El pedido abre el correo a fabricioduarteoficial@gmail.com. La confirmación sale por mail.',
       meta: 'Google Meet u otra sala que indiques. No hay cámara embebida en este sitio.',
       when: 'Día y hora (tu zona se convierte en el mail)',
       note: 'Contexto opcional (rol, empresa)',
@@ -395,7 +395,7 @@ export const ui = {
     book: {
       kicker: 'Schedule',
       title: 'Exploratory interview, 25 minutes',
-      body: 'A recruiter or hiring manager can propose a slot. Time zone: Argentina (ART). Confirmation is by email; if a Cal.com URL is set later, the calendar button appears automatically.',
+      body: 'A recruiter or hiring manager can propose a slot. Time zone: Argentina (ART). The form opens mail to fabricioduarteoficial@gmail.com. Confirmation is by email.',
       meta: 'Google Meet or another room you name. This site does not embed a camera.',
       when: 'Date and time (your local zone is sent in the email)',
       note: 'Optional context (role, company)',
@@ -603,7 +603,7 @@ export const ui = {
     book: {
       kicker: 'Agenda',
       title: 'Entrevista exploratória, 25 minutos',
-      body: 'Um recrutador ou gestor de contratação pode propor um horário. Fuso: Argentina (ART). A confirmação sai por e-mail; se depois houver Cal.com, o botão de calendário aparece sozinho.',
+      body: 'Um recrutador ou gestor de contratação pode propor um horário. Fuso: Argentina (ART). O pedido abre o e-mail para fabricioduarteoficial@gmail.com. A confirmação sai por e-mail.',
       meta: 'Google Meet ou outra sala que você indicar. Não há câmera embutida neste site.',
       when: 'Dia e hora (seu fuso vai no e-mail)',
       note: 'Contexto opcional (vaga, empresa)',
@@ -811,7 +811,7 @@ export const ui = {
     book: {
       kicker: '预约',
       title: '探索性面试，25 分钟',
-      body: '招聘方可提议时段。时区：阿根廷（ART）。确认通过邮件；若之后配置 Cal.com，日历按钮会自动出现。',
+      body: '招聘方可提议时段。时区：阿根廷（ART）。表单会打开邮件至 fabricioduarteoficial@gmail.com。确认通过邮件。',
       meta: 'Google Meet 或你指定的会议室。本站不嵌入摄像头。',
       when: '日期与时间（邮件中带上你的本地时区）',
       note: '可选背景（职位、公司）',
