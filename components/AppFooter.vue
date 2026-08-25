@@ -11,6 +11,8 @@
           <NuxtLink to="/agendar" class="rounded-full bg-cyan-400 px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-[0_0_28px_rgba(34,211,238,0.3)] transition hover:bg-cyan-300">
             {{ t.nav.book }}
           </NuxtLink>
+          <NuxtLink to="/sobre" class="rounded-full border border-white/15 px-5 py-2.5 text-sm text-slate-200 transition hover:border-cyan-400/50">{{ t.nav.about }}</NuxtLink>
+          <NuxtLink to="/trayectoria" class="rounded-full border border-white/15 px-5 py-2.5 text-sm text-slate-200 transition hover:border-cyan-400/50">{{ t.nav.path }}</NuxtLink>
           <a class="rounded-full border border-white/15 px-5 py-2.5 text-sm text-slate-200 transition hover:border-cyan-400/50" href="mailto:fabricioduarteoficial@gmail.com">
             fabricioduarteoficial@gmail.com
           </a>

@@ -1,6 +1,6 @@
 <template>
-  <main class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
-    <NuxtLink to="/trabajo" class="text-sm text-cyan-300 hover:text-cyan-200">← {{ t.nav.work }}</NuxtLink>
+  <main class="mx-auto max-w-6xl px-5 py-8 sm:px-8 sm:py-20">
+    <PathTrail flush />
     <p class="mt-8 font-mono text-[11px] tracking-widest text-cyan-400 uppercase">{{ copy.kicker }}</p>
     <h1 class="mt-2 font-display text-3xl font-semibold tracking-tight text-white sm:text-5xl">{{ copy.title }}</h1>
     <p class="mt-4 max-w-3xl text-[17px] leading-relaxed text-slate-200">{{ copy.lede }}</p>

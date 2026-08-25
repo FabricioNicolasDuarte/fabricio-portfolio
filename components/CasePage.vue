@@ -1,6 +1,7 @@
 <template>
-  <section class="relative mx-auto max-w-3xl px-5 py-16 sm:px-8">
-    <p class="text-xs tracking-widest text-cyan-400 uppercase">{{ kicker }}</p>
+  <section class="relative mx-auto max-w-3xl px-5 py-8 sm:px-8 sm:py-16">
+    <PathTrail flush />
+    <p class="mt-8 text-xs tracking-widest text-cyan-400 uppercase">{{ kicker }}</p>
     <h1 class="mt-2 font-display text-4xl font-semibold text-white">{{ title }}</h1>
     <p class="mt-4 text-[15px] leading-relaxed text-slate-400">{{ lead }}</p>
     <div v-if="shots.length" class="mt-8 grid gap-4">
