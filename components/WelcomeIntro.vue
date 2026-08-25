@@ -15,41 +15,31 @@
         alt="FA portfolio"
         width="520"
         height="120"
-        class="intro-lockup h-12 w-auto sm:h-16"
+        class="intro-lockup h-11 w-auto sm:h-14"
       />
-      <video
-        ref="reel"
-        class="intro-reel mt-8 h-[46vh] w-auto max-w-[min(100%,420px)] object-cover"
-        autoplay
-        muted
-        loop
-        playsinline
-        preload="auto"
-        poster="/images/hero-poster.jpg"
-      >
-        <source src="/images/hero.mp4" type="video/mp4" />
-      </video>
-      <p class="intro-name mt-8 font-display text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-        Fabricio Duarte
+      <p class="intro-name mt-16 font-display text-lg font-medium tracking-[0.18em] text-white sm:text-xl">
+        Fabricio Nicolás Duarte
       </p>
       <button
         type="button"
-        class="intro-go mt-8 rounded-full bg-lime-400 px-10 py-2.5 text-sm font-semibold tracking-[0.2em] text-black uppercase transition hover:bg-lime-300"
+        class="intro-go mt-10 text-lime-400 transition hover:text-lime-200"
+        :aria-label="t.intro.go"
         @click="enter"
       >
-        {{ t.intro.go }}
+        <svg viewBox="0 0 24 24" class="h-8 w-8" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6" />
+        </svg>
       </button>
     </div>
   </Teleport>
 </template>
 
 <script setup>
-const STORAGE = 'fd-intro-v1'
+const STORAGE = 'fd-intro-v2'
 const { t } = useLocale()
 const route = useRoute()
 const open = ref(false)
 const leaving = ref(false)
-const reel = ref(null)
 
 let audioCtx = null
 
@@ -121,10 +111,7 @@ onMounted(() => {
   document.documentElement.classList.add('fd-intro')
   document.documentElement.style.overflow = 'hidden'
   playSound('open')
-  nextTick(() => {
-    document.querySelector('.intro-go')?.focus()
-    reel.value?.play?.().catch(() => {})
-  })
+  window.setTimeout(() => document.querySelector('.intro-go')?.focus(), 2100)
 })
 
 onBeforeUnmount(() => {

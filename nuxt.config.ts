@@ -37,7 +37,7 @@ export default defineNuxtConfig({
       script: [
         {
           innerHTML:
-            "try{var p=location.pathname;if((p==='/'||p==='')&&!localStorage.getItem('fd-intro-v1'))document.documentElement.classList.add('fd-intro')}catch(e){}",
+            "try{var p=location.pathname;if((p==='/'||p==='')&&!localStorage.getItem('fd-intro-v2'))document.documentElement.classList.add('fd-intro')}catch(e){}",
           tagPriority: 'critical',
         },
       ],
