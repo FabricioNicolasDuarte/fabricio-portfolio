@@ -129,7 +129,7 @@ export const ui = {
       title: 'Skadia',
       body: 'El dato nace en el potrero. Tres líneas para Argentina y Paraguay: territorio y NDVI, visión y sanidad en lote, y ganadería de precisión (GMD, carga, ITH, BCS).',
       cta: 'Abrir el sitio de Skadia →',
-      shotAlt: 'Sitio Skadia: capas de monitoreo, visión, potreros y captura en campo sobre un modelo 3D.',
+      shotAlt: 'Sitio Skadia: montaje de landing agtech sobre foto de cultivo.',
       lines: [
         { name: 'Nutrogan', icon: '/skadia/producto-nutrogan.svg', blurb: 'Territorio, potreros y NDVI. Base técnica hecha con CEDEVA.' },
         { name: 'SIGAG', icon: '/skadia/producto-sigag.svg', blurb: 'App de campo sin señal: visión, sanidad y lote. Sincroniza al volver la red.' },
@@ -144,6 +144,7 @@ export const ui = {
       repo: 'Repositorio →',
       more: 'Ver el resto',
       less: 'Mostrar menos',
+      mockup: 'Montaje de producto. No es un recorte de un entorno con datos de terceros.',
       filters: [
         { id: 'all', label: 'Todo' },
         { id: 'de', label: 'Datos' },
@@ -350,6 +351,7 @@ export const ui = {
       repo: 'Repository →',
       more: 'See the rest',
       less: 'Show less',
+      mockup: 'Product montage. Not a screenshot of a live environment with third-party data.',
       filters: [
         { id: 'all', label: 'All' },
         { id: 'de', label: 'Data' },
@@ -556,6 +558,7 @@ export const ui = {
       repo: 'Repositório →',
       more: 'Ver o restante',
       less: 'Mostrar menos',
+      mockup: 'Montagem de produto. Não é recorte de um ambiente com dados de terceiros.',
       filters: [
         { id: 'all', label: 'Tudo' },
         { id: 'de', label: 'Dados' },
@@ -762,6 +765,7 @@ export const ui = {
       repo: '代码仓库 →',
       more: '查看其余',
       less: '收起',
+      mockup: '产品合成图。不是含第三方数据的生产环境截图。',
       filters: [
         { id: 'all', label: '全部' },
         { id: 'de', label: '数据' },

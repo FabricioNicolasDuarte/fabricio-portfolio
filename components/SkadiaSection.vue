@@ -17,11 +17,19 @@
         class="group mt-8 block overflow-hidden rounded-2xl border border-white/10"
       >
         <img
-          src="/skadia/landing.jpg"
+          src="/mockups/skadia-web.jpg"
           :alt="t.skadia.shotAlt"
-          class="w-full object-cover object-top transition duration-300 group-hover:opacity-95"
+          class="w-full object-cover object-top"
         />
       </a>
+      <p class="mt-2 text-[11px] text-slate-500">{{ t.work.mockup }}</p>
+
+      <ul class="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-3">
+        <li v-for="shot in shots" :key="shot.src" class="overflow-hidden rounded-2xl border border-white/10 bg-white/5">
+          <img :src="shot.src" :alt="shot.alt" class="h-40 w-full object-cover object-top" />
+          <p class="px-4 py-3 font-display text-sm font-semibold text-white">{{ shot.name }}</p>
+        </li>
+      </ul>
 
       <ul class="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-3">
         <li v-for="line in t.skadia.lines" :key="line.name" class="rounded-2xl border border-white/10 bg-white/5 p-4">
@@ -47,4 +55,9 @@
 <script setup>
 const { t } = useLocale()
 const href = 'https://fabricionicolasduarte.github.io/skadia-webgl/'
+const shots = [
+  { name: 'SIGAG', src: '/mockups/sigag.jpg', alt: 'SIGAG' },
+  { name: 'Nutrogan', src: '/mockups/nutrogan.jpg', alt: 'Nutrogan' },
+  { name: 'Lakehouse', src: '/mockups/skadia-lakehouse.png', alt: 'Lakehouse Skadia' },
+]
 </script>

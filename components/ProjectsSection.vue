@@ -31,6 +31,14 @@
         <div class="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-cyan-400/10 blur-3xl transition group-hover:bg-cyan-400/20"></div>
         <p class="mb-2 text-[11px] font-medium tracking-wider text-cyan-300 uppercase">{{ tx(item, 'kind') }}</p>
         <h3 class="font-display text-2xl font-semibold tracking-tight text-white">{{ tx(item, 'title') }}</h3>
+        <img
+          v-if="item.shot"
+          :src="item.shot"
+          :alt="tx(item, 'shotAlt') || tx(item, 'title')"
+          class="mt-4 w-full rounded-xl border border-white/10 object-cover object-top"
+          :class="item.featured ? 'max-h-[420px]' : 'max-h-[240px]'"
+        />
+        <p v-if="item.shot" class="mt-2 text-[11px] text-slate-500">{{ t.work.mockup }}</p>
         <p class="mt-3 max-w-3xl text-[15px] leading-relaxed text-slate-400">{{ tx(item, 'summary') }}</p>
         <p class="mt-3 text-sm text-slate-500"><span class="text-slate-600">{{ t.work.role }}</span>{{ tx(item, 'role') }}</p>
         <ul class="mt-4 flex flex-wrap gap-2">
@@ -103,6 +111,11 @@ const work = [
     tags: ['Expo', 'TypeScript', 'WatermelonDB', 'Visión artificial', 'LLM', 'n8n', 'Supabase'],
     tagsEn: ['Expo', 'TypeScript', 'WatermelonDB', 'Computer vision', 'LLM', 'n8n', 'Supabase'],
     cats: ['product', 'de', 'da', 'auto', 'agtech'],
+    shot: '/mockups/sigag.jpg',
+    shotAlt: 'Montaje SIGAG: centro de mando, GIS y asistente de campo.',
+    shotAltEn: 'SIGAG montage: command center, GIS, and field assistant.',
+    shotAltPt: 'Montagem SIGAG: centro de comando, GIS e assistente de campo.',
+    shotAltZh: 'SIGAG 合成：指挥中心、GIS 与田间助手。',
   },
   {
     pin: true,
@@ -134,6 +147,11 @@ const work = [
     external: false,
     cta: 'Dashboard + repositorio →',
     ctaEn: 'Dashboard + repository →',
+    shot: '/mockups/skadia-lakehouse.png',
+    shotAlt: 'Montaje del lakehouse Skadia: ADG, carga, ITH y BCS (dataset de demostración).',
+    shotAltEn: 'Skadia lakehouse montage: ADG, stocking, THI and BCS (demo dataset).',
+    shotAltPt: 'Montagem do lakehouse Skadia: GMD, lotação, ITH e BCS (dataset de demonstração).',
+    shotAltZh: 'Skadia lakehouse 合成：日增重、载畜、ITH 与 BCS（演示数据）。',
   },
   {
     pin: true,
@@ -180,6 +198,8 @@ const work = [
     roleZh: '数据工程。2023 至今。',
     tags: ['Apache Superset', 'Power BI', 'RLS', 'SQL', 'DAX'],
     cats: ['ecom', 'da', 'de'],
+    shot: '/mockups/superset.png',
+    shotAlt: 'Montaje Apache Superset: filtros y tablero (sin datos de un organismo real).',
   },
   {
     featured: false,
@@ -214,6 +234,8 @@ const work = [
     kindEn: 'Data engineering · ECOM',
     tags: ['Django', 'PostgreSQL', 'PostGIS', 'Python', 'ETL'],
     cats: ['ecom', 'de', 'da'],
+    shot: '/mockups/servicios-instituciones.png',
+    shotAlt: 'Montaje de plataforma de establecimientos y KPIs (sin datos operativos).',
   },
   {
     featured: false,
@@ -267,6 +289,8 @@ const work = [
     tags: ['Laravel', 'PHP', 'Vue', 'MySQL', 'Sanctum'],
     cats: ['product', 'da'],
     href: 'https://github.com/FabricioNicolasDuarte/SIGCL',
+    shot: '/mockups/sigcl.png',
+    shotAlt: 'Montaje SIGCL: tablero educativo en escritorio y móvil.',
   },
   {
     pin: true,
@@ -282,6 +306,8 @@ const work = [
     tags: ['Vue', 'Quasar', 'Pinia', 'PostgreSQL', 'TensorFlow.js'],
     cats: ['product', 'da', 'de', 'agtech'],
     href: 'https://github.com/FabricioNicolasDuarte/Nutrogan',
+    shot: '/mockups/nutrogan.jpg',
+    shotAlt: 'Montaje Nutrogan: potreros, mapa y gestión de recursos.',
   },
   {
     featured: false,
