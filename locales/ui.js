@@ -211,8 +211,6 @@ export const ui = {
       mailBody: 'Propongo este horario (ART de referencia en el sitio):',
     },
     footer: {
-      title: 'Ingeniería de datos y analítica aplicada',
-      body: 'Abierto a roles de ingeniería de datos, inteligencia de negocios, automatización y arquitectura de información. Resistencia, Chaco · remoto o híbrido. Español, inglés técnico y portugués.',
       ats: 'CV ATS',
       visual: 'CV visual',
     },
@@ -433,8 +431,6 @@ export const ui = {
       mailBody: 'I propose this slot (ART is the reference on the site):',
     },
     footer: {
-      title: 'Data engineering and applied analytics',
-      body: 'Open to roles in data engineering, business intelligence, automation, and information architecture. Resistencia, Chaco · remote or hybrid. Spanish, technical English, and Portuguese.',
       ats: 'ATS CV',
       visual: 'Visual CV',
     },
@@ -655,8 +651,6 @@ export const ui = {
       mailBody: 'Proponho este horário (ART é a referência no site):',
     },
     footer: {
-      title: 'Engenharia de dados e analytics aplicada',
-      body: 'Aberto a vagas de engenharia de dados, business intelligence, automação e arquitetura da informação. Resistencia, Chaco · remoto ou híbrido. Espanhol, inglês técnico e português.',
       ats: 'CV ATS',
       visual: 'CV visual',
     },
@@ -877,8 +871,6 @@ export const ui = {
       mailBody: '我提议此时段（站点以 ART 为参考）：',
     },
     footer: {
-      title: '数据工程与应用分析',
-      body: '开放数据工程、商业智能、自动化与信息架构相关岗位。查科省雷西斯滕西亚 · 远程或混合。西班牙语、专业英语、葡萄牙语。',
       ats: 'ATS 简历',
       visual: '视觉简历',
     },
