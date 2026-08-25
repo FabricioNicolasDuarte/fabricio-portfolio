@@ -1,5 +1,5 @@
 <template>
-  <header class="sticky top-0 z-50 border-b border-lime-400/15 bg-black/90 backdrop-blur-md">
+  <header class="sticky top-0 z-50 border-b border-white/10 bg-black/90 backdrop-blur-md">
     <div class="mx-auto flex max-w-6xl items-center justify-between gap-3 px-5 py-3 sm:px-8">
       <NuxtLink to="/" class="flex shrink-0 items-center gap-2">
         <img src="/brand/mark.png" alt="FA" class="h-8 w-8" width="32" height="32" />

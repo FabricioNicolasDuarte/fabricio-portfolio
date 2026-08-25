@@ -2,7 +2,6 @@
   <div class="relative min-h-screen font-sans text-slate-100">
     <a href="#contenido" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-lime-400 focus:px-4 focus:py-2 focus:text-black">{{ t.nav.skip }}</a>
     <DataField />
-    <div class="pointer-events-none fixed inset-0 -z-[9] bg-[radial-gradient(ellipse_at_top,rgba(162,255,0,0.12),transparent_55%)]"></div>
     <NavBar />
     <NuxtPage />
     <AppFooter />
@@ -36,11 +35,11 @@ useHead({
     { property: 'og:url', content: () => pageUrl.value },
     { property: 'og:title', content: () => t.value.meta.title },
     { property: 'og:description', content: () => t.value.meta.description },
-    { property: 'og:image', content: `${origin}/images/profile.jpg` },
+    { property: 'og:image', content: `${origin}/images/hero-poster.jpg` },
     { name: 'twitter:card', content: 'summary_large_image' },
     { name: 'twitter:title', content: () => t.value.meta.title },
     { name: 'twitter:description', content: () => t.value.meta.description },
-    { name: 'twitter:image', content: `${origin}/images/profile.jpg` },
+    { name: 'twitter:image', content: `${origin}/images/hero-poster.jpg` },
   ],
   script: [
     {

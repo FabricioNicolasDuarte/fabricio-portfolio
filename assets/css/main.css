@@ -10,13 +10,11 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-.site-grid {
-  background-color: #000000;
-  background-image:
-    linear-gradient(rgba(162, 255, 0, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(162, 255, 0, 0.05) 1px, transparent 1px),
-    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(162, 255, 0, 0.10), transparent 55%);
-  background-size: 48px 48px, 48px 48px, 100% 100%;
+.site-atmosphere {
+  background:
+    radial-gradient(900px 420px at 12% -8%, rgba(162, 255, 0, 0.035), transparent 58%),
+    radial-gradient(700px 360px at 100% 108%, rgba(255, 255, 255, 0.03), transparent 50%),
+    #000000;
 }
 
 ::selection {
@@ -25,9 +23,9 @@ body {
 }
 
 .glass {
-  background: rgba(10, 10, 10, 0.72);
-  backdrop-filter: blur(18px);
-  border: 1px solid rgba(162, 255, 0, 0.14);
+  background: rgba(8, 8, 8, 0.7);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .shine-text {
@@ -41,4 +39,6 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+  .hero-video { display: none; }
+  .hero-poster { display: block !important; }
 }

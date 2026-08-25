@@ -6,13 +6,13 @@
     </p>
     <HomeHub />
     <ProjectsSection compact />
-    <section class="mx-auto max-w-6xl px-5 pb-20 sm:px-8">
-      <div class="glass flex flex-col items-start justify-between gap-4 rounded-2xl p-8 sm:flex-row sm:items-center">
+    <section class="mx-auto max-w-6xl px-5 pb-24 sm:px-8">
+      <div class="flex flex-col items-start justify-between gap-4 border-t border-white/10 pt-10 sm:flex-row sm:items-center">
         <div>
-          <p class="text-xs tracking-widest text-lime-400 uppercase">{{ t.book.kicker }}</p>
-          <p class="mt-1 font-display text-2xl font-semibold text-white">{{ t.book.title }}</p>
+          <p class="text-[11px] tracking-[0.18em] text-slate-500 uppercase">{{ t.book.kicker }}</p>
+          <p class="mt-2 font-display text-2xl font-semibold text-white">{{ t.book.title }}</p>
         </div>
-        <NuxtLink to="/agendar" class="rounded-full bg-lime-400 px-6 py-2.5 text-sm font-semibold text-black">
+        <NuxtLink to="/agendar" class="rounded-full bg-lime-400 px-6 py-2.5 text-sm font-semibold text-black transition hover:bg-lime-300">
           {{ t.hero.book }}
         </NuxtLink>
       </div>
