@@ -5,15 +5,15 @@
 html { scroll-behavior: smooth; }
 
 body {
-  background: #141414;
+  background: #080808;
   color: #f4f4f5;
   -webkit-font-smoothing: antialiased;
 }
 
 .site-atmosphere {
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, transparent 28%),
-    linear-gradient(180deg, #1c1c1c 0%, #161616 45%, #101010 100%);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035) 0%, transparent 22%),
+    linear-gradient(180deg, #121212 0%, #0c0c0c 42%, #060606 78%, #000000 100%);
 }
 
 ::selection {
