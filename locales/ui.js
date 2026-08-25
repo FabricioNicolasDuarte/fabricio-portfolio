@@ -218,6 +218,8 @@ export const ui = {
       ats: 'CV ATS',
       visual: 'CV visual',
       city: 'Buenos Aires',
+      files: 'Curriculum',
+      time: 'Hora',
     },
     meta: {
       title: 'Fabricio Duarte — Datos, analítica, automatización y producto',
@@ -443,6 +445,8 @@ export const ui = {
       ats: 'ATS CV',
       visual: 'Visual CV',
       city: 'Buenos Aires',
+      files: 'Resume',
+      time: 'Time',
     },
     meta: {
       title: 'Fabricio Duarte — Data, analytics, automation, and product',
@@ -668,6 +672,8 @@ export const ui = {
       ats: 'CV ATS',
       visual: 'CV visual',
       city: 'Buenos Aires',
+      files: 'Currículo',
+      time: 'Hora',
     },
     meta: {
       title: 'Fabricio Duarte — Dados, analytics, automação e produto',
@@ -893,6 +899,8 @@ export const ui = {
       ats: 'ATS 简历',
       visual: '视觉简历',
       city: 'Buenos Aires',
+      files: '简历',
+      time: '时间',
     },
     meta: {
       title: 'Fabricio Duarte — 数据、分析、自动化与产品',
