@@ -34,6 +34,13 @@ export default defineNuxtConfig({
           href: 'https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap',
         },
       ],
+      script: [
+        {
+          innerHTML:
+            "try{var p=location.pathname;if((p==='/'||p==='')&&!localStorage.getItem('fd-intro-v1'))document.documentElement.classList.add('fd-intro')}catch(e){}",
+          tagPriority: 'critical',
+        },
+      ],
     },
   },
 })

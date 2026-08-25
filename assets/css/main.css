@@ -32,6 +32,49 @@ body {
   color: #A2FF00;
 }
 
+html.fd-intro,
+html.fd-intro body {
+  overflow: hidden;
+}
+
+.intro-lockup {
+  animation: intro-in 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.intro-reel {
+  animation: intro-in 1s cubic-bezier(0.16, 1, 0.3, 1) 0.28s both;
+}
+
+.intro-name {
+  animation: intro-in 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.55s both;
+}
+
+.intro-go {
+  animation: intro-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.85s both;
+}
+
+@keyframes intro-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+html.fd-intro-out .intro-root {
+  animation: intro-out 0.5s ease forwards;
+}
+
+@keyframes intro-out {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after {
@@ -41,4 +84,5 @@ body {
   }
   .hero-video { display: none; }
   .hero-poster { display: block !important; }
+  .intro-reel { display: none; }
 }

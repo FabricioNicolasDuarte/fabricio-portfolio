@@ -23,6 +23,10 @@ export const ui = {
       soundOn: 'Activar sonido',
       soundOff: 'Silenciar',
     },
+    intro: {
+      title: 'Bienvenida',
+      go: 'Ir',
+    },
     hero: {
       badge: 'Resistencia, Chaco · Ingeniería de datos y analítica',
       lead:
@@ -242,6 +246,10 @@ export const ui = {
       lakehouse: 'Lakehouse',
       soundOn: 'Turn sound on',
       soundOff: 'Mute',
+    },
+    intro: {
+      title: 'Welcome',
+      go: 'Enter',
     },
     hero: {
       badge: 'Resistencia, Chaco · Data engineering & analytics',
@@ -463,6 +471,10 @@ export const ui = {
       soundOn: 'Ativar som',
       soundOff: 'Silenciar',
     },
+    intro: {
+      title: 'Boas-vindas',
+      go: 'Ir',
+    },
     hero: {
       badge: 'Resistencia, Chaco · Engenharia de dados e analytics',
       lead:
@@ -682,6 +694,10 @@ export const ui = {
       lakehouse: 'Lakehouse',
       soundOn: '打开声音',
       soundOff: '静音',
+    },
+    intro: {
+      title: '欢迎',
+      go: '进入',
     },
     hero: {
       badge: '阿根廷查科省雷西斯滕西亚 · 数据工程与分析',

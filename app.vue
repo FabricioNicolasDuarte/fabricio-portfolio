@@ -1,7 +1,10 @@
 <template>
   <div class="relative min-h-screen font-sans text-slate-100">
-    <a href="#contenido" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-lime-400 focus:px-4 focus:py-2 focus:text-black">{{ t.nav.skip }}</a>
+    <a href="#contenido" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[90] focus:rounded-full focus:bg-lime-400 focus:px-4 focus:py-2 focus:text-black">{{ t.nav.skip }}</a>
     <DataField />
+    <ClientOnly>
+      <WelcomeIntro />
+    </ClientOnly>
     <NavBar />
     <NuxtPage />
     <AppFooter />
