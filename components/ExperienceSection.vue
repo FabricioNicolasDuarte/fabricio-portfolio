@@ -21,9 +21,8 @@
               target="_blank"
               rel="noopener noreferrer"
               class="underline decoration-indigo-400/40 underline-offset-2 transition hover:text-cyan-300"
-              v-html="tx(job, 'orgHtml') || tx(job, 'org')"
-            />
-            <span v-else v-html="tx(job, 'orgHtml') || tx(job, 'org')"></span>
+            >{{ tx(job, 'org') }}</a>
+            <span v-else>{{ tx(job, 'org') }}</span>
           </p>
           <p class="mt-3 max-w-2xl text-[15px] leading-relaxed text-slate-400">{{ tx(job, 'lead') }}</p>
           <ul v-if="tx(job, 'points')?.length" class="mt-3 max-w-2xl space-y-1.5">
@@ -74,7 +73,7 @@ const jobs = [
     periodPt: '2023 — atual',
     periodZh: '2023 — 至今',
     orgHref: 'https://www.ecom.com.ar/',
-    orgHtml: '<span class="text-cyan-300 underline decoration-cyan-500/30">ECOM</span> Chaco S.A.',
+    org: 'ECOM Chaco S.A.',
     lead: 'ECOM es la empresa de tecnología de la Provincia del Chaco. Ahí diseño y opero plataformas de datos que usan organismos todos los días: tableros, permisos y procesos que corren solos.',
     leadEn: 'ECOM is the technology company of the Province of Chaco. There I design and run data platforms that agencies use every day: dashboards, permissions, and jobs that run on their own.',
     leadPt: 'A ECOM é a empresa de tecnologia da Província do Chaco. Lá desenho e opero plataformas de dados que órgãos usam todo dia: painéis, permissões e processos automáticos.',
@@ -110,11 +109,10 @@ const jobs = [
     titlePt: 'Consultor de tecnologia e dados',
     titleZh: '技术与数据顾问',
     org: 'Consultoría independiente — Livio Gutiérrez (Presidencia NBCH)',
+    orgEn: 'Independent consultancy — Livio Gutiérrez (NBCH Presidency)',
+    orgPt: 'Consultoria independente — Livio Gutiérrez (Presidência NBCH)',
+    orgZh: '独立咨询 — Livio Gutiérrez（NBCH 主席）',
     orgHref: 'https://www.nbch.com.ar/institucional/autoridades',
-    orgHtml: 'Consultoría independiente — <span class="text-cyan-300">Livio Gutiérrez</span> (Presidencia NBCH)',
-    orgHtmlEn: 'Independent consultancy — <span class="text-cyan-300">Livio Gutiérrez</span> (NBCH Presidency)',
-    orgHtmlPt: 'Consultoria independente — <span class="text-cyan-300">Livio Gutiérrez</span> (Presidência NBCH)',
-    orgHtmlZh: '独立咨询 — <span class="text-cyan-300">Livio Gutiérrez</span>（NBCH 主席）',
     lead: 'Asesoramiento personal en tecnología, datos y modernización de procesos a Livio Gutiérrez, Presidente del Nuevo Banco del Chaco.',
     leadEn: 'Personal advisory on technology, data, and process modernization for Livio Gutiérrez, President of Nuevo Banco del Chaco.',
     leadPt: 'Assessoria pessoal em tecnologia, dados e modernização de processos para Livio Gutiérrez, Presidente do Nuevo Banco del Chaco. Não é vínculo com o banco.',
@@ -127,6 +125,7 @@ const jobs = [
     periodPt: '2022 — atual',
     periodZh: '2022 — 至今',
     title: 'Lead Developer & CTO',
+    titleEn: 'Lead Developer & CTO',
     titlePt: 'Lead Developer e CTO',
     titleZh: '技术负责人兼 CTO',
     org: 'Skadia',
@@ -164,9 +163,10 @@ const jobs = [
     titlePt: 'Consultor de tecnologia e comunicação',
     titleZh: '技术与传播顾问',
     org: 'Consultoría independiente — Livio Gutiérrez (Coordinación de Gabinete, Chaco)',
+    orgEn: 'Independent consultancy — Livio Gutiérrez (Cabinet Coordination, Chaco)',
+    orgPt: 'Consultoria independente — Livio Gutiérrez (Coordenação de Gabinete, Chaco)',
+    orgZh: '独立咨询 — Livio Gutiérrez（查科内阁协调）',
     orgHref: 'https://www.nbch.com.ar/institucional/autoridades',
-    orgHtml: 'Consultoría independiente — <span class="text-cyan-300">Livio Gutiérrez</span> (Coordinación de Gabinete, Chaco)',
-    orgHtmlEn: 'Independent consultancy — <span class="text-cyan-300">Livio Gutiérrez</span> (Cabinet Coordination, Chaco)',
     lead: 'Asesoramiento personal en comunicación y tecnología digital.',
     leadEn: 'Personal advisory on communications and digital technology.',
     leadPt: 'Assessoria pessoal em comunicação e tecnologia digital.',
@@ -198,6 +198,14 @@ const jobs = [
       'Consolidation and analysis of health information for monitoring, prioritization, and reporting to authority.',
       'Management dashboards and metrics (Ministry of Human Development / UPLAB) oriented to decisions, not transactional operations.',
     ],
+    pointsPt: [
+      'Consolidação e análise de informação sanitária para acompanhamento, priorização e reporte à autoridade.',
+      'Painéis e métricas de gestão (Ministério do Desenvolvimento Humano / UPLAB) orientados à decisão, não à operação transacional.',
+    ],
+    pointsZh: [
+      '汇总与分析卫生信息，供监测、优先级与向上汇报。',
+      '面向决策的管理看板（人类发展部 / UPLAB），不是事务系统。',
+    ],
   },
   {
     period: '2019 — 2023',
@@ -222,13 +230,14 @@ const jobs = [
     title: 'Asesor legislativo',
     titleEn: 'Legislative advisor',
     org: 'Consultoría independiente — Cámara de Diputados del Chaco (Livio Gutiérrez)',
+    orgEn: 'Independent consultancy — Chaco Chamber of Deputies (Livio Gutiérrez)',
+    orgPt: 'Consultoria independente — Câmara de Deputados do Chaco (Livio Gutiérrez)',
+    orgZh: '独立咨询 — 查科省众议院（Livio Gutiérrez）',
     orgHref: 'https://www.nbch.com.ar/institucional/autoridades',
-    orgHtml: 'Consultoría independiente — Cámara de Diputados del Chaco (<span class="text-cyan-300">Livio Gutiérrez</span>)',
-    orgHtmlEn: 'Independent consultancy — Chaco Chamber of Deputies (<span class="text-cyan-300">Livio Gutiérrez</span>)',
     titlePt: 'Consultor legislativo',
     titleZh: '立法顾问',
-    orgHtmlPt: 'Consultoria independente — Câmara de Deputados do Chaco (<span class="text-cyan-300">Livio Gutiérrez</span>)',
-    orgHtmlZh: '独立咨询 — 查科省众议院（<span class="text-cyan-300">Livio Gutiérrez</span>）',
+    lead: 'Asesoramiento en comunicación y tecnología.',
+    leadEn: 'Advisory on communications and technology.',
     leadPt: 'Assessoria em comunicação e tecnologia.',
     leadZh: '传播与技术顾问。',
     points: [],
@@ -243,6 +252,8 @@ const jobs = [
     titleZh: '培训讲师',
     orgPt: 'Plano Nacional de Alfabetização Digital · Ministério da Modernização',
     orgZh: '国家数字扫盲计划 · 现代化部',
+    lead: 'Capacitación en oficina y herramientas digitales para inclusión laboral.',
+    leadEn: 'Training in office and digital tools for labor inclusion.',
     leadPt: 'Capacitação em escritório e ferramentas digitais para inclusão no trabalho.',
     leadZh: '办公软件与数字工具培训，面向就业融入。',
     points: [],
@@ -257,6 +268,8 @@ const jobs = [
     titleZh: '技术顾问',
     orgPt: 'Ouvidoria do Povo de Formosa — Ouvidor-Adjunto Hugo Maldonado',
     orgZh: '福尔摩萨人民监察机构 — 副监察使 Hugo Maldonado',
+    lead: 'Apoyo técnico en gestión de reclamos y comunicación digital, en el ámbito de la Defensoría Adjunta.',
+    leadEn: 'Technical support on complaints management and digital communications, in the Deputy Ombudsman’s office.',
     leadPt: 'Apoio técnico em gestão de reclamações e comunicação digital, no âmbito da Ouvidoria Adjunta.',
     leadZh: '在副监察机构协助投诉管理与数字传播。',
     points: [],

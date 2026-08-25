@@ -81,6 +81,5 @@
 </template>
 
 <script setup>
-const { t, locale, atsCv } = useLocale()
-const { tap } = useUiSound()
+const { t, atsCv } = useLocale()
 </script>

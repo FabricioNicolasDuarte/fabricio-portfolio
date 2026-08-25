@@ -32,5 +32,5 @@
 
 <script setup>
 const year = new Date().getFullYear()
-const { t, locale, atsCv } = useLocale()
+const { t, atsCv } = useLocale()
 </script>

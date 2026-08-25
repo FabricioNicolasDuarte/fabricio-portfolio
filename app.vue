@@ -14,28 +14,33 @@ import { computed } from 'vue'
 import { LOCALE_META } from '~/composables/useLocale'
 
 const { locale, t } = useLocale()
+const route = useRoute()
+const origin = 'https://fabricioduarte.tech'
+const pageUrl = computed(() => origin + (route.path === '/' ? '/' : route.path.replace(/\/$/, '')))
+const langQs = (code) => `${pageUrl.value}?lang=${code}`
 
 useHead({
   htmlAttrs: { lang: () => LOCALE_META[locale.value]?.html || 'es' },
   title: computed(() => t.value.meta.title),
   link: [
-    { rel: 'alternate', hreflang: 'es', href: 'https://fabricioduarte.tech/?lang=es' },
-    { rel: 'alternate', hreflang: 'en', href: 'https://fabricioduarte.tech/?lang=en' },
-    { rel: 'alternate', hreflang: 'pt-BR', href: 'https://fabricioduarte.tech/?lang=pt' },
-    { rel: 'alternate', hreflang: 'zh-CN', href: 'https://fabricioduarte.tech/?lang=zh' },
-    { rel: 'alternate', hreflang: 'x-default', href: 'https://fabricioduarte.tech/' },
+    { rel: 'canonical', href: () => pageUrl.value },
+    { rel: 'alternate', hreflang: 'es', href: () => langQs('es') },
+    { rel: 'alternate', hreflang: 'en', href: () => langQs('en') },
+    { rel: 'alternate', hreflang: 'pt-BR', href: () => langQs('pt') },
+    { rel: 'alternate', hreflang: 'zh-CN', href: () => langQs('zh') },
+    { rel: 'alternate', hreflang: 'x-default', href: () => pageUrl.value },
   ],
   meta: [
     { name: 'description', content: () => t.value.meta.description },
     { property: 'og:type', content: 'website' },
-    { property: 'og:url', content: 'https://fabricioduarte.tech' },
+    { property: 'og:url', content: () => pageUrl.value },
     { property: 'og:title', content: () => t.value.meta.title },
     { property: 'og:description', content: () => t.value.meta.description },
-    { property: 'og:image', content: 'https://fabricioduarte.tech/images/profile.jpg' },
+    { property: 'og:image', content: `${origin}/images/profile.jpg` },
     { name: 'twitter:card', content: 'summary_large_image' },
     { name: 'twitter:title', content: () => t.value.meta.title },
     { name: 'twitter:description', content: () => t.value.meta.description },
-    { name: 'twitter:image', content: 'https://fabricioduarte.tech/images/profile.jpg' },
+    { name: 'twitter:image', content: `${origin}/images/profile.jpg` },
   ],
   script: [
     {
@@ -45,7 +50,7 @@ useHead({
         '@type': 'Person',
         name: 'Fabricio Nicolás Duarte',
         jobTitle: 'Data Engineer',
-        url: 'https://fabricioduarte.tech',
+        url: origin,
         email: 'mailto:fabricioduarteoficial@gmail.com',
         address: { '@type': 'PostalAddress', addressLocality: 'Resistencia', addressRegion: 'Chaco', addressCountry: 'AR' },
         alumniOf: [
@@ -58,10 +63,8 @@ useHead({
           'https://github.com/FabricioNicolasDuarte',
           'https://fabricionicolasduarte.github.io/skadia-webgl/',
         ],
-        worksFor: [
-          { '@type': 'Organization', name: 'ECOM Chaco' },
-          { '@type': 'Organization', name: 'Skadia' },
-        ],
+        worksFor: { '@type': 'Organization', name: 'ECOM Chaco', url: 'https://www.ecom.com.ar/' },
+        founder: { '@type': 'Organization', name: 'Skadia', url: 'https://fabricionicolasduarte.github.io/skadia-webgl/' },
       }),
     },
   ],

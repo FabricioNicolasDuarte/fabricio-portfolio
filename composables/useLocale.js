@@ -43,47 +43,7 @@ export const useLocale = () => {
     document.documentElement.lang = LOCALE_META[locale.value].html
   })
 
-  const t = computed(() => {
-    const raw = ui[locale.value] || ui.es
-    const n = raw.nav || {}
-    const h = raw.hero || {}
-    const c = raw.caso || {}
-    const s = raw.skadia || {}
-    const f = raw.footer || {}
-    return {
-      ...raw,
-      nav: {
-        ...n,
-        skip: n.skip ?? n.skip,
-        soundOn: n.soundOn ?? n.soundOn,
-        soundOff: n.soundOff ?? n.soundOff,
-        close: n.close ?? n.close,
-      },
-      hero: {
-        ...h,
-        badge: h.badge ?? h.badge,
-        bodyBefore: h.bodyBefore ?? h.bodyBefore,
-        cvVisual: h.cvVisual ?? h.cvVisual,
-        cvAts: h.cvAts ?? h.cvAts,
-      },
-      caso: {
-        ...c,
-        demoTag: c.demoTag ?? c.demoTag,
-        moreEcom: c.moreEcom ?? c.moreEcom,
-        moreSkadia: c.moreSkadia ?? c.moreSkadia,
-      },
-      skadia: {
-        ...s,
-        shotAlt: s.shotAlt ?? s.shotAlt,
-        cta: s.cta ?? s.cta,
-      },
-      footer: {
-        ...f,
-        ats: f.ats ?? f.ats,
-        visual: f.visual ?? f.visual,
-      },
-    }
-  })
+  const t = computed(() => ui[locale.value] || ui.es)
 
   const atsCv = computed(() => {
     if (locale.value === 'pt') {

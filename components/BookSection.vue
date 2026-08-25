@@ -12,7 +12,6 @@
         target="_blank"
         rel="noopener noreferrer"
         class="mt-8 inline-flex rounded-full bg-cyan-400 px-6 py-2.5 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300"
-        @click="tap"
       >
         {{ t.book.calendar }}
       </a>
@@ -45,14 +44,12 @@
 
 <script setup>
 const { t } = useLocale()
-const { tap } = useUiSound()
 const config = useRuntimeConfig()
 const bookUrl = config.public.bookUrl || ''
 const when = ref('')
 const note = ref('')
 
 const send = () => {
-  tap()
   const slot = when.value ? when.value.replace('T', ' ') : ''
   const body = encodeURIComponent(`${t.value.book.mailBody}\n\n${slot}\n${note.value}`)
   const subject = encodeURIComponent(t.value.book.mailSubject)

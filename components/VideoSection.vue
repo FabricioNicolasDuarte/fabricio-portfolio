@@ -13,7 +13,7 @@
       <div class="relative">
         <div class="absolute -inset-1 rounded-3xl bg-gradient-to-br from-cyan-400/40 via-indigo-500/20 to-transparent blur-md"></div>
         <div class="relative overflow-hidden rounded-3xl border border-white/10 bg-slate-950">
-          <video controls class="aspect-video w-full" poster="/images/nutrogan-poster.jpg">
+          <video controls class="aspect-video w-full" poster="/images/nutrogan-poster.jpg" preload="metadata">
             <source src="/images/nutrogan-demo.mp4" type="video/mp4">
           </video>
         </div>

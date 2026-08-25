@@ -1,8 +1,21 @@
 <template>
   <section class="relative mx-auto max-w-3xl px-5 py-16 sm:px-8">
-    <p class="text-xs text-cyan-400 uppercase tracking-widest">{{ kicker }}</p>
+    <p class="text-xs tracking-widest text-cyan-400 uppercase">{{ kicker }}</p>
     <h1 class="mt-2 font-display text-4xl font-semibold text-white">{{ title }}</h1>
     <p class="mt-4 text-[15px] leading-relaxed text-slate-400">{{ lead }}</p>
+    <div v-if="shots.length" class="mt-8 grid gap-4">
+      <figure v-for="shot in shots" :key="shot.src">
+        <img
+          :src="shot.src"
+          :alt="shot.alt"
+          class="w-full rounded-2xl border border-white/10 object-cover object-top"
+          loading="lazy"
+          width="1200"
+          height="720"
+        />
+        <figcaption class="mt-2 text-[11px] text-slate-500">{{ t.work.mockup }}</figcaption>
+      </figure>
+    </div>
     <ul class="mt-8 space-y-3 text-[15px] leading-relaxed text-slate-300">
       <li v-for="line in lines" :key="line" class="glass rounded-2xl px-4 py-3">{{ line }}</li>
     </ul>
@@ -21,6 +34,7 @@ defineProps({
   lead: String,
   lines: { type: Array, default: () => [] },
   note: String,
+  shots: { type: Array, default: () => [] },
 })
 const { t } = useLocale()
 </script>

@@ -5,6 +5,7 @@
     :lead="copy.lead"
     :lines="copy.lines"
     :note="copy.note"
+    :shots="shots"
   />
 </template>
 
@@ -63,5 +64,9 @@ const copy = computed(() => {
   }
   return pack[locale.value] || pack.es
 })
+const shots = [
+  { src: '/mockups/superset.png', alt: 'Montaje Apache Superset: filtros y tablero institucional.' },
+  { src: '/mockups/servicios-instituciones.png', alt: 'Montaje de establecimientos y KPIs (sin datos operativos).' },
+]
 useHead({ title: computed(() => `${copy.value.title} — Fabricio Duarte`) })
 </script>

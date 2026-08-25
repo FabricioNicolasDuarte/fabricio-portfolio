@@ -36,6 +36,9 @@
           :src="item.shot"
           :alt="tx(item, 'shotAlt') || tx(item, 'title')"
           class="mt-4 w-full rounded-xl border border-white/10 object-cover object-top"
+          loading="lazy"
+          width="1200"
+          height="720"
           :class="item.featured ? 'max-h-[420px]' : 'max-h-[240px]'"
         />
         <p v-if="item.shot" class="mt-2 text-[11px] text-slate-500">{{ t.work.mockup }}</p>
@@ -111,6 +114,12 @@ const work = [
     tags: ['Expo', 'TypeScript', 'WatermelonDB', 'Visión artificial', 'LLM', 'n8n', 'Supabase'],
     tagsEn: ['Expo', 'TypeScript', 'WatermelonDB', 'Computer vision', 'LLM', 'n8n', 'Supabase'],
     cats: ['product', 'de', 'da', 'auto', 'agtech'],
+    href: '/casos/skadia',
+    external: false,
+    cta: 'Caso Skadia →',
+    ctaEn: 'Skadia case →',
+    ctaPt: 'Caso Skadia →',
+    ctaZh: 'Skadia 案例 →',
     shot: '/mockups/sigag.jpg',
     shotAlt: 'Montaje SIGAG: centro de mando, GIS y asistente de campo.',
     shotAltEn: 'SIGAG montage: command center, GIS, and field assistant.',
@@ -147,6 +156,8 @@ const work = [
     external: false,
     cta: 'Dashboard + repositorio →',
     ctaEn: 'Dashboard + repository →',
+    ctaPt: 'Painel + repositório →',
+    ctaZh: '看板 + 仓库 →',
     shot: '/mockups/skadia-lakehouse.png',
     shotAlt: 'Montaje del lakehouse Skadia: ADG, carga, ITH y BCS (dataset de demostración).',
     shotAltEn: 'Skadia lakehouse montage: ADG, stocking, THI and BCS (demo dataset).',
@@ -154,7 +165,7 @@ const work = [
     shotAltZh: 'Skadia lakehouse 合成：日增重、载畜、ITH 与 BCS（演示数据）。',
   },
   {
-    pin: true,
+    pin: false,
     featured: true,
     kind: 'Automatización · integración',
     title: 'Orquestación operativa — n8n',
@@ -169,6 +180,9 @@ const work = [
       'Automatizo o que ainda é feito à mão: avisos, cargas e cruzamentos entre sistemas. Protótipo no Make; produção no n8n. Se um passo falha, registra e avisa.',
     summaryZh:
       '把仍靠人手做的流程自动化：通知、装载、系统对接。原型用 Make，生产用 n8n。失败会记录并告警。',
+    role: 'Arquitectura de flujos e integración. 2024–actualidad.',
+    roleEn: 'Flow architecture and integration. 2024–present.',
+    kindEn: 'Automation · integration',
     kindPt: 'Automação · integração',
     kindZh: '自动化 · 集成',
     rolePt: 'Arquitetura de fluxos e integração. 2024–atual.',
@@ -177,7 +191,7 @@ const work = [
     cats: ['auto', 'de'],
   },
   {
-    pin: true,
+    pin: false,
     featured: false,
     kind: 'Analytics · ECOM',
     title: 'Tableros institucionales — Apache Superset & Power BI',
@@ -194,12 +208,23 @@ const work = [
       '基于已统一数据的看板：每个机构只看自己的范围。自动刷新，可嵌进业务系统（Apache Superset 与 Power BI）。',
     kindPt: 'Analytics · ECOM',
     kindZh: '分析 · ECOM',
+    role: 'Ingeniería de datos. 2023–actualidad.',
+    roleEn: 'Data engineering. 2023–present.',
     rolePt: 'Engenharia de dados. 2023–atual.',
     roleZh: '数据工程。2023 至今。',
     tags: ['Apache Superset', 'Power BI', 'RLS', 'SQL', 'DAX'],
     cats: ['ecom', 'da', 'de'],
+    href: '/casos/ecom',
+    external: false,
+    cta: 'Caso ECOM →',
+    ctaEn: 'ECOM case →',
+    ctaPt: 'Caso ECOM →',
+    ctaZh: 'ECOM 案例 →',
     shot: '/mockups/superset.png',
     shotAlt: 'Montaje Apache Superset: filtros y tablero (sin datos de un organismo real).',
+    shotAltEn: 'Apache Superset montage: filters and dashboard (no live agency data).',
+    shotAltPt: 'Montagem Apache Superset: filtros e painel (sem dados de um órgão real).',
+    shotAltZh: 'Apache Superset 合成：筛选与看板（不含真实机构数据）。',
   },
   {
     featured: false,
@@ -212,9 +237,17 @@ const work = [
       'Operación de motor BI en producción: datasets, métricas, embed, Mapbox, CSP y despliegue en cluster. Tableros de datos consolidados para consumo institucional continuo, no entorno de laboratorio.',
     summaryEn:
       'Production BI engine operations: datasets, metrics, embed, Mapbox, CSP, and cluster deployment. Dashboards on consolidated data for continuous institutional use, not a lab environment.',
+    summaryPt:
+      'Operação de motor BI em produção: datasets, métricas, embed, Mapbox, CSP e cluster. Painéis de dados consolidados para uso institucional contínuo, não laboratório.',
+    summaryZh:
+      '生产环境 BI：数据集、指标、嵌入、Mapbox、CSP 与集群部署。面向机构日常使用的汇总看板，不是实验室。',
     role: 'Ops de BI. 2023–actualidad.',
     roleEn: 'BI operations. 2023–present.',
+    rolePt: 'Operação de BI. 2023–atual.',
+    roleZh: 'BI 运维。2023 至今。',
     kindEn: 'Data engineering · ECOM',
+    kindPt: 'Engenharia de dados · ECOM',
+    kindZh: '数据工程 · ECOM',
     tags: ['Superset', 'SQL', 'Docker', 'Mapbox'],
     cats: ['ecom', 'de', 'da'],
   },
@@ -229,13 +262,24 @@ const work = [
       'Sistema de gestión de establecimientos, conectividad, GIS, KPIs, auditoría y exportación (CSV/Excel/PDF). Convierte operación territorial en datasets consultables y gobernados.',
     summaryEn:
       'Management of establishments, connectivity, GIS, KPIs, audit, and export (CSV/Excel/PDF). Turns territorial operations into queryable, governed datasets.',
+    summaryPt:
+      'Gestão de estabelecimentos, conectividade, GIS, KPIs, auditoria e exportação (CSV/Excel/PDF). Transforma operação territorial em datasets consultáveis e governados.',
+    summaryZh:
+      '场所、连通性、GIS、KPI、审计与导出（CSV/Excel/PDF）。把属地运营变成可查询、受治理的数据集。',
     role: 'Backend y datos. 2023–actualidad.',
     roleEn: 'Backend and data. 2023–present.',
+    rolePt: 'Backend e dados. 2023–atual.',
+    roleZh: '后端与数据。2023 至今。',
     kindEn: 'Data engineering · ECOM',
+    kindPt: 'Engenharia de dados · ECOM',
+    kindZh: '数据工程 · ECOM',
     tags: ['Django', 'PostgreSQL', 'PostGIS', 'Python', 'ETL'],
     cats: ['ecom', 'de', 'da'],
     shot: '/mockups/servicios-instituciones.png',
     shotAlt: 'Montaje de plataforma de establecimientos y KPIs (sin datos operativos).',
+    shotAltEn: 'Establishments and KPI platform montage (no operational data).',
+    shotAltPt: 'Montagem da plataforma de estabelecimentos e KPIs (sem dados operacionais).',
+    shotAltZh: '场所与 KPI 平台合成（不含运营数据）。',
   },
   {
     featured: false,
@@ -248,9 +292,17 @@ const work = [
       'Motor de conciliación asíncrona mediante colas, webhooks y procesamiento por lotes. Orquestación de avisos ante fallos de sincronización y control de estados de liquidación.',
     summaryEn:
       'Asynchronous reconciliation engine using queues, webhooks, and batch processing. Orchestrated alerts on sync failures and settlement-state control.',
+    summaryPt:
+      'Motor de conciliação assíncrona com filas, webhooks e lotes. Alertas se a sincronização falha e controle de estados de liquidação.',
+    summaryZh:
+      '用队列、webhook 和批处理做异步对账。同步失败会告警，并控制清算状态。',
     role: 'Integración y datos. 2023–actualidad.',
     roleEn: 'Integration and data. 2023–present.',
+    rolePt: 'Integração e dados. 2023–atual.',
+    roleZh: '集成与数据。2023 至今。',
     kindEn: 'Automation · integration',
+    kindPt: 'Automação · integração',
+    kindZh: '自动化 · 集成',
     tags: ['Celery', 'Redis', 'n8n', 'SQL', 'webhooks'],
     cats: ['de', 'auto'],
   },
@@ -265,14 +317,22 @@ const work = [
       'Capa de consulta y API sobre legado SQL Server y PostgreSQL: exposición controlada del padrón de personas físicas y jurídicas sin reescritura completa del sistema de origen.',
     summaryEn:
       'Query layer and API over legacy SQL Server and PostgreSQL: controlled exposure of the individuals and legal-entities registry without a full rewrite of the source system.',
+    summaryPt:
+      'Camada de consulta e API sobre legado SQL Server e PostgreSQL: exposição controlada do cadastro de pessoas físicas e jurídicas sem reescrever o sistema de origem.',
+    summaryZh:
+      '在遗留 SQL Server 与 PostgreSQL 上的查询层和 API：受控暴露自然人与法人名册，不重写源系统。',
     role: 'Integración de datos. 2024–actualidad.',
     roleEn: 'Data integration. 2024–present.',
+    rolePt: 'Integração de dados. 2024–atual.',
+    roleZh: '数据集成。2024 至今。',
     kindEn: 'Data engineering · ECOM',
+    kindPt: 'Engenharia de dados · ECOM',
+    kindZh: '数据工程 · ECOM',
     tags: ['SQL Server', 'PostgreSQL', 'Django', 'DRF'],
     cats: ['ecom', 'de'],
   },
   {
-    pin: true,
+    pin: false,
     featured: false,
     kind: 'Producto · EdTech · comercializado',
     title: 'SIGCL — Sistema Integral de Gestión Curricular y Legal',
@@ -283,31 +343,57 @@ const work = [
       'Plataforma de gestión educativa: sedes, matrículas, asistencia, actas, certificados, series temporales y ranking académico. API REST con Laravel Sanctum, roles granulares y reportes. Licencia comercializada (USD 4.500 + mantenimiento).',
     summaryEn:
       'Education management platform: campuses, enrollment, attendance, minutes, certificates, time series, and academic ranking. REST API with Laravel Sanctum, granular roles, and reports. Commercial license (USD 4,500 + maintenance).',
+    summaryPt:
+      'Plataforma de gestão educacional: sedes, matrículas, frequência, atas, certificados, séries temporais e ranking acadêmico. API REST com Laravel Sanctum, papéis granulares e relatórios. Licença comercial (USD 4.500 + manutenção).',
+    summaryZh:
+      '教育管理平台：校区、招生、考勤、纪要、证书、时间序列与学业排名。Laravel Sanctum REST API、细粒度角色与报表。商业许可（4,500 美元 + 维护）。',
     role: 'Producto y desarrollo.',
     roleEn: 'Product and development.',
+    rolePt: 'Produto e desenvolvimento.',
+    roleZh: '产品与开发。',
     kindEn: 'Product · EdTech · commercialized',
+    kindPt: 'Produto · EdTech · comercializado',
+    kindZh: '产品 · 教育科技 · 已售',
     tags: ['Laravel', 'PHP', 'Vue', 'MySQL', 'Sanctum'],
     cats: ['product', 'da'],
     href: 'https://github.com/FabricioNicolasDuarte/SIGCL',
     shot: '/mockups/sigcl.png',
     shotAlt: 'Montaje SIGCL: tablero educativo en escritorio y móvil.',
+    shotAltEn: 'SIGCL montage: education dashboard on desktop and mobile.',
+    shotAltPt: 'Montagem SIGCL: painel educacional em desktop e celular.',
+    shotAltZh: 'SIGCL 合成：桌面与手机上的教务看板。',
   },
   {
     pin: true,
     featured: false,
     kind: 'Producto · agro · datos',
     title: 'Nutrogan',
+    titleEn: 'Nutrogan',
+    titlePt: 'Nutrogan',
+    titleZh: 'Nutrogan',
     summary:
       'Plataforma ganadera offline-first para gestión de rodeos, indicadores productivos, GIS y visión por computadora aplicada a condición corporal. Desarrollada en colaboración con el CEDEVA. Base técnica de SIGAG.',
     summaryEn:
       'Offline-first livestock platform for herd management, productive indicators, GIS, and computer vision for body condition. Developed in collaboration with CEDEVA. Technical foundation of SIGAG.',
+    summaryPt:
+      'Plataforma pecuária offline-first para rebanhos, indicadores produtivos, GIS e visão computacional de condição corporal. Feita em colaboração com o CEDEVA. Base técnica do SIGAG.',
+    summaryZh:
+      '离线优先畜牧平台：牛群、生产指标、GIS 与体况计算机视觉。与 CEDEVA 合作。是 SIGAG 的技术基础。',
     role: 'Tech lead. Skadia.',
+    roleEn: 'Tech lead. Skadia.',
+    rolePt: 'Tech lead. Skadia.',
+    roleZh: '技术负责人。Skadia。',
     kindEn: 'Product · agri · data',
+    kindPt: 'Produto · agro · dados',
+    kindZh: '产品 · 农业 · 数据',
     tags: ['Vue', 'Quasar', 'Pinia', 'PostgreSQL', 'TensorFlow.js'],
     cats: ['product', 'da', 'de', 'agtech'],
     href: 'https://github.com/FabricioNicolasDuarte/Nutrogan',
     shot: '/mockups/nutrogan.jpg',
     shotAlt: 'Montaje Nutrogan: potreros, mapa y gestión de recursos.',
+    shotAltEn: 'Nutrogan montage: paddocks, map, and resource management.',
+    shotAltPt: 'Montagem Nutrogan: piquetes, mapa e gestão de recursos.',
+    shotAltZh: 'Nutrogan 合成：围场、地图与资源管理。',
   },
   {
     featured: false,
@@ -320,9 +406,17 @@ const work = [
       'Aplicación para estimación de costo y tiempo de software mediante modelos COCOMO I y II, escenarios what-if e informes. Comercializada en USD 1.500.',
     summaryEn:
       'Application for software cost and schedule estimation using COCOMO I and II, what-if scenarios, and reports. Sold for USD 1,500.',
+    summaryPt:
+      'App para estimar custo e prazo de software com COCOMO I e II, cenários what-if e relatórios. Comercializada por USD 1.500.',
+    summaryZh:
+      '用 COCOMO I/II 估算软件成本与工期，含情景分析与报告。售价 1,500 美元。',
     role: 'Modelo y desarrollo.',
     roleEn: 'Model and development.',
+    rolePt: 'Modelo e desenvolvimento.',
+    roleZh: '模型与开发。',
     kindEn: 'Analytics · commercialized',
+    kindPt: 'Analytics · comercializado',
+    kindZh: '分析 · 已售',
     tags: ['PHP', 'Laravel', 'Docker', 'analytics'],
     cats: ['da', 'product'],
     href: 'https://github.com/FabricioNicolasDuarte/Cocoma-App',
@@ -331,13 +425,24 @@ const work = [
     featured: false,
     kind: 'Datos espaciales',
     title: 'FormoBus',
+    titleEn: 'FormoBus',
+    titlePt: 'FormoBus',
+    titleZh: 'FormoBus',
     summary:
       'PWA de transporte urbano en Formosa: rutas, líneas, frecuencias e incidentes como dataset de servicio público.',
     summaryEn:
       'Urban transit PWA in Formosa: routes, lines, frequencies, and incidents as a public-service dataset.',
+    summaryPt:
+      'PWA de transporte urbano em Formosa: rotas, linhas, frequências e incidentes como dataset de serviço público.',
+    summaryZh:
+      '福尔摩萨城市交通 PWA：线路、班次与事件，作为公共服务数据集。',
     role: 'Producto. 2025.',
     roleEn: 'Product. 2025.',
+    rolePt: 'Produto. 2025.',
+    roleZh: '产品。2025。',
     kindEn: 'Spatial data',
+    kindPt: 'Dados espaciais',
+    kindZh: '空间数据',
     tags: ['PHP', 'MySQL', 'PWA'],
     cats: ['product', 'da'],
     href: 'https://github.com/FabricioNicolasDuarte/formobus',
@@ -353,9 +458,17 @@ const work = [
       'Colaboración en la implementación de consulta ciudadana de registros provinciales (Asuntos Registrales, Chaco).',
     summaryEn:
       'Collaboration on a citizen lookup of provincial registries (Registry Affairs, Chaco).',
+    summaryPt:
+      'Colaboração na consulta cidadã de registros provinciais (Assuntos Registrais, Chaco).',
+    summaryZh:
+      '协作实现省级登记公开查询（查科登记事务）。',
     role: 'Colaboración en producto e implementación. 2025–2026.',
     roleEn: 'Product and implementation collaboration. 2025–2026.',
+    rolePt: 'Colaboração em produto e implementação. 2025–2026.',
+    roleZh: '产品与实现协作。2025–2026。',
     kindEn: 'Public data · collaboration',
+    kindPt: 'Dados públicos · colaboração',
+    kindZh: '公共数据 · 协作',
     tags: ['SQL', 'Django'],
     cats: ['da'],
   },
@@ -370,9 +483,17 @@ const work = [
       'Capa de KPIs y visualización analítica sobre el sistema de compras en operación.',
     summaryEn:
       'KPI layer and analytic visualization on the procurement system in production.',
+    summaryPt:
+      'Camada de KPIs e visualização analítica sobre o sistema de compras em produção.',
+    summaryZh:
+      '采购系统上的 KPI 层与分析可视化（生产环境）。',
     role: 'Visualización y UX de datos. 2025–2026.',
     roleEn: 'Data visualization and UX. 2025–2026.',
+    rolePt: 'Visualização e UX de dados. 2025–2026.',
+    roleZh: '数据可视化与 UX。2025–2026。',
     kindEn: 'Analytics · visualization',
+    kindPt: 'Analytics · visualização',
+    kindZh: '分析 · 可视化',
     tags: ['Chart.js', 'KPIs', 'JavaScript'],
     cats: ['da'],
   },
