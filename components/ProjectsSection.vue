@@ -2,7 +2,7 @@
   <section id="work" class="relative mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-24">
     <div class="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
       <div>
-        <p class="text-xs font-medium tracking-widest text-cyan-400 uppercase">{{ t.work.kicker }}</p>
+        <p class="text-xs font-medium tracking-widest text-lime-400 uppercase">{{ t.work.kicker }}</p>
         <h2 class="mt-2 font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl">{{ t.work.title }}</h2>
         <p class="mt-3 max-w-lg text-[15px] leading-relaxed text-slate-400">{{ t.work.intro }}</p>
       </div>
@@ -12,8 +12,8 @@
           :key="f.id"
           class="rounded-full border px-3 py-1.5 text-xs font-medium transition"
           :class="active === f.id
-            ? 'border-cyan-400 bg-cyan-400 text-slate-950'
-            : 'border-white/10 text-slate-400 hover:border-cyan-400/40 hover:text-cyan-200'"
+            ? 'border-lime-400 bg-lime-400 text-black'
+            : 'border-white/10 text-slate-400 hover:border-lime-400/40 hover:text-lime-200'"
           @click="active = f.id"
         >
           {{ f.label }}
@@ -25,11 +25,11 @@
       <article
         v-for="item in visible"
         :key="item.title"
-        class="group glass relative overflow-hidden rounded-2xl p-6 transition duration-300 hover:-translate-y-1 hover:border-cyan-400/35 sm:p-7"
+        class="group glass relative overflow-hidden rounded-2xl p-6 transition duration-300 hover:-translate-y-1 hover:border-lime-400/35 sm:p-7"
         :class="item.featured ? 'md:col-span-2' : ''"
       >
-        <div class="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-cyan-400/10 blur-3xl transition group-hover:bg-cyan-400/20"></div>
-        <p class="mb-2 text-[11px] font-medium tracking-wider text-cyan-300 uppercase">{{ tx(item, 'kind') }}</p>
+        <div class="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-lime-400/10 blur-3xl transition group-hover:bg-lime-400/20"></div>
+        <p class="mb-2 text-[11px] font-medium tracking-wider text-lime-300 uppercase">{{ tx(item, 'kind') }}</p>
         <h3 class="font-display text-2xl font-semibold tracking-tight text-white">{{ tx(item, 'title') }}</h3>
         <img
           v-if="item.shot"
@@ -54,21 +54,21 @@
           :href="item.href"
           :target="item.external === false ? undefined : '_blank'"
           :rel="item.external === false ? undefined : 'noopener noreferrer'"
-          class="mt-4 inline-flex items-center gap-1 text-sm text-cyan-300 transition hover:text-cyan-200"
+          class="mt-4 inline-flex items-center gap-1 text-sm text-lime-300 transition hover:text-lime-200"
         >
           {{ tx(item, 'cta') || t.work.repo }}
         </a>
       </article>
     </div>
     <div class="mt-8 flex justify-center" v-if="compact">
-      <NuxtLink to="/trabajo" class="rounded-full border border-white/15 px-4 py-2 text-sm text-cyan-200 hover:border-cyan-400/40">
+      <NuxtLink to="/trabajo" class="rounded-full border border-white/15 px-4 py-2 text-sm text-lime-200 hover:border-lime-400/40">
         {{ t.work.more }}
       </NuxtLink>
     </div>
     <div class="mt-8 flex justify-center" v-else-if="active === 'all' && work.length > PIN_COUNT">
       <button
         type="button"
-        class="rounded-full border border-white/15 px-4 py-2 text-sm text-slate-300 transition hover:border-cyan-400/40 hover:text-cyan-200"
+        class="rounded-full border border-white/15 px-4 py-2 text-sm text-slate-300 transition hover:border-lime-400/40 hover:text-lime-200"
         @click="expanded = !expanded"
       >
         {{ expanded ? t.work.less : t.work.more }}

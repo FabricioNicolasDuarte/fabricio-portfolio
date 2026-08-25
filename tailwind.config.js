@@ -7,9 +7,23 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        lime: {
+          50: '#f4ffe6',
+          100: '#e6ffb8',
+          200: '#d4ff80',
+          300: '#c0ff4d',
+          400: '#A2FF00',
+          500: '#8ae000',
+          600: '#6bb300',
+          700: '#4d8000',
+          800: '#335500',
+          900: '#1a2b00',
+        },
+      },
       fontFamily: {
         sans: ['Outfit', 'system-ui', 'sans-serif'],
-        display: ['Space Grotesk', 'Outfit', 'sans-serif'],
+        display: ['Chakra Petch', 'Space Grotesk', 'Outfit', 'sans-serif'],
       },
       keyframes: {
         float: {

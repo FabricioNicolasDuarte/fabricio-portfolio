@@ -1,16 +1,17 @@
 <template>
-  <header class="sticky top-0 z-50 border-b border-white/10 bg-slate-950/90 backdrop-blur-md">
+  <header class="sticky top-0 z-50 border-b border-lime-400/15 bg-black/90 backdrop-blur-md">
     <div class="mx-auto flex max-w-6xl items-center justify-between gap-3 px-5 py-3 sm:px-8">
-      <NuxtLink to="/" class="shrink-0 font-display text-sm font-semibold tracking-tight text-white">
-        FD<span class="text-cyan-400">.</span>
+      <NuxtLink to="/" class="flex shrink-0 items-center gap-2">
+        <img src="/brand/mark.png" alt="FA" class="h-8 w-8" width="32" height="32" />
+        <span class="hidden font-display text-sm font-semibold lowercase tracking-wide text-lime-400 sm:inline">portfolio</span>
       </NuxtLink>
       <nav class="hidden min-w-0 flex-1 items-center justify-center gap-1 text-sm sm:flex md:gap-2" :aria-label="t.nav.work">
         <NuxtLink
           v-for="item in items"
           :key="item.to"
           :to="item.to"
-          class="rounded-full px-3 py-1.5 text-slate-400 transition hover:bg-white/5 hover:text-cyan-200"
-          active-class="bg-white/10 text-cyan-200"
+          class="rounded-full px-3 py-1.5 text-slate-400 transition hover:bg-white/5 hover:text-lime-200"
+          active-class="bg-white/10 text-lime-200"
         >
           {{ item.label }}
         </NuxtLink>
@@ -22,7 +23,7 @@
             :key="code"
             type="button"
             class="rounded-full px-1.5 py-1"
-            :class="locale === code ? 'bg-cyan-400 text-slate-950' : 'text-slate-400'"
+            :class="locale === code ? 'bg-lime-400 text-black' : 'text-slate-400'"
             :aria-pressed="locale === code"
             @click="setLocale(code)"
           >{{ meta[code].label }}</button>

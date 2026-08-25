@@ -1,6 +1,6 @@
 <template>
   <section id="architecture" class="relative mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-24">
-    <p class="text-xs font-medium tracking-widest text-cyan-400 uppercase">{{ t.method.kicker }}</p>
+    <p class="text-xs font-medium tracking-widest text-lime-400 uppercase">{{ t.method.kicker }}</p>
     <h2 class="mt-2 font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl">
       {{ t.method.title }}
     </h2>
@@ -8,7 +8,7 @@
 
     <div class="mt-10 grid grid-cols-1 gap-3 md:grid-cols-5">
       <article v-for="(step, i) in t.method.steps" :key="step.title" class="glass relative rounded-2xl p-5">
-        <p class="font-mono text-[10px] tracking-widest text-cyan-400/80">0{{ i + 1 }}</p>
+        <p class="font-mono text-[10px] tracking-widest text-lime-400/80">0{{ i + 1 }}</p>
         <h3 class="mt-2 font-display text-base font-semibold text-white">{{ step.title }}</h3>
         <p class="mt-2 text-[13px] leading-relaxed text-slate-400">{{ step.body }}</p>
         <ul class="mt-3 flex flex-wrap gap-1.5">
@@ -16,13 +16,13 @@
             {{ tag }}
           </li>
         </ul>
-        <span v-if="i < t.method.steps.length - 1" class="pointer-events-none absolute -right-2 top-1/2 hidden -translate-y-1/2 text-cyan-400/50 md:block" aria-hidden="true">→</span>
+        <span v-if="i < t.method.steps.length - 1" class="pointer-events-none absolute -right-2 top-1/2 hidden -translate-y-1/2 text-lime-400/50 md:block" aria-hidden="true">→</span>
       </article>
     </div>
 
     <p class="mt-6 text-sm text-slate-500">{{ t.method.note }}</p>
     <p class="mt-3 text-sm">
-      <a href="/agtech/lakehouse/" class="text-cyan-300 hover:text-cyan-200">{{ t.method.lab }}</a>
+      <a href="/agtech/lakehouse/" class="text-lime-300 hover:text-lime-200">{{ t.method.lab }}</a>
     </p>
   </section>
 </template>

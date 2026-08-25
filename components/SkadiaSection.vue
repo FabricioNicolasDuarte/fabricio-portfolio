@@ -3,7 +3,7 @@
     <div class="glass overflow-hidden rounded-3xl p-8 sm:p-10">
       <div class="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
         <div>
-          <p class="text-xs font-medium tracking-widest text-cyan-400 uppercase">{{ t.skadia.kicker }}</p>
+          <p class="text-xs font-medium tracking-widest text-lime-400 uppercase">{{ t.skadia.kicker }}</p>
           <h2 class="mt-2 font-display text-3xl font-semibold tracking-tight text-white sm:text-4xl">{{ t.skadia.title }}</h2>
           <p class="mt-3 max-w-2xl text-[15px] leading-relaxed text-slate-400">{{ t.skadia.body }}</p>
         </div>
@@ -43,11 +43,11 @@
         :href="href"
         target="_blank"
         rel="noopener noreferrer"
-        class="mt-6 inline-flex items-center gap-1 text-sm text-cyan-300 transition hover:text-cyan-200"
+        class="mt-6 inline-flex items-center gap-1 text-sm text-lime-300 transition hover:text-lime-200"
       >
         {{ t.skadia.cta }}
       </a>
-      <NuxtLink to="/casos/skadia" class="mt-3 ml-4 inline-flex text-sm text-cyan-300 hover:text-cyan-200">{{ t.caso.moreSkadia }}</NuxtLink>
+      <NuxtLink to="/casos/skadia" class="mt-3 ml-4 inline-flex text-sm text-lime-300 hover:text-lime-200">{{ t.caso.moreSkadia }}</NuxtLink>
     </div>
   </section>
 </template>

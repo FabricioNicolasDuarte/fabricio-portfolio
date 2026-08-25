@@ -1,11 +1,11 @@
 <template>
   <section id="book" class="relative mx-auto max-w-6xl px-5 py-16 sm:px-8">
     <div class="glass overflow-hidden rounded-3xl p-8 sm:p-10">
-      <p class="text-xs font-medium tracking-widest text-cyan-400 uppercase">{{ t.book.kicker }}</p>
+      <p class="text-xs font-medium tracking-widest text-lime-400 uppercase">{{ t.book.kicker }}</p>
       <h2 class="mt-2 font-display text-3xl font-semibold tracking-tight text-white sm:text-4xl">{{ t.book.title }}</h2>
       <p class="mt-3 max-w-2xl text-[15px] leading-relaxed text-slate-400">{{ t.book.body }}</p>
       <p class="mt-2 text-sm text-slate-500">{{ t.book.meta }}</p>
-      <p class="mt-4 text-sm text-cyan-200/90">fabricioduarteoficial@gmail.com</p>
+      <p class="mt-4 text-sm text-lime-200/90">fabricioduarteoficial@gmail.com</p>
 
       <form class="mt-8 grid max-w-xl gap-3" @submit.prevent="send">
         <label class="text-xs text-slate-500">
@@ -14,7 +14,7 @@
             v-model="when"
             required
             type="datetime-local"
-            class="mt-1 w-full rounded-xl border border-white/10 bg-slate-950/60 px-3 py-2 text-sm text-white outline-none focus:border-cyan-400/50"
+            class="mt-1 w-full rounded-xl border border-white/10 bg-black/60 px-3 py-2 text-sm text-white outline-none focus:border-lime-400/50"
           />
         </label>
         <label class="text-xs text-slate-500">
@@ -22,10 +22,10 @@
           <textarea
             v-model="note"
             rows="3"
-            class="mt-1 w-full rounded-xl border border-white/10 bg-slate-950/60 px-3 py-2 text-sm text-white outline-none focus:border-cyan-400/50"
+            class="mt-1 w-full rounded-xl border border-white/10 bg-black/60 px-3 py-2 text-sm text-white outline-none focus:border-lime-400/50"
           />
         </label>
-        <button type="submit" class="w-fit rounded-full bg-cyan-400 px-5 py-2 text-sm font-semibold text-slate-950 hover:bg-cyan-300">
+        <button type="submit" class="w-fit rounded-full bg-lime-400 px-5 py-2 text-sm font-semibold text-black hover:bg-lime-300">
           {{ t.book.submit }}
         </button>
       </form>

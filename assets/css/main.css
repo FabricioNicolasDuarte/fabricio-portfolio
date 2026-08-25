@@ -5,41 +5,33 @@
 html { scroll-behavior: smooth; }
 
 body {
-  background: #020617;
-  color: #e2e8f0;
+  background: #000000;
+  color: #f4f4f5;
   -webkit-font-smoothing: antialiased;
 }
 
 .site-grid {
-  background-color: #020617;
+  background-color: #000000;
   background-image:
-    linear-gradient(rgba(148, 163, 184, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(148, 163, 184, 0.06) 1px, transparent 1px),
-    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(34, 211, 238, 0.12), transparent 55%);
+    linear-gradient(rgba(162, 255, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(162, 255, 0, 0.05) 1px, transparent 1px),
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(162, 255, 0, 0.10), transparent 55%);
   background-size: 48px 48px, 48px 48px, 100% 100%;
 }
 
 ::selection {
-  background: #22d3ee;
-  color: #030712;
+  background: #A2FF00;
+  color: #000000;
 }
 
 .glass {
-  background: rgba(15, 23, 42, 0.62);
+  background: rgba(10, 10, 10, 0.72);
   backdrop-filter: blur(18px);
-  border: 1px solid rgba(148, 163, 184, 0.14);
+  border: 1px solid rgba(162, 255, 0, 0.14);
 }
 
 .shine-text {
-  background: linear-gradient(90deg, #67e8f9, #c4b5fd, #67e8f9);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-@keyframes shine {
-  to { background-position: 200% center; }
+  color: #A2FF00;
 }
 
 @media (prefers-reduced-motion: reduce) {

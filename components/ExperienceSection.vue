@@ -1,26 +1,26 @@
 <template>
   <section id="path" class="relative mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-24">
-    <p class="text-xs font-medium tracking-widest text-cyan-400 uppercase">{{ t.path.kicker }}</p>
+    <p class="text-xs font-medium tracking-widest text-lime-400 uppercase">{{ t.path.kicker }}</p>
     <h2 class="mt-2 mb-12 font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl">{{ t.path.title }}</h2>
 
-    <ol class="relative space-y-6 before:absolute before:bottom-4 before:left-[11px] before:top-4 before:w-px before:bg-gradient-to-b before:from-cyan-400 before:via-indigo-400/40 before:to-transparent md:before:left-[187px]">
+    <ol class="relative space-y-6 before:absolute before:bottom-4 before:left-[11px] before:top-4 before:w-px before:bg-gradient-to-b before:from-lime-400 before:via-lime-400/40 before:to-transparent md:before:left-[187px]">
       <li
         v-for="job in jobs"
         :key="job.period + job.org"
-        class="glass relative grid gap-3 rounded-2xl p-6 transition hover:border-cyan-400/30 md:grid-cols-[160px_1fr] md:gap-10"
-        :class="job.featured ? 'border-cyan-400/25' : ''"
+        class="glass relative grid gap-3 rounded-2xl p-6 transition hover:border-lime-400/30 md:grid-cols-[160px_1fr] md:gap-10"
+        :class="job.featured ? 'border-lime-400/25' : ''"
       >
-        <p class="pl-7 text-sm text-cyan-300/80 md:pl-0">{{ tx(job, 'period') }}</p>
-        <span class="absolute left-[7px] top-7 h-2.5 w-2.5 rounded-full bg-cyan-400 shadow-[0_0_12px_#22d3ee] md:left-[181px]"></span>
+        <p class="pl-7 text-sm text-lime-300/80 md:pl-0">{{ tx(job, 'period') }}</p>
+        <span class="absolute left-[7px] top-7 h-2.5 w-2.5 rounded-full bg-lime-400 shadow-[0_0_12px_#A2FF00] md:left-[181px]"></span>
         <div>
           <h3 class="text-lg font-semibold text-white">{{ tx(job, 'title') }}</h3>
-          <p class="mt-0.5 text-sm text-indigo-300">
+          <p class="mt-0.5 text-sm text-lime-300">
             <a
               v-if="job.orgHref"
               :href="job.orgHref"
               target="_blank"
               rel="noopener noreferrer"
-              class="underline decoration-indigo-400/40 underline-offset-2 transition hover:text-cyan-300"
+              class="underline decoration-lime-400/40 underline-offset-2 transition hover:text-lime-300"
             >{{ tx(job, 'org') }}</a>
             <span v-else>{{ tx(job, 'org') }}</span>
           </p>
@@ -34,22 +34,22 @@
 
     <div class="mt-12 grid grid-cols-1 gap-4 md:grid-cols-2">
       <div class="glass rounded-2xl p-6">
-        <h3 class="text-sm font-medium text-cyan-300">{{ t.path.education }}</h3>
+        <h3 class="text-sm font-medium text-lime-300">{{ t.path.education }}</h3>
         <p class="mt-3 font-medium text-white">{{ t.path.ds }}</p>
         <p class="mt-1 text-sm leading-relaxed text-slate-400">
           {{ t.path.dsMeta }}
-          <a class="text-cyan-300 underline decoration-cyan-500/30 underline-offset-2" href="https://ugr.edu.ar/carreras/ciclo-de-licenciatura-en-ciencia-de-datos/" target="_blank" rel="noopener noreferrer">{{ t.path.ugrPlan }}</a>
+          <a class="text-lime-300 underline decoration-lime-500/30 underline-offset-2" href="https://ugr.edu.ar/carreras/ciclo-de-licenciatura-en-ciencia-de-datos/" target="_blank" rel="noopener noreferrer">{{ t.path.ugrPlan }}</a>
         </p>
         <p class="mt-5 font-medium text-white">{{ t.path.tech }}</p>
         <p class="mt-1 text-sm text-slate-400">
-          <a class="text-cyan-300 underline decoration-cyan-500/30 underline-offset-2" href="https://www.frre.utn.edu.ar/" target="_blank" rel="noopener noreferrer">Universidad Tecnológica Nacional — Facultad Regional Resistencia</a>.
+          <a class="text-lime-300 underline decoration-lime-500/30 underline-offset-2" href="https://www.frre.utn.edu.ar/" target="_blank" rel="noopener noreferrer">Universidad Tecnológica Nacional — Facultad Regional Resistencia</a>.
           {{ t.path.techMeta }}
         </p>
         <p class="mt-5 font-medium text-white">{{ t.path.acc }}</p>
         <p class="mt-1 text-sm text-slate-400">{{ t.path.accMeta }}</p>
       </div>
       <div class="glass rounded-2xl p-6">
-        <h3 class="text-sm font-medium text-cyan-300">{{ t.path.langs }}</h3>
+        <h3 class="text-sm font-medium text-lime-300">{{ t.path.langs }}</h3>
         <p class="mt-3 text-sm leading-relaxed text-slate-400">{{ t.path.langsBody }}</p>
         <p class="mt-4 text-sm leading-relaxed text-slate-400">{{ t.path.extra }}</p>
       </div>

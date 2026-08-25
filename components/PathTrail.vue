@@ -1,10 +1,10 @@
 <template>
   <nav v-if="crumbs.length" :class="flush ? 'pt-2' : 'mx-auto max-w-6xl px-5 pt-6 sm:px-8'" :aria-label="t.nav.trail">
     <p class="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-slate-500">
-      <NuxtLink :to="backTo" class="font-medium text-cyan-300 hover:text-cyan-200">← {{ t.nav.back }}</NuxtLink>
+      <NuxtLink :to="backTo" class="font-medium text-lime-300 hover:text-lime-200">← {{ t.nav.back }}</NuxtLink>
       <span class="text-slate-700">·</span>
       <template v-for="(c, i) in crumbs" :key="c.to || c.label">
-        <NuxtLink v-if="c.to && i < crumbs.length - 1" :to="c.to" class="hover:text-cyan-200">{{ c.label }}</NuxtLink>
+        <NuxtLink v-if="c.to && i < crumbs.length - 1" :to="c.to" class="hover:text-lime-200">{{ c.label }}</NuxtLink>
         <span v-else class="text-slate-400">{{ c.label }}</span>
         <span v-if="i < crumbs.length - 1" class="text-slate-700">/</span>
       </template>

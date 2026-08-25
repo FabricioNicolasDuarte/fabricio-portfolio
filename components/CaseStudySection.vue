@@ -1,13 +1,13 @@
 <template>
   <section id="caso" class="relative mx-auto max-w-6xl px-5 pb-8 sm:px-8">
-    <p class="text-xs font-medium tracking-widest text-cyan-400 uppercase">{{ t.caso.kicker }}</p>
+    <p class="text-xs font-medium tracking-widest text-lime-400 uppercase">{{ t.caso.kicker }}</p>
     <h2 class="mt-2 font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl">{{ t.caso.title }}</h2>
     <p class="mt-3 max-w-2xl text-[15px] leading-relaxed text-slate-400">{{ t.caso.intro }}</p>
     <p class="mt-2 text-xs text-amber-200/80">{{ t.caso.demoTag }}</p>
 
     <div class="mt-10 grid grid-cols-1 gap-4 lg:grid-cols-3">
-      <article v-for="col in t.caso.cols" :key="col.kicker" class="glass rounded-2xl p-6" :class="col.accent ? 'border-cyan-400/25' : ''">
-        <p class="text-[11px] font-medium tracking-wider uppercase" :class="col.accent ? 'text-cyan-400' : 'text-slate-500'">{{ col.kicker }}</p>
+      <article v-for="col in t.caso.cols" :key="col.kicker" class="glass rounded-2xl p-6" :class="col.accent ? 'border-lime-400/25' : ''">
+        <p class="text-[11px] font-medium tracking-wider uppercase" :class="col.accent ? 'text-lime-400' : 'text-slate-500'">{{ col.kicker }}</p>
         <h3 class="mt-2 font-display text-lg font-semibold text-white">{{ col.title }}</h3>
         <ul class="mt-3 space-y-2 text-[14px] leading-relaxed text-slate-400">
           <li v-for="line in col.lines" :key="line">— {{ line }}</li>
@@ -23,8 +23,8 @@
       </div>
     </div>
     <div class="mt-6 flex flex-wrap gap-4 text-sm">
-      <NuxtLink to="/casos/ecom" class="text-cyan-300 hover:text-cyan-200">{{ t.caso.moreEcom }}</NuxtLink>
-      <NuxtLink to="/casos/skadia" class="text-cyan-300 hover:text-cyan-200">{{ t.caso.moreSkadia }}</NuxtLink>
+      <NuxtLink to="/casos/ecom" class="text-lime-300 hover:text-lime-200">{{ t.caso.moreEcom }}</NuxtLink>
+      <NuxtLink to="/casos/skadia" class="text-lime-300 hover:text-lime-200">{{ t.caso.moreSkadia }}</NuxtLink>
     </div>
   </section>
 </template>

@@ -2,29 +2,29 @@
   <footer id="contact" class="relative">
     <div class="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-24">
       <div class="glass relative overflow-hidden rounded-3xl p-8 sm:p-12">
-        <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(34,211,238,0.12),transparent_50%)]"></div>
+        <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(162,255,0,0.12),transparent_50%)]"></div>
         <h2 class="relative font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl">
           {{ t.footer.title }}
         </h2>
         <p class="relative mt-4 max-w-xl text-slate-400">{{ t.footer.body }}</p>
         <div class="relative mt-8 flex flex-wrap gap-3">
-          <NuxtLink to="/agendar" class="rounded-full bg-cyan-400 px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-[0_0_28px_rgba(34,211,238,0.3)] transition hover:bg-cyan-300">
+          <NuxtLink to="/agendar" class="rounded-full bg-lime-400 px-5 py-2.5 text-sm font-semibold text-black shadow-[0_0_28px_rgba(162,255,0,0.3)] transition hover:bg-lime-300">
             {{ t.nav.book }}
           </NuxtLink>
-          <NuxtLink to="/sobre" class="rounded-full border border-white/15 px-5 py-2.5 text-sm text-slate-200 transition hover:border-cyan-400/50">{{ t.nav.about }}</NuxtLink>
-          <NuxtLink to="/trayectoria" class="rounded-full border border-white/15 px-5 py-2.5 text-sm text-slate-200 transition hover:border-cyan-400/50">{{ t.nav.path }}</NuxtLink>
-          <a class="rounded-full border border-white/15 px-5 py-2.5 text-sm text-slate-200 transition hover:border-cyan-400/50" href="mailto:fabricioduarteoficial@gmail.com">
+          <NuxtLink to="/sobre" class="rounded-full border border-white/15 px-5 py-2.5 text-sm text-slate-200 transition hover:border-lime-400/50">{{ t.nav.about }}</NuxtLink>
+          <NuxtLink to="/trayectoria" class="rounded-full border border-white/15 px-5 py-2.5 text-sm text-slate-200 transition hover:border-lime-400/50">{{ t.nav.path }}</NuxtLink>
+          <a class="rounded-full border border-white/15 px-5 py-2.5 text-sm text-slate-200 transition hover:border-lime-400/50" href="mailto:fabricioduarteoficial@gmail.com">
             fabricioduarteoficial@gmail.com
           </a>
-          <a class="rounded-full border border-white/15 px-5 py-2.5 text-sm text-slate-200 transition hover:border-cyan-400/50" href="tel:+543704022201">+54 370 402-2201</a>
-          <a class="rounded-full border border-white/15 px-5 py-2.5 text-sm text-slate-200 transition hover:border-cyan-400/50" href="https://www.linkedin.com/in/fabricionicolasduarte/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a class="rounded-full border border-white/15 px-5 py-2.5 text-sm text-slate-200 transition hover:border-cyan-400/50" href="https://github.com/FabricioNicolasDuarte" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a class="rounded-full border border-white/15 px-5 py-2.5 text-sm text-slate-200 transition hover:border-lime-400/50" href="tel:+543704022201">+54 370 402-2201</a>
+          <a class="rounded-full border border-white/15 px-5 py-2.5 text-sm text-slate-200 transition hover:border-lime-400/50" href="https://www.linkedin.com/in/fabricionicolasduarte/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a class="rounded-full border border-white/15 px-5 py-2.5 text-sm text-slate-200 transition hover:border-lime-400/50" href="https://github.com/FabricioNicolasDuarte" target="_blank" rel="noopener noreferrer">GitHub</a>
           <a
-            class="rounded-full border border-white/15 px-5 py-2.5 text-sm text-slate-200 transition hover:border-cyan-400/50"
+            class="rounded-full border border-white/15 px-5 py-2.5 text-sm text-slate-200 transition hover:border-lime-400/50"
             :href="atsCv.href"
             :download="atsCv.file"
           >{{ t.footer.ats }}</a>
-          <a class="rounded-full border border-white/15 px-5 py-2.5 text-sm text-slate-200 transition hover:border-cyan-400/50" href="/cv/cv-visual.pdf" download="CV_Fabricio_Duarte_Visual.pdf">{{ t.footer.visual }}</a>
+          <a class="rounded-full border border-white/15 px-5 py-2.5 text-sm text-slate-200 transition hover:border-lime-400/50" href="/cv/cv-visual.pdf" download="CV_Fabricio_Duarte_Visual.pdf">{{ t.footer.visual }}</a>
         </div>
       </div>
       <p class="mt-8 text-xs text-slate-600">© {{ year }} Fabricio Nicolás Duarte</p>

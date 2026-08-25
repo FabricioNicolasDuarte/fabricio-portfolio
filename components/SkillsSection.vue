@@ -1,12 +1,12 @@
 <template>
   <section id="skills" class="relative mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-24">
-    <p class="text-xs font-medium tracking-widest text-cyan-400 uppercase">{{ t.skills.kicker }}</p>
+    <p class="text-xs font-medium tracking-widest text-lime-400 uppercase">{{ t.skills.kicker }}</p>
         <h2 class="mt-2 font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl">{{ t.skills.kicker }}</h2>
     <p class="mt-3 max-w-2xl text-[15px] leading-relaxed text-slate-400">{{ t.skills.intro }}</p>
 
     <div class="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2">
       <div v-for="group in groups" :key="group.title" class="glass rounded-2xl p-6">
-        <h3 class="font-display text-lg font-semibold text-cyan-200">{{ group.title }}</h3>
+        <h3 class="font-display text-lg font-semibold text-lime-200">{{ group.title }}</h3>
         <p class="mt-1 text-sm text-slate-500">{{ group.blurb }}</p>
         <ul class="mt-4 space-y-3">
           <li v-for="item in group.items" :key="item.name">
@@ -15,7 +15,7 @@
               <span class="text-[11px] tracking-wide text-slate-500">{{ item.band }}</span>
             </div>
             <div class="h-1.5 overflow-hidden rounded-full bg-white/10">
-              <div class="h-full rounded-full bg-gradient-to-r from-cyan-400 to-indigo-400" :style="{ width: item.pct + '%' }"></div>
+              <div class="h-full rounded-full bg-gradient-to-r from-lime-400 to-lime-400" :style="{ width: item.pct + '%' }"></div>
             </div>
           </li>
         </ul>

@@ -1,8 +1,8 @@
 <template>
   <div class="relative min-h-screen font-sans text-slate-100">
-    <a href="#contenido" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-cyan-400 focus:px-4 focus:py-2 focus:text-slate-950">{{ t.nav.skip }}</a>
+    <a href="#contenido" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-lime-400 focus:px-4 focus:py-2 focus:text-black">{{ t.nav.skip }}</a>
     <DataField />
-    <div class="pointer-events-none fixed inset-0 -z-[9] bg-[radial-gradient(ellipse_at_top,rgba(99,102,241,0.12),transparent_55%)]"></div>
+    <div class="pointer-events-none fixed inset-0 -z-[9] bg-[radial-gradient(ellipse_at_top,rgba(162,255,0,0.12),transparent_55%)]"></div>
     <NavBar />
     <NuxtPage />
     <AppFooter />

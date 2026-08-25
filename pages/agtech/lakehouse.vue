@@ -1,28 +1,28 @@
 <template>
   <main class="mx-auto max-w-6xl px-5 py-8 sm:px-8 sm:py-20">
     <PathTrail flush />
-    <p class="mt-8 font-mono text-[11px] tracking-widest text-cyan-400 uppercase">{{ copy.kicker }}</p>
+    <p class="mt-8 font-mono text-[11px] tracking-widest text-lime-400 uppercase">{{ copy.kicker }}</p>
     <h1 class="mt-2 font-display text-3xl font-semibold tracking-tight text-white sm:text-5xl">{{ copy.title }}</h1>
     <p class="mt-4 max-w-3xl text-[17px] leading-relaxed text-slate-200">{{ copy.lede }}</p>
     <p class="mt-3 max-w-3xl text-[15px] leading-relaxed text-slate-400">{{ copy.sub }}</p>
     <ul class="mt-6 flex flex-wrap gap-2">
-      <li v-for="tag in copy.tags" :key="tag" class="rounded-full border border-cyan-400/40 px-3 py-1 font-mono text-[11px] text-cyan-200">{{ tag }}</li>
+      <li v-for="tag in copy.tags" :key="tag" class="rounded-full border border-lime-400/40 px-3 py-1 font-mono text-[11px] text-lime-200">{{ tag }}</li>
     </ul>
     <div class="mt-6 flex flex-wrap gap-3">
-      <a class="rounded-full bg-cyan-400 px-4 py-2 text-sm font-semibold text-slate-950" href="https://github.com/FabricioNicolasDuarte/skadia-data-engineering">{{ copy.repo }}</a>
-      <a class="rounded-full border border-cyan-400/40 px-4 py-2 text-sm text-cyan-200" href="/agtech/dashboard.html">{{ copy.openDash }}</a>
+      <a class="rounded-full bg-lime-400 px-4 py-2 text-sm font-semibold text-black" href="https://github.com/FabricioNicolasDuarte/skadia-data-engineering">{{ copy.repo }}</a>
+      <a class="rounded-full border border-lime-400/40 px-4 py-2 text-sm text-lime-200" href="/agtech/dashboard.html">{{ copy.openDash }}</a>
     </div>
-    <h2 class="mt-12 text-xs font-medium tracking-widest text-cyan-400 uppercase">{{ copy.gold }}</h2>
-    <iframe title="gold dashboard" src="/agtech/dashboard.html" class="mt-3 h-[70vh] min-h-[480px] w-full border border-cyan-400/25 bg-slate-950" loading="lazy" />
-    <h2 class="mt-12 text-xs font-medium tracking-widest text-cyan-400 uppercase">{{ copy.field }}</h2>
+    <h2 class="mt-12 text-xs font-medium tracking-widest text-lime-400 uppercase">{{ copy.gold }}</h2>
+    <iframe title="gold dashboard" src="/agtech/dashboard.html" class="mt-3 h-[70vh] min-h-[480px] w-full border border-lime-400/25 bg-slate-950" loading="lazy" />
+    <h2 class="mt-12 text-xs font-medium tracking-widest text-lime-400 uppercase">{{ copy.field }}</h2>
     <ul class="mt-3 max-w-3xl space-y-2 text-[15px] text-slate-400">
       <li v-for="l in copy.fieldLines" :key="l"><strong class="text-slate-200">{{ l[0] }}</strong> — {{ l[1] }}</li>
     </ul>
-    <h2 class="mt-12 text-xs font-medium tracking-widest text-cyan-400 uppercase">{{ copy.eng }}</h2>
+    <h2 class="mt-12 text-xs font-medium tracking-widest text-lime-400 uppercase">{{ copy.eng }}</h2>
     <p class="mt-3 max-w-3xl text-[14px] leading-relaxed text-slate-400">{{ copy.engBody }}</p>
     <p class="mt-8 text-sm text-slate-400">{{ copy.clone }}</p>
-    <p class="mt-2 font-mono text-xs text-cyan-200/90">git clone https://github.com/FabricioNicolasDuarte/skadia-data-engineering.git</p>
-    <p class="mt-1 font-mono text-xs text-cyan-200/90">docker compose up -d --build && docker compose run --rm pipeline run-all</p>
+    <p class="mt-2 font-mono text-xs text-lime-200/90">git clone https://github.com/FabricioNicolasDuarte/skadia-data-engineering.git</p>
+    <p class="mt-1 font-mono text-xs text-lime-200/90">docker compose up -d --build && docker compose run --rm pipeline run-all</p>
   </main>
 </template>
 
