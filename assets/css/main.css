@@ -5,18 +5,15 @@
 html { scroll-behavior: smooth; }
 
 body {
-  background: #070707;
+  background: #141414;
   color: #f4f4f5;
   -webkit-font-smoothing: antialiased;
 }
 
 .site-atmosphere {
-  background-color: #070707;
-  background-image:
-    radial-gradient(ellipse 70% 50% at 50% 38%, rgba(32, 32, 32, 0.7), transparent 64%),
-    radial-gradient(1100px 560px at 10% -14%, rgba(162, 255, 0, 0.06), transparent 56%),
-    radial-gradient(900px 500px at 96% 108%, rgba(190, 198, 210, 0.05), transparent 50%),
-    radial-gradient(ellipse 125% 100% at 50% 50%, transparent 42%, rgba(0, 0, 0, 0.62) 100%);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, transparent 28%),
+    linear-gradient(180deg, #1c1c1c 0%, #161616 45%, #101010 100%);
 }
 
 ::selection {
