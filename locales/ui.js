@@ -26,9 +26,9 @@ export const ui = {
     hero: {
       badge: 'Resistencia, Chaco · Ingeniería de datos y analítica',
       lead:
-        'Armo el camino del dato: lo saco de sistemas distintos, lo dejo consistente y lo pongo en tableros para que se pueda decidir. Trabajo en instituciones y en producto, en producción.',
+        'Diseño e implemento el ciclo del dato: integración entre sistemas heterogéneos, modelado consistente y publicación en tableros para la toma de decisiones. Trabajo en producción, en entornos institucionales y de producto.',
       bodyBefore:
-        'Plataformas reales con Django, SQL (PostgreSQL / SQL Server), Apache Superset, Power BI, n8n y apps que funcionan sin red. Programador senior (',
+        'Stack en producción: Django, SQL (PostgreSQL / SQL Server), Apache Superset, Power BI, n8n y aplicaciones offline-first. Programador senior (',
       utn: 'UTN — Facultad Regional Resistencia',
       bodyMid: ', promedio 9.40). Data engineer en curso en la ',
       ugr: 'Universidad del Gran Rosario',
@@ -46,18 +46,18 @@ export const ui = {
       ],
     },
     home: {
-      metodo: 'Cómo unifico, modelo y muestro el dato. Cinco pasos, sin jerga de marketing.',
+      metodo: 'Unificación, modelado y visualización del dato en cinco pasos.',
       ecomTitle: 'Tableros institucionales',
       ecom: 'Analítica en producción sobre SQL Server y PostgreSQL, con recorte por organismo.',
-      skadia: 'Del potrero al número repetible: SIGAG, Nutrogan y el lakehouse de demostración.',
-      aboutTeaser: 'Más allá del stack: de dónde vengo y para quién es el número.',
+      skadia: 'SIGAG, Nutrogan y el lakehouse de demostración: captura en campo, operación offline y analítica agropecuaria.',
+      aboutTeaser: 'Perfil, formación y contexto profesional.',
     },
     about: {
       kicker: 'Resistencia, Chaco',
-      title: 'El número tiene que servirle a alguien',
-      p1: 'Vivo en el norte argentino. Trabajo con datos de instituciones y de campo porque ahí una cifra mal armada no es un error de tablero: le cambia el día a quien tramita, a quien mueve hacienda, a quien tiene que decidir con lo que hay.',
-      p2: 'En ECOM el dato llega a un organismo que no es el mío. En Skadia tiene que servir sin señal. En los dos casos el problema no es la herramienta: es que la persona que decide no puede confiar en el número.',
-      p3: 'Soy programador senior por la UTN de Resistencia. Data engineer en la UGR, en curso. El oficio es el mismo: preguntar para qué se usa, y después sí, cómo se calcula.',
+      title: 'Perfil profesional',
+      p1: 'Resido en Resistencia, Chaco. Trabajo con datos institucionales y agropecuarios. Un indicador mal definido no es un defecto de visualización: afecta trámites, operación pecuaria y decisiones operativas.',
+      p2: 'En ECOM los tableros alimentan organismos distintos al equipo que los construye. En Skadia la operación debe continuar sin conectividad. En ambos casos el requisito es gobernanza: quien decide tiene que poder confiar en el indicador.',
+      p3: 'Programador senior, UTN Facultad Regional Resistencia. Data engineer en la Universidad del Gran Rosario, en curso. El diseño parte del uso del dato y, a partir de ahí, del cálculo.',
     },
     method: {
       kicker: 'Cómo trabajo',
@@ -248,9 +248,9 @@ export const ui = {
     hero: {
       badge: 'Resistencia, Chaco · Data engineering & analytics',
       lead:
-        'I take data out of scattered systems, make it consistent, and put it on dashboards people can actually decide with. Institutions and product — in production.',
+        'I design and implement the data cycle: integration across heterogeneous systems, consistent modeling, and dashboards for decision-making. Work is in production, in institutional and product environments.',
       bodyBefore:
-        'Live platforms with Django, SQL (PostgreSQL / SQL Server), Apache Superset, Power BI, n8n, and apps that work offline. Senior programmer (',
+        'Production stack: Django, SQL (PostgreSQL / SQL Server), Apache Superset, Power BI, n8n, and offline-first applications. Senior programmer (',
       utn: 'UTN — Facultad Regional Resistencia',
       bodyMid: ', GPA 9.40). Data engineer in progress at ',
       ugr: 'Universidad del Gran Rosario',
@@ -268,18 +268,18 @@ export const ui = {
       ],
     },
     home: {
-      metodo: 'How I unify, model, and show the data. Five steps. No slogans.',
+      metodo: 'Unification, modeling, and visualization of data in five steps.',
       ecomTitle: 'Institutional dashboards',
       ecom: 'Production analytics on SQL Server and PostgreSQL, scoped by organization.',
-      skadia: 'From paddock to a reusable number: SIGAG, Nutrogan, and the demo lakehouse.',
-      aboutTeaser: 'Beyond the stack: where I am from, and who the number is for.',
+      skadia: 'SIGAG, Nutrogan, and the demo lakehouse: field capture, offline operation, and agricultural analytics.',
+      aboutTeaser: 'Profile, education, and professional context.',
     },
     about: {
       kicker: 'Resistencia, Chaco',
-      title: 'The number has to be useful to someone',
-      p1: 'I live in northern Argentina. I work with institutional data and with data from the field because a badly built figure is not a chart error: it changes the day for whoever files a procedure, moves cattle, or has to decide with what is at hand.',
-      p2: 'At ECOM the data reaches an agency that is not mine. At Skadia it has to work without signal. In both cases the problem is not the tool: it is that the person who decides cannot trust the number.',
-      p3: 'Senior programmer, UTN Resistencia. Data engineer at UGR, in progress. The craft is the same: ask what it is for, and only then how it is calculated.',
+      title: 'Professional profile',
+      p1: 'Based in Resistencia, Chaco. I work with institutional and agricultural data. A poorly defined metric is not a visualization defect: it affects procedures, livestock operations, and operational decisions.',
+      p2: 'At ECOM, dashboards feed agencies other than the team that builds them. At Skadia, operations must continue without connectivity. In both cases the requirement is governance: the decision-maker must be able to trust the indicator.',
+      p3: 'Senior programmer, UTN Facultad Regional Resistencia. Data engineer at Universidad del Gran Rosario, in progress. Design starts from how the data is used, and only then from how it is calculated.',
     },
     method: {
       kicker: 'How I work',
@@ -470,9 +470,9 @@ export const ui = {
     hero: {
       badge: 'Resistencia, Chaco · Engenharia de dados e analytics',
       lead:
-        'Tiro o dado de sistemas espalhados, deixo consistente e coloco em painéis para decidir de verdade. Instituições e produto — em produção.',
+        'Desenho e implemento o ciclo do dado: integração entre sistemas heterogêneos, modelagem consistente e publicação em painéis para tomada de decisão. Trabalho em produção, em ambientes institucionais e de produto.',
       bodyBefore:
-        'Plataformas reais com Django, SQL (PostgreSQL / SQL Server), Apache Superset, Power BI, n8n e apps que funcionam offline. Programador sênior (',
+        'Stack em produção: Django, SQL (PostgreSQL / SQL Server), Apache Superset, Power BI, n8n e aplicações offline-first. Programador sênior (',
       utn: 'UTN — Faculdade Regional Resistencia',
       bodyMid: ', média 9,40). Data engineer em andamento na ',
       ugr: 'Universidad del Gran Rosario',
@@ -490,18 +490,18 @@ export const ui = {
       ],
     },
     home: {
-      metodo: 'Como unifico, modelo e mostro o dado. Cinco passos, sem slogan.',
+      metodo: 'Unificação, modelagem e visualização do dado em cinco passos.',
       ecomTitle: 'Painéis institucionais',
       ecom: 'Analytics em produção sobre SQL Server e PostgreSQL, recortado por órgão.',
-      skadia: 'Do piquete ao número repetível: SIGAG, Nutrogan e o lakehouse de demonstração.',
-      aboutTeaser: 'Além do stack: de onde venho e para quem é o número.',
+      skadia: 'SIGAG, Nutrogan e o lakehouse de demonstração: captura em campo, operação offline e analytics agropecuária.',
+      aboutTeaser: 'Perfil, formação e contexto profissional.',
     },
     about: {
       kicker: 'Resistencia, Chaco',
-      title: 'O número tem de servir a alguém',
-      p1: 'Moro no norte da Argentina. Trabalho com dados de instituições e de campo porque um número mal armado não é erro de painel: muda o dia de quem protocola, de quem move o rebanho, de quem decide com o que tem.',
-      p2: 'Na ECOM o dado chega a um órgão que não é o meu. Na Skadia tem de funcionar sem sinal. Nos dois casos o problema não é a ferramenta: é que quem decide não pode confiar no número.',
-      p3: 'Programador sênior pela UTN de Resistencia. Data engineer na UGR, em andamento. O ofício é o mesmo: perguntar para que serve, e só então como se calcula.',
+      title: 'Perfil profissional',
+      p1: 'Resido em Resistencia, Chaco. Trabalho com dados institucionais e agropecuários. Um indicador mal definido não é defeito de visualização: afeta trâmites, operação pecuária e decisões operacionais.',
+      p2: 'Na ECOM os painéis alimentam órgãos distintos da equipe que os constrói. Na Skadia a operação deve continuar sem conectividade. Nos dois casos o requisito é governança: quem decide precisa poder confiar no indicador.',
+      p3: 'Programador sênior, UTN Faculdade Regional Resistencia. Data engineer na Universidad del Gran Rosario, em andamento. O desenho parte do uso do dado e, a partir daí, do cálculo.',
     },
     method: {
       kicker: 'Como trabalho',
@@ -692,9 +692,9 @@ export const ui = {
     hero: {
       badge: '阿根廷查科省雷西斯滕西亚 · 数据工程与分析',
       lead:
-        '我把分散系统里的数据拿出来，做成统一、可查询的信息，放到仪表盘上，让人真正能做决策。服务机构和产品，都在生产环境。',
+        '设计并实施完整的数据链路：异构系统集成、一致性建模，以及用于决策的仪表盘发布。工作在生产环境，覆盖机构与产品场景。',
       bodyBefore:
-        '生产环境使用 Django、SQL（PostgreSQL / SQL Server）、Apache Superset、Power BI、n8n，以及可离线运行的应用。高级程序员（',
+        '生产环境技术栈：Django、SQL（PostgreSQL / SQL Server）、Apache Superset、Power BI、n8n，以及离线优先应用。高级程序员（',
       utn: '国立技术大学（UTN）雷西斯滕西亚地区分校',
       bodyMid: '，平均分 9.40，满分 10）。数据工程师在读：',
       ugr: 'Universidad del Gran Rosario',
@@ -712,18 +712,18 @@ export const ui = {
       ],
     },
     home: {
-      metodo: '我如何统一、建模并展示数据。五步，没有口号。',
+      metodo: '数据统一、建模与可视化，五个步骤。',
       ecomTitle: '机构看板',
       ecom: '生产环境分析：SQL Server 与 PostgreSQL，按机构划分范围。',
-      skadia: '从牧场到可复用数字：SIGAG、Nutrogan 与演示 lakehouse。',
-      aboutTeaser: '技术栈之外：我从哪里来，这个数字是给谁用的。',
+      skadia: 'SIGAG、Nutrogan 与演示 lakehouse：田间采集、离线运行与农业分析。',
+      aboutTeaser: '个人简介、学历与职业背景。',
     },
     about: {
       kicker: '阿根廷查科省雷西斯滕西亚',
-      title: '数字必须对某个人有用',
-      p1: '我住在阿根廷北部。做机构数据和牧场数据，是因为一个算错的数字不是图表问题：它会改变办事的人、赶牲口的人、只能凭手头信息做决定的人的一天。',
-      p2: '在 ECOM，数据要交给不是我的机构。在 Skadia，没信号也得能用。两边的问题都不是工具，而是做决定的人没法信任这个数。',
-      p3: 'UTN 雷西斯滕西亚高级程序员。UGR 数据工程师，在读。手艺是一样的：先问用来干什么，再问怎么算。',
+      title: '职业简介',
+      p1: '常驻阿根廷查科省雷西斯滕西亚。工作覆盖机构数据与农牧数据。指标定义不当不是可视化缺陷：它会影响办事流程、牧业运营与现场决策。',
+      p2: '在 ECOM，看板服务的机构与建设团队不是同一方。在 Skadia，无网络也必须可运行。两边的要求都是治理：决策者必须能信任该指标。',
+      p3: 'UTN 雷西斯滕西亚地区分校高级程序员。大罗萨里奥大学数据工程师，在读。设计从数据用途出发，再决定如何计算。',
     },
     method: {
       kicker: '我怎么做',
