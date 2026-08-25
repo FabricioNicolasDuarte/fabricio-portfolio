@@ -35,15 +35,15 @@
     <div class="mt-12 grid grid-cols-1 gap-4 md:grid-cols-2">
       <div class="glass rounded-2xl p-6">
         <h3 class="text-sm font-medium text-lime-300">{{ t.path.education }}</h3>
-        <p class="mt-3 font-medium text-white">{{ t.path.ds }}</p>
-        <p class="mt-1 text-sm leading-relaxed text-slate-400">
-          {{ t.path.dsMeta }}
-          <a class="text-lime-300 underline decoration-lime-500/30 underline-offset-2" href="https://ugr.edu.ar/carreras/ciclo-de-licenciatura-en-ciencia-de-datos/" target="_blank" rel="noopener noreferrer">{{ t.path.ugrPlan }}</a>
-        </p>
-        <p class="mt-5 font-medium text-white">{{ t.path.tech }}</p>
+        <p class="mt-3 font-medium text-white">{{ t.path.tech }}</p>
         <p class="mt-1 text-sm text-slate-400">
           <a class="text-lime-300 underline decoration-lime-500/30 underline-offset-2" href="https://www.frre.utn.edu.ar/" target="_blank" rel="noopener noreferrer">Universidad Tecnológica Nacional — Facultad Regional Resistencia</a>.
           {{ t.path.techMeta }}
+        </p>
+        <p class="mt-5 font-medium text-white">{{ t.path.ds }}</p>
+        <p class="mt-1 text-sm leading-relaxed text-slate-400">
+          {{ t.path.dsMeta }}
+          <a class="text-lime-300 underline decoration-lime-500/30 underline-offset-2" href="https://ugr.edu.ar/carreras/ciclo-de-licenciatura-en-ciencia-de-datos/" target="_blank" rel="noopener noreferrer">{{ t.path.ugrPlan }}</a>
         </p>
         <p class="mt-5 font-medium text-white">{{ t.path.acc }}</p>
         <p class="mt-1 text-sm text-slate-400">{{ t.path.accMeta }}</p>

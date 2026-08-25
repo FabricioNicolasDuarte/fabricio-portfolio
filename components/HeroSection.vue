@@ -50,7 +50,7 @@
       <div class="relative mx-auto w-full max-w-[260px] lg:max-w-none">
         <div class="absolute -inset-3 rounded-none bg-lime-400/25 blur-[2px]"></div>
         <div class="relative overflow-hidden border border-lime-400/30 bg-black p-1">
-          <img src="/images/profile.jpg" alt="Fabricio Duarte" class="aspect-[4/5] w-full rounded-[1.1rem] object-cover" />
+          <img src="/images/profile.jpg" alt="Fabricio Duarte" class="aspect-[4/5] w-full object-cover object-[center_20%]" />
         </div>
       </div>
     </div>
@@ -71,10 +71,11 @@
     <div class="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4">
       <div v-for="s in t.hero.stats" :key="s.label" class="glass rounded-2xl p-5 transition hover:border-lime-400/30">
         <p class="text-[11px] uppercase tracking-wider text-slate-500">{{ s.label }}</p>
-        <p class="mt-2 font-display text-3xl font-semibold text-white">
+        <p class="mt-2 font-display font-semibold text-white" :class="s.n != null ? 'text-3xl' : 'text-xl leading-tight sm:text-2xl'">
           <CountUp v-if="s.n != null" :to="s.n" :suffix="s.suffix || ''" />
           <span v-else>{{ s.value }}</span>
         </p>
+        <p v-if="s.note" class="mt-1 text-xs text-slate-400">{{ s.note }}</p>
       </div>
     </div>
   </section>
