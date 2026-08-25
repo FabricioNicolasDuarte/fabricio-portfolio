@@ -4,6 +4,10 @@
       <div>
         <p class="font-display text-sm font-semibold tracking-wide text-white">Fabricio Nicolás Duarte</p>
         <p class="mt-1 text-sm text-slate-500">Resistencia, Chaco · {{ t.hero.open }}</p>
+        <p class="mt-2 font-mono text-sm tabular-nums text-slate-400">
+          <time :datetime="iso">{{ clock || '—' }}</time>
+          <span class="ml-2 text-slate-500">{{ t.footer.city }}</span>
+        </p>
         <p class="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-sm text-slate-400">
           <a class="hover:text-white" href="mailto:fabricioduarteoficial@gmail.com">fabricioduarteoficial@gmail.com</a>
           <a class="hover:text-white" href="tel:+543704022201">+54 370 402-2201</a>
@@ -22,6 +26,32 @@
 </template>
 
 <script setup>
+const ZONE = 'America/Argentina/Buenos_Aires'
 const year = new Date().getFullYear()
 const { t, atsCv } = useLocale()
+const clock = ref('')
+const iso = ref('')
+
+let timer
+
+function tick() {
+  const now = new Date()
+  iso.value = now.toISOString()
+  clock.value = new Intl.DateTimeFormat('es-AR', {
+    timeZone: ZONE,
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: false,
+  }).format(now)
+}
+
+onMounted(() => {
+  tick()
+  timer = window.setInterval(tick, 1000)
+})
+
+onBeforeUnmount(() => {
+  if (timer) window.clearInterval(timer)
+})
 </script>

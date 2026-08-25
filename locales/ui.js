@@ -39,7 +39,7 @@ export const ui = {
       cvVisual: 'Descargar CV visual',
       cvAts: 'Descargar CV ATS',
       book: 'Agendar 25 min',
-      open: 'remoto · ART',
+      open: 'remoto',
       line: 'Ingeniería de datos · Inteligencia de negocios · Automatización',
       pipeline: ['Entrada', 'Modelo', 'Tablero', 'Decisión'],
       stats: [
@@ -205,18 +205,19 @@ export const ui = {
     book: {
       kicker: 'Agenda',
       title: 'Entrevista exploratoria, 25 minutos',
-      body: 'Un recruiter o hiring manager puede proponer un horario. Zona: Argentina (ART). El pedido abre el correo a fabricioduarteoficial@gmail.com. La confirmación sale por mail.',
+      body: 'Un recruiter o hiring manager puede proponer un horario. Zona: Buenos Aires. El pedido abre el correo a fabricioduarteoficial@gmail.com. La confirmación sale por mail.',
       meta: 'Google Meet u otra sala que indiques. No hay cámara embebida en este sitio.',
       when: 'Día y hora (tu zona se convierte en el mail)',
       note: 'Contexto opcional (rol, empresa)',
       submit: 'Enviar pedido por mail',
       calendar: 'Abrir calendario',
       mailSubject: 'Pedido de entrevista 25 min — fabricioduarte.tech',
-      mailBody: 'Propongo este horario (ART de referencia en el sitio):',
+      mailBody: 'Propongo este horario (Buenos Aires):',
     },
     footer: {
       ats: 'CV ATS',
       visual: 'CV visual',
+      city: 'Buenos Aires',
     },
     meta: {
       title: 'Fabricio Duarte — Datos, analítica, automatización y producto',
@@ -263,7 +264,7 @@ export const ui = {
       cvVisual: 'Download visual CV',
       cvAts: 'Download ATS CV',
       book: 'Book 25 min',
-      open: 'remote · ART',
+      open: 'remote',
       line: 'Data engineering · Business intelligence · Automation',
       pipeline: ['Ingest', 'Model', 'Dashboard', 'Decide'],
       stats: [
@@ -429,18 +430,19 @@ export const ui = {
     book: {
       kicker: 'Schedule',
       title: 'Exploratory interview, 25 minutes',
-      body: 'A recruiter or hiring manager can propose a slot. Time zone: Argentina (ART). The form opens mail to fabricioduarteoficial@gmail.com. Confirmation is by email.',
+      body: 'A recruiter or hiring manager can propose a slot. Time zone: Buenos Aires. The form opens mail to fabricioduarteoficial@gmail.com. Confirmation is by email.',
       meta: 'Google Meet or another room you name. This site does not embed a camera.',
       when: 'Date and time (your local zone is sent in the email)',
       note: 'Optional context (role, company)',
       submit: 'Send request by email',
       calendar: 'Open calendar',
       mailSubject: '25 min interview request — fabricioduarte.tech',
-      mailBody: 'I propose this slot (ART is the reference on the site):',
+      mailBody: 'I propose this slot (Buenos Aires):',
     },
     footer: {
       ats: 'ATS CV',
       visual: 'Visual CV',
+      city: 'Buenos Aires',
     },
     meta: {
       title: 'Fabricio Duarte — Data, analytics, automation, and product',
@@ -487,7 +489,7 @@ export const ui = {
       cvVisual: 'Baixar CV visual',
       cvAts: 'Baixar CV ATS',
       book: 'Agendar 25 min',
-      open: 'remoto · ART',
+      open: 'remoto',
       line: 'Engenharia de dados · Business intelligence · Automação',
       pipeline: ['Entrada', 'Modelo', 'Painel', 'Decisão'],
       stats: [
@@ -653,18 +655,19 @@ export const ui = {
     book: {
       kicker: 'Agenda',
       title: 'Entrevista exploratória, 25 minutos',
-      body: 'Um recrutador ou gestor de contratação pode propor um horário. Fuso: Argentina (ART). O pedido abre o e-mail para fabricioduarteoficial@gmail.com. A confirmação sai por e-mail.',
+      body: 'Um recrutador ou gestor de contratação pode propor um horário. Fuso: Buenos Aires. O pedido abre o e-mail para fabricioduarteoficial@gmail.com. A confirmação sai por e-mail.',
       meta: 'Google Meet ou outra sala que você indicar. Não há câmera embutida neste site.',
       when: 'Dia e hora (seu fuso vai no e-mail)',
       note: 'Contexto opcional (vaga, empresa)',
       submit: 'Enviar pedido por e-mail',
       calendar: 'Abrir calendário',
       mailSubject: 'Pedido de entrevista 25 min — fabricioduarte.tech',
-      mailBody: 'Proponho este horário (ART é a referência no site):',
+      mailBody: 'Proponho este horário (Buenos Aires):',
     },
     footer: {
       ats: 'CV ATS',
       visual: 'CV visual',
+      city: 'Buenos Aires',
     },
     meta: {
       title: 'Fabricio Duarte — Dados, analytics, automação e produto',
@@ -711,7 +714,7 @@ export const ui = {
       cvVisual: '下载视觉版简历',
       cvAts: '下载 ATS 简历',
       book: '预约 25 分钟',
-      open: '远程 · ART',
+      open: '远程',
       line: '数据工程 · 商业智能 · 自动化',
       pipeline: ['采集', '建模', '看板', '决策'],
       stats: [
@@ -877,18 +880,19 @@ export const ui = {
     book: {
       kicker: '预约',
       title: '探索性面试，25 分钟',
-      body: '招聘方可提议时段。时区：阿根廷（ART）。表单会打开邮件至 fabricioduarteoficial@gmail.com。确认通过邮件。',
+      body: '招聘方可提议时段。时区：布宜诺斯艾利斯。表单会打开邮件至 fabricioduarteoficial@gmail.com。确认通过邮件。',
       meta: 'Google Meet 或你指定的会议室。本站不嵌入摄像头。',
       when: '日期与时间（邮件中带上你的本地时区）',
       note: '可选背景（职位、公司）',
       submit: '用邮件发送申请',
       calendar: '打开日历',
       mailSubject: '25 分钟面试申请 — fabricioduarte.tech',
-      mailBody: '我提议此时段（站点以 ART 为参考）：',
+      mailBody: '我提议此时段（布宜诺斯艾利斯）：',
     },
     footer: {
       ats: 'ATS 简历',
       visual: '视觉简历',
+      city: 'Buenos Aires',
     },
     meta: {
       title: 'Fabricio Duarte — 数据、分析、自动化与产品',
