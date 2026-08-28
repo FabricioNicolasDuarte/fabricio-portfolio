@@ -38,11 +38,15 @@ useHead({
     { property: 'og:url', content: () => pageUrl.value },
     { property: 'og:title', content: () => t.value.meta.title },
     { property: 'og:description', content: () => t.value.meta.description },
-    { property: 'og:image', content: `${origin}/images/hero-poster.jpg` },
+    { property: 'og:image', content: `${origin}/images/og-banner.jpg` },
+    { property: 'og:image:type', content: 'image/jpeg' },
+    { property: 'og:image:width', content: '1200' },
+    { property: 'og:image:height', content: '627' },
+    { property: 'og:image:alt', content: 'Fabricio Duarte — fabricioduarte.tech' },
     { name: 'twitter:card', content: 'summary_large_image' },
     { name: 'twitter:title', content: () => t.value.meta.title },
     { name: 'twitter:description', content: () => t.value.meta.description },
-    { name: 'twitter:image', content: `${origin}/images/hero-poster.jpg` },
+    { name: 'twitter:image', content: `${origin}/images/og-banner.jpg` },
   ],
   script: [
     {
