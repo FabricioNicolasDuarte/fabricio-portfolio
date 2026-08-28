@@ -1,25 +1,31 @@
 <template>
   <section id="skills" class="relative mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-24">
     <p class="text-xs font-medium tracking-widest text-lime-400 uppercase">{{ t.skills.kicker }}</p>
-        <h2 class="mt-2 font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl">{{ t.skills.kicker }}</h2>
+    <h2 class="mt-2 font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl">{{ t.skills.title }}</h2>
     <p class="mt-3 max-w-2xl text-[15px] leading-relaxed text-slate-400">{{ t.skills.intro }}</p>
 
-    <div class="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2">
-      <div v-for="group in groups" :key="group.title" class="glass rounded-2xl p-6">
-        <h3 class="font-display text-lg font-semibold text-lime-200">{{ group.title }}</h3>
-        <p class="mt-1 text-sm text-slate-500">{{ group.blurb }}</p>
-        <ul class="mt-4 space-y-3">
+    <div class="mt-10 grid grid-cols-1 gap-4 lg:grid-cols-3">
+      <article v-for="group in groups" :key="group.title" class="glass rounded-2xl p-6">
+        <p class="text-[11px] font-medium tracking-widest text-lime-300 uppercase">{{ group.kicker }}</p>
+        <h3 class="mt-1 font-display text-lg font-semibold text-white">{{ group.title }}</h3>
+        <p class="mt-1 text-sm leading-relaxed text-slate-500">{{ group.blurb }}</p>
+        <ul class="mt-6 space-y-4">
           <li v-for="item in group.items" :key="item.name">
-            <div class="mb-1 flex items-baseline justify-between gap-3">
+            <div class="mb-1.5 flex items-baseline justify-between gap-3">
               <span class="text-sm text-slate-200">{{ item.name }}</span>
-              <span class="text-[11px] tracking-wide text-slate-500">{{ item.band }}</span>
+              <span class="text-[10px] font-medium tracking-wider text-slate-500 uppercase">{{ item.band }}</span>
             </div>
-            <div class="h-1.5 overflow-hidden rounded-full bg-white/10">
-              <div class="h-full rounded-full bg-gradient-to-r from-lime-400 to-lime-400" :style="{ width: item.pct + '%' }"></div>
+            <div class="flex gap-1" :aria-label="item.band">
+              <span
+                v-for="n in 3"
+                :key="n"
+                class="h-1.5 flex-1 rounded-full"
+                :class="n <= item.level ? 'bg-lime-400' : 'bg-white/10'"
+              />
             </div>
           </li>
         </ul>
-      </div>
+      </article>
     </div>
   </section>
 </template>
@@ -31,33 +37,42 @@ const { t } = useLocale()
 
 const groups = computed(() => {
   const b = t.value.skills.bands
-  const L = (name, pct, key) => ({ name, pct, band: b[key] })
+  const L = (name, level, key) => ({ name, level, band: b[key] })
   return [
     {
+      kicker: t.value.skills.g1k,
       title: t.value.skills.g1,
       blurb: t.value.skills.g1b,
       items: [
-        L('SQL / PostgreSQL / SQL Server', 94, 'prod'),
-        L('Django · ETL · Celery / Redis', 92, 'prod'),
-        L('Apache Superset', 90, 'prod'),
-        L('Power BI / DAX', 78, 'solid'),
-        L('Python / pandas / Docker', 88, 'prod'),
-        L('PySpark / Delta Lake', 70, 'solid'),
-        L('Apache Airflow', 68, 'solid'),
-        L('Databricks', 64, 'applied'),
-        L('PostGIS / MongoDB', 72, 'solid'),
+        L('SQL / PostgreSQL / SQL Server', 3, 'prod'),
+        L('Django · ETL · Celery / Redis', 3, 'prod'),
+        L('Apache Superset', 3, 'prod'),
+        L('Power BI / DAX', 2, 'solid'),
+        L('Python / pandas / Docker', 3, 'prod'),
+        L('PostGIS', 2, 'solid'),
       ],
     },
     {
+      kicker: t.value.skills.g2k,
       title: t.value.skills.g2,
       blurb: t.value.skills.g2b,
       items: [
-        L('Vue 3 / Nuxt / TypeScript', 86, 'prod'),
-        L('n8n / webhooks', 82, 'solid'),
-        L('Expo / WatermelonDB', 80, 'solid'),
-        L('Laravel / PHP', 74, 'solid'),
-        L('TensorFlow', 62, 'applied'),
-        L('Flutter', 58, 'applied'),
+        L('Laravel / Livewire / PHP', 3, 'prod'),
+        L('Vue 3 / Nuxt / TypeScript', 3, 'prod'),
+        L('n8n / webhooks', 3, 'prod'),
+        L('Expo / WatermelonDB', 2, 'solid'),
+        L('REST / APIs', 3, 'prod'),
+      ],
+    },
+    {
+      kicker: t.value.skills.g3k,
+      title: t.value.skills.g3,
+      blurb: t.value.skills.g3b,
+      items: [
+        L('PySpark / Delta Lake', 2, 'solid'),
+        L('Apache Airflow', 2, 'solid'),
+        L('Databricks', 1, 'applied'),
+        L('TensorFlow', 1, 'applied'),
       ],
     },
   ]

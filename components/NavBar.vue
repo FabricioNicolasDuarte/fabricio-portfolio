@@ -65,6 +65,7 @@ const meta = LOCALE_META
 const items = computed(() => [
   { to: '/sobre', label: t.value.nav.about },
   { to: '/trabajo', label: t.value.nav.work },
+  { to: '/trayectoria', label: t.value.nav.path },
   { to: '/skadia', label: t.value.nav.skadia },
   { to: '/metodo', label: t.value.nav.method },
   { to: '/agendar', label: t.value.nav.book },
