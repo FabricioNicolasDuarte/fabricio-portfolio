@@ -48,15 +48,26 @@
             {{ tag }}
           </li>
         </ul>
-        <a
-          v-if="item.href"
-          :href="item.href"
-          :target="item.external === false ? undefined : '_blank'"
-          :rel="item.external === false ? undefined : 'noopener noreferrer'"
-          class="mt-4 inline-flex items-center gap-1 text-sm text-lime-300 transition hover:text-lime-200"
-        >
-          {{ tx(item, 'cta') || t.work.repo }}
-        </a>
+        <div v-if="item.href || item.hrefRepo" class="mt-4 flex flex-wrap gap-4">
+          <a
+            v-if="item.href"
+            :href="item.href"
+            :target="item.external === false ? undefined : '_blank'"
+            :rel="item.external === false ? undefined : 'noopener noreferrer'"
+            class="inline-flex items-center gap-1 text-sm text-lime-300 transition hover:text-lime-200"
+          >
+            {{ tx(item, 'cta') || t.work.repo }}
+          </a>
+          <a
+            v-if="item.hrefRepo"
+            :href="item.hrefRepo"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1 text-sm text-slate-400 transition hover:text-lime-200"
+          >
+            {{ t.work.repo }}
+          </a>
+        </div>
       </article>
     </div>
     <div class="mt-8 flex justify-center" v-if="compact">
@@ -416,10 +427,15 @@ const work = [
     kindEn: 'Product · estimating · commercialized',
     kindPt: 'Produto · estimativa · comercializado',
     kindZh: '产品 · 估算 · 已售',
-    tags: ['Laravel', 'Livewire', 'Tailwind', 'PostgreSQL'],
+    tags: ['Laravel', 'Livewire', 'Tailwind'],
     cats: ['da', 'product'],
     pin: true,
-    href: 'https://github.com/FabricioNicolasDuarte/Cocoma-App',
+    href: 'https://cocoma-app.onrender.com',
+    hrefRepo: 'https://github.com/FabricioNicolasDuarte/Cocoma-App',
+    cta: 'Abrir demo →',
+    ctaEn: 'Open demo →',
+    ctaPt: 'Abrir demo →',
+    ctaZh: '打开演示 →',
     shot: '/mockups/cocoma.jpg',
     shotAlt: 'Cocoma: inicio de sesión en escritorio y tarifario maestro en móvil.',
     shotAltEn: 'Cocoma: desktop sign-in and master rate card on mobile.',
