@@ -209,20 +209,21 @@ const work = [
     titlePt: 'Painéis institucionais — Apache Superset e Power BI',
     titleZh: '机构看板 — Apache Superset 与 Power BI',
     summary:
-      'Tableros en Apache Superset (producción y prueba) y Power BI, de uso interno en ECOM: cada organismo ve solo lo suyo. Se actualizan solos y se pueden incrustar en el sistema de trabajo.',
+      'Motor BI de ECOM en producción: datasets, métricas, Mapbox y despliegue en cluster. Tableros en Apache Superset y Power BI, con recorte por organismo, embed en el sistema de trabajo y refresco automático. Uso interno institucional, no laboratorio.',
     summaryEn:
-      'Apache Superset dashboards (production and test) and Power BI, used internally at ECOM: each organization sees only its own slice. They refresh on their own and can be embedded in the working system.',
+      'ECOM’s production BI engine: datasets, metrics, Mapbox, and cluster deploy. Apache Superset and Power BI dashboards, sliced per agency, embedded in the working system, auto-refreshed. Institutional use, not a lab.',
     summaryPt:
-      'Painéis no Apache Superset (produção e teste) e Power BI, de uso interno na ECOM: cada órgão vê só o que é dele. Atualizam sozinhos e podem ir dentro do sistema de trabalho.',
+      'Motor de BI da ECOM em produção: datasets, métricas, Mapbox e cluster. Painéis no Apache Superset e Power BI, recorte por órgão, embed no sistema de trabalho e atualização automática. Uso institucional, não laboratório.',
     summaryZh:
-      'ECOM 内部使用的 Apache Superset（生产与测试）与 Power BI 看板：每个机构只看自己的范围。自动刷新，可嵌进业务系统。',
+      'ECOM 生产级 BI：数据集、指标、Mapbox 与集群部署。Apache Superset 与 Power BI 看板按机构切分，可嵌进业务系统并自动刷新。机构日常使用，不是实验室。',
+    kindEn: 'Analytics · ECOM',
     kindPt: 'Analytics · ECOM',
     kindZh: '分析 · ECOM',
     role: 'Ingeniería de datos. 2023–actualidad.',
     roleEn: 'Data engineering. 2023–present.',
     rolePt: 'Engenharia de dados. 2023–atual.',
     roleZh: '数据工程。2023 至今。',
-    tags: ['Apache Superset', 'Power BI', 'RLS', 'SQL', 'DAX'],
+    tags: ['Apache Superset', 'Power BI', 'RLS', 'SQL', 'Docker', 'Mapbox'],
     cats: ['ecom', 'da', 'de'],
     href: '/casos/ecom',
     external: false,
@@ -235,31 +236,6 @@ const work = [
     shotAltEn: 'Apache Superset: filters and institutional dashboard.',
     shotAltPt: 'Apache Superset: filtros e painel institucional.',
     shotAltZh: 'Apache Superset：筛选与机构看板。',
-  },
-  {
-    featured: false,
-    kind: 'Data engineering · ECOM',
-    title: 'Apache Superset — operación analítica',
-    titleEn: 'Apache Superset — analytic operations',
-    titlePt: 'Apache Superset — operação analítica',
-    titleZh: 'Apache Superset — 分析运营',
-    summary:
-      'Operación de motor BI en producción: datasets, métricas, embed, Mapbox, CSP y despliegue en cluster. Tableros de datos consolidados para consumo institucional continuo, no entorno de laboratorio.',
-    summaryEn:
-      'Production BI engine operations: datasets, metrics, embed, Mapbox, CSP, and cluster deployment. Dashboards on consolidated data for continuous institutional use, not a lab environment.',
-    summaryPt:
-      'Operação de motor BI em produção: datasets, métricas, embed, Mapbox, CSP e cluster. Painéis de dados consolidados para uso institucional contínuo, não laboratório.',
-    summaryZh:
-      '生产环境 BI：数据集、指标、嵌入、Mapbox、CSP 与集群部署。面向机构日常使用的汇总看板，不是实验室。',
-    role: 'Ops de BI. 2023–actualidad.',
-    roleEn: 'BI operations. 2023–present.',
-    rolePt: 'Operação de BI. 2023–atual.',
-    roleZh: 'BI 运维。2023 至今。',
-    kindEn: 'Data engineering · ECOM',
-    kindPt: 'Engenharia de dados · ECOM',
-    kindZh: '数据工程 · ECOM',
-    tags: ['Superset', 'SQL', 'Docker', 'Mapbox'],
-    cats: ['ecom', 'de', 'da'],
   },
   {
     featured: false,
