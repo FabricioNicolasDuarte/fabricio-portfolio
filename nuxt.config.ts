@@ -60,6 +60,12 @@ export default defineNuxtConfig({
             "try{var p=location.pathname.replace(/\\/$/,'')||'/';var home=p==='/'||p==='/en'||p==='/pt'||p==='/zh';if(home&&!localStorage.getItem('fd-intro-v2'))document.documentElement.classList.add('fd-intro')}catch(e){}",
           tagPriority: 'critical',
         },
+        {
+          src: 'https://cloud.umami.is/script.js',
+          defer: true,
+          'data-website-id': '2bdfc5a5-4112-4159-a0ba-a4d6a5afc902',
+          'data-domains': 'fabricioduarte.tech',
+        },
       ],
     },
   },
