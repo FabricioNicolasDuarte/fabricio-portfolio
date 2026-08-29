@@ -21,6 +21,8 @@ body {
 }
 
 .site-atmosphere {
+  pointer-events: none;
+  z-index: -1;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.035) 0%, transparent 22%),
     linear-gradient(180deg, #121212 0%, #0c0c0c 42%, #060606 78%, #000000 100%);
