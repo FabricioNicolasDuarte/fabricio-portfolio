@@ -2,31 +2,31 @@ export default defineNuxtConfig({
   ssr: true,
   devtools: { enabled: false },
   css: ['~/assets/css/main.css'],
-  modules: ['@nuxtjs/tailwindcss'],
+  modules: ['@nuxtjs/tailwindcss', '@nuxt/eslint'],
   devServer: {
     port: 3055,
   },
   nitro: {
     prerender: {
       crawlLinks: true,
-      routes: ['/', '/agtech/lakehouse', '/casos/ecom', '/casos/skadia', '/metodo', '/trabajo', '/skadia', '/trayectoria', '/agendar', '/sobre'],
+      routes: ['/', '/agtech/lakehouse', '/casos/ecom', '/casos/skadia', '/metodo', '/trabajo', '/skadia', '/trayectoria', '/agendar', '/agendar/enviado', '/sobre'],
     },
+  },
+  runtimeConfig: {
+    resendApiKey: process.env.RESEND_API_KEY || '',
   },
   app: {
     head: {
-      title: 'Fabricio Duarte — Ciencia de datos, analítica y automatización',
       htmlAttrs: { lang: 'es' },
       meta: [
+        { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        {
-          name: 'description',
-          content:
-            'Data engineering, analytics, BI and automation. Resistencia, Chaco, Argentina. Django, SQL, Superset, Power BI, n8n.',
-        },
       ],
       link: [
-        { rel: 'icon', type: 'image/png', href: '/favicon.png' },
+        { rel: 'icon', type: 'image/png', href: '/brand/mark.png' },
         { rel: 'apple-touch-icon', href: '/brand/mark.png' },
+        { rel: 'preload', href: '/brand/mark.png', as: 'image' },
+        { rel: 'preload', href: '/images/og-banner.jpg', as: 'image' },
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
         {

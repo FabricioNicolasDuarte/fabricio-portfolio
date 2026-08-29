@@ -2,7 +2,7 @@
   <section id="work" class="relative mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-24">
     <div class="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
       <div>
-        <p class="text-xs font-medium tracking-widest text-lime-400 uppercase">{{ t.work.kicker }}</p>
+        <p class="fd-kicker">{{ t.work.kicker }}</p>
         <h2 class="mt-2 font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl">{{ t.work.title }}</h2>
         <p class="mt-3 max-w-lg text-[15px] leading-relaxed text-slate-400">{{ t.work.intro }}</p>
       </div>
@@ -25,11 +25,10 @@
       <article
         v-for="item in visible"
         :key="item.title"
-        class="group glass relative overflow-hidden rounded-2xl p-6 transition duration-300 hover:-translate-y-1 hover:border-lime-400/35 sm:p-7"
+        class="group fd-card relative overflow-hidden p-6 sm:p-7"
         :class="item.featured && !compact ? 'md:col-span-2' : ''"
       >
-        <div class="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-lime-400/10 blur-3xl transition group-hover:bg-lime-400/20"></div>
-        <p class="mb-2 text-[11px] font-medium tracking-wider text-lime-300 uppercase">{{ tx(item, 'kind') }}</p>
+        <p class="fd-kicker mb-2">{{ tx(item, 'kind') }}</p>
         <h3 class="font-display text-2xl font-semibold tracking-tight text-white">{{ tx(item, 'title') }}</h3>
         <img
           v-if="item.shot"
@@ -42,7 +41,7 @@
           :class="compact || item.featured ? 'max-h-[420px]' : 'max-h-[240px]'"
         />
         <p class="mt-3 max-w-3xl text-[15px] leading-relaxed text-slate-400">{{ tx(item, 'summary') }}</p>
-        <p class="mt-3 text-sm text-slate-500"><span class="text-slate-600">{{ t.work.role }}</span>{{ tx(item, 'role') }}</p>
+        <p class="mt-3 text-sm text-muted"><span class="text-muted">{{ t.work.role }}</span>{{ tx(item, 'role') }}</p>
         <ul class="mt-4 flex flex-wrap gap-2">
           <li v-for="tag in (tx(item, 'tags') || item.tags)" :key="tag" class="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[11px] text-slate-300">
             {{ tag }}
@@ -71,14 +70,14 @@
       </article>
     </div>
     <div class="mt-8 flex justify-center" v-if="compact">
-      <NuxtLink to="/trabajo" class="rounded-full border border-white/15 px-4 py-2 text-sm text-lime-200 hover:border-lime-400/40">
+      <NuxtLink to="/trabajo" class="fd-btn-outline text-sm">
         {{ t.work.more }}
       </NuxtLink>
     </div>
     <div class="mt-8 flex justify-center" v-else-if="active === 'all' && work.length > PIN_COUNT">
       <button
         type="button"
-        class="rounded-full border border-white/15 px-4 py-2 text-sm text-slate-300 transition hover:border-lime-400/40 hover:text-lime-200"
+        class="fd-btn-outline text-sm"
         @click="expanded = !expanded"
       >
         {{ expanded ? t.work.less : t.work.more }}
@@ -90,11 +89,11 @@
 <script setup>
 import { computed, ref } from 'vue'
 
-const props = defineProps({ compact: Boolean })
+defineProps({ compact: Boolean })
 const { t, tx } = useLocale()
 const active = ref('all')
 const expanded = ref(false)
-const PIN_COUNT = computed(() => (props.compact ? 3 : 6))
+const PIN_COUNT = computed(() => 4)
 const filters = computed(() => t.value.work.filters)
 
 const work = [
@@ -137,7 +136,7 @@ const work = [
     shotAltZh: 'SIGAG：指挥中心、GIS 与田间助手。',
   },
   {
-    pin: true,
+    pin: false,
     featured: true,
     kind: 'Data engineering · AgTech',
     title: 'De las planillas del campo al tablero (Airflow + PySpark)',
@@ -201,7 +200,7 @@ const work = [
     cats: ['auto', 'de'],
   },
   {
-    pin: false,
+    pin: true,
     featured: false,
     kind: 'Analytics · ECOM',
     title: 'Tableros institucionales — Apache Superset & Power BI',
@@ -318,7 +317,7 @@ const work = [
     cats: ['ecom', 'de'],
   },
   {
-    pin: false,
+    pin: true,
     featured: false,
     kind: 'Producto · formación · comercializado',
     title: 'SIGCL — Sistema Integral de Gestión Curricular y Legal',
@@ -350,7 +349,7 @@ const work = [
     shotAltZh: 'SIGCL：机构看板，桌面与手机。',
   },
   {
-    pin: true,
+    pin: false,
     featured: false,
     kind: 'Producto · agro · datos',
     title: 'Nutrogan',

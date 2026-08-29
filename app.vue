@@ -1,13 +1,16 @@
 <template>
-  <div class="relative min-h-screen font-sans text-slate-100">
-    <a href="#contenido" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[90] focus:rounded-full focus:bg-lime-400 focus:px-4 focus:py-2 focus:text-black">{{ t.nav.skip }}</a>
-    <DataField />
+  <div>
+    <div class="relative min-h-screen font-sans text-ink" :inert="introLocked || undefined">
+      <a href="#contenido" class="skip-to-content sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[90] focus:rounded-full focus:bg-signal focus:px-4 focus:py-2 focus:text-black">{{ t.nav.skip }}</a>
+      <DataField />
+      <NavBar />
+      <NuxtPage />
+      <AppFooter />
+    </div>
     <ClientOnly>
       <WelcomeIntro />
+      <CommandPalette />
     </ClientOnly>
-    <NavBar />
-    <NuxtPage />
-    <AppFooter />
   </div>
 </template>
 
@@ -17,6 +20,7 @@ import { LOCALE_META } from '~/composables/useLocale'
 
 const { locale, t } = useLocale()
 const route = useRoute()
+const introLocked = useState('fd-intro-open', () => false)
 const origin = 'https://fabricioduarte.tech'
 const pageUrl = computed(() => origin + (route.path === '/' ? '/' : route.path.replace(/\/$/, '')))
 const langQs = (code) => `${pageUrl.value}?lang=${code}`
@@ -38,6 +42,7 @@ useHead({
     { property: 'og:url', content: () => pageUrl.value },
     { property: 'og:title', content: () => t.value.meta.title },
     { property: 'og:description', content: () => t.value.meta.description },
+    { property: 'og:locale', content: () => LOCALE_META[locale.value]?.html || 'es' },
     { property: 'og:image', content: `${origin}/images/og-banner.jpg` },
     { property: 'og:image:type', content: 'image/jpeg' },
     { property: 'og:image:width', content: '1200' },
@@ -55,9 +60,10 @@ useHead({
         '@context': 'https://schema.org',
         '@type': 'Person',
         name: 'Fabricio Nicolás Duarte',
-        jobTitle: 'Data Engineer',
+        jobTitle: 'Programador senior · Data engineer',
         url: origin,
         email: 'mailto:fabricioduarteoficial@gmail.com',
+        telephone: '+54-370-402-2201',
         address: { '@type': 'PostalAddress', addressLocality: 'Resistencia', addressRegion: 'Chaco', addressCountry: 'AR' },
         alumniOf: [
           { '@type': 'CollegeOrUniversity', name: 'Universidad Tecnológica Nacional — Facultad Regional Resistencia' },

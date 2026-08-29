@@ -1,9 +1,9 @@
 <template>
   <section id="skadia" class="relative mx-auto max-w-6xl px-5 py-16 sm:px-8">
-    <div class="glass overflow-hidden rounded-3xl p-8 sm:p-10">
+    <div class="fd-card overflow-hidden p-8 sm:p-10">
       <div class="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
         <div>
-          <p class="text-xs font-medium tracking-widest text-lime-400 uppercase">{{ t.skadia.kicker }}</p>
+          <p class="fd-kicker">{{ t.skadia.kicker }}</p>
           <h2 class="mt-2 font-display text-3xl font-semibold tracking-tight text-white sm:text-4xl">{{ t.skadia.title }}</h2>
           <p class="mt-3 max-w-2xl text-[15px] leading-relaxed text-slate-400">{{ t.skadia.body }}</p>
         </div>

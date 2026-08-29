@@ -1,12 +1,14 @@
 <template>
-  <CasePage
-    :kicker="copy.kicker"
-    :title="copy.title"
-    :lead="copy.lead"
-    :lines="copy.lines"
-    :note="copy.note"
-    :shots="shots"
-  />
+  <main id="contenido" tabindex="-1">
+    <CasePage
+      :kicker="copy.kicker"
+      :title="copy.title"
+      :lead="copy.lead"
+      :lines="copy.lines"
+      :note="copy.note"
+      :shots="shots"
+    />
+  </main>
 </template>
 
 <script setup>
@@ -69,5 +71,5 @@ const shots = [
   { src: '/mockups/sigag.jpg', alt: 'SIGAG: centro de mando, GIS y asistente.' },
   { src: '/mockups/skadia-lakehouse.png', alt: 'Lakehouse: ADG, carga, ITH y BCS (demo).' },
 ]
-useHead({ title: computed(() => `${copy.value.title} — Fabricio Duarte`) })
+usePageMeta(() => copy.value.title)
 </script>

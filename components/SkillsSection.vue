@@ -1,19 +1,19 @@
 <template>
   <section id="skills" class="relative mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-24">
-    <p class="text-xs font-medium tracking-widest text-lime-400 uppercase">{{ t.skills.kicker }}</p>
+    <p class="fd-kicker">{{ t.skills.kicker }}</p>
     <h2 class="mt-2 font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl">{{ t.skills.title }}</h2>
     <p class="mt-3 max-w-2xl text-[15px] leading-relaxed text-slate-400">{{ t.skills.intro }}</p>
 
     <div class="mt-10 grid grid-cols-1 gap-4 lg:grid-cols-3">
-      <article v-for="group in groups" :key="group.title" class="glass rounded-2xl p-6">
-        <p class="text-[11px] font-medium tracking-widest text-lime-300 uppercase">{{ group.kicker }}</p>
+      <article v-for="group in groups" :key="group.title" class="fd-card p-6">
+        <p class="fd-kicker">{{ group.kicker }}</p>
         <h3 class="mt-1 font-display text-lg font-semibold text-white">{{ group.title }}</h3>
-        <p class="mt-1 text-sm leading-relaxed text-slate-500">{{ group.blurb }}</p>
+        <p class="mt-1 text-sm leading-relaxed text-muted">{{ group.blurb }}</p>
         <ul class="mt-6 space-y-4">
           <li v-for="item in group.items" :key="item.name">
             <div class="mb-1.5 flex items-baseline justify-between gap-3">
               <span class="text-sm text-slate-200">{{ item.name }}</span>
-              <span class="text-[10px] font-medium tracking-wider text-slate-500 uppercase">{{ item.band }}</span>
+              <span class="text-[10px] font-medium tracking-wider text-muted uppercase">{{ item.band }}</span>
             </div>
             <div class="flex gap-1" :aria-label="item.band">
               <span

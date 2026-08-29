@@ -2,14 +2,22 @@
   <Teleport to="body">
     <div
       v-if="open"
+      ref="root"
       class="intro-root fixed inset-0 z-[80] flex flex-col items-center justify-center bg-black px-6"
       role="dialog"
       aria-modal="true"
       :aria-label="t.intro.title"
+      tabindex="-1"
       @pointerdown.once="playSound('open')"
-      @keydown.enter.prevent="enter"
-      @keydown.esc.prevent="enter"
+      @keydown="onKey"
     >
+      <button
+        type="button"
+        class="intro-skip fd-btn-ghost absolute right-4 top-4 text-sm text-muted"
+        @click="enter"
+      >
+        {{ t.intro.skip }}
+      </button>
       <img
         src="/brand/intro-lockup.png"
         alt="FA portfolio"
@@ -22,7 +30,7 @@
       </p>
       <button
         type="button"
-        class="intro-go mt-10 text-lime-400 transition hover:text-lime-200"
+        class="intro-go mt-10 text-signal transition hover:text-lime-200"
         :aria-label="t.intro.go"
         @click="enter"
       >
@@ -40,6 +48,8 @@ const { t } = useLocale()
 const route = useRoute()
 const open = ref(false)
 const leaving = ref(false)
+const root = ref(null)
+const introLocked = useState('fd-intro-open', () => false)
 
 let audioCtx = null
 
@@ -59,6 +69,7 @@ function tone(ctx, freq, type, start, dur, gain = 0.08) {
 
 function playSound(kind) {
   try {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
     audioCtx = audioCtx || new AudioContext()
     if (audioCtx.state === 'suspended') audioCtx.resume()
     const now = audioCtx.currentTime
@@ -76,8 +87,35 @@ function playSound(kind) {
   }
 }
 
+function focusables() {
+  if (!root.value) return []
+  return [...root.value.querySelectorAll('button, a, [href], [tabindex]:not([tabindex="-1"])')]
+    .filter((el) => !el.hasAttribute('disabled') && el.getAttribute('aria-hidden') !== 'true')
+}
+
+function onKey(e) {
+  if (e.key === 'Escape') {
+    e.preventDefault()
+    enter()
+    return
+  }
+  if (e.key !== 'Tab') return
+  const nodes = focusables()
+  if (!nodes.length) return
+  const first = nodes[0]
+  const last = nodes[nodes.length - 1]
+  if (e.shiftKey && document.activeElement === first) {
+    e.preventDefault()
+    last.focus()
+  } else if (!e.shiftKey && document.activeElement === last) {
+    e.preventDefault()
+    first.focus()
+  }
+}
+
 function close() {
   open.value = false
+  introLocked.value = false
   document.documentElement.classList.remove('fd-intro')
   document.documentElement.style.overflow = ''
 }
@@ -105,16 +143,20 @@ onMounted(() => {
   }
   if (seen) {
     document.documentElement.classList.remove('fd-intro')
+    introLocked.value = false
     return
   }
   open.value = true
+  introLocked.value = true
   document.documentElement.classList.add('fd-intro')
   document.documentElement.style.overflow = 'hidden'
-  playSound('open')
-  window.setTimeout(() => document.querySelector('.intro-go')?.focus(), 2100)
+  nextTick(() => {
+    root.value?.querySelector('.intro-skip')?.focus()
+  })
 })
 
 onBeforeUnmount(() => {
+  introLocked.value = false
   document.documentElement.classList.remove('fd-intro', 'fd-intro-out')
   document.documentElement.style.overflow = ''
 })

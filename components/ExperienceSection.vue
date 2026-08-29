@@ -1,13 +1,13 @@
 <template>
   <section id="path" class="relative mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-24">
-    <p class="text-xs font-medium tracking-widest text-lime-400 uppercase">{{ t.path.kicker }}</p>
+    <p class="fd-kicker">{{ t.path.kicker }}</p>
     <h2 class="mt-2 mb-12 font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl">{{ t.path.title }}</h2>
 
     <ol class="relative space-y-6 before:absolute before:bottom-4 before:left-[11px] before:top-4 before:w-px before:bg-gradient-to-b before:from-lime-400 before:via-lime-400/40 before:to-transparent md:before:left-[187px]">
       <li
         v-for="job in jobs"
         :key="job.period + job.org"
-        class="glass relative grid gap-3 rounded-2xl p-6 transition hover:border-lime-400/30 md:grid-cols-[160px_1fr] md:gap-10"
+        class="fd-card relative grid gap-3 p-6 md:grid-cols-[160px_1fr] md:gap-10"
         :class="job.featured ? 'border-lime-400/25' : ''"
       >
         <p class="pl-7 text-sm text-lime-300/80 md:pl-0">{{ tx(job, 'period') }}</p>
@@ -33,7 +33,7 @@
     </ol>
 
     <div class="mt-12 grid grid-cols-1 gap-4 md:grid-cols-2">
-      <div class="glass rounded-2xl p-6">
+      <div class="fd-card p-6">
         <h3 class="text-sm font-medium text-lime-300">{{ t.path.education }}</h3>
         <p class="mt-3 font-medium text-white">{{ t.path.tech }}</p>
         <p class="mt-1 text-sm text-slate-400">
@@ -48,7 +48,7 @@
         <p class="mt-5 font-medium text-white">{{ t.path.acc }}</p>
         <p class="mt-1 text-sm text-slate-400">{{ t.path.accMeta }}</p>
       </div>
-      <div class="glass rounded-2xl p-6">
+      <div class="fd-card p-6">
         <h3 class="text-sm font-medium text-lime-300">{{ t.path.langs }}</h3>
         <p class="mt-3 text-sm leading-relaxed text-slate-400">{{ t.path.langsBody }}</p>
         <p class="mt-4 text-sm leading-relaxed text-slate-400">{{ t.path.extra }}</p>

@@ -2,11 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --fd-paper: #080808;
+  --fd-ink: #f4f4f5;
+  --fd-muted: #a1a1aa;
+  --fd-signal: #A2FF00;
+  --fd-line: rgba(255, 255, 255, 0.12);
+  --fd-radius: 16px;
+  --fd-radius-pill: 999px;
+}
+
 html { scroll-behavior: smooth; }
 
 body {
-  background: #080808;
-  color: #f4f4f5;
+  background: var(--fd-paper);
+  color: var(--fd-ink);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -17,23 +27,89 @@ body {
 }
 
 ::selection {
-  background: #A2FF00;
+  background: var(--fd-signal);
   color: #000000;
 }
 
+.fd-kicker {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--fd-muted);
+}
+
+.fd-card,
 .glass {
-  background: rgba(8, 8, 8, 0.7);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(12, 12, 12, 0.92);
+  border: 1px solid var(--fd-line);
+  border-radius: var(--fd-radius);
+}
+
+.fd-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--fd-radius-pill);
+  background: var(--fd-signal);
+  padding: 0.625rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #000000;
+}
+
+.fd-btn:hover {
+  background: #c0ff4d;
+}
+
+.fd-btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--fd-radius-pill);
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  color: var(--fd-ink);
+}
+
+.fd-btn-ghost:hover {
+  color: var(--fd-signal);
+}
+
+.fd-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--fd-radius-pill);
+  border: 1px solid var(--fd-line);
+  padding: 0.625rem 1.25rem;
+  font-size: 0.875rem;
+  color: var(--fd-ink);
+}
+
+.fd-btn-outline:hover {
+  border-color: color-mix(in srgb, var(--fd-signal) 40%, transparent);
+}
+
+.fd-btn:focus-visible,
+.fd-btn-ghost:focus-visible,
+.fd-btn-outline:focus-visible,
+.skip-to-content:focus-visible {
+  outline: 2px solid var(--fd-signal);
+  outline-offset: 3px;
 }
 
 .shine-text {
-  color: #A2FF00;
+  color: var(--fd-signal);
 }
 
 html.fd-intro,
 html.fd-intro body {
   overflow: hidden;
+}
+
+html.fd-intro .skip-to-content {
+  visibility: hidden;
 }
 
 .intro-lockup {
@@ -76,11 +152,15 @@ html.fd-intro-out .intro-root {
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+  .intro-lockup,
+  .intro-name,
+  .intro-go,
+  .intro-root {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
   }
   .hero-video { display: none; }
+  .hero-pause { display: none; }
   .hero-poster { display: block !important; }
 }

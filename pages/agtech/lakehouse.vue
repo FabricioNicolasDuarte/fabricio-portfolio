@@ -1,5 +1,5 @@
 <template>
-  <main class="mx-auto max-w-6xl px-5 py-8 sm:px-8 sm:py-20">
+  <main id="contenido" tabindex="-1" class="mx-auto max-w-6xl px-5 py-8 sm:px-8 sm:py-20">
     <PathTrail flush />
     <p class="mt-8 font-mono text-[11px] tracking-widest text-lime-400 uppercase">{{ copy.kicker }}</p>
     <h1 class="mt-2 font-display text-3xl font-semibold tracking-tight text-white sm:text-5xl">{{ copy.title }}</h1>
@@ -9,8 +9,8 @@
       <li v-for="tag in copy.tags" :key="tag" class="rounded-full border border-lime-400/40 px-3 py-1 font-mono text-[11px] text-lime-200">{{ tag }}</li>
     </ul>
     <div class="mt-6 flex flex-wrap gap-3">
-      <a class="rounded-full bg-lime-400 px-4 py-2 text-sm font-semibold text-black" href="https://github.com/FabricioNicolasDuarte/skadia-data-engineering">{{ copy.repo }}</a>
-      <a class="rounded-full border border-lime-400/40 px-4 py-2 text-sm text-lime-200" href="/agtech/dashboard.html">{{ copy.openDash }}</a>
+      <a class="fd-btn" href="https://github.com/FabricioNicolasDuarte/skadia-data-engineering">{{ copy.repo }}</a>
+      <a class="fd-btn-outline" href="/agtech/dashboard.html">{{ copy.openDash }}</a>
     </div>
     <h2 class="mt-12 text-xs font-medium tracking-widest text-lime-400 uppercase">{{ copy.gold }}</h2>
     <iframe title="gold dashboard" src="/agtech/dashboard.html" class="mt-3 h-[70vh] min-h-[480px] w-full border border-lime-400/25 bg-slate-950" loading="lazy" />
@@ -29,7 +29,7 @@
 <script setup>
 import { computed } from 'vue'
 
-const { locale, t } = useLocale()
+const { locale } = useLocale()
 
 const pack = {
   es: {
@@ -115,6 +115,6 @@ const pack = {
 }
 
 const copy = computed(() => pack[locale.value] || pack.es)
-useHead({ title: () => `${copy.value.title} — Fabricio Duarte` })
+usePageMeta(() => copy.value.title)
 </script>
 

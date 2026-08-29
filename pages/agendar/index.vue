@@ -1,12 +1,11 @@
 <template>
   <main id="contenido" tabindex="-1">
     <PathTrail />
-    <SkadiaSection />
-    <VideoSection />
+    <BookSection />
   </main>
 </template>
 
 <script setup>
 const { t } = useLocale()
-usePageMeta(() => t.value.nav.skadia)
+usePageMeta(() => t.value.nav.book)
 </script>

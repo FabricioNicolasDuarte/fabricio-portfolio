@@ -4,10 +4,15 @@ module.exports = {
     "./components/**/*.{js,vue,ts}",
     "./pages/**/*.{js,vue,ts}",
     "./app.vue",
+    "./error.vue",
   ],
   theme: {
     extend: {
       colors: {
+        paper: 'var(--fd-paper)',
+        ink: 'var(--fd-ink)',
+        muted: 'var(--fd-muted)',
+        signal: 'var(--fd-signal)',
         lime: {
           50: '#f4ffe6',
           100: '#e6ffb8',

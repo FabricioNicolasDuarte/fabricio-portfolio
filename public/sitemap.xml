@@ -1,13 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://fabricioduarte.tech/</loc></url>
-  <url><loc>https://fabricioduarte.tech/metodo</loc></url>
-  <url><loc>https://fabricioduarte.tech/trabajo</loc></url>
-  <url><loc>https://fabricioduarte.tech/skadia</loc></url>
-  <url><loc>https://fabricioduarte.tech/sobre</loc></url>
-  <url><loc>https://fabricioduarte.tech/trayectoria</loc></url>
-  <url><loc>https://fabricioduarte.tech/agendar</loc></url>
-  <url><loc>https://fabricioduarte.tech/casos/ecom</loc></url>
-  <url><loc>https://fabricioduarte.tech/casos/skadia</loc></url>
-  <url><loc>https://fabricioduarte.tech/agtech/lakehouse</loc></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://fabricioduarte.tech/</loc>
+    <lastmod>2026-08-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fabricioduarte.tech/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fabricioduarte.tech/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://fabricioduarte.tech/?lang=pt"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://fabricioduarte.tech/?lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fabricioduarte.tech/"/>
+  </url>
+  <url>
+    <loc>https://fabricioduarte.tech/trabajo</loc>
+    <lastmod>2026-08-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fabricioduarte.tech/trabajo?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fabricioduarte.tech/trabajo?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://fabricioduarte.tech/trabajo?lang=pt"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://fabricioduarte.tech/trabajo?lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fabricioduarte.tech/trabajo"/>
+  </url>
+  <url>
+    <loc>https://fabricioduarte.tech/skadia</loc>
+    <lastmod>2026-08-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fabricioduarte.tech/skadia?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fabricioduarte.tech/skadia?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://fabricioduarte.tech/skadia?lang=pt"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://fabricioduarte.tech/skadia?lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fabricioduarte.tech/skadia"/>
+  </url>
+  <url>
+    <loc>https://fabricioduarte.tech/sobre</loc>
+    <lastmod>2026-08-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fabricioduarte.tech/sobre?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fabricioduarte.tech/sobre?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://fabricioduarte.tech/sobre?lang=pt"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://fabricioduarte.tech/sobre?lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fabricioduarte.tech/sobre"/>
+  </url>
+  <url>
+    <loc>https://fabricioduarte.tech/metodo</loc>
+    <lastmod>2026-08-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fabricioduarte.tech/metodo?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fabricioduarte.tech/metodo?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://fabricioduarte.tech/metodo?lang=pt"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://fabricioduarte.tech/metodo?lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fabricioduarte.tech/metodo"/>
+  </url>
+  <url>
+    <loc>https://fabricioduarte.tech/trayectoria</loc>
+    <lastmod>2026-08-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fabricioduarte.tech/trayectoria?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fabricioduarte.tech/trayectoria?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://fabricioduarte.tech/trayectoria?lang=pt"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://fabricioduarte.tech/trayectoria?lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fabricioduarte.tech/trayectoria"/>
+  </url>
+  <url>
+    <loc>https://fabricioduarte.tech/agendar</loc>
+    <lastmod>2026-08-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fabricioduarte.tech/agendar?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fabricioduarte.tech/agendar?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://fabricioduarte.tech/agendar?lang=pt"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://fabricioduarte.tech/agendar?lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fabricioduarte.tech/agendar"/>
+  </url>
+  <url>
+    <loc>https://fabricioduarte.tech/casos/ecom</loc>
+    <lastmod>2026-08-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fabricioduarte.tech/casos/ecom?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fabricioduarte.tech/casos/ecom?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://fabricioduarte.tech/casos/ecom?lang=pt"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://fabricioduarte.tech/casos/ecom?lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fabricioduarte.tech/casos/ecom"/>
+  </url>
+  <url>
+    <loc>https://fabricioduarte.tech/casos/skadia</loc>
+    <lastmod>2026-08-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fabricioduarte.tech/casos/skadia?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fabricioduarte.tech/casos/skadia?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://fabricioduarte.tech/casos/skadia?lang=pt"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://fabricioduarte.tech/casos/skadia?lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fabricioduarte.tech/casos/skadia"/>
+  </url>
+  <url>
+    <loc>https://fabricioduarte.tech/agtech/lakehouse</loc>
+    <lastmod>2026-08-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fabricioduarte.tech/agtech/lakehouse?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fabricioduarte.tech/agtech/lakehouse?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://fabricioduarte.tech/agtech/lakehouse?lang=pt"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://fabricioduarte.tech/agtech/lakehouse?lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fabricioduarte.tech/agtech/lakehouse"/>
+  </url>
 </urlset>
