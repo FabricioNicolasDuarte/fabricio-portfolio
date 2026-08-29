@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="relative min-h-screen font-sans text-ink" :inert="introLocked || undefined">
+    <div class="relative min-h-screen font-sans text-ink">
       <a href="#contenido" class="skip-to-content sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[90] focus:rounded-full focus:bg-signal focus:px-4 focus:py-2 focus:text-black">{{ t.nav.skip }}</a>
       <DataField />
       <NavBar />
@@ -8,7 +8,6 @@
       <AppFooter />
     </div>
     <ClientOnly>
-      <WelcomeIntro />
       <CommandPalette />
     </ClientOnly>
   </div>
@@ -19,7 +18,6 @@ import { computed } from 'vue'
 import { LOCALE_META, withLocalePrefix } from '~/utils/localePath'
 
 const { locale, t, pagePath } = useLocale()
-const introLocked = useState('fd-intro-open', () => false)
 const origin = 'https://fabricioduarte.tech'
 const pageUrl = computed(() => origin + withLocalePrefix(pagePath.value, locale.value))
 const langHref = (code) => origin + withLocalePrefix(pagePath.value, code)
