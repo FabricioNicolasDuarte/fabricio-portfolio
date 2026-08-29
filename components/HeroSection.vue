@@ -33,26 +33,27 @@
       </div>
 
       <div class="relative mx-auto w-full max-w-[320px] lg:max-w-none">
+        <img
+          src="/images/hero-poster.jpg"
+          alt="Fabricio Duarte"
+          class="aspect-[3/4] w-full object-cover object-top"
+          width="760"
+          height="1013"
+        />
         <video
           ref="videoEl"
-          class="hero-video aspect-[3/4] w-full object-cover object-top"
+          class="hero-video absolute inset-0 h-full w-full object-cover object-top"
           autoplay
           muted
           loop
           playsinline
-          preload="metadata"
-          poster="/images/hero-poster.jpg"
-          aria-label="Fabricio Duarte"
+          preload="none"
+          aria-hidden="true"
           @play="playing = true"
           @pause="playing = false"
         >
           <source src="/images/hero.mp4" type="video/mp4" />
         </video>
-        <img
-          src="/images/hero-poster.jpg"
-          alt="Fabricio Duarte"
-          class="hero-poster hidden aspect-[3/4] w-full object-cover object-top"
-        />
         <button
           type="button"
           class="hero-pause absolute bottom-3 right-3 rounded-full border border-white/20 bg-black/75 px-3 py-1.5 text-[11px] tracking-wide text-white"
