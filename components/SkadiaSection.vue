@@ -46,13 +46,13 @@
       >
         {{ t.skadia.cta }}
       </a>
-      <NuxtLink to="/casos/skadia" class="mt-3 ml-4 inline-flex text-sm text-lime-300 hover:text-lime-200">{{ t.caso.moreSkadia }}</NuxtLink>
+      <NuxtLink :to="localePath('/casos/skadia')" class="mt-3 ml-4 inline-flex text-sm text-lime-300 hover:text-lime-200">{{ t.caso.moreSkadia }}</NuxtLink>
     </div>
   </section>
 </template>
 
 <script setup>
-const { t } = useLocale()
+const { t, localePath } = useLocale()
 const href = 'https://fabricionicolasduarte.github.io/skadia-webgl/'
 const shots = [
   { name: 'SIGAG', src: '/mockups/sigag.jpg', alt: 'SIGAG' },

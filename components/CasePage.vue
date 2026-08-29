@@ -21,8 +21,8 @@
     </ul>
     <p v-if="note" class="mt-6 text-sm text-muted">{{ note }}</p>
     <div class="mt-8 flex flex-wrap gap-3">
-      <NuxtLink to="/agendar" class="fd-btn">{{ t.nav.book }}</NuxtLink>
-      <NuxtLink to="/trabajo" class="fd-btn-outline">{{ t.nav.work }}</NuxtLink>
+      <NuxtLink :to="localePath('/agendar')" class="fd-btn">{{ t.nav.book }}</NuxtLink>
+      <NuxtLink :to="localePath('/trabajo')" class="fd-btn-outline">{{ t.nav.work }}</NuxtLink>
     </div>
   </section>
 </template>
@@ -36,5 +36,5 @@ defineProps({
   note: { type: String, default: '' },
   shots: { type: Array, default: () => [] },
 })
-const { t } = useLocale()
+const { t, localePath } = useLocale()
 </script>

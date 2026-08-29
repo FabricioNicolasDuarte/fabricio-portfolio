@@ -50,7 +50,7 @@
         <div v-if="item.href || item.hrefRepo" class="mt-4 flex flex-wrap gap-4">
           <a
             v-if="item.href"
-            :href="item.href"
+            :href="item.external === false ? localePath(item.href) : item.href"
             :target="item.external === false ? undefined : '_blank'"
             :rel="item.external === false ? undefined : 'noopener noreferrer'"
             class="inline-flex items-center gap-1 text-sm text-lime-300 transition hover:text-lime-200"
@@ -70,7 +70,7 @@
       </article>
     </div>
     <div class="mt-8 flex justify-center" v-if="compact">
-      <NuxtLink to="/trabajo" class="fd-btn-outline text-sm">
+      <NuxtLink :to="localePath('/trabajo')" class="fd-btn-outline text-sm">
         {{ t.work.more }}
       </NuxtLink>
     </div>
@@ -90,7 +90,7 @@
 import { computed, ref } from 'vue'
 
 defineProps({ compact: Boolean })
-const { t, tx } = useLocale()
+const { t, tx, localePath } = useLocale()
 const active = ref('all')
 const expanded = ref(false)
 const PIN_COUNT = computed(() => 4)

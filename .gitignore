@@ -24,3 +24,7 @@ yarn-error.log*
 # System files
 .DS_Store
 Thumbs.db
+
+# Local media leftovers — do not ship
+public/images/hero2.mp4
+public/images/og-banner.png

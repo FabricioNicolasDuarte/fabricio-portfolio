@@ -43,6 +43,8 @@
 </template>
 
 <script setup>
+import { stripLocalePrefix } from '~/utils/localePath'
+
 const STORAGE = 'fd-intro-v2'
 const { t } = useLocale()
 const route = useRoute()
@@ -134,7 +136,7 @@ function enter() {
 }
 
 onMounted(() => {
-  if (route.path !== '/') return
+  if (stripLocalePrefix(route.path) !== '/') return
   let seen = false
   try {
     seen = localStorage.getItem(STORAGE) === '1'

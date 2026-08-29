@@ -23,7 +23,7 @@
           </template>
         </p>
         <div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
-          <NuxtLink to="/agendar" class="fd-btn">
+          <NuxtLink :to="localePath('/agendar')" class="fd-btn">
             {{ t.hero.book }}
           </NuxtLink>
           <a :href="atsCv.href" :download="atsCv.file" class="text-sm text-slate-300 underline decoration-white/20 underline-offset-4 hover:text-white">
@@ -77,7 +77,7 @@
 </template>
 
 <script setup>
-const { t, atsCv } = useLocale()
+const { t, atsCv, localePath } = useLocale()
 const videoEl = ref(null)
 const playing = ref(true)
 

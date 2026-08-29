@@ -14,30 +14,29 @@
 
 <script setup>
 defineProps({ flush: Boolean })
-const { t } = useLocale()
-const route = useRoute()
+const { t, localePath, pagePath } = useLocale()
 
 const crumbs = computed(() => {
   const n = t.value.nav
-  const path = route.path.replace(/\/$/, '') || '/'
-  const home = { to: '/', label: n.home }
+  const path = pagePath.value
+  const home = { to: localePath('/'), label: n.home }
   const table = {
     '/metodo': [home, { label: n.method }],
     '/trabajo': [home, { label: n.work }],
     '/skadia': [home, { label: n.skadia }],
     '/sobre': [home, { label: n.about }],
-    '/trayectoria': [home, { to: '/sobre', label: n.about }, { label: n.path }],
+    '/trayectoria': [home, { to: localePath('/sobre'), label: n.about }, { label: n.path }],
     '/agendar': [home, { label: n.book }],
-    '/agendar/enviado': [home, { to: '/agendar', label: n.book }, { label: n.sent }],
-    '/casos/ecom': [home, { to: '/trabajo', label: n.work }, { label: n.caseEcom }],
-    '/casos/skadia': [home, { to: '/skadia', label: n.skadia }, { label: n.caseSkadia }],
-    '/agtech/lakehouse': [home, { to: '/trabajo', label: n.work }, { label: n.lakehouse }],
+    '/agendar/enviado': [home, { to: localePath('/agendar'), label: n.book }, { label: n.sent }],
+    '/casos/ecom': [home, { to: localePath('/trabajo'), label: n.work }, { label: n.caseEcom }],
+    '/casos/skadia': [home, { to: localePath('/skadia'), label: n.skadia }, { label: n.caseSkadia }],
+    '/agtech/lakehouse': [home, { to: localePath('/trabajo'), label: n.work }, { label: n.lakehouse }],
   }
   return table[path] || []
 })
 
 const backTo = computed(() => {
   const linked = [...crumbs.value].reverse().find(c => c.to)
-  return linked?.to || '/'
+  return linked?.to || localePath('/')
 })
 </script>

@@ -16,25 +16,24 @@
 
 <script setup>
 import { computed } from 'vue'
-import { LOCALE_META } from '~/composables/useLocale'
+import { LOCALE_META, withLocalePrefix } from '~/utils/localePath'
 
-const { locale, t } = useLocale()
-const route = useRoute()
+const { locale, t, pagePath } = useLocale()
 const introLocked = useState('fd-intro-open', () => false)
 const origin = 'https://fabricioduarte.tech'
-const pageUrl = computed(() => origin + (route.path === '/' ? '/' : route.path.replace(/\/$/, '')))
-const langQs = (code) => `${pageUrl.value}?lang=${code}`
+const pageUrl = computed(() => origin + withLocalePrefix(pagePath.value, locale.value))
+const langHref = (code) => origin + withLocalePrefix(pagePath.value, code)
 
 useHead({
   htmlAttrs: { lang: () => LOCALE_META[locale.value]?.html || 'es' },
   title: computed(() => t.value.meta.title),
   link: [
     { rel: 'canonical', href: () => pageUrl.value },
-    { rel: 'alternate', hreflang: 'es', href: () => langQs('es') },
-    { rel: 'alternate', hreflang: 'en', href: () => langQs('en') },
-    { rel: 'alternate', hreflang: 'pt-BR', href: () => langQs('pt') },
-    { rel: 'alternate', hreflang: 'zh-CN', href: () => langQs('zh') },
-    { rel: 'alternate', hreflang: 'x-default', href: () => pageUrl.value },
+    { rel: 'alternate', hreflang: 'es', href: () => langHref('es') },
+    { rel: 'alternate', hreflang: 'en', href: () => langHref('en') },
+    { rel: 'alternate', hreflang: 'pt-BR', href: () => langHref('pt') },
+    { rel: 'alternate', hreflang: 'zh-CN', href: () => langHref('zh') },
+    { rel: 'alternate', hreflang: 'x-default', href: () => langHref('es') },
   ],
   meta: [
     { name: 'description', content: () => t.value.meta.description },

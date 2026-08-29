@@ -38,14 +38,14 @@
 
     <p class="mt-8 text-sm text-muted">{{ copy.note }}</p>
     <div class="mt-8 flex flex-wrap gap-3">
-      <NuxtLink to="/agendar" class="fd-btn">{{ t.nav.book }}</NuxtLink>
-      <NuxtLink to="/trabajo" class="fd-btn-outline">{{ t.nav.work }}</NuxtLink>
+      <NuxtLink :to="localePath('/agendar')" class="fd-btn">{{ t.nav.book }}</NuxtLink>
+      <NuxtLink :to="localePath('/trabajo')" class="fd-btn-outline">{{ t.nav.work }}</NuxtLink>
     </div>
   </main>
 </template>
 
 <script setup>
-const { locale, t } = useLocale()
+const { locale, t, localePath } = useLocale()
 const origin = 'https://fabricioduarte.tech'
 
 const pack = {

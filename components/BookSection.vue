@@ -90,7 +90,7 @@
 </template>
 
 <script setup>
-const { t, locale } = useLocale()
+const { t, locale, localePath } = useLocale()
 const name = ref('')
 const email = ref('')
 const day = ref('')
@@ -134,7 +134,7 @@ async function send() {
       },
     })
     if (res?.ok) {
-      await navigateTo('/agendar/enviado')
+      await navigateTo(localePath('/agendar/enviado'))
       return
     }
     throw new Error('bad')

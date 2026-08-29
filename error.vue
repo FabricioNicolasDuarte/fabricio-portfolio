@@ -4,7 +4,7 @@
       <p class="fd-kicker">{{ status }}</p>
       <h1 class="mt-3 font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl">{{ t.error.title }}</h1>
       <p class="mt-4 max-w-xl text-[15px] leading-relaxed text-slate-400">{{ t.error.body }}</p>
-      <NuxtLink to="/" class="fd-btn mt-8 w-fit">{{ t.error.home }}</NuxtLink>
+      <NuxtLink :to="localePath('/')" class="fd-btn mt-8 w-fit">{{ t.error.home }}</NuxtLink>
     </main>
   </div>
 </template>
@@ -13,7 +13,7 @@
 const props = defineProps({
   error: { type: Object, default: () => ({}) },
 })
-const { t } = useLocale()
+const { t, localePath } = useLocale()
 const status = computed(() => props.error?.statusCode || 404)
 usePageMeta(() => t.value.error.title)
 </script>

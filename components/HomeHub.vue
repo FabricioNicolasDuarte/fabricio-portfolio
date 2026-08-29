@@ -37,7 +37,7 @@
 </template>
 
 <script setup>
-const { t } = useLocale()
+const { t, localePath } = useLocale()
 
 const proofs = computed(() => {
   const h = t.value.home
@@ -46,7 +46,7 @@ const proofs = computed(() => {
       kicker: 'ECOM',
       title: h.ecomTitle,
       body: h.ecom,
-      to: '/casos/ecom',
+      to: localePath('/casos/ecom'),
       shot: '/mockups/superset.png',
       alt: h.ecomAlt,
       cta: h.ecomCta,
@@ -55,7 +55,7 @@ const proofs = computed(() => {
       kicker: 'Skadia',
       title: h.sigagTitle,
       body: h.skadia,
-      to: '/casos/skadia',
+      to: localePath('/casos/skadia'),
       shot: '/mockups/sigag.jpg',
       alt: h.sigagAlt,
       cta: h.sigagCta,

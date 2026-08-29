@@ -1,7 +1,7 @@
 <template>
   <header class="sticky top-0 z-50 border-b border-white/10 bg-black/90 backdrop-blur-md">
     <div class="mx-auto flex max-w-6xl items-center justify-between gap-3 px-5 py-3 sm:px-8">
-      <NuxtLink to="/" class="flex shrink-0 items-center gap-2">
+      <NuxtLink :to="localePath('/')" class="flex shrink-0 items-center gap-2">
         <img src="/brand/mark.png" alt="FA" class="h-8 w-8" width="32" height="32" />
         <span class="hidden font-display text-sm font-semibold lowercase tracking-wide text-signal sm:inline">portfolio</span>
       </NuxtLink>
@@ -12,7 +12,7 @@
           :to="item.to"
           class="rounded-full px-3 py-1.5 text-slate-400 transition hover:bg-white/5 hover:text-lime-200"
           active-class="bg-white/10 text-lime-200"
-          :aria-current="route.path === item.to ? 'page' : undefined"
+          :aria-current="pagePath === item.path ? 'page' : undefined"
         >
           {{ item.label }}
         </NuxtLink>
@@ -63,7 +63,7 @@
         :to="item.to"
         class="block py-2.5 text-sm text-slate-300"
         active-class="text-lime-200"
-        :aria-current="route.path === item.to ? 'page' : undefined"
+        :aria-current="pagePath === item.path ? 'page' : undefined"
         @click="open = false"
       >
         {{ item.label }}
@@ -74,19 +74,18 @@
 
 <script setup>
 import { computed, ref } from 'vue'
-import { LOCALES, LOCALE_META } from '~/composables/useLocale'
+import { LOCALES, LOCALE_META } from '~/utils/localePath'
 
 const open = ref(false)
 const cmdk = useState('fd-cmdk', () => false)
-const route = useRoute()
-const { locale, setLocale, t } = useLocale()
+const { locale, setLocale, localePath, pagePath, t } = useLocale()
 const locales = LOCALES
 const meta = LOCALE_META
 
 const items = computed(() => [
-  { to: '/trabajo', label: t.value.nav.work },
-  { to: '/skadia', label: t.value.nav.skadia },
-  { to: '/sobre', label: t.value.nav.about },
-  { to: '/agendar', label: t.value.nav.book },
+  { path: '/trabajo', to: localePath('/trabajo'), label: t.value.nav.work },
+  { path: '/skadia', to: localePath('/skadia'), label: t.value.nav.skadia },
+  { path: '/sobre', to: localePath('/sobre'), label: t.value.nav.about },
+  { path: '/agendar', to: localePath('/agendar'), label: t.value.nav.book },
 ])
 </script>

@@ -9,8 +9,8 @@
           <p class="mt-2 max-w-lg font-display text-2xl font-semibold text-white">{{ t.home.moreWork }}</p>
         </div>
         <div class="flex flex-wrap gap-3">
-          <NuxtLink to="/trabajo" class="fd-btn-outline">{{ t.work.more }}</NuxtLink>
-          <NuxtLink to="/agendar" class="fd-btn">{{ t.hero.book }}</NuxtLink>
+          <NuxtLink :to="localePath('/trabajo')" class="fd-btn-outline">{{ t.work.more }}</NuxtLink>
+          <NuxtLink :to="localePath('/agendar')" class="fd-btn">{{ t.hero.book }}</NuxtLink>
         </div>
       </div>
     </section>
@@ -18,6 +18,6 @@
 </template>
 
 <script setup>
-const { t } = useLocale()
+const { t, localePath } = useLocale()
 usePageMeta()
 </script>

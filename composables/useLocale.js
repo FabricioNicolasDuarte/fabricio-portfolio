@@ -1,39 +1,30 @@
-import { computed, onMounted } from 'vue'
+import { computed, onMounted, watch } from 'vue'
 import { ui } from '~/locales/ui'
-
-export const LOCALES = ['es', 'en', 'pt', 'zh']
-
-export const LOCALE_META = {
-  es: { label: 'ES', html: 'es' },
-  en: { label: 'EN', html: 'en' },
-  pt: { label: 'PT', html: 'pt-BR' },
-  zh: { label: '中文', html: 'zh-CN' },
-}
+import { LOCALES, LOCALE_META, localeFromPath, stripLocalePrefix, withLocalePrefix } from '~/utils/localePath'
 
 export const useLocale = () => {
   const route = useRoute()
   const locale = useState('locale', () => 'es')
   const hydrated = useState('locale-hydrated', () => false)
   const isEn = computed(() => locale.value === 'en')
+  const pagePath = computed(() => stripLocalePrefix(route.path))
 
-  const fromQuery = () => {
-    const q = String(route.query.lang || '')
-    return LOCALES.includes(q) ? q : null
-  }
+  const localePath = (path, code = locale.value) => withLocalePrefix(path, code)
 
   if (import.meta.server) {
-    const q = fromQuery()
-    if (q) locale.value = q
+    locale.value = localeFromPath(route.path)
   }
 
-  const setLocale = (next) => {
-    locale.value = LOCALES.includes(next) ? next : 'es'
+  const setLocale = async (next) => {
+    const code = LOCALES.includes(next) ? next : 'es'
+    locale.value = code
     if (import.meta.client) {
-      localStorage.setItem('fd-locale', locale.value)
-      document.documentElement.lang = LOCALE_META[locale.value].html
-      const url = new URL(window.location.href)
-      url.searchParams.set('lang', locale.value)
-      history.replaceState(null, '', url.pathname + url.search + url.hash)
+      localStorage.setItem('fd-locale', code)
+      document.documentElement.lang = LOCALE_META[code].html
+    }
+    const dest = withLocalePrefix(stripLocalePrefix(route.path), code)
+    if (dest !== route.path) {
+      await navigateTo(dest)
     }
   }
 
@@ -44,13 +35,15 @@ export const useLocale = () => {
     return item[key]
   }
 
+  watch(() => route.path, (path) => {
+    locale.value = localeFromPath(path)
+  })
+
   onMounted(() => {
     if (hydrated.value) return
     hydrated.value = true
-    const q = fromQuery()
-    const saved = localStorage.getItem('fd-locale')
-    if (q) locale.value = q
-    else if (LOCALES.includes(saved)) locale.value = saved
+    locale.value = localeFromPath(route.path)
+    localStorage.setItem('fd-locale', locale.value)
     document.documentElement.lang = LOCALE_META[locale.value].html
   })
 
@@ -66,5 +59,5 @@ export const useLocale = () => {
     return { href: '/cv/cv-ats-en.pdf', file: 'CV_Fabricio_Duarte_ATS_EN.pdf' }
   })
 
-  return { locale, isEn, setLocale, tx, t, atsCv }
+  return { locale, isEn, setLocale, localePath, pagePath, tx, t, atsCv }
 }

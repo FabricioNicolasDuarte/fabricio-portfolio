@@ -50,7 +50,7 @@
 <script setup>
 import { searchPages, searchWork } from '~/content/search'
 
-const { t, tx } = useLocale()
+const { t, tx, localePath } = useLocale()
 const router = useRouter()
 const open = useState('fd-cmdk', () => false)
 const q = ref('')
@@ -97,7 +97,7 @@ function go(index) {
     window.open(item.href, '_blank', 'noopener,noreferrer')
     return
   }
-  router.push(item.to)
+  router.push(localePath(item.to))
 }
 
 function onKey(e) {

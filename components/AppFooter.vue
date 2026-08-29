@@ -27,13 +27,13 @@
         <p class="fd-kicker">{{ t.footer.files }}</p>
         <ul class="mt-3 space-y-2 text-sm text-slate-400">
           <li>
-            <NuxtLink to="/agendar" class="hover:text-white">{{ t.nav.book }}</NuxtLink>
+            <NuxtLink :to="localePath('/agendar')" class="hover:text-white">{{ t.nav.book }}</NuxtLink>
           </li>
           <li>
-            <NuxtLink to="/trayectoria" class="hover:text-white">{{ t.nav.path }}</NuxtLink>
+            <NuxtLink :to="localePath('/trayectoria')" class="hover:text-white">{{ t.nav.path }}</NuxtLink>
           </li>
           <li>
-            <NuxtLink to="/metodo" class="hover:text-white">{{ t.nav.method }}</NuxtLink>
+            <NuxtLink :to="localePath('/metodo')" class="hover:text-white">{{ t.nav.method }}</NuxtLink>
           </li>
           <li>
             <a :href="atsCv.href" :download="atsCv.file" class="hover:text-white">{{ t.footer.ats }}</a>
@@ -50,5 +50,5 @@
 
 <script setup>
 const year = new Date().getFullYear()
-const { t, atsCv } = useLocale()
+const { t, atsCv, localePath } = useLocale()
 </script>

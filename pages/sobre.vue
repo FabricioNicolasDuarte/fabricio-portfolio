@@ -18,9 +18,9 @@
           <p class="mt-4 text-[15px] leading-relaxed text-slate-400">{{ t.about.p2 }}</p>
           <p class="mt-4 text-[15px] leading-relaxed text-slate-400">{{ t.about.p3 }}</p>
           <div class="mt-8 flex flex-wrap gap-3">
-            <NuxtLink to="/trayectoria" class="fd-btn">{{ t.nav.path }}</NuxtLink>
-            <NuxtLink to="/metodo" class="fd-btn-outline">{{ t.nav.method }}</NuxtLink>
-            <NuxtLink to="/agendar" class="fd-btn-outline">{{ t.nav.book }}</NuxtLink>
+            <NuxtLink :to="localePath('/trayectoria')" class="fd-btn">{{ t.nav.path }}</NuxtLink>
+            <NuxtLink :to="localePath('/metodo')" class="fd-btn-outline">{{ t.nav.method }}</NuxtLink>
+            <NuxtLink :to="localePath('/agendar')" class="fd-btn-outline">{{ t.nav.book }}</NuxtLink>
           </div>
         </div>
       </div>
@@ -29,6 +29,6 @@
 </template>
 
 <script setup>
-const { t } = useLocale()
+const { t, localePath } = useLocale()
 usePageMeta(() => t.value.nav.about)
 </script>

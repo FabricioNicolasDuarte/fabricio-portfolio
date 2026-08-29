@@ -23,12 +23,12 @@
       </div>
     </div>
     <div class="mt-6 flex flex-wrap gap-4 text-sm">
-      <NuxtLink to="/casos/ecom" class="text-lime-300 hover:text-lime-200">{{ t.caso.moreEcom }}</NuxtLink>
-      <NuxtLink to="/casos/skadia" class="text-lime-300 hover:text-lime-200">{{ t.caso.moreSkadia }}</NuxtLink>
+      <NuxtLink :to="localePath('/casos/ecom')" class="text-lime-300 hover:text-lime-200">{{ t.caso.moreEcom }}</NuxtLink>
+      <NuxtLink :to="localePath('/casos/skadia')" class="text-lime-300 hover:text-lime-200">{{ t.caso.moreSkadia }}</NuxtLink>
     </div>
   </section>
 </template>
 
 <script setup>
-const { t } = useLocale()
+const { t, localePath } = useLocale()
 </script>

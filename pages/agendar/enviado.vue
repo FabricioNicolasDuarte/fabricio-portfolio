@@ -8,8 +8,8 @@
         <p class="mt-3 text-[15px] leading-relaxed text-slate-400">{{ t.book.sentBody }}</p>
         <p class="mt-4 text-sm text-muted">fabricioduarteoficial@gmail.com</p>
         <div class="mt-8 flex flex-wrap gap-3">
-          <NuxtLink to="/" class="fd-btn">{{ t.book.sentHome }}</NuxtLink>
-          <NuxtLink to="/trabajo" class="fd-btn-outline">{{ t.nav.work }}</NuxtLink>
+          <NuxtLink :to="localePath('/')" class="fd-btn">{{ t.book.sentHome }}</NuxtLink>
+          <NuxtLink :to="localePath('/trabajo')" class="fd-btn-outline">{{ t.nav.work }}</NuxtLink>
         </div>
       </div>
     </section>
@@ -17,6 +17,6 @@
 </template>
 
 <script setup>
-const { t } = useLocale()
+const { t, localePath } = useLocale()
 usePageMeta(() => t.value.book.sentTitle)
 </script>
