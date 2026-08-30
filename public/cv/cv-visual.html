@@ -2,139 +2,394 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>CV — Fabricio Nicolás Duarte</title>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    :root { --bg:#000000; --card:rgba(10,10,10,.88); --line:rgba(162,255,0,.18); --text:#f4f4f5; --muted:#a1a1aa; --cyan:#A2FF00; --indigo:#A2FF00; }
-    * { box-sizing: border-box; }
-    body { margin:0; font-family:Outfit,sans-serif; background:var(--bg); color:var(--text); font-size:10.2pt; line-height:1.45; }
-    .page { max-width:900px; margin:0 auto; padding:26px 30px 36px; background:radial-gradient(ellipse at top right,rgba(162,255,0,.12),transparent 45%), var(--bg); }
-    header { display:grid; grid-template-columns:1fr auto; gap:16px; border-bottom:1px solid var(--line); padding-bottom:14px; margin-bottom:14px; }
-    h1 { font-family:"Space Grotesk",sans-serif; font-size:26pt; margin:0; letter-spacing:-.03em; }
-    h1 span { background:linear-gradient(90deg,#A2FF00,#A2FF00); -webkit-background-clip:text; background-clip:text; color:transparent; }
-    .tag { margin-top:6px; font-size:8.5pt; letter-spacing:.12em; text-transform:uppercase; color:var(--cyan); font-weight:600; }
-    .contact { text-align:right; font-size:8.5pt; color:var(--muted); }
-    .contact a { color:var(--cyan); text-decoration:none; }
-    h2 { font-family:"Space Grotesk",sans-serif; font-size:10pt; color:var(--cyan); letter-spacing:.08em; text-transform:uppercase; margin:14px 0 8px; }
-    .grid2 { display:grid; grid-template-columns:1.35fr .9fr; gap:18px; }
-    .card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin-bottom:8px; }
-    .job-title { font-weight:600; margin:0; font-size:10.5pt; }
-    .job-org { color:var(--indigo); font-size:9pt; margin:2px 0 6px; }
-    .job-org a { color:var(--cyan); }
-    .job-dates { float:right; color:var(--muted); font-size:8.5pt; }
-    ul { margin:0; padding-left:15px; color:var(--muted); }
-    li { margin-bottom:2px; }
-    .chip { border:1px solid var(--line); border-radius:999px; padding:2px 8px; font-size:8pt; color:#cbd5e1; display:inline-block; margin:2px; }
-    .summary { color:var(--muted); margin:0 0 8px; }
-    @media print { body, .page { -webkit-print-color-adjust:exact; print-color-adjust:exact; } }
+    :root {
+      --gray-50: #f7f7f5;
+      --gray-100: #efefed;
+      --gray-200: #e2e2de;
+      --gray-300: #c8c8c4;
+      --gray-400: #8f8f8b;
+      --gray-500: #6b6b67;
+      --gray-600: #4a4a47;
+      --gray-700: #2e2e2c;
+      --gray-900: #111110;
+      --paper: #ffffff;
+      --ink: var(--gray-900);
+      --text: var(--gray-700);
+      --muted: var(--gray-500);
+      --line: var(--gray-200);
+      --signal: #A2FF00;
+      --signal-ink: #1a2e00;
+      --font-display: "Chakra Petch", system-ui, sans-serif;
+      --font-body: Outfit, system-ui, sans-serif;
+      --sidebar: 32%;
+      --photo: 104px;
+      --radius: 10px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 15px; }
+    body {
+      font-family: var(--font-body);
+      background: var(--gray-200);
+      color: var(--ink);
+      min-height: 100vh;
+      padding: 28px 16px 40px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .cv {
+      width: 210mm;
+      max-width: 100%;
+      margin: 0 auto;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: 0 16px 48px rgba(17, 17, 16, 0.1);
+    }
+
+    .exec-header {
+      position: relative;
+      padding: 28px 32px 24px;
+      background: linear-gradient(180deg, var(--gray-50), var(--paper));
+      border-bottom: 1px solid var(--line);
+    }
+    .exec-header::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 4px;
+      background: var(--signal);
+    }
+
+    .header-inner {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 22px;
+      align-items: center;
+    }
+
+    .photo-frame {
+      width: var(--photo);
+      height: calc(var(--photo) * 1.18);
+      padding: 3px;
+      background: var(--gray-900);
+      border-radius: 8px;
+    }
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      border-radius: 5px;
+      filter: grayscale(1);
+    }
+
+    .kicker {
+      font-family: var(--font-display);
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+    h1 {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      margin-bottom: 6px;
+    }
+    h1 em { font-style: normal; color: var(--gray-600); font-weight: 600; }
+    .role { font-size: 0.84rem; color: var(--muted); margin-bottom: 12px; }
+
+    .contact { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; }
+    .contact li {
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--text);
+      padding: 4px 9px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--paper);
+    }
+    .contact a { color: inherit; text-decoration: none; }
+
+    .metrics { display: flex; flex-direction: column; gap: 7px; min-width: 108px; }
+    .metric {
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-left: 3px solid var(--signal);
+      border-radius: 8px;
+      background: var(--paper);
+    }
+    .metric strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      line-height: 1;
+    }
+    .metric span {
+      display: block;
+      margin-top: 3px;
+      font-size: 0.52rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .cv-body {
+      display: grid;
+      grid-template-columns: var(--sidebar) 1fr;
+      min-height: 200px;
+    }
+    .sidebar {
+      padding: 22px 20px 28px 28px;
+      background: var(--gray-50);
+      border-right: 1px solid var(--line);
+    }
+    .main { padding: 22px 28px 28px 22px; }
+
+    h2 {
+      font-family: var(--font-display);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gray-600);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 10px;
+    }
+    h2 .num {
+      color: var(--signal-ink);
+      background: var(--signal);
+      padding: 1px 6px;
+      border-radius: 3px;
+      letter-spacing: 0.04em;
+    }
+    .sidebar h2 { margin-top: 16px; }
+    .sidebar h2:first-child { margin-top: 0; }
+
+    .summary {
+      font-size: 0.82rem;
+      line-height: 1.5;
+      color: var(--text);
+      margin-bottom: 18px;
+    }
+
+    .job { margin-bottom: 12px; break-inside: avoid; }
+    .job-head { display: grid; grid-template-columns: 1fr auto; gap: 8px; align-items: baseline; }
+    .job h3 { font-size: 0.92rem; font-weight: 650; }
+    .job .org { font-size: 0.74rem; color: var(--muted); margin: 2px 0 5px; }
+    .job .org a { color: inherit; }
+    .dates {
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: var(--gray-500);
+      white-space: nowrap;
+    }
+    .job ul { margin: 0; padding-left: 1.05em; color: var(--text); font-size: 0.76rem; line-height: 1.42; }
+    .job li { margin-bottom: 2px; }
+
+    .edu { margin-bottom: 10px; }
+    .edu h3 { font-size: 0.8rem; }
+    .edu p { font-size: 0.72rem; color: var(--muted); line-height: 1.35; }
+
+    .chips { display: flex; flex-wrap: wrap; gap: 4px; }
+    .chips span {
+      font-size: 0.64rem;
+      font-weight: 500;
+      color: var(--gray-700);
+      border: 1px solid var(--line);
+      background: var(--paper);
+      border-radius: 999px;
+      padding: 2px 7px;
+    }
+
+    .side-list { list-style: none; font-size: 0.74rem; color: var(--text); }
+    .side-list li { padding: 3px 0; border-bottom: 1px solid var(--gray-100); }
+    .side-list a { color: inherit; text-decoration: none; }
+
+    @media screen and (max-width: 820px) {
+      body { padding: 12px; }
+      .header-inner, .cv-body { grid-template-columns: 1fr; }
+      .metrics { flex-direction: row; }
+      .sidebar { border-right: 0; border-top: 1px solid var(--line); }
+    }
+
+    @media print {
+      .exec-header, .metric, .sidebar, .chips span, h2 .num, .photo-frame {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      @page { size: A4 portrait; margin: 14mm 12mm; }
+      html { font-size: 15px; }
+      body { background: white !important; padding: 0 !important; }
+      .cv {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-shadow: none !important;
+        border: none !important;
+      }
+      .cv-body { grid-template-columns: var(--sidebar) 1fr; }
+      .header-inner { grid-template-columns: auto 1fr auto; }
+      .job, .edu { break-inside: avoid; page-break-inside: avoid; }
+    }
   </style>
 </head>
 <body>
-  <div class="page">
-    <header>
-      <div>
-        <h1>Fabricio <span>Duarte</span></h1>
-        <div class="tag">Ingeniería de datos · Analítica · Automatización</div>
-      </div>
-      <div class="contact">
-        Argentina<br />
-        <a href="mailto:fabricioduarteoficial@gmail.com">fabricioduarteoficial@gmail.com</a><br />
-        +54 370 402-2201<br />
-        <a href="https://fabricioduarte.tech">fabricioduarte.tech</a><br />
-        <a href="https://www.linkedin.com/in/fabricionicolasduarte/">LinkedIn</a> ·
-        <a href="https://github.com/FabricioNicolasDuarte">GitHub</a>
+  <article class="cv">
+    <header class="exec-header">
+      <div class="header-inner">
+        <figure class="photo-frame">
+          <img src="../images/hero-portrait.jpg" alt="Fabricio Nicolás Duarte" width="104" height="123" />
+        </figure>
+        <div>
+          <p class="kicker">Curriculum · 2026</p>
+          <h1>Fabricio Nicolás <em>Duarte</em></h1>
+          <p class="role">Data Engineer / Analytics Engineer · también producto. Remoto desde Argentina.</p>
+          <ul class="contact">
+            <li>Argentina</li>
+            <li><a href="mailto:fabricioduarteoficial@gmail.com">fabricioduarteoficial@gmail.com</a></li>
+            <li><a href="tel:+543704022201">+54 370 402-2201</a></li>
+            <li><a href="https://fabricioduarte.tech">fabricioduarte.tech</a></li>
+            <li><a href="https://www.linkedin.com/in/fabricionicolasduarte/">LinkedIn</a></li>
+            <li><a href="https://github.com/FabricioNicolasDuarte">GitHub</a></li>
+          </ul>
+        </div>
+        <div class="metrics">
+          <div class="metric"><strong>9.40</strong><span>Promedio UTN</span></div>
+          <div class="metric"><strong>25+</strong><span>En producción</span></div>
+          <div class="metric"><strong>8+</strong><span>Años</span></div>
+        </div>
       </div>
     </header>
 
-    <p class="summary">
-      Ingeniería de datos y analítica en producción: integración, modelado con un criterio único y tableros con recorte por identidad.
-      Programador senior, <a href="https://www.frre.utn.edu.ar/">UTN Facultad Regional Resistencia</a> (promedio 9.40). Data engineer UGR en curso.
-    </p>
+    <div class="cv-body">
+      <aside class="sidebar">
+        <h2><span class="num">01</span> Formación</h2>
+        <div class="edu">
+          <h3>Programador senior</h3>
+          <p>UTN — Facultad Regional Resistencia · promedio 9.40</p>
+        </div>
+        <div class="edu">
+          <h3>Data engineer</h3>
+          <p>Universidad del Gran Rosario · en curso</p>
+        </div>
+        <div class="edu">
+          <h3>Contador Público (ciclo básico)</h3>
+          <p>UNaF · incompleto</p>
+        </div>
 
-    <div class="grid2">
-      <div>
-        <h2>Experiencia</h2>
-        <div class="card">
-          <span class="job-dates">2023 — actualidad</span>
-          <p class="job-title">Ingeniería de datos y software</p>
-          <p class="job-org"><a href="https://www.ecom.com.ar/">ECOM</a> Chaco S.A. — empresa tecnológica provincial (SAPEM)</p>
+        <h2><span class="num">02</span> Stack</h2>
+        <div class="chips">
+          <span>Django</span><span>SQL</span><span>PostgreSQL</span><span>SQL Server</span>
+          <span>Apache Superset</span><span>Power BI</span><span>n8n</span>
+          <span>Vue / Nuxt</span><span>TypeScript</span><span>Laravel</span>
+          <span>Expo</span><span>WatermelonDB</span><span>PostGIS</span>
+        </div>
+
+        <h2><span class="num">03</span> Idiomas</h2>
+        <ul class="side-list">
+          <li>Español — nativo</li>
+          <li>Inglés — técnico intermedio</li>
+          <li>Portugués — intermedio</li>
+        </ul>
+
+        <h2><span class="num">04</span> Productos</h2>
+        <ul class="side-list">
+          <li><strong>SIGAG</strong> — campo offline; varias instalaciones</li>
+          <li><strong>Nutrogan</strong> — en uso; colaboración CEDEVA</li>
+          <li><strong>SIGCL</strong> — institutos; vendida 4 veces</li>
+          <li><strong>Cocoma</strong> — escritorio de oferta; 1 venta</li>
+          <li><strong>FormoBus</strong> — PWA; donada a organismo</li>
+        </ul>
+      </aside>
+
+      <div class="main">
+        <h2><span class="num">05</span> Perfil</h2>
+        <p class="summary">
+          Hago que las decisiones se tomen sobre datos fieles: un criterio de cálculo, tableros que se entienden y sistemas en producción.
+          En ECOM esa analítica la usan organismos distintos al equipo que la construye. Programador senior (UTN — Facultad Regional Resistencia).
+          Data engineer en curso en la Universidad del Gran Rosario.
+        </p>
+
+        <h2><span class="num">06</span> Experiencia</h2>
+
+        <article class="job">
+          <div class="job-head">
+            <h3>Ingeniería de datos y software</h3>
+            <span class="dates">2023 — actualidad</span>
+          </div>
+          <p class="org"><a href="https://www.ecom.com.ar/">ECOM Chaco</a> — empresa tecnológica provincial (SAPEM)</p>
           <ul>
-            <li>Tableros consolidados Apache Superset / Power BI con RLS y federación.</li>
-            <li>Plataforma de Servicios e Instituciones; Personas Físicas y Jurídicas.</li>
-            <li>Django, PostGIS, SQL Server / PostgreSQL, Celery / Redis.</li>
+            <li>Tableros institucionales en Apache Superset y Power BI, con recorte por organismo, sobre SQL Server y PostgreSQL en producción.</li>
+            <li>Plataforma de establecimientos e instituciones; datasets y métricas que alimentan a quien decide, no solo al equipo que construye.</li>
+            <li>Integración, un criterio de cálculo y publicación continua. Si una carga falla, el sistema avisa.</li>
           </ul>
-        </div>
-        <div class="card">
-          <span class="job-dates">2026 — actualidad</span>
-          <p class="job-title">Asesor tecnológico y de datos</p>
-          <p class="job-org">Consultoría — <a href="https://www.nbch.com.ar/institucional/autoridades">Livio Gutiérrez</a>, Presidencia NBCH</p>
-          <ul><li>Asesoramiento personal en tecnología, datos y modernización de procesos.</li></ul>
-        </div>
-        <div class="card">
-          <span class="job-dates">2022 — actualidad</span>
-          <p class="job-title">Lead Developer &amp; CTO</p>
-          <p class="job-org">Skadia</p>
+        </article>
+
+        <article class="job">
+          <div class="job-head">
+            <h3>Lead developer &amp; CTO</h3>
+            <span class="dates">2022 — actualidad</span>
+          </div>
+          <p class="org">Skadia — ganadería de precisión</p>
           <ul>
-            <li>SIGAG: offline-first, visión artificial, IA y orquestador inteligente.</li>
-            <li>Arquitectura, CI/CD y equipos ágiles.</li>
+            <li>SIGAG: captura en campo sin señal, visión y sincronización al volver la red.</li>
+            <li>Lakehouse de demostración (ganancia diaria, carga, horas de calor, BCS) y sitio de marca.</li>
           </ul>
-        </div>
-        <div class="card">
-          <span class="job-dates">2023 — 2026</span>
-          <p class="job-title">Asesor tecnológico y de comunicación</p>
-          <p class="job-org">Consultoría — <a href="https://www.nbch.com.ar/institucional/autoridades">Livio Gutiérrez</a> (Gabinete Chaco)</p>
-        </div>
-        <div class="card">
-          <span class="job-dates">2018 — actualidad</span>
-          <p class="job-title">Asesor tecnológico y de datos</p>
-          <p class="job-org">Julián Bibolini · Min. Desarrollo Humano / UPLAB · Formosa</p>
-          <ul><li>Datos sanitarios e indicadores para decisión institucional; gestión académica (Facultad de Medicina).</li></ul>
-        </div>
-        <div class="card">
-          <span class="job-dates">2015 — 2023</span>
-          <p class="job-title">Asesorías en sector público</p>
-          <p class="job-org">Concejo Municipal Presidencia Roque Sáenz Peña (Pedro Egea) · Diputados · Defensoría del Pueblo Adjunta (Hugo Maldonado) · Alfabetización Digital</p>
-        </div>
-      </div>
-      <div>
-        <h2>Formación</h2>
-        <div class="card">
-          <p class="job-title">Programador senior</p>
-          <p class="job-org"><a href="https://www.frre.utn.edu.ar/">UTN — Facultad Regional Resistencia</a> · 9.40</p>
-          <p class="job-title" style="margin-top:8px">Data engineer</p>
-          <p class="job-org">Universidad del Gran Rosario · En curso</p>
-          <p class="job-title" style="margin-top:8px">Contador Público (ciclo básico)</p>
-          <p class="job-org">UNaF · Incompleto</p>
-        </div>
-        <h2>Proyectos</h2>
-        <div class="card">
+        </article>
+
+        <article class="job">
+          <div class="job-head">
+            <h3>Asesor tecnológico y de datos</h3>
+            <span class="dates">2026 — actualidad</span>
+          </div>
+          <p class="org">Consultoría — <a href="https://www.nbch.com.ar/institucional/autoridades">Livio Gutiérrez</a>, Presidencia NBCH</p>
           <ul>
-            <li><strong>SIGAG</strong> — gestión agrícola ganadera; varias instalaciones vendidas</li>
-            <li><strong>Nutrogan</strong> — en uso; colaboración CEDEVA</li>
-            <li><strong>SIGCL</strong> — institutos de capacitación (matrícula, QR, arancel, actas); vendida 4 veces</li>
-            <li><strong>Cocoma</strong> — escritorio de oferta de software; vendida 1 vez</li>
-            <li><strong>FormoBus</strong> — PWA de transporte; donada a organismo público</li>
-            <li><strong>Pasarela de cobros</strong> — conciliación asíncrona</li>
+            <li>Asesoramiento personal en tecnología, datos y modernización de procesos.</li>
           </ul>
-        </div>
-        <h2>Stack</h2>
-        <div class="card">
-          <span class="chip">Django</span><span class="chip">SQL</span><span class="chip">PostgreSQL</span><span class="chip">SQL Server</span>
-          <span class="chip">Superset</span><span class="chip">Power BI</span><span class="chip">n8n</span>
-          <span class="chip">Laravel</span><span class="chip">Livewire</span><span class="chip">Vue/Nuxt</span><span class="chip">TypeScript</span>
-          <span class="chip">Expo</span><span class="chip">WatermelonDB</span><span class="chip">Flutter</span>
-          <span class="chip">Quasar</span><span class="chip">Pinia</span><span class="chip">MongoDB</span>
-        </div>
-        <h2>Idiomas</h2>
-        <div class="card">
+        </article>
+
+        <article class="job">
+          <div class="job-head">
+            <h3>Asesor tecnológico y de comunicación</h3>
+            <span class="dates">2023 — 2026</span>
+          </div>
+          <p class="org">Consultoría — Livio Gutiérrez (Gabinete Chaco)</p>
+        </article>
+
+        <article class="job">
+          <div class="job-head">
+            <h3>Asesor tecnológico y de datos</h3>
+            <span class="dates">2018 — actualidad</span>
+          </div>
+          <p class="org">Julián Bibolini · Desarrollo Humano / UPLAB · Formosa</p>
           <ul>
-            <li>Español — nativo</li>
-            <li>Inglés — técnico intermedio</li>
-            <li>Portugués — intermedio</li>
+            <li>Datos sanitarios e indicadores para decisión institucional; gestión académica (Facultad de Medicina).</li>
           </ul>
-        </div>
+        </article>
+
+        <article class="job">
+          <div class="job-head">
+            <h3>Asesorías en sector público</h3>
+            <span class="dates">2015 — 2023</span>
+          </div>
+          <p class="org">Concejo Municipal Pcia. R. Sáenz Peña · Diputados · Defensoría del Pueblo Adjunta · Alfabetización Digital</p>
+        </article>
       </div>
     </div>
-  </div>
+  </article>
 </body>
 </html>
