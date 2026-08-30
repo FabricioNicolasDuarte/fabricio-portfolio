@@ -88,22 +88,22 @@ export const ui = {
     about: {
       title: 'Perfil profesional',
       lead:
-        'Ingeniería de datos y analítica en producción. Integro fuentes heterogéneas, defino el criterio de cada indicador y lo publico en tableros con recorte por organismo. Un número mal definido no es un defecto de interfaz: altera trámites, operación y decisiones.',
+        'Me ocupo de que las decisiones se tomen sobre datos fieles. Integro sistemas, unifico el criterio de cada indicador y lo presento en tableros y productos que se entienden y se usan. La visualización y la usabilidad no son un adorno: son lo que convierte un número correcto en una decisión a tiempo.',
       body:
-        'En ECOM diseño y opero plataformas de datos que usan organismos distintos al equipo que las construye: Apache Superset y Power BI, RLS, identidad federada, backend Django (GIS, KPIs, auditoría) e integración SQL Server / PostgreSQL. Trabajo remoto desde Argentina. El desarrollo de aplicaciones y sitios forma parte del mismo oficio: el indicador tiene que vivir en un sistema que se opera todos los días.',
+        'En ECOM diseño y opero plataformas de datos para organismos distintos al equipo que las construye: analítica en producción (Apache Superset, Power BI), control de acceso y backend Django sobre SQL Server y PostgreSQL. Trabajo remoto desde Argentina. Si el entorno es complejo —varias fuentes, permisos, campo sin conectividad o un producto que no se adopta— busco la solución más eficiente, no la más aparatosa. El resultado se mide en menos retrabajo, menos error y mejor uso del tiempo de quien decide.',
       school: 'Programador senior, UTN — Facultad Regional Resistencia, promedio 9.40. Data engineer en curso, Universidad del Gran Rosario. Más de 25 productos o sistemas en uso.',
       points: [
         {
-          title: 'Que toda la organización use el mismo número',
-          body: 'Hoy cada área arma su informe. Yo conecto esos sistemas y dejo una sola definición de cada indicador. El tablero, el PDF y la planilla dejan de contradecirse.',
+          title: 'Datos fieles',
+          body: 'La decisión vale lo que vale el dato. Dejo un criterio único de cálculo para que el tablero y el reporte coincidan con la base. Se discute el problema, no qué planilla es la verdadera.',
         },
         {
-          title: 'Que quien decide pueda mostrar el tablero',
-          body: 'Cada organismo o área ve solo lo suyo. Queda constancia de quién consultó o exportó. Si una actualización falla, se sabe al momento: no se presenta un número vencido.',
+          title: 'Visualización y usabilidad',
+          body: 'Un indicador que no se lee, o un sistema que cuesta usar, no produce resultado. Diseño la interfaz y el flujo para que un director, un analista o un operador trabaje sin fricción: claridad, orden visual y calidad de producto.',
         },
         {
-          title: 'Que el dato viva donde se trabaja',
-          body: 'También diseño las aplicaciones y los sitios en los que se carga y se consulta esa información. El indicador no queda en un archivo suelto: queda en la operación diaria, incluso sin señal si el trabajo es en campo.',
+          title: 'Eficiencia en lo complejo',
+          body: 'No eludo lo difícil. Integro, simplifico y entrego un producto estable y medible. La calidad está en gastar menos esfuerzo para un mejor resultado: menos retrabajo, más rentabilidad del tiempo invertido.',
         },
       ],
     },
@@ -364,22 +364,22 @@ export const ui = {
     about: {
       title: 'Professional profile',
       lead:
-        'Data engineering and production analytics. I integrate heterogeneous sources, define the rule for each metric, and publish dashboards scoped by organization. A poorly defined number is not a UI defect: it alters procedures, operations, and decisions.',
+        'I work so that decisions are made on faithful data. I integrate systems, unify the rule for each metric, and present it in dashboards and products people understand and use. Visualization and usability are not decoration: they are what turn a correct number into a timely decision.',
       body:
-        'At ECOM I design and operate data platforms used by agencies other than the team that builds them: Apache Superset and Power BI, RLS, federated identity, Django backends (GIS, KPIs, audit), and SQL Server / PostgreSQL integration. I work remotely from Argentina. Applications and sites are part of the same practice: the metric has to live in a system people operate every day.',
+        'At ECOM I design and operate data platforms for agencies other than the team that builds them: production analytics (Apache Superset, Power BI), access control, and Django backends on SQL Server and PostgreSQL. I work remotely from Argentina. When the setting is complex — several sources, permissions, field work without connectivity, or a product nobody adopts — I look for the most efficient solution, not the most elaborate one. The result is less rework, fewer errors, and better use of the decision-maker’s time.',
       school: 'Senior programmer, UTN — Facultad Regional Resistencia, GPA 9.40. Data engineer in progress, Universidad del Gran Rosario. 25+ products or systems in use.',
       points: [
         {
-          title: 'One number for the whole organization',
-          body: 'Each area usually builds its own report. I connect those systems and leave a single definition for every metric. The dashboard, the PDF, and the spreadsheet stop contradicting each other.',
+          title: 'Faithful data',
+          body: 'A decision is only as good as the data behind it. I leave a single calculation rule so the dashboard and the report match the source. The debate is the problem, not which spreadsheet is true.',
         },
         {
-          title: 'A dashboard a decision-maker can present',
-          body: 'Each agency or area sees only its own slice. Queries and exports leave a record. If an update fails, it is known at once — nobody presents a stale figure.',
+          title: 'Visualization and usability',
+          body: 'A metric that cannot be read, or a system that is hard to use, does not produce a result. I design the interface and the flow so a director, an analyst, or an operator can work without friction: clarity, visual order, and product quality.',
         },
         {
-          title: 'The data lives where people work',
-          body: 'I also design the applications and sites where that information is entered and looked up. The metric does not sit in a stray file: it sits in daily operations, including without signal when the work is in the field.',
+          title: 'Efficiency in complexity',
+          body: 'I do not avoid the hard parts. I integrate, simplify, and ship a stable, measurable product. Quality means less effort for a better outcome: less rework, more return on the time invested.',
         },
       ],
     },
@@ -640,22 +640,22 @@ export const ui = {
     about: {
       title: 'Perfil profissional',
       lead:
-        'Engenharia de dados e analytics em produção. Integro fontes heterogêneas, defino o critério de cada indicador e o publico em painéis com recorte por órgão. Um número mal definido não é defeito de interface: altera trâmites, operação e decisões.',
+        'Cuido para que as decisões se tomem sobre dados fiéis. Integro sistemas, unifico o critério de cada indicador e o apresento em painéis e produtos que se entendem e se usam. Visualização e usabilidade não são enfeite: são o que transforma um número correto numa decisão a tempo.',
       body:
-        'Na ECOM desenho e opero plataformas de dados usadas por órgãos distintos da equipe que as constrói: Apache Superset e Power BI, RLS, identidade federada, backend Django (GIS, KPIs, auditoria) e integração SQL Server / PostgreSQL. Trabalho remoto da Argentina. O desenvolvimento de aplicativos e sites faz parte do mesmo ofício: o indicador precisa viver num sistema operado todos os dias.',
+        'Na ECOM desenho e opero plataformas de dados para órgãos distintos da equipe que as constrói: analytics em produção (Apache Superset, Power BI), controle de acesso e backend Django sobre SQL Server e PostgreSQL. Trabalho remoto da Argentina. Se o ambiente é complexo — várias fontes, permissões, campo sem conectividade ou um produto que ninguém adota — busco a solução mais eficiente, não a mais aparatosa. O resultado se mede em menos retrabalho, menos erro e melhor uso do tempo de quem decide.',
       school: 'Programador sênior, UTN — Faculdade Regional Resistencia, média 9,40. Data engineer em andamento, Universidad del Gran Rosario. Mais de 25 produtos ou sistemas em uso.',
       points: [
         {
-          title: 'Que a organização inteira use o mesmo número',
-          body: 'Hoje cada área monta o seu relatório. Eu conecto esses sistemas e deixo uma só definição de cada indicador. O painel, o PDF e a planilha deixam de se contradizer.',
+          title: 'Dados fiéis',
+          body: 'A decisão vale o que vale o dado. Deixo um critério único de cálculo para que o painel e o relatório coincidam com a base. Discute-se o problema, não qual planilha é a verdadeira.',
         },
         {
-          title: 'Que quem decide possa mostrar o painel',
-          body: 'Cada órgão ou área vê só o que é seu. Fica registro de quem consultou ou exportou. Se uma atualização falha, sabe-se na hora: ninguém apresenta um número vencido.',
+          title: 'Visualização e usabilidade',
+          body: 'Um indicador que não se lê, ou um sistema difícil de usar, não produz resultado. Desenho a interface e o fluxo para que um diretor, um analista ou um operador trabalhe sem atrito: clareza, ordem visual e qualidade de produto.',
         },
         {
-          title: 'Que o dado viva onde se trabalha',
-          body: 'Também desenho os aplicativos e os sites em que essa informação se cadastra e se consulta. O indicador não fica num arquivo solto: fica na operação do dia, inclusive sem sinal se o trabalho é em campo.',
+          title: 'Eficiência no complexo',
+          body: 'Não evito o difícil. Integro, simplifico e entrego um produto estável e mensurável. Qualidade é gastar menos esforço por um resultado melhor: menos retrabalho, mais retorno do tempo investido.',
         },
       ],
     },
@@ -916,22 +916,22 @@ export const ui = {
     about: {
       title: '职业简介',
       lead:
-        '生产环境的数据工程与分析。对接异构来源，为每个指标确定口径，并按机构范围发布看板。数字定义不当不是界面问题：它会改变办事流程、运营与决策。',
+        '我的工作是让决策建立在可靠的数据上。对接系统、统一每个指标的口径，并呈现在看得懂、用得上的看板和产品里。可视化与可用性不是装饰：它们把正确的数字变成及时的决定。',
       body:
-        '在 ECOM，我设计并运营供建设团队以外的机构使用的数据平台：Apache Superset 与 Power BI、行级权限、联邦身份、Django 后端（GIS、KPI、审计）以及 SQL Server / PostgreSQL 集成。我在阿根廷远程工作。应用与网站属于同一项工作：指标必须活在每天都在操作的系统里。',
+        '在 ECOM，我为建设团队以外的机构设计并运营数据平台：生产级分析（Apache Superset、Power BI）、访问控制，以及基于 SQL Server 与 PostgreSQL 的 Django 后端。我在阿根廷远程工作。环境再复杂——多源、权限、无网田间，或没人用的产品——我找的是最有效的方案，不是最铺张的。结果用更少返工、更少差错、更好利用决策者的时间来衡量。',
       school: '高级程序员，国立技术大学（UTN）雷西斯滕西亚地区分校，平均分 9.40。数据工程师在读，Universidad del Gran Rosario。25 个以上在用产品或系统。',
       points: [
         {
-          title: '让整个机构用同一个数字',
-          body: '现在各部门各自做报表。我把这些系统接上，给每个指标留下一套定义。看板、PDF 和表格不再互相打架。',
+          title: '可靠的数据',
+          body: '决策的分量取决于数据。我留下一套计算口径，让看板和报表与库里一致。争论的是问题本身，不是哪张表才算数。',
         },
         {
-          title: '让决策者敢把看板拿出去讲',
-          body: '每个机构或部门只看自己的范围。谁查过、谁导出过有记录。更新失败马上知道，不会拿过期数字去汇报。',
+          title: '可视化与可用性',
+          body: '读不懂的指标、难用的系统，产生不了结果。我设计界面和流程，让主管、分析师或操作员能顺畅工作：清楚、有序、产品过关。',
         },
         {
-          title: '让数据活在日常工作里',
-          body: '我也设计录入和查询这些信息的应用与网站。指标不落在一份散落的文件里，而在每天的操作中；田间作业没信号也能用。',
+          title: '复杂之中的效率',
+          body: '不回避难处。对接、简化，交出稳定、可衡量的产品。质量是用更少力气换更好结果：更少返工，投入的时间更值。',
         },
       ],
     },
