@@ -10,6 +10,7 @@
       </template>
     </p>
   </nav>
+  <JsonLd v-if="crumbs.length" :data="breadcrumbLd" />
 </template>
 
 <script setup>
@@ -40,4 +41,19 @@ const backTo = computed(() => {
   const linked = [...crumbs.value].reverse().find(c => c.to)
   return linked?.to || localePath('/')
 })
+
+const origin = 'https://fabricioduarte.tech'
+const breadcrumbLd = computed(() => ({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: crumbs.value.map((c, i) => {
+    const item = {
+      '@type': 'ListItem',
+      position: i + 1,
+      name: c.label,
+    }
+    if (c.to) item.item = origin + c.to
+    return item
+  }),
+}))
 </script>

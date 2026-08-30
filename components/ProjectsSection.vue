@@ -10,10 +10,12 @@
         <button
           v-for="f in filters"
           :key="f.id"
+          type="button"
           class="rounded-full border px-3 py-1.5 text-xs font-medium transition"
           :class="active === f.id
             ? 'border-lime-400 bg-lime-400 text-black'
             : 'border-white/10 text-slate-400 hover:border-lime-400/40 hover:text-lime-200'"
+          :aria-pressed="active === f.id"
           @click="active = f.id"
         >
           {{ f.label }}

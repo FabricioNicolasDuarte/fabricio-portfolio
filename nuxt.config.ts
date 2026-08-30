@@ -79,7 +79,6 @@ export default defineNuxtConfig({
         { rel: 'apple-touch-icon', href: '/brand/mark.png' },
         { rel: 'manifest', href: '/site.webmanifest' },
         { rel: 'preload', href: '/brand/mark.png', as: 'image' },
-        { rel: 'preload', href: '/images/og-banner.jpg', as: 'image' },
       ],
       script: [
         {

@@ -5,7 +5,7 @@ alwaysApply: true
 
 # Estándar internacional — fabricioduarte.tech
 
-Sitio personal de reclutamiento (datos primero). Nota actual ~7.1/10. Informe: canvas `fabricioduarte-international-standard.canvas.tsx`.
+Sitio personal de reclutamiento (datos primero). Nota actual ~8.4/10. Informe vigente: canvas `fabricioduarte-highest-bar.canvas.tsx`.
 
 ## No romper
 
@@ -40,6 +40,13 @@ CI (lint + Playwright). Sobre: extracto ECOM + asesoría Livio. Home muestra los
 ## P4 — hecho
 
 Contraste AA (muted más claro; axe color-contrast serious). CSS de intro muerto fuera. Catálogo de trabajo en `content/work.js`. Favicons huérfanos y fotos de proyecto sin uso, fuera. Manifest + theme-color. Reserva: Resend solo si hay `RESEND_FROM` propio (no onboarding).
+
+## P5 — código hecho; dato tuyo pendiente
+
+Hecho: redirect www→apex, ECOM capa A (Celery en `detail`), línea de rol/disponibilidad, huérfanos ~24 MB fuera, smoke /trabajo /casos/ecom /en, FAQPage+BreadcrumbList, CTA «Enviar pedido», alts i18n, sitemap en `prebuild`.
+Falta en DNS: agregar `www` en Vercel + CNAME DonWeb para el certificado.
+Solo vos: cita con nombre, KPI publicable.
+No reabrir P0–P4. No slugs /en/about. No inventar KPIs ECOM.
 
 ## Calidad
 

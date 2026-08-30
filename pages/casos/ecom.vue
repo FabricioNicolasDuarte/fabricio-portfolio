@@ -24,6 +24,7 @@
     <section v-for="block in copy.blocks" :key="block.heading" class="mt-10">
       <h2 class="font-display text-xl font-semibold text-white">{{ block.heading }}</h2>
       <p v-for="p in block.paras" :key="p" class="mt-3 text-[15px] leading-relaxed text-slate-400">{{ p }}</p>
+      <p v-if="block.detail" class="mt-3 text-sm leading-relaxed text-muted">{{ block.detail }}</p>
     </section>
 
     <section class="mt-10">
@@ -36,6 +37,8 @@
       </dl>
     </section>
 
+    <JsonLd :data="faqLd" />
+    <JsonLd :data="articleLd" />
     <p class="mt-8 text-sm text-muted">{{ copy.note }}</p>
     <div class="mt-8 flex flex-wrap gap-3">
       <NuxtLink :to="localePath('/agendar')" class="fd-btn">{{ t.nav.book }}</NuxtLink>
@@ -53,27 +56,30 @@ const pack = {
     kicker: 'Caso · ECOM Chaco',
     title: 'Tableros institucionales sobre datos ya unificados',
     lead: 'En ECOM el trabajo no es un Excel suelto: es operación analítica continua. Datasets, métricas y publicación en Apache Superset y Power BI, con recorte por organismo. Los tableros alimentan instituciones distintas al equipo que los construye.',
+    shotSuperset: 'Apache Superset: filtros y tablero institucional.',
+    shotServicios: 'Plataforma de establecimientos y KPIs.',
     blocks: [
       {
         heading: 'El problema que hay que resolver',
         paras: [
-          'Los datos institucionales suelen estar en sistemas heterogéneos: SQL Server de años, PostgreSQL más reciente, padrones, operación territorial. Quien decide no entra al core. Consulta un recorte: un tablero, un embed, un export con permisos. Si ese recorte está mal definido, el trámite y la operación se ven. Un indicador no es un adorno de visualización; es un insumo de decisión.',
-          'El trabajo, entonces, no empieza por el gráfico. Empieza por el contrato del dato: qué campo, qué tipo, qué frecuencia, quién puede verlo. Encima de eso se publica. Abajo, el legado sigue. No se reescribe el sistema de origen para poder mostrar un KPI.',
+          'Quien decide no entra al sistema de origen. Consulta un recorte: un tablero, un embed o un export con permisos. Si ese recorte está mal definido, la reunión y el trámite se ven. Un indicador no es un adorno: es el número con el que se decide.',
+          'El trabajo empieza por acordar qué significa cada número —qué campo, qué frecuencia, quién lo ve— y recién después se publica. El sistema de origen no se reescribe para mostrar un KPI.',
         ],
       },
       {
-        heading: 'Capa de consulta, no un laboratorio',
+        heading: 'Qué queda publicado',
         paras: [
-          'La capa de consulta se apoya en SQL Server y PostgreSQL ya en producción. Expone lo necesario para analítica y para embed, con reglas repetibles. Apache Superset concentra datasets, métricas y filtros. Power BI cubre tableros que el organismo ya opera en ese stack. El recorte por institución se resuelve con permisos de fila y de rol: cada organismo ve solo lo suyo.',
-          'Donde hay capa territorial entra Mapbox. El motor de tableros corre en cluster, con refresco automático, no en una notebook. Eso es uso interno institucional, no una demo de curso.',
+          'Cada organismo ve solo lo suyo. El tablero y el reporte coinciden con la misma regla. Apache Superset y Power BI son el canal de publicación, sobre SQL Server y PostgreSQL que ya están en producción.',
+          'El refresco corre en cluster, no en una notebook. Donde hace falta mapa, hay mapa. Es uso interno institucional, no una demo de curso.',
         ],
       },
       {
-        heading: 'Operación: si falla, avisa',
+        heading: 'Si falla, avisa',
         paras: [
-          'Los jobs se orquestan con colas (Celery / Redis). Si un proceso de carga o de refresco falla, el sistema avisa. No se pierde en silencio. Queda registro de quién consulta o exporta. La gobernanza no es un párrafo de política: es el recorte que el usuario ve cuando abre el tablero.',
-          'Este caso no lista nombres de sistemas no públicos ni cifras internas. El punto para un recruiter es el tipo de problema (dato institucional ya unificado, muchos organismos, legado vivo) y el tipo de solución (contrato, modelo, publicación, alerta).',
+          'Si una carga o un refresco falla, el sistema avisa. No se pierde en silencio. Queda registro de quién consulta o exporta. La gobernanza es el recorte que el usuario ve cuando abre el tablero.',
+          'Este caso no lista nombres de sistemas no públicos ni cifras internas. El punto es el tipo de problema —dato institucional, muchos organismos, legado vivo— y el tipo de solución: unificar, publicar, avisar.',
         ],
+        detail: 'Los jobs se orquestan con colas (Celery / Redis).',
       },
       {
         heading: 'Qué no es este trabajo',
@@ -95,27 +101,30 @@ const pack = {
     kicker: 'Case · ECOM Chaco',
     title: 'Institutional dashboards on already-unified data',
     lead: 'At ECOM the work is not a stray spreadsheet: it is continuous analytic operations. Datasets, metrics, and publication in Apache Superset and Power BI, scoped by organization. Dashboards feed institutions other than the team that builds them.',
+    shotSuperset: 'Apache Superset: filters and an institutional dashboard.',
+    shotServicios: 'Establishments platform and KPIs.',
     blocks: [
       {
         heading: 'The problem to solve',
         paras: [
-          'Institutional data usually lives in heterogeneous systems: years-old SQL Server, newer PostgreSQL, registries, territorial operations. Decision-makers do not enter the core. They query a slice: a dashboard, an embed, an export with permissions. If that slice is poorly defined, the procedure and the operation suffer. An indicator is not a visualization flourish; it is an input to a decision.',
-          'The work therefore does not start with the chart. It starts with the data contract: which field, which type, which frequency, who may see it. Publication sits on top of that. Below, the legacy remains. The source system is not rewritten so a KPI can be shown.',
+          'Decision-makers do not enter the source system. They query a slice: a dashboard, an embed, or an export with permissions. If that slice is poorly defined, the meeting and the procedure suffer. An indicator is not decoration: it is the number used to decide.',
+          'The work starts by agreeing what each number means — which field, which frequency, who may see it — and only then is it published. The source system is not rewritten so a KPI can be shown.',
         ],
       },
       {
-        heading: 'A query layer, not a lab',
+        heading: 'What gets published',
         paras: [
-          'The query layer sits on production SQL Server and PostgreSQL. It exposes what analytics and embed need, with repeatable rules. Apache Superset holds datasets, metrics, and filters. Power BI covers dashboards an agency already runs on that stack. Scoping by institution is row- and role-level: each organization sees only its slice.',
-          'Where there is a territorial layer, Mapbox is used. The dashboard engine runs on a cluster, with automatic refresh, not on a laptop. That is institutional internal use, not a course demo.',
+          'Each agency sees only its slice. The dashboard and the report follow the same rule. Apache Superset and Power BI are the publication channel, on production SQL Server and PostgreSQL.',
+          'Refresh runs on a cluster, not a laptop. Where a map is needed, there is a map. Institutional internal use, not a course demo.',
         ],
       },
       {
-        heading: 'Operations: if it fails, it alerts',
+        heading: 'If it fails, it alerts',
         paras: [
-          'Jobs are orchestrated with queues (Celery / Redis). If a load or refresh process fails, the system alerts. It does not fail silently. There is a record of who queries or exports. Governance is not a policy paragraph: it is the slice the user sees when they open the dashboard.',
-          'This case does not list non-public system names or internal figures. For a recruiter the point is the class of problem (already-unified institutional data, many agencies, living legacy) and the class of solution (contract, model, publish, alert).',
+          'If a load or refresh fails, the system alerts. It does not fail silently. There is a record of who queries or exports. Governance is the slice the user sees when they open the dashboard.',
+          'This case does not list non-public system names or internal figures. The point is the class of problem — institutional data, many agencies, living legacy — and the class of solution: unify, publish, alert.',
         ],
+        detail: 'Jobs are orchestrated with queues (Celery / Redis).',
       },
       {
         heading: 'What this work is not',
@@ -137,27 +146,30 @@ const pack = {
     kicker: 'Caso · ECOM Chaco',
     title: 'Painéis institucionais sobre dados já unificados',
     lead: 'Na ECOM o trabalho não é uma planilha solta: é operação analítica contínua. Datasets, métricas e publicação no Apache Superset e no Power BI, recortados por órgão. Os painéis alimentam instituições distintas da equipe que os constrói.',
+    shotSuperset: 'Apache Superset: filtros e painel institucional.',
+    shotServicios: 'Plataforma de estabelecimentos e KPIs.',
     blocks: [
       {
         heading: 'O problema a resolver',
         paras: [
-          'Dados institucionais costumam estar em sistemas heterogêneos: SQL Server antigo, PostgreSQL mais novo, cadastros, operação territorial. Quem decide não entra no core. Consulta um recorte: um painel, um embed, um export com permissão. Se esse recorte está mal definido, o trâmite e a operação sofrem. Um indicador não é enfeite de visualização; é insumo de decisão.',
-          'O trabalho, então, não começa no gráfico. Começa no contrato do dado: qual campo, qual tipo, qual frequência, quem pode ver. A publicação fica acima disso. Abaixo, o legado segue. O sistema de origem não se reescreve para mostrar um KPI.',
+          'Quem decide não entra no sistema de origem. Consulta um recorte: um painel, um embed ou um export com permissão. Se esse recorte está mal definido, a reunião e o trâmite sofrem. Um indicador não é enfeite: é o número com o qual se decide.',
+          'O trabalho começa por acordar o que cada número significa — qual campo, qual frequência, quem vê — e só então se publica. O sistema de origem não se reescreve para mostrar um KPI.',
         ],
       },
       {
-        heading: 'Camada de consulta, não laboratório',
+        heading: 'O que fica publicado',
         paras: [
-          'A camada de consulta apoia-se em SQL Server e PostgreSQL já em produção. Expõe o necessário para analytics e embed, com regras repetíveis. O Apache Superset concentra datasets, métricas e filtros. O Power BI cobre painéis que o órgão já opera nesse stack. O recorte por instituição resolve-se com permissão de linha e de perfil: cada órgão vê só o que é dele.',
-          'Onde há camada territorial entra Mapbox. O motor de painéis corre em cluster, com atualização automática, não num notebook. Uso interno institucional, não demo de curso.',
+          'Cada órgão vê só o que é dele. O painel e o relatório seguem a mesma regra. Apache Superset e Power BI são o canal de publicação, sobre SQL Server e PostgreSQL já em produção.',
+          'A atualização corre em cluster, não num notebook. Onde precisa de mapa, há mapa. Uso interno institucional, não demo de curso.',
         ],
       },
       {
-        heading: 'Operação: se falha, avisa',
+        heading: 'Se falha, avisa',
         paras: [
-          'Os jobs orquestram-se com filas (Celery / Redis). Se um processo de carga ou de refresh falha, o sistema avisa. Não se perde em silêncio. Fica registro de quem consulta ou exporta. Governança não é um parágrafo de política: é o recorte que o usuário vê ao abrir o painel.',
-          'Este caso não lista nomes de sistemas não públicos nem números internos. Para um recruiter o ponto é a classe do problema (dado institucional já unificado, muitos órgãos, legado vivo) e a classe da solução (contrato, modelo, publicação, alerta).',
+          'Se uma carga ou um refresh falha, o sistema avisa. Não se perde em silêncio. Fica registro de quem consulta ou exporta. Governança é o recorte que o usuário vê ao abrir o painel.',
+          'Este caso não lista nomes de sistemas não públicos nem números internos. O ponto é a classe do problema — dado institucional, muitos órgãos, legado vivo — e a classe da solução: unificar, publicar, avisar.',
         ],
+        detail: 'Os jobs orquestram-se com filas (Celery / Redis).',
       },
       {
         heading: 'O que este trabalho não é',
@@ -179,27 +191,30 @@ const pack = {
     kicker: '案例 · ECOM Chaco',
     title: '基于已统一数据的机构看板',
     lead: '在 ECOM，工作不是散落的表格，而是持续的分析运营。数据集、指标以及 Apache Superset 与 Power BI 发布，按机构划分范围。看板服务的机构，与建设团队不是同一拨人。',
+    shotSuperset: 'Apache Superset：筛选与机构看板。',
+    shotServicios: '机构平台与 KPI。',
     blocks: [
       {
         heading: '要解决的问题',
         paras: [
-          '机构数据通常在异构系统里：多年的 SQL Server、较新的 PostgreSQL、名册、属地运营。决策者不进核心系统，只看切片：看板、嵌入、带权限的导出。切片定义错了，办事与运营都会受影响。指标不是可视化装饰，而是决策输入。',
-          '因此工作不是从图表开始，而是从数据契约开始：哪些字段、什么类型、什么频率、谁能看。发布叠在上面。下面遗留系统继续跑。不会为了显示一个 KPI 而重写源系统。',
+          '决策者不进源系统，只看切片：看板、嵌入、带权限的导出。切片定义错了，会议和办事都会受影响。指标不是装饰，而是用来做决定的数字。',
+          '工作先约定每个数字的含义——哪些字段、什么频率、谁能看——然后再发布。不会为了显示一个 KPI 而重写源系统。',
         ],
       },
       {
-        heading: '查询层，不是实验室',
+        heading: '发布什么',
         paras: [
-          '查询层建立在已上线的 SQL Server 与 PostgreSQL 上，按可重复规则暴露分析与嵌入所需内容。Apache Superset 集中数据集、指标和筛选。Power BI 覆盖机构已在该技术栈上运行的看板。按机构切分用行级与角色权限：每个机构只看自己的范围。',
-          '有属地层时用 Mapbox。看板引擎在集群上运行并自动刷新，不是笔记本演示。这是机构内部使用，不是课程作业。',
+          '每个机构只看自己的范围。看板与报表用同一套口径。Apache Superset 与 Power BI 是发布渠道，建立在已上线的 SQL Server 与 PostgreSQL 上。',
+          '刷新在集群上跑，不是笔记本。需要地图就有地图。这是机构内部使用，不是课程作业。',
         ],
       },
       {
-        heading: '运维：失败会告警',
+        heading: '失败会告警',
         paras: [
-          '任务用队列编排（Celery / Redis）。加载或刷新失败时系统会告警，不会静默丢失。查询与导出会留痕。治理不是一段政策文字，而是用户打开看板时看到的切片。',
-          '本页不列出未公开系统名或内部数字。对招聘方而言，重点是问题类型（已统一的机构数据、多个机构、仍在运行的遗留系统）与解法类型（契约、模型、发布、告警）。',
+          '加载或刷新失败时系统会告警，不会静默丢失。查询与导出会留痕。治理就是用户打开看板时看到的切片。',
+          '本页不列出未公开系统名或内部数字。重点是问题类型——机构数据、多个机构、仍在运行的遗留系统——与解法：统一、发布、告警。',
         ],
+        detail: '任务用队列编排（Celery / Redis）。',
       },
       {
         heading: '这不是什么',
@@ -220,35 +235,25 @@ const pack = {
 }
 
 const copy = computed(() => pack[locale.value] || pack.es)
-const shots = [
-  { src: '/mockups/superset.png', alt: 'Apache Superset: filtros y tablero institucional.' },
-  { src: '/mockups/servicios-instituciones.png', alt: 'Plataforma de establecimientos y KPIs.' },
-]
+const shots = computed(() => [
+  { src: '/mockups/superset.png', alt: copy.value.shotSuperset },
+  { src: '/mockups/servicios-instituciones.png', alt: copy.value.shotServicios },
+])
 usePageMeta(() => copy.value.title)
-useHead(() => ({
-  script: [
-    {
-      type: 'application/ld+json',
-      children: JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'FAQPage',
-        mainEntity: copy.value.faq.map((item) => ({
-          '@type': 'Question',
-          name: item.q,
-          acceptedAnswer: { '@type': 'Answer', text: item.a },
-        })),
-      }),
-    },
-    {
-      type: 'application/ld+json',
-      children: JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'Article',
-        headline: copy.value.title,
-        about: 'ECOM Chaco',
-        author: { '@type': 'Person', name: 'Fabricio Nicolás Duarte', url: origin },
-      }),
-    },
-  ],
+const faqLd = computed(() => ({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: copy.value.faq.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a },
+  })),
+}))
+const articleLd = computed(() => ({
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: copy.value.title,
+  about: 'ECOM Chaco',
+  author: { '@type': 'Person', name: 'Fabricio Nicolás Duarte', url: origin },
 }))
 </script>

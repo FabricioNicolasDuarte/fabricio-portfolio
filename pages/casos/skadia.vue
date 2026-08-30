@@ -26,6 +26,9 @@ const copy = computed(() => {
         'Sitio de marca: fabricionicolasduarte.github.io/skadia-webgl/',
       ],
       note: 'Los KPIs son del dataset de demostración publicado en este sitio.',
+      shotLanding: 'Landing Skadia agtech.',
+      shotSigag: 'SIGAG: centro de mando, GIS y asistente.',
+      shotLake: 'Lakehouse: ADG, carga, ITH y BCS (demo).',
     },
     en: {
       kicker: 'Case · Skadia',
@@ -38,6 +41,9 @@ const copy = computed(() => {
         'Brand site: fabricionicolasduarte.github.io/skadia-webgl/',
       ],
       note: 'KPIs come from the demonstration dataset published on this site.',
+      shotLanding: 'Skadia agtech landing.',
+      shotSigag: 'SIGAG: command center, GIS, and assistant.',
+      shotLake: 'Lakehouse: ADG, stocking, THI, and BCS (demo).',
     },
     pt: {
       kicker: 'Caso · Skadia',
@@ -50,6 +56,9 @@ const copy = computed(() => {
         'Site da marca: fabricionicolasduarte.github.io/skadia-webgl/',
       ],
       note: 'Os KPIs vêm do dataset de demonstração publicado neste site.',
+      shotLanding: 'Landing Skadia agtech.',
+      shotSigag: 'SIGAG: centro de comando, GIS e assistente.',
+      shotLake: 'Lakehouse: GMD, lotação, ITH e BCS (demo).',
     },
     zh: {
       kicker: '案例 · Skadia',
@@ -62,14 +71,17 @@ const copy = computed(() => {
         '品牌站点：fabricionicolasduarte.github.io/skadia-webgl/',
       ],
       note: 'KPI 来自本站发布的演示数据集。',
+      shotLanding: 'Skadia agtech 落地页。',
+      shotSigag: 'SIGAG：指挥中心、GIS 与助手。',
+      shotLake: 'Lakehouse：日增重、载畜、ITH 与 BCS（演示）。',
     },
   }
   return pack[locale.value] || pack.es
 })
-const shots = [
-  { src: '/mockups/skadia-web.jpg', alt: 'Landing Skadia agtech.' },
-  { src: '/mockups/sigag.jpg', alt: 'SIGAG: centro de mando, GIS y asistente.' },
-  { src: '/mockups/skadia-lakehouse.png', alt: 'Lakehouse: ADG, carga, ITH y BCS (demo).' },
-]
+const shots = computed(() => [
+  { src: '/mockups/skadia-web.jpg', alt: copy.value.shotLanding },
+  { src: '/mockups/sigag.jpg', alt: copy.value.shotSigag },
+  { src: '/mockups/skadia-lakehouse.png', alt: copy.value.shotLake },
+])
 usePageMeta(() => copy.value.title)
 </script>

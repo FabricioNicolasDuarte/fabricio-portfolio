@@ -1,0 +1,10 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.fabricioduarte.tech" }],
+      "destination": "https://fabricioduarte.tech/:path*",
+      "permanent": true
+    }
+  ]
+}

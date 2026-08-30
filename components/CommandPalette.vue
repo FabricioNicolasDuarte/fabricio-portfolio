@@ -104,6 +104,19 @@ function onKey(e) {
   if (e.key === 'Escape') {
     e.preventDefault()
     close()
+    return
+  }
+  if (e.key !== 'Tab' || !root.value) return
+  const nodes = [...root.value.querySelectorAll('input, button')]
+  if (!nodes.length) return
+  const first = nodes[0]
+  const last = nodes[nodes.length - 1]
+  if (e.shiftKey && document.activeElement === first) {
+    e.preventDefault()
+    last.focus()
+  } else if (!e.shiftKey && document.activeElement === last) {
+    e.preventDefault()
+    first.focus()
   }
 }
 

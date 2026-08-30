@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test'
 import AxeBuilder from '@axe-core/playwright'
 
-const routes = ['/', '/sobre', '/metodo', '/agendar', '/privacidad']
+const routes = ['/', '/sobre', '/metodo', '/agendar', '/privacidad', '/trabajo', '/casos/ecom', '/trayectoria', '/en']
 
 for (const path of routes) {
   test(`loads ${path}`, async ({ page }) => {
@@ -17,3 +17,19 @@ for (const path of routes) {
     ).toEqual([])
   })
 }
+
+test('english home is not Spanish', async ({ page }) => {
+  await page.goto('/en', { waitUntil: 'domcontentloaded' })
+  await expect(page.locator('html')).toHaveAttribute('lang', 'en')
+  await expect(page.getByRole('link', { name: 'Book 25 min' }).first()).toBeVisible()
+  await expect(page.locator('#top').getByText('I also ship the product')).toBeVisible()
+})
+
+test('ecom case leads with the problem and ships FAQ JSON-LD', async ({ page }) => {
+  await page.goto('/casos/ecom', { waitUntil: 'domcontentloaded' })
+  await expect(page.getByRole('heading', { name: 'El problema que hay que resolver' })).toBeVisible()
+  await expect(page.locator('p.text-muted', { hasText: 'Celery / Redis' })).toBeVisible()
+  const html = await page.content()
+  expect(html).toMatch(/FAQPage/)
+  expect(html).toMatch(/BreadcrumbList/)
+})

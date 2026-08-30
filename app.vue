@@ -7,6 +7,7 @@
       <NuxtPage />
       <AppFooter />
     </div>
+    <JsonLd :data="personLd" />
     <ClientOnly>
       <CommandPalette />
     </ClientOnly>
@@ -40,43 +41,42 @@ useHead({
     { property: 'og:title', content: computed(() => t.value.meta.title) },
     { property: 'og:description', content: computed(() => t.value.meta.description) },
     { property: 'og:locale', content: computed(() => LOCALE_META[locale.value]?.html || 'es') },
+    { property: 'og:locale:alternate', content: 'en' },
+    { property: 'og:locale:alternate', content: 'pt_BR' },
+    { property: 'og:locale:alternate', content: 'zh_CN' },
     { property: 'og:image', content: `${origin}/images/og-banner.jpg` },
     { property: 'og:image:type', content: 'image/jpeg' },
     { property: 'og:image:width', content: '1200' },
     { property: 'og:image:height', content: '627' },
-    { property: 'og:image:alt', content: 'Fabricio Duarte — fabricioduarte.tech' },
+    { property: 'og:image:alt', content: computed(() => t.value.meta.ogAlt) },
     { name: 'twitter:card', content: 'summary_large_image' },
     { name: 'twitter:title', content: computed(() => t.value.meta.title) },
     { name: 'twitter:description', content: computed(() => t.value.meta.description) },
     { name: 'twitter:image', content: `${origin}/images/og-banner.jpg` },
   ],
-  script: computed(() => [
-    {
-      type: 'application/ld+json',
-      children: JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'Person',
-        name: 'Fabricio Nicolás Duarte',
-        jobTitle: t.value.meta.jobTitle,
-        url: origin,
-        email: 'mailto:fabricioduarteoficial@gmail.com',
-        telephone: '+54-370-402-2201',
-        address: { '@type': 'PostalAddress', addressCountry: 'AR' },
-        alumniOf: [
-          { '@type': 'CollegeOrUniversity', name: 'Universidad Tecnológica Nacional — Facultad Regional Resistencia' },
-          { '@type': 'CollegeOrUniversity', name: 'Universidad del Gran Rosario' },
-        ],
-        knowsAbout: t.value.meta.knowsAbout,
-        sameAs: [
-          'https://www.linkedin.com/in/fabricionicolasduarte/',
-          'https://github.com/FabricioNicolasDuarte',
-          'https://fabricionicolasduarte.github.io/skadia-webgl/',
-        ],
-        image: `${origin}/images/hero-portrait.jpg`,
-        worksFor: { '@type': 'Organization', name: 'ECOM Chaco', url: 'https://www.ecom.com.ar/' },
-        founder: { '@type': 'Organization', name: 'Skadia', url: 'https://fabricionicolasduarte.github.io/skadia-webgl/' },
-      }),
-    },
-  ]),
 })
+
+const personLd = computed(() => ({
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Fabricio Nicolás Duarte',
+  jobTitle: t.value.meta.jobTitle,
+  url: origin,
+  email: 'fabricioduarteoficial@gmail.com',
+  telephone: '+54-370-402-2201',
+  address: { '@type': 'PostalAddress', addressCountry: 'AR' },
+  alumniOf: [
+    { '@type': 'CollegeOrUniversity', name: 'Universidad Tecnológica Nacional — Facultad Regional Resistencia' },
+    { '@type': 'CollegeOrUniversity', name: 'Universidad del Gran Rosario' },
+  ],
+  knowsAbout: t.value.meta.knowsAbout,
+  sameAs: [
+    'https://www.linkedin.com/in/fabricionicolasduarte/',
+    'https://github.com/FabricioNicolasDuarte',
+    'https://fabricionicolasduarte.github.io/skadia-webgl/',
+  ],
+  image: `${origin}/images/hero-portrait.jpg`,
+  worksFor: { '@type': 'Organization', name: 'ECOM Chaco', url: 'https://www.ecom.com.ar/' },
+  founder: { '@type': 'Organization', name: 'Skadia', url: 'https://fabricionicolasduarte.github.io/skadia-webgl/' },
+}))
 </script>

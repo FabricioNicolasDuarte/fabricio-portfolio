@@ -9,6 +9,7 @@
           Fabricio Duarte
         </h1>
         <p class="mt-3 text-sm tracking-wide text-slate-400">{{ t.hero.line }}</p>
+        <p class="mt-2 max-w-xl text-sm leading-relaxed text-slate-300">{{ t.hero.open }}</p>
         <p class="mt-6 max-w-xl text-[17px] leading-relaxed text-slate-300">
           {{ t.hero.lead }}
         </p>
