@@ -29,9 +29,9 @@
 
       <div class="relative mx-auto w-full max-w-[320px] lg:max-w-none">
         <img
-          src="/images/hero-poster.jpg"
+          src="/images/hero-portrait.jpg"
           alt="Fabricio Duarte"
-          class="aspect-[3/4] w-full object-cover object-top"
+          class="hero-poster aspect-[3/4] w-full object-cover object-top"
           width="760"
           height="1013"
         />

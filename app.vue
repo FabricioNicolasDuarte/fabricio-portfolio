@@ -72,6 +72,7 @@ useHead({
           'https://github.com/FabricioNicolasDuarte',
           'https://fabricionicolasduarte.github.io/skadia-webgl/',
         ],
+        image: `${origin}/images/hero-portrait.jpg`,
         worksFor: { '@type': 'Organization', name: 'ECOM Chaco', url: 'https://www.ecom.com.ar/' },
         founder: { '@type': 'Organization', name: 'Skadia', url: 'https://fabricionicolasduarte.github.io/skadia-webgl/' },
       }),

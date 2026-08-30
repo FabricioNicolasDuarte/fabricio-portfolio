@@ -80,6 +80,8 @@ export const ui = {
     },
     about: {
       title: 'Perfil profesional',
+      pause: 'Pausar saludo',
+      play: 'Reproducir saludo',
       lead:
         'Me ocupo de que las decisiones se tomen sobre datos fieles. Integro sistemas, unifico el criterio de cada indicador y lo presento en tableros y productos que se entienden y se usan. La visualización y la usabilidad no son un adorno: son lo que convierte un número correcto en una decisión a tiempo.',
       body:
@@ -392,6 +394,8 @@ export const ui = {
     },
     about: {
       title: 'Professional profile',
+      pause: 'Pause greeting',
+      play: 'Play greeting',
       lead:
         'I work so that decisions are made on faithful data. I integrate systems, unify the rule for each metric, and present it in dashboards and products people understand and use. Visualization and usability are not decoration: they are what turn a correct number into a timely decision.',
       body:
@@ -704,6 +708,8 @@ export const ui = {
     },
     about: {
       title: 'Perfil profissional',
+      pause: 'Pausar saudação',
+      play: 'Reproduzir saudação',
       lead:
         'Cuido para que as decisões se tomem sobre dados fiéis. Integro sistemas, unifico o critério de cada indicador e o apresento em painéis e produtos que se entendem e se usam. Visualização e usabilidade não são enfeite: são o que transforma um número correto numa decisão a tempo.',
       body:
@@ -1016,6 +1022,8 @@ export const ui = {
     },
     about: {
       title: '职业简介',
+      pause: '暂停问候',
+      play: '播放问候',
       lead:
         '我的工作是让决策建立在可靠的数据上。对接系统、统一每个指标的口径，并呈现在看得懂、用得上的看板和产品里。可视化与可用性不是装饰：它们把正确的数字变成及时的决定。',
       body:

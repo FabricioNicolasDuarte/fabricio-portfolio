@@ -3,11 +3,34 @@
     <section class="relative mx-auto grid min-h-[calc(100vh-3.5rem)] max-w-6xl lg:grid-cols-2">
       <div class="relative min-h-[38vh] lg:min-h-full">
         <img
-          src="/images/profile.jpg"
+          src="/images/about-poster.jpg"
           alt="Fabricio Duarte"
-          class="absolute inset-0 h-full w-full object-cover object-[center_28%] lg:object-[30%_center]"
+          class="hero-poster absolute inset-0 h-full w-full object-cover object-center"
+          width="1280"
+          height="1280"
         />
+        <video
+          ref="videoEl"
+          class="hero-video absolute inset-0 h-full w-full object-cover object-center"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="none"
+          aria-hidden="true"
+          @play="playing = true"
+          @pause="playing = false"
+        >
+          <source src="/images/about.mp4" type="video/mp4" />
+        </video>
         <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-transparent lg:to-black/40" />
+        <button
+          type="button"
+          class="hero-pause absolute bottom-3 left-3 z-10 rounded-full border border-white/20 bg-black/75 px-3 py-1.5 text-[11px] tracking-wide text-white lg:bottom-auto lg:left-auto lg:right-3 lg:top-[calc(100dvh-5.5rem)]"
+          @click="toggleGreeting"
+        >
+          {{ playing ? t.about.pause : t.about.play }}
+        </button>
       </div>
       <div class="flex flex-col justify-center px-5 py-12 sm:px-8 lg:px-12 lg:py-16">
         <PathTrail flush />
@@ -59,4 +82,21 @@
 <script setup>
 const { t, localePath } = useLocale()
 usePageMeta(() => t.value.nav.about)
+
+const videoEl = ref(null)
+const playing = ref(true)
+
+function toggleGreeting() {
+  const el = videoEl.value
+  if (!el) return
+  if (el.paused) el.play()
+  else el.pause()
+}
+
+onMounted(() => {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    videoEl.value?.pause()
+    playing.value = false
+  }
+})
 </script>
