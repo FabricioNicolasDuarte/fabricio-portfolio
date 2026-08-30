@@ -14,8 +14,8 @@ const securityHeaders = {
     "object-src 'none'",
     "img-src 'self' data: blob:",
     "media-src 'self'",
-    "font-src 'self' https://fonts.gstatic.com",
-    "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+    "font-src 'self'",
+    "style-src 'self' 'unsafe-inline'",
     "script-src 'self' 'unsafe-inline' https://cloud.umami.is",
     "connect-src 'self' https://cloud.umami.is https://api-gateway.umami.dev",
     "frame-src 'self'",
@@ -78,12 +78,6 @@ export default defineNuxtConfig({
         { rel: 'apple-touch-icon', href: '/brand/mark.png' },
         { rel: 'preload', href: '/brand/mark.png', as: 'image' },
         { rel: 'preload', href: '/images/og-banner.jpg', as: 'image' },
-        { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
-        {
-          rel: 'stylesheet',
-          href: 'https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap',
-        },
       ],
       script: [
         {

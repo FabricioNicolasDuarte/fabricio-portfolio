@@ -45,7 +45,11 @@
         </ul>
       </div>
     </div>
-    <p class="mx-auto max-w-6xl border-t border-white/10 px-5 py-6 text-xs text-muted sm:px-8">© {{ year }} Fabricio Nicolás Duarte</p>
+    <p class="mx-auto max-w-6xl border-t border-white/10 px-5 py-6 text-xs text-muted sm:px-8">
+      © {{ year }} Fabricio Nicolás Duarte
+      <span class="text-white/25"> · </span>
+      <NuxtLink :to="localePath('/privacidad')" class="hover:text-white">{{ t.footer.privacy }}</NuxtLink>
+    </p>
   </footer>
 </template>
 

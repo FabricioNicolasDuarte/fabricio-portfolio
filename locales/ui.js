@@ -21,6 +21,7 @@ export const ui = {
       caseSkadia: 'Caso Skadia',
       lakehouse: 'Lakehouse',
       sent: 'Pedido enviado',
+      privacy: 'Privacidad',
       search: 'Buscar',
       soundOn: 'Activar sonido',
       soundOff: 'Silenciar',
@@ -251,6 +252,24 @@ export const ui = {
       files: 'Curriculum',
       time: 'Hora',
       atsEn: 'El CV ATS se descarga en inglés.',
+      privacy: 'Privacidad',
+    },
+    privacy: {
+      kicker: 'Sitio',
+      title: 'Privacidad',
+      lead: 'Este sitio es personal. No hay cuenta, ni boletín, ni publicidad de terceros.',
+      updated: 'Actualizado el 30 de agosto de 2026.',
+      analyticsTitle: 'Medición',
+      analytics:
+        'Uso Umami en fabricioduarte.tech: visitas de página, sin cookies de publicidad y sin venta de datos. El script solo corre en el dominio de producción.',
+      bookTitle: 'Agenda',
+      book:
+        'El formulario envía nombre, correo, horario y una nota opcional a fabricioduarteoficial@gmail.com. Si el envío automático no está activo, se abre el cliente de correo. Conservo esos datos para responder el pedido.',
+      hostTitle: 'Alojamiento',
+      host:
+        'El sitio corre en Vercel. Los registros técnicos de la red pueden quedar en esos servidores el tiempo habitual de un hosting.',
+      contactTitle: 'Borrado',
+      contact: 'Para pedir que borre un dato de agenda, escriba a este correo.',
     },
     meta: {
       title: 'Fabricio Duarte — Ingeniería de datos, analítica y producto',
@@ -269,6 +288,7 @@ export const ui = {
         '/casos/ecom': 'Caso ECOM: analítica institucional en producción sobre SQL Server y PostgreSQL.',
         '/casos/skadia': 'Caso Skadia: app de campo, visión e indicadores sin depender de señal.',
         '/agtech/lakehouse': 'Laboratorio agtech: lakehouse de demostración para ganadería de precisión.',
+        '/privacidad': 'Qué datos recoge este sitio: medición con Umami, pedidos de agenda y alojamiento en Vercel.',
       },
     },
     error: {
@@ -299,6 +319,7 @@ export const ui = {
       caseSkadia: 'Skadia case',
       lakehouse: 'Lakehouse',
       sent: 'Request sent',
+      privacy: 'Privacy',
       search: 'Search',
       soundOn: 'Turn sound on',
       soundOff: 'Mute',
@@ -529,6 +550,24 @@ export const ui = {
       files: 'Resume',
       time: 'Time',
       atsEn: 'The ATS CV downloads in English.',
+      privacy: 'Privacy',
+    },
+    privacy: {
+      kicker: 'Site',
+      title: 'Privacy',
+      lead: 'This is a personal site. There is no account, newsletter, or third-party advertising.',
+      updated: 'Updated 30 August 2026.',
+      analyticsTitle: 'Measurement',
+      analytics:
+        'I use Umami on fabricioduarte.tech: page views, no advertising cookies, and no sale of data. The script runs only on the production domain.',
+      bookTitle: 'Booking',
+      book:
+        'The form sends a name, email, slot, and optional note to fabricioduarteoficial@gmail.com. If automatic send is off, the mail client opens. I keep that data to answer the request.',
+      hostTitle: 'Hosting',
+      host:
+        'The site runs on Vercel. Technical network logs may remain on those servers for the usual hosting period.',
+      contactTitle: 'Deletion',
+      contact: 'To ask me to delete booking data, write to this address.',
     },
     meta: {
       title: 'Fabricio Duarte — Data engineering, analytics, and product',
@@ -547,6 +586,7 @@ export const ui = {
         '/casos/ecom': 'ECOM case: institutional analytics in production on SQL Server and PostgreSQL.',
         '/casos/skadia': 'Skadia case: field app, vision, and indicators without relying on signal.',
         '/agtech/lakehouse': 'Agtech lab: demonstration lakehouse for precision livestock.',
+        '/privacidad': 'What this site collects: Umami measurement, booking requests, and Vercel hosting.',
       },
     },
     error: {
@@ -577,6 +617,7 @@ export const ui = {
       caseSkadia: 'Caso Skadia',
       lakehouse: 'Lakehouse',
       sent: 'Pedido enviado',
+      privacy: 'Privacidade',
       search: 'Buscar',
       soundOn: 'Ativar som',
       soundOff: 'Silenciar',
@@ -807,6 +848,24 @@ export const ui = {
       files: 'Currículo',
       time: 'Hora',
       atsEn: 'O CV ATS é baixado em inglês.',
+      privacy: 'Privacidade',
+    },
+    privacy: {
+      kicker: 'Site',
+      title: 'Privacidade',
+      lead: 'Este site é pessoal. Não há conta, boletim nem publicidade de terceiros.',
+      updated: 'Atualizado em 30 de agosto de 2026.',
+      analyticsTitle: 'Medição',
+      analytics:
+        'Uso Umami em fabricioduarte.tech: visitas de página, sem cookies de publicidade e sem venda de dados. O script só corre no domínio de produção.',
+      bookTitle: 'Agenda',
+      book:
+        'O formulário envia nome, e-mail, horário e uma nota opcional para fabricioduarteoficial@gmail.com. Se o envio automático não estiver ativo, abre o cliente de e-mail. Guardo esses dados para responder ao pedido.',
+      hostTitle: 'Alojamento',
+      host:
+        'O site corre na Vercel. Os registros técnicos da rede podem ficar nesses servidores pelo tempo habitual de um hosting.',
+      contactTitle: 'Exclusão',
+      contact: 'Para pedir que eu apague um dado de agenda, escreva neste correio.',
     },
     meta: {
       title: 'Fabricio Duarte — Engenharia de dados, analytics e produto',
@@ -825,6 +884,7 @@ export const ui = {
         '/casos/ecom': 'Caso ECOM: analytics institucional em produção sobre SQL Server e PostgreSQL.',
         '/casos/skadia': 'Caso Skadia: app de campo, visão e indicadores sem depender de sinal.',
         '/agtech/lakehouse': 'Laboratório agtech: lakehouse de demonstração para pecuária de precisão.',
+        '/privacidad': 'Que dados este site recolhe: medição com Umami, pedidos de agenda e alojamento na Vercel.',
       },
     },
     error: {
@@ -855,6 +915,7 @@ export const ui = {
       caseSkadia: 'Skadia 案例',
       lakehouse: 'Lakehouse',
       sent: '申请已发送',
+      privacy: '隐私',
       search: '搜索',
       soundOn: '打开声音',
       soundOff: '静音',
@@ -1085,6 +1146,24 @@ export const ui = {
       files: '简历',
       time: '时间',
       atsEn: 'ATS 简历下载为英文版。',
+      privacy: '隐私',
+    },
+    privacy: {
+      kicker: '站点',
+      title: '隐私',
+      lead: '这是个人站点。没有账号、订阅或第三方广告。',
+      updated: '更新于 2026 年 8 月 30 日。',
+      analyticsTitle: '统计',
+      analytics:
+        '我在 fabricioduarte.tech 使用 Umami：记录页面访问，没有广告 cookie，也不出售数据。脚本只在生产域名运行。',
+      bookTitle: '预约',
+      book:
+        '表单会把姓名、邮箱、时段和可选备注发到 fabricioduarteoficial@gmail.com。若未开通自动发送，会打开邮件客户端。我保留这些数据以便回复。',
+      hostTitle: '托管',
+      host:
+        '站点运行在 Vercel。网络技术日志可能按托管的通常期限留在这些服务器上。',
+      contactTitle: '删除',
+      contact: '若要删除预约相关数据，请写信到此邮箱。',
     },
     meta: {
       title: 'Fabricio Duarte — 数据工程、分析与产品',
@@ -1103,6 +1182,7 @@ export const ui = {
         '/casos/ecom': 'ECOM 案例：生产环境机构分析，基于 SQL Server 与 PostgreSQL。',
         '/casos/skadia': 'Skadia 案例：田间应用、视觉与指标，不依赖信号。',
         '/agtech/lakehouse': '农业科技实验室：精准畜牧演示 lakehouse。',
+        '/privacidad': '本站收集什么：Umami 统计、预约申请与 Vercel 托管。',
       },
     },
     error: {

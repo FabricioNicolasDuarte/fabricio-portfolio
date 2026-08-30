@@ -38,10 +38,13 @@ export const CORE_ROUTES = [
   '/trayectoria',
   '/agendar',
   '/agendar/enviado',
+  '/privacidad',
   '/casos/ecom',
   '/casos/skadia',
   '/agtech/lakehouse',
 ]
+
+export const SITEMAP_ROUTES = CORE_ROUTES.filter((path) => path !== '/agendar/enviado')
 
 export const PRERENDER_ROUTES = [
   ...CORE_ROUTES,

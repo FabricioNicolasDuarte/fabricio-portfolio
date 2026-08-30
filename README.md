@@ -1,8 +1,6 @@
 # Fabricio Duarte
 
-Sitio personal: curriculum y trabajo seleccionado.
-
-**Ingeniero de software** — plataformas de datos, analítica (SQL, Apache Superset, Power BI), IA aplicada y automatización de procesos.
+Sitio personal de reclutamiento: ingeniería de datos, analítica y producto.
 
 - Sitio: [fabricioduarte.tech](https://fabricioduarte.tech)
 - Email: fabricioduarteoficial@gmail.com
@@ -15,4 +13,9 @@ npm install
 npm run dev
 ```
 
-Nuxt 3, Vue 3, Tailwind CSS. Estático y apto para Vercel (`npm run generate` / `nuxt build`).
+Nuxt 4, Vue 3, Tailwind CSS. SSR. Puerto `3055`. Despliegue en Vercel (`nuxt build`).
+
+```bash
+npm run test:e2e
+npm run sitemap
+```

@@ -4,6 +4,7 @@ export const searchPages = [
   { to: '/skadia', kind: 'page', title: 'Skadia', titleEn: 'Skadia', titlePt: 'Skadia', titleZh: 'Skadia' },
   { to: '/sobre', kind: 'page', title: 'Sobre mí', titleEn: 'About', titlePt: 'Sobre mim', titleZh: '关于我' },
   { to: '/agendar', kind: 'page', title: 'Agendar', titleEn: 'Book', titlePt: 'Agendar', titleZh: '预约' },
+  { to: '/privacidad', kind: 'page', title: 'Privacidad', titleEn: 'Privacy', titlePt: 'Privacidade', titleZh: '隐私' },
   { to: '/metodo', kind: 'page', title: 'Método', titleEn: 'Method', titlePt: 'Método', titleZh: '方法' },
   { to: '/trayectoria', kind: 'page', title: 'Trayectoria', titleEn: 'Path', titlePt: 'Trajetória', titleZh: '经历' },
   { to: '/casos/ecom', kind: 'page', title: 'Caso ECOM', titleEn: 'ECOM case', titlePt: 'Caso ECOM', titleZh: 'ECOM 案例' },

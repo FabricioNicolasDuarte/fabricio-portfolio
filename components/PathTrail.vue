@@ -26,6 +26,7 @@ const crumbs = computed(() => {
     '/skadia': [home, { label: n.skadia }],
     '/sobre': [home, { label: n.about }],
     '/trayectoria': [home, { to: localePath('/sobre'), label: n.about }, { label: n.path }],
+    '/privacidad': [home, { label: n.privacy }],
     '/agendar': [home, { label: n.book }],
     '/agendar/enviado': [home, { to: localePath('/agendar'), label: n.book }, { label: n.sent }],
     '/casos/ecom': [home, { to: localePath('/trabajo'), label: n.work }, { label: n.caseEcom }],
