@@ -109,16 +109,8 @@
     h1 em { font-style: normal; color: var(--gray-600); font-weight: 600; }
     .role { font-size: 0.84rem; color: var(--muted); margin-bottom: 12px; }
 
-    .contact { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; }
-    .contact li {
-      font-size: 0.7rem;
-      font-weight: 500;
-      color: var(--text);
-      padding: 4px 9px;
-      border: 1px solid var(--line);
-      border-radius: 6px;
-      background: var(--paper);
-    }
+    .contact { list-style: none; display: flex; flex-wrap: wrap; gap: 2px 0; font-size: 0.72rem; color: var(--text); }
+    .contact li:not(:last-child)::after { content: " · "; color: var(--gray-400); }
     .contact a { color: inherit; text-decoration: none; }
 
     .metrics { display: flex; flex-direction: column; gap: 7px; min-width: 108px; }
@@ -187,6 +179,11 @@
     }
 
     .job { margin-bottom: 12px; break-inside: avoid; }
+    .job.brief {
+      margin-bottom: 16px;
+      padding: 8px 0 10px 10px;
+      border-left: 2px solid var(--gray-200);
+    }
     .job-head { display: grid; grid-template-columns: 1fr auto; gap: 8px; align-items: baseline; }
     .job h3 { font-size: 0.92rem; font-weight: 650; }
     .job .org { font-size: 0.74rem; color: var(--muted); margin: 2px 0 5px; }
@@ -204,16 +201,16 @@
     .edu h3 { font-size: 0.8rem; }
     .edu p { font-size: 0.72rem; color: var(--muted); line-height: 1.35; }
 
-    .chips { display: flex; flex-wrap: wrap; gap: 4px; }
-    .chips span {
-      font-size: 0.64rem;
-      font-weight: 500;
-      color: var(--gray-700);
-      border: 1px solid var(--line);
-      background: var(--paper);
-      border-radius: 999px;
-      padding: 2px 7px;
+    .stack-block { margin-bottom: 16px; }
+    .stack-block h3 {
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
     }
+    .stack-block p { font-size: 0.8rem; line-height: 1.5; color: var(--text); }
 
     .side-list { list-style: none; font-size: 0.74rem; color: var(--text); }
     .side-list li { padding: 3px 0; border-bottom: 1px solid var(--gray-100); }
@@ -234,7 +231,7 @@
     }
 
     @media print {
-      .exec-header, .metric, .sidebar, .chips span, h2 .num, .photo-frame {
+      .exec-header, .metric, .sidebar, h2 .num, .photo-frame {
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
       }
@@ -319,17 +316,10 @@
           <li>Inglés — técnico intermedio</li>
           <li>Portugués — intermedio</li>
         </ul>
-
-        <h2><span class="num">04</span> También</h2>
-        <p class="edu" style="margin:0">
-          <span style="font-size:0.72rem;color:var(--muted);line-height:1.4">
-            Figma y Adobe CC para tableros y documentación visual. HTML/CSS, REST, Git, Jira / Scrum.
-          </span>
-        </p>
       </aside>
 
       <div class="main">
-        <h2><span class="num">05</span> Perfil</h2>
+        <h2><span class="num">04</span> Perfil</h2>
         <p class="summary">
           Ingeniería de datos y analítica en producción: integración entre sistemas heterogéneos, un criterio de cálculo y tableros con recorte por organismo.
           Complemento con desarrollo de aplicaciones y sitios sobre la misma información.
@@ -337,7 +327,7 @@
           Programador senior (UTN — Facultad Regional Resistencia, 9.40). Data engineer en curso (UGR).
         </p>
 
-        <h2><span class="num">06</span> Experiencia</h2>
+        <h2><span class="num">05</span> Experiencia</h2>
 
         <article class="job">
           <div class="job-head">
@@ -368,7 +358,7 @@
           </ul>
         </article>
 
-        <article class="job">
+        <article class="job brief">
           <div class="job-head">
             <h3>Asesor tecnológico y de datos</h3>
             <span class="dates">2026 — actualidad</span>
@@ -377,7 +367,7 @@
           <p class="lead">Asesoramiento personal en tecnología, datos y modernización de procesos. No es vínculo de empleo con el banco.</p>
         </article>
 
-        <article class="job">
+        <article class="job brief">
           <div class="job-head">
             <h3>Asesor tecnológico y de comunicación</h3>
             <span class="dates">2023 — 2026</span>
@@ -398,7 +388,7 @@
           </ul>
         </article>
 
-        <article class="job">
+        <article class="job brief">
           <div class="job-head">
             <h3>Asesor de comunicación y tecnología</h3>
             <span class="dates">2019 — 2023</span>
@@ -407,7 +397,7 @@
           <p class="lead">Transformación digital de canales institucionales y operación remota.</p>
         </article>
 
-        <article class="job">
+        <article class="job brief">
           <div class="job-head">
             <h3>Asesor legislativo</h3>
             <span class="dates">2015 — 2018</span>
@@ -416,7 +406,7 @@
           <p class="lead">Asesoramiento en comunicación y tecnología.</p>
         </article>
 
-        <article class="job">
+        <article class="job brief">
           <div class="job-head">
             <h3>Capacitador</h3>
             <span class="dates">2016 — 2017</span>
@@ -425,7 +415,7 @@
           <p class="lead">Capacitación en oficina y herramientas digitales para inclusión laboral.</p>
         </article>
 
-        <article class="job">
+        <article class="job brief">
           <div class="job-head">
             <h3>Asesor técnico</h3>
             <span class="dates">2016 — 2017</span>
@@ -439,37 +429,26 @@
     <section class="page2">
       <div class="page2-grid">
         <div>
-          <h2><span class="num">07</span> Stack y competencias</h2>
-          <p class="cat">Datos e ingeniería — producción</p>
-          <div class="chips">
-            <span>SQL</span><span>PostgreSQL</span><span>SQL Server</span><span>MySQL</span>
-            <span>PostGIS</span><span>MongoDB</span><span>Django</span><span>DRF</span>
-            <span>Celery / Redis</span><span>ETL</span><span>Python</span><span>pandas</span>
-            <span>Apache Superset</span><span>Power BI</span><span>DAX</span><span>Docker</span>
+          <h2><span class="num">06</span> Stack y competencias</h2>
+          <div class="stack-block">
+            <h3>Datos e ingeniería — producción</h3>
+            <p>SQL, PostgreSQL, SQL Server, MySQL, PostGIS, MongoDB. Django, DRF, Celery / Redis, ETL, Python, pandas. Apache Superset, Power BI, DAX, Docker.</p>
           </div>
-          <p class="cat">Producto y automatización — producción</p>
-          <div class="chips">
-            <span>Laravel</span><span>Livewire</span><span>PHP 8</span><span>Vue 3</span>
-            <span>Nuxt</span><span>TypeScript</span><span>Pinia</span><span>Quasar</span>
-            <span>Node.js</span><span>REST</span><span>n8n</span><span>webhooks</span>
-            <span>CI/CD</span><span>Git</span><span>Jira</span>
+          <div class="stack-block">
+            <h3>Producto y automatización — producción</h3>
+            <p>Laravel, Livewire, PHP 8, Vue 3, Nuxt, TypeScript, Pinia, Quasar, Node.js, REST. n8n, webhooks, CI/CD, Git, Jira.</p>
           </div>
-          <p class="cat">Mobile, lakehouse y modelos — sólido / aplicado</p>
-          <div class="chips">
-            <span>Expo</span><span>React Native</span><span>WatermelonDB</span>
-            <span>Flutter</span><span>Dart</span>
-            <span>Apache Airflow</span><span>PySpark</span><span>Delta Lake</span>
-            <span>Databricks</span><span>Streamlit</span>
-            <span>TensorFlow</span><span>PyTorch</span><span>Gemini</span>
-            <span>Make</span><span>Power Automate</span><span>Apps Script</span>
+          <div class="stack-block">
+            <h3>Mobile, lakehouse y modelos — sólido / aplicado</h3>
+            <p>Expo, React Native, WatermelonDB, Flutter, Dart. Apache Airflow, PySpark, Delta Lake, Databricks, Streamlit. TensorFlow, PyTorch, Gemini. Make, Power Automate, Apps Script.</p>
           </div>
-          <p class="cat">Diseño y documentación</p>
-          <div class="chips">
-            <span>Figma</span><span>Adobe CC</span><span>Photoshop</span><span>Illustrator</span>
+          <div class="stack-block">
+            <h3>Diseño y documentación</h3>
+            <p>Figma y Adobe CC (Photoshop, Illustrator) para tableros y explicación de datos.</p>
           </div>
         </div>
         <div>
-          <h2><span class="num">08</span> Productos</h2>
+          <h2><span class="num">07</span> Productos</h2>
           <ul class="proj">
             <li><strong>SIGAG</strong> — Sistema Integral de Gestión Agrícola Ganadera. Offline-first, visión, IA conversacional y orquestador. Varias instalaciones vendidas.</li>
             <li><strong>Nutrogan</strong> — Plataforma ganadera offline-first: indicadores, GIS y visión. En uso. Colaboración CEDEVA. Base técnica de SIGAG.</li>
