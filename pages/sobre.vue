@@ -18,6 +18,12 @@
         <p class="mt-5 text-lg leading-relaxed text-slate-200">{{ t.about.lead }}</p>
         <p class="mt-4 text-[15px] leading-relaxed text-slate-400">{{ t.about.body }}</p>
 
+        <div class="mt-8 flex flex-wrap gap-3">
+          <NuxtLink :to="localePath('/trayectoria')" class="fd-btn">{{ t.nav.path }}</NuxtLink>
+          <NuxtLink :to="localePath('/metodo')" class="fd-btn-outline">{{ t.nav.method }}</NuxtLink>
+          <NuxtLink :to="localePath('/agendar')" class="fd-btn-outline">{{ t.nav.book }}</NuxtLink>
+        </div>
+
         <ul class="mt-8 grid gap-3">
           <li v-for="item in t.about.points" :key="item.title" class="fd-card p-4">
             <p class="font-display text-base font-semibold text-white">{{ item.title }}</p>
@@ -26,12 +32,6 @@
         </ul>
 
         <p class="mt-6 text-sm leading-relaxed text-muted">{{ t.about.school }}</p>
-
-        <div class="mt-8 flex flex-wrap gap-3">
-          <NuxtLink :to="localePath('/trabajo')" class="fd-btn">{{ t.nav.work }}</NuxtLink>
-          <NuxtLink :to="localePath('/agendar')" class="fd-btn-outline">{{ t.nav.book }}</NuxtLink>
-          <NuxtLink :to="localePath('/trayectoria')" class="fd-btn-ghost">{{ t.nav.path }}</NuxtLink>
-        </div>
       </div>
     </section>
   </main>
