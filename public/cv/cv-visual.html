@@ -87,7 +87,6 @@
       object-position: center top;
       display: block;
       border-radius: 5px;
-      filter: grayscale(1);
     }
 
     .kicker {
@@ -220,6 +219,13 @@
     .side-list li { padding: 3px 0; border-bottom: 1px solid var(--gray-100); }
     .side-list a { color: inherit; text-decoration: none; }
 
+    .job .lead { font-size: 0.76rem; color: var(--text); margin: 0 0 5px; line-height: 1.4; }
+    .cat { font-size: 0.64rem; font-weight: 650; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin: 8px 0 5px; }
+    .page2 { padding: 22px 28px 28px; border-top: 1px solid var(--line); }
+    .page2-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .proj li { margin-bottom: 6px; font-size: 0.76rem; line-height: 1.4; color: var(--text); }
+    .proj strong { color: var(--ink); }
+
     @media screen and (max-width: 820px) {
       body { padding: 12px; }
       .header-inner, .cv-body { grid-template-columns: 1fr; }
@@ -244,6 +250,8 @@
       .cv-body { grid-template-columns: var(--sidebar) 1fr; }
       .header-inner { grid-template-columns: auto 1fr auto; }
       .job, .edu { break-inside: avoid; page-break-inside: avoid; }
+      .page2 { break-before: page; page-break-before: always; border-top: 0; padding-top: 2px; }
+      .page2-grid { grid-template-columns: 1fr 1fr; }
     }
   </style>
 </head>
@@ -280,23 +288,29 @@
         <h2><span class="num">01</span> Formación</h2>
         <div class="edu">
           <h3>Programador senior</h3>
-          <p>UTN — Facultad Regional Resistencia · promedio 9.40</p>
+          <p>UTN — Facultad Regional Resistencia. Graduado. Promedio 9.40.</p>
         </div>
         <div class="edu">
-          <h3>Data engineer</h3>
-          <p>Universidad del Gran Rosario · en curso</p>
+          <h3>Data engineer / Ciencia de datos</h3>
+          <p>Universidad del Gran Rosario. Licenciatura en curso.</p>
         </div>
         <div class="edu">
           <h3>Contador Público (ciclo básico)</h3>
-          <p>UNaF · incompleto</p>
+          <p>UNaF. Incompleto. Base contable y financiera.</p>
         </div>
 
-        <h2><span class="num">02</span> Stack</h2>
-        <div class="chips">
-          <span>Django</span><span>SQL</span><span>PostgreSQL</span><span>SQL Server</span>
-          <span>Apache Superset</span><span>Power BI</span><span>n8n</span>
-          <span>Vue / Nuxt</span><span>TypeScript</span><span>Laravel</span>
-          <span>Expo</span><span>WatermelonDB</span><span>PostGIS</span>
+        <h2><span class="num">02</span> Capacitación</h2>
+        <div class="edu">
+          <h3>Excel: funciones avanzadas</h3>
+          <p>INAP — Instituto Nacional de la Administración Pública</p>
+        </div>
+        <div class="edu">
+          <h3>Gestión financiera</h3>
+          <p>ICB Argentina</p>
+        </div>
+        <div class="edu">
+          <h3>Comunicación institucional</h3>
+          <p>Universidad de Belgrano</p>
         </div>
 
         <h2><span class="num">03</span> Idiomas</h2>
@@ -306,22 +320,21 @@
           <li>Portugués — intermedio</li>
         </ul>
 
-        <h2><span class="num">04</span> Productos</h2>
-        <ul class="side-list">
-          <li><strong>SIGAG</strong> — campo offline; varias instalaciones</li>
-          <li><strong>Nutrogan</strong> — en uso; colaboración CEDEVA</li>
-          <li><strong>SIGCL</strong> — institutos; vendida 4 veces</li>
-          <li><strong>Cocoma</strong> — escritorio de oferta; 1 venta</li>
-          <li><strong>FormoBus</strong> — PWA; donada a organismo</li>
-        </ul>
+        <h2><span class="num">04</span> También</h2>
+        <p class="edu" style="margin:0">
+          <span style="font-size:0.72rem;color:var(--muted);line-height:1.4">
+            Figma y Adobe CC para tableros y documentación visual. HTML/CSS, REST, Git, Jira / Scrum.
+          </span>
+        </p>
       </aside>
 
       <div class="main">
         <h2><span class="num">05</span> Perfil</h2>
         <p class="summary">
-          Hago que las decisiones se tomen sobre datos fieles: un criterio de cálculo, tableros que se entienden y sistemas en producción.
-          En ECOM esa analítica la usan organismos distintos al equipo que la construye. Programador senior (UTN — Facultad Regional Resistencia).
-          Data engineer en curso en la Universidad del Gran Rosario.
+          Ingeniería de datos y analítica en producción: integración entre sistemas heterogéneos, un criterio de cálculo y tableros con recorte por organismo.
+          Complemento con desarrollo de aplicaciones y sitios sobre la misma información.
+          En ECOM esa analítica la usan instituciones distintas al equipo que la construye.
+          Programador senior (UTN — Facultad Regional Resistencia, 9.40). Data engineer en curso (UGR).
         </p>
 
         <h2><span class="num">06</span> Experiencia</h2>
@@ -331,11 +344,13 @@
             <h3>Ingeniería de datos y software</h3>
             <span class="dates">2023 — actualidad</span>
           </div>
-          <p class="org"><a href="https://www.ecom.com.ar/">ECOM Chaco</a> — empresa tecnológica provincial (SAPEM)</p>
+          <p class="org"><a href="https://www.ecom.com.ar/">ECOM Chaco S.A.</a> — empresa tecnológica de la Provincia del Chaco (SAPEM)</p>
+          <p class="lead">Diseño y opero plataformas de datos que usan organismos todos los días: tableros, permisos y procesos que corren solos.</p>
           <ul>
-            <li>Tableros institucionales en Apache Superset y Power BI, con recorte por organismo, sobre SQL Server y PostgreSQL en producción.</li>
-            <li>Plataforma de establecimientos e instituciones; datasets y métricas que alimentan a quien decide, no solo al equipo que construye.</li>
-            <li>Integración, un criterio de cálculo y publicación continua. Si una carga falla, el sistema avisa.</li>
+            <li>Arquitectura de información y tableros (Apache Superset / Power BI) con recorte por organismo e identidad federada: cada uno ve solo lo suyo.</li>
+            <li>Backend Django: GIS, KPIs, auditoría de quién consulta y exportación controlada de datasets.</li>
+            <li>Plataforma de Servicios e Instituciones; plataforma de Personas Físicas y Jurídicas.</li>
+            <li>Cruce de SQL Server y PostgreSQL. Refresco en cluster. Si una carga falla, el sistema avisa (Celery / Redis).</li>
           </ul>
         </article>
 
@@ -345,9 +360,11 @@
             <span class="dates">2022 — actualidad</span>
           </div>
           <p class="org">Skadia — ganadería de precisión</p>
+          <p class="lead">Dirección técnica de productos digitales en agrotech.</p>
           <ul>
-            <li>SIGAG: captura en campo sin señal, visión y sincronización al volver la red.</li>
-            <li>Lakehouse de demostración (ganancia diaria, carga, horas de calor, BCS) y sitio de marca.</li>
+            <li>SIGAG: captura en campo sin señal (Expo, WatermelonDB), visión, sincronización al volver la red.</li>
+            <li>Arquitectura, CI/CD y equipos ágiles (Jira / Scrum).</li>
+            <li>Lakehouse de demostración: Airflow + PySpark (ganancia diaria, carga, horas de calor, BCS).</li>
           </ul>
         </article>
 
@@ -356,10 +373,8 @@
             <h3>Asesor tecnológico y de datos</h3>
             <span class="dates">2026 — actualidad</span>
           </div>
-          <p class="org">Consultoría — <a href="https://www.nbch.com.ar/institucional/autoridades">Livio Gutiérrez</a>, Presidencia NBCH</p>
-          <ul>
-            <li>Asesoramiento personal en tecnología, datos y modernización de procesos.</li>
-          </ul>
+          <p class="org">Consultoría — <a href="https://www.nbch.com.ar/institucional/autoridades">Livio Gutiérrez</a>, Presidencia del Nuevo Banco del Chaco</p>
+          <p class="lead">Asesoramiento personal en tecnología, datos y modernización de procesos. No es vínculo de empleo con el banco.</p>
         </article>
 
         <article class="job">
@@ -367,7 +382,8 @@
             <h3>Asesor tecnológico y de comunicación</h3>
             <span class="dates">2023 — 2026</span>
           </div>
-          <p class="org">Consultoría — Livio Gutiérrez (Gabinete Chaco)</p>
+          <p class="org">Consultoría — Livio Gutiérrez (Coordinación de Gabinete, Chaco)</p>
+          <p class="lead">Asesoramiento personal en comunicación y tecnología digital.</p>
         </article>
 
         <article class="job">
@@ -375,21 +391,96 @@
             <h3>Asesor tecnológico y de datos</h3>
             <span class="dates">2018 — actualidad</span>
           </div>
-          <p class="org">Julián Bibolini · Desarrollo Humano / UPLAB · Formosa</p>
+          <p class="org">Mg. Méd. Julián Bibolini · Ministerio de Desarrollo Humano / UPLAB · Formosa</p>
           <ul>
-            <li>Datos sanitarios e indicadores para decisión institucional; gestión académica (Facultad de Medicina).</li>
+            <li>Datos sanitarios e indicadores para decisión institucional; no operación transaccional.</li>
+            <li>Consolidación y reporte a autoridad; modernización de la gestión académica (Facultad de Medicina).</li>
           </ul>
         </article>
 
         <article class="job">
           <div class="job-head">
-            <h3>Asesorías en sector público</h3>
-            <span class="dates">2015 — 2023</span>
+            <h3>Asesor de comunicación y tecnología</h3>
+            <span class="dates">2019 — 2023</span>
           </div>
-          <p class="org">Concejo Municipal Pcia. R. Sáenz Peña · Diputados · Defensoría del Pueblo Adjunta · Alfabetización Digital</p>
+          <p class="org">Concejo Municipal de Presidencia Roque Sáenz Peña (Pedro Egea) · Chaco</p>
+          <p class="lead">Transformación digital de canales institucionales y operación remota.</p>
+        </article>
+
+        <article class="job">
+          <div class="job-head">
+            <h3>Asesor legislativo</h3>
+            <span class="dates">2015 — 2018</span>
+          </div>
+          <p class="org">Consultoría — Cámara de Diputados del Chaco (Livio Gutiérrez)</p>
+          <p class="lead">Asesoramiento en comunicación y tecnología.</p>
+        </article>
+
+        <article class="job">
+          <div class="job-head">
+            <h3>Capacitador</h3>
+            <span class="dates">2016 — 2017</span>
+          </div>
+          <p class="org">Plan Nacional de Alfabetización Digital · Ministerio de Modernización</p>
+          <p class="lead">Capacitación en oficina y herramientas digitales para inclusión laboral.</p>
+        </article>
+
+        <article class="job">
+          <div class="job-head">
+            <h3>Asesor técnico</h3>
+            <span class="dates">2016 — 2017</span>
+          </div>
+          <p class="org">Defensoría del Pueblo de Formosa — Defensor Adjunto Hugo Maldonado</p>
+          <p class="lead">Apoyo técnico en gestión de reclamos y comunicación digital.</p>
         </article>
       </div>
     </div>
+
+    <section class="page2">
+      <div class="page2-grid">
+        <div>
+          <h2><span class="num">07</span> Stack y competencias</h2>
+          <p class="cat">Datos e ingeniería — producción</p>
+          <div class="chips">
+            <span>SQL</span><span>PostgreSQL</span><span>SQL Server</span><span>MySQL</span>
+            <span>PostGIS</span><span>MongoDB</span><span>Django</span><span>DRF</span>
+            <span>Celery / Redis</span><span>ETL</span><span>Python</span><span>pandas</span>
+            <span>Apache Superset</span><span>Power BI</span><span>DAX</span><span>Docker</span>
+          </div>
+          <p class="cat">Producto y automatización — producción</p>
+          <div class="chips">
+            <span>Laravel</span><span>Livewire</span><span>PHP 8</span><span>Vue 3</span>
+            <span>Nuxt</span><span>TypeScript</span><span>Pinia</span><span>Quasar</span>
+            <span>Node.js</span><span>REST</span><span>n8n</span><span>webhooks</span>
+            <span>CI/CD</span><span>Git</span><span>Jira</span>
+          </div>
+          <p class="cat">Mobile, lakehouse y modelos — sólido / aplicado</p>
+          <div class="chips">
+            <span>Expo</span><span>React Native</span><span>WatermelonDB</span>
+            <span>Flutter</span><span>Dart</span>
+            <span>Apache Airflow</span><span>PySpark</span><span>Delta Lake</span>
+            <span>Databricks</span><span>Streamlit</span>
+            <span>TensorFlow</span><span>PyTorch</span><span>Gemini</span>
+            <span>Make</span><span>Power Automate</span><span>Apps Script</span>
+          </div>
+          <p class="cat">Diseño y documentación</p>
+          <div class="chips">
+            <span>Figma</span><span>Adobe CC</span><span>Photoshop</span><span>Illustrator</span>
+          </div>
+        </div>
+        <div>
+          <h2><span class="num">08</span> Productos</h2>
+          <ul class="proj">
+            <li><strong>SIGAG</strong> — Sistema Integral de Gestión Agrícola Ganadera. Offline-first, visión, IA conversacional y orquestador. Varias instalaciones vendidas.</li>
+            <li><strong>Nutrogan</strong> — Plataforma ganadera offline-first: indicadores, GIS y visión. En uso. Colaboración CEDEVA. Base técnica de SIGAG.</li>
+            <li><strong>SIGCL</strong> — Institutos de capacitación: sedes, matrícula, asistencia QR, arancel, actas y analíticos. Vendida 4 veces.</li>
+            <li><strong>Cocoma</strong> — Escritorio de oferta: tarifario, COCOMO I/II, EDT, riesgo P80 y PDF/Excel. Comercializada USD 1.500.</li>
+            <li><strong>Pasarela de cobros</strong> — Conciliación asíncrona por colas, webhooks y lotes.</li>
+            <li><strong>FormoBus</strong> — PWA de transporte urbano. Donada; en uso en un organismo público.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
   </article>
 </body>
 </html>
