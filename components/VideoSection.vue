@@ -10,13 +10,15 @@
           <a class="text-lime-300 underline decoration-lime-500/30 underline-offset-4 hover:text-lime-200" href="https://github.com/FabricioNicolasDuarte/Nutrogan" target="_blank" rel="noopener noreferrer">github.com/FabricioNicolasDuarte/Nutrogan</a>
         </p>
       </div>
-      <div class="relative">
-        <div class="absolute -inset-1 rounded-3xl bg-gradient-to-br from-lime-400/40 via-lime-500/20 to-transparent blur-md"></div>
-        <div class="relative overflow-hidden rounded-3xl border border-white/10 bg-slate-950">
-          <video controls class="aspect-video w-full" poster="/images/nutrogan-poster.jpg" preload="metadata">
-            <source src="/images/nutrogan-demo.mp4" type="video/mp4">
-          </video>
-        </div>
+      <div class="overflow-hidden rounded-3xl border border-white/10 bg-slate-950">
+        <img
+          src="/mockups/nutrogan.jpg"
+          alt="Nutrogan"
+          class="aspect-video w-full object-cover object-top"
+          width="1200"
+          height="675"
+          loading="lazy"
+        />
       </div>
     </div>
   </section>

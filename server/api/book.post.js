@@ -45,7 +45,8 @@ export default defineEventHandler(async (event) => {
     note || '(sin nota)',
   ].join('\n')
 
-  const key = useRuntimeConfig().resendApiKey
+  const config = useRuntimeConfig()
+  const key = config.resendApiKey
   if (!key) {
     throw createError({ statusCode: 503, statusMessage: 'Mail unavailable', data: { channel: 'mailto' } })
   }
@@ -57,7 +58,7 @@ export default defineEventHandler(async (event) => {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      from: 'Fabricio Duarte <onboarding@resend.dev>',
+      from: config.resendFrom,
       to: [TO],
       reply_to: email,
       subject: `Pedido de entrevista — ${name || email} — ${day} ${hour}`,

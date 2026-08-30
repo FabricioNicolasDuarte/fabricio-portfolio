@@ -42,7 +42,7 @@ export const ui = {
     hero: {
       badge: 'Argentina · Ingeniería de datos',
       lead:
-        'Diseño e implemento el ciclo del dato en producción: integro sistemas heterogéneos, unifico el criterio de cálculo y publico tableros con recorte por identidad. En ECOM esa analítica la consumen organismos distintos al equipo que la construye. El desarrollo de aplicaciones y sitios sostiene esa misma información en operación.',
+        'Hago que las decisiones se tomen sobre datos fieles: un criterio de cálculo, tableros que se entienden y sistemas en producción. En ECOM esa analítica la usan organismos distintos al equipo que la construye.',
       bodyBefore:
         'Stack en producción: Django, SQL (PostgreSQL / SQL Server), Apache Superset, Power BI, n8n y aplicaciones offline-first. Programador senior (',
       utn: 'UTN — Facultad Regional Resistencia',
@@ -64,7 +64,7 @@ export const ui = {
       ],
     },
     home: {
-      metodo: 'De orígenes dispersos a un indicador con un solo criterio, publicado y operable.',
+      metodo: 'De datos dispersos a un indicador fiel, publicado y usable.',
       proofs: 'En producción',
       ecomTitle: 'Tableros institucionales',
       ecom: 'Analítica en producción sobre SQL Server y PostgreSQL, con recorte por organismo.',
@@ -111,30 +111,30 @@ export const ui = {
       kicker: 'Método',
       title: 'Del origen al indicador',
       intro:
-        'El trabajo empieza en las fuentes y en el significado de cada métrica. Recién después se construye el modelo y se publica el tablero. El software se diseña para que ese criterio se sostenga: misma definición en la base, en el panel y en la exportación.',
+        'Primero se acuerda qué significa cada número. Después se unifica y se publica un tablero que se entiende. El software existe para que ese criterio se sostenga: el mismo en la base, en el panel y en el reporte.',
       note:
-        'El acceso se define por identidad. Queda registro de consultas y exportaciones. Los procesos automáticos reintentan y, si persisten en fallar, escalan. Nada se pierde en silencio.',
+        'Cada persona ve lo que le corresponde. Queda registro de consultas. Si una actualización falla, se avisa.',
       lab: 'Ejemplo técnico →',
       steps: [
         {
-          title: 'Orígenes y contrato',
-          body: 'Inventario de bases, APIs y archivos. No reescribo el sistema de origen: lo expongo con campos, tipos y frecuencia acordados.',
+          title: 'Qué hay que medir',
+          body: 'Acuerdo el significado de cada indicador con quien lo usa y con quien decide. Sin eso, el tablero solo acelera el error.',
+          detail: 'Inventario de bases, APIs y archivos. El sistema de origen no se reescribe: se expone con campos y frecuencia acordados.',
         },
         {
-          title: 'Calidad y preparación',
-          body: 'Unifico nombres, elimino duplicados y valido rangos. La regla es independiente del motor (Airflow, Spark o Celery).',
+          title: 'Un solo criterio',
+          body: 'Unifico y limpio para que el tablero y el reporte no se contradigan. Se discute el problema, no qué planilla es la verdadera.',
+          detail: 'Calidad, rangos y un modelo reutilizable. La regla no depende del motor (Airflow, Spark o Celery).',
         },
         {
-          title: 'Modelo semántico',
-          body: 'Hechos y dimensiones reutilizables. Un indicador, un criterio: el tablero y el dataset exportado no pueden divergir.',
+          title: 'Mostrar para decidir',
+          body: 'Publico el tablero donde se trabaja: claro, usable, con la información que cada rol necesita.',
+          detail: 'Apache Superset o Power BI sobre datos ya consolidados. No es un archivo que circula por correo.',
         },
         {
-          title: 'Publicación',
-          body: 'Tableros sobre datos ya consolidados, embebidos donde se trabaja, con recorte por rol. No es un archivo que circula por correo.',
-        },
-        {
-          title: 'Operación',
-          body: 'Si un lote falla o un indicador se desvía, llega una alerta. El dato no termina en un gráfico: dispara una acción o un control.',
+          title: 'Que siga funcionando',
+          body: 'Si una carga falla, se avisa. El número no se queda solo en un gráfico: sostiene la operación.',
+          detail: 'Reintentos, registro de consulta y exportación, alerta si el proceso no termina.',
         },
       ],
     },
@@ -154,7 +154,7 @@ export const ui = {
         },
         {
           kicker: 'Después',
-          title: 'Un criterio, un recorte, un rastro',
+          title: 'Un criterio, visible y registrable',
           accent: true,
           lines: [
             'Una definición por entidad, idéntica en el tablero y en la exportación.',
@@ -239,8 +239,8 @@ export const ui = {
     book: {
       kicker: 'Agenda',
       title: 'Entrevista exploratoria, 25 minutos',
-      body: 'Un recruiter o hiring manager puede proponer un horario. Confirmación por correo a fabricioduarteoficial@gmail.com.',
-      meta: 'Google Meet u otra sala que indiques. No hay cámara embebida en este sitio.',
+      body: 'Proponé un horario. El sitio arma un correo a fabricioduarteoficial@gmail.com con el pedido listo. No hay calendario embebido.',
+      meta: 'Google Meet u otra sala que indiques. Si el envío automático no está activo, se abre tu cliente de correo.',
       zone: 'Horarios en zona Buenos Aires (GMT−3).',
       name: 'Nombre',
       email: 'Email de contacto',
@@ -248,7 +248,7 @@ export const ui = {
       hour: 'Hora',
       hourPick: 'Elegir hora',
       note: 'Contexto opcional (rol, empresa)',
-      submit: 'Enviar pedido',
+      submit: 'Abrir correo con el pedido',
       sending: 'Enviando…',
       fail: 'No se pudo enviar desde el sitio. Se abre el correo local como respaldo.',
       sentTitle: 'Pedido enviado',
@@ -318,7 +318,7 @@ export const ui = {
     hero: {
       badge: 'Argentina · Data engineering',
       lead:
-        'I design and run the data cycle in production: I integrate heterogeneous systems, unify the calculation rule, and publish dashboards scoped by identity. At ECOM that analytics is consumed by agencies other than the team that builds it. Applications and sites carry the same information into day-to-day operations.',
+        'I work so decisions are made on faithful data: one calculation rule, dashboards people can read, and systems in production. At ECOM that analytics is used by agencies other than the team that builds it.',
       bodyBefore:
         'Production stack: Django, SQL (PostgreSQL / SQL Server), Apache Superset, Power BI, n8n, and offline-first applications. Senior programmer (',
       utn: 'UTN — Facultad Regional Resistencia',
@@ -340,7 +340,7 @@ export const ui = {
       ],
     },
     home: {
-      metodo: 'From scattered sources to a single-definition metric, published and operable.',
+      metodo: 'From scattered data to a faithful metric, published and usable.',
       proofs: 'In production',
       ecomTitle: 'Institutional dashboards',
       ecom: 'Production analytics on SQL Server and PostgreSQL, scoped by organization.',
@@ -387,30 +387,30 @@ export const ui = {
       kicker: 'Method',
       title: 'From source to metric',
       intro:
-        'The work starts with the sources and the meaning of each metric. Only then comes the model and the dashboard. Software is designed so that definition holds: the same rule in the database, on the dashboard, and in the export.',
+        'First we agree what each number means. Then we unify it and publish a dashboard people can use. Software exists so that rule holds: the same in the database, on the panel, and in the report.',
       note:
-        'Access is defined by identity. Queries and exports are logged. Automated jobs retry and, if they keep failing, escalate. Nothing disappears in silence.',
+        'Each person sees what they are allowed to see. Queries are logged. If an update fails, someone is told.',
       lab: 'Technical example →',
       steps: [
         {
-          title: 'Sources and contract',
-          body: 'Inventory of databases, APIs, and files. I do not rewrite the source system: I expose it with agreed fields, types, and frequency.',
+          title: 'What to measure',
+          body: 'I agree the meaning of each metric with the people who use it and the people who decide. Without that, a dashboard only speeds up the error.',
+          detail: 'Inventory of databases, APIs, and files. The source system is not rewritten: it is exposed with agreed fields and frequency.',
         },
         {
-          title: 'Quality and preparation',
-          body: 'I align names, remove duplicates, and validate ranges. The rule is independent of the engine (Airflow, Spark, or Celery).',
+          title: 'One rule',
+          body: 'I unify and clean so the dashboard and the report do not contradict each other. The debate is the problem, not which spreadsheet is true.',
+          detail: 'Quality checks, ranges, and a reusable model. The rule does not depend on the engine (Airflow, Spark, or Celery).',
         },
         {
-          title: 'Semantic model',
-          body: 'Reusable facts and dimensions. One metric, one rule: the dashboard and the exported dataset cannot diverge.',
+          title: 'Show it to decide',
+          body: 'I publish the dashboard where people work: clear, usable, with what each role needs.',
+          detail: 'Apache Superset or Power BI on already-consolidated data. Not a file circulating by email.',
         },
         {
-          title: 'Publication',
-          body: 'Dashboards on already-consolidated data, embedded where people work, scoped by role. Not a file circulating by email.',
-        },
-        {
-          title: 'Operations',
-          body: 'If a batch fails or a metric drifts, an alert fires. Data does not stop at a chart: it triggers an action or a control.',
+          title: 'Keep it running',
+          body: 'If a load fails, it is flagged. The number does not sit only on a chart: it supports operations.',
+          detail: 'Retries, query and export logs, and an alert if the job does not finish.',
         },
       ],
     },
@@ -430,7 +430,7 @@ export const ui = {
         },
         {
           kicker: 'After',
-          title: 'One rule, one scope, one trail',
+          title: 'One rule, visible and logged',
           accent: true,
           lines: [
             'One definition per entity, identical on the dashboard and in the export.',
@@ -515,8 +515,8 @@ export const ui = {
     book: {
       kicker: 'Schedule',
       title: 'Exploratory interview, 25 minutes',
-      body: 'A recruiter or hiring manager can propose a slot. Confirmation goes by email to fabricioduarteoficial@gmail.com.',
-      meta: 'Google Meet or another room you name. This site does not embed a camera.',
+      body: 'Propose a slot. The site prepares an email to fabricioduarteoficial@gmail.com with the request ready. There is no embedded calendar.',
+      meta: 'Google Meet or another room you name. If automatic send is off, your mail client opens.',
       zone: 'Slots are in Buenos Aires time (GMT−3).',
       name: 'Name',
       email: 'Contact email',
@@ -524,7 +524,7 @@ export const ui = {
       hour: 'Time',
       hourPick: 'Pick a time',
       note: 'Optional context (role, company)',
-      submit: 'Send request',
+      submit: 'Open email with the request',
       sending: 'Sending…',
       fail: 'The site could not send. Your local mail client opens as a fallback.',
       sentTitle: 'Request sent',
@@ -594,7 +594,7 @@ export const ui = {
     hero: {
       badge: 'Argentina · Engenharia de dados',
       lead:
-        'Desenho e implemento o ciclo do dado em produção: integro sistemas heterogêneos, unifico o critério de cálculo e publico painéis com recorte por identidade. Na ECOM essa analytics é consumida por órgãos distintos da equipe que a constrói. O desenvolvimento de aplicativos e sites sustenta a mesma informação na operação.',
+        'Faço com que as decisões se tomem sobre dados fiéis: um critério de cálculo, painéis que se entendem e sistemas em produção. Na ECOM essa analytics é usada por órgãos distintos da equipe que a constrói.',
       bodyBefore:
         'Stack em produção: Django, SQL (PostgreSQL / SQL Server), Apache Superset, Power BI, n8n e aplicações offline-first. Programador sênior (',
       utn: 'UTN — Faculdade Regional Resistencia',
@@ -616,7 +616,7 @@ export const ui = {
       ],
     },
     home: {
-      metodo: 'De origens dispersas a um indicador com um só critério, publicado e operável.',
+      metodo: 'De dados dispersos a um indicador fiel, publicado e usável.',
       proofs: 'Em produção',
       ecomTitle: 'Painéis institucionais',
       ecom: 'Analytics em produção sobre SQL Server e PostgreSQL, recortado por órgão.',
@@ -663,30 +663,30 @@ export const ui = {
       kicker: 'Método',
       title: 'Da origem ao indicador',
       intro:
-        'O trabalho começa nas fontes e no significado de cada métrica. Só depois se constrói o modelo e se publica o painel. O software é desenhado para que esse critério se sustente: a mesma definição na base, no painel e na exportação.',
+        'Primeiro se acorda o que cada número significa. Depois se unifica e se publica um painel que se entende. O software existe para que esse critério se sustente: o mesmo na base, no painel e no relatório.',
       note:
-        'O acesso se define por identidade. Consultas e exportações ficam registradas. Processos automáticos tentam de novo e, se continuam falhando, escalam. Nada se perde em silêncio.',
+        'Cada pessoa vê o que lhe corresponde. Consultas ficam registradas. Se uma atualização falha, avisa-se.',
       lab: 'Exemplo técnico →',
       steps: [
         {
-          title: 'Origens e contrato',
-          body: 'Inventário de bancos, APIs e arquivos. Não reescrevo o sistema de origem: exponho com campos, tipos e frequência acordados.',
+          title: 'O que medir',
+          body: 'Acordo o significado de cada indicador com quem o usa e com quem decide. Sem isso, o painel só acelera o erro.',
+          detail: 'Inventário de bancos, APIs e arquivos. O sistema de origem não se reescreve: expõe-se com campos e frequência acordados.',
         },
         {
-          title: 'Qualidade e preparação',
-          body: 'Unifico nomes, elimino duplicatas e valido faixas. A regra independe do motor (Airflow, Spark ou Celery).',
+          title: 'Um só critério',
+          body: 'Unifico e limpo para que o painel e o relatório não se contradigam. Discute-se o problema, não qual planilha é a verdadeira.',
+          detail: 'Qualidade, faixas e um modelo reutilizável. A regra não depende do motor (Airflow, Spark ou Celery).',
         },
         {
-          title: 'Modelo semântico',
-          body: 'Fatos e dimensões reutilizáveis. Um indicador, um critério: o painel e o dataset exportado não podem divergir.',
+          title: 'Mostrar para decidir',
+          body: 'Publico o painel onde se trabalha: claro, usável, com o que cada papel precisa.',
+          detail: 'Apache Superset ou Power BI sobre dados já consolidados. Não é um arquivo que circula por e-mail.',
         },
         {
-          title: 'Publicação',
-          body: 'Painéis sobre dados já consolidados, embutidos onde se trabalha, com recorte por papel. Não é um arquivo que circula por e-mail.',
-        },
-        {
-          title: 'Operação',
-          body: 'Se um lote falha ou um indicador desvia, chega um alerta. O dado não termina no gráfico: dispara uma ação ou um controle.',
+          title: 'Continuar a funcionar',
+          body: 'Se uma carga falha, avisa-se. O número não fica só num gráfico: sustenta a operação.',
+          detail: 'Novas tentativas, registro de consulta e exportação, alerta se o processo não termina.',
         },
       ],
     },
@@ -706,7 +706,7 @@ export const ui = {
         },
         {
           kicker: 'Depois',
-          title: 'Um critério, um recorte, um rastro',
+          title: 'Um critério, visível e registrável',
           accent: true,
           lines: [
             'Uma definição por entidade, idêntica no painel e na exportação.',
@@ -791,8 +791,8 @@ export const ui = {
     book: {
       kicker: 'Agenda',
       title: 'Entrevista exploratória, 25 minutos',
-      body: 'Um recrutador ou gestor de contratação pode propor um horário. Confirmação por e-mail para fabricioduarteoficial@gmail.com.',
-      meta: 'Google Meet ou outra sala que você indicar. Não há câmera embutida neste site.',
+      body: 'Proponha um horário. O site monta um e-mail para fabricioduarteoficial@gmail.com com o pedido pronto. Não há calendário embutido.',
+      meta: 'Google Meet ou outra sala que você indicar. Se o envio automático não estiver ativo, abre o seu cliente de e-mail.',
       zone: 'Horários no fuso de Buenos Aires (GMT−3).',
       name: 'Nome',
       email: 'E-mail de contato',
@@ -800,7 +800,7 @@ export const ui = {
       hour: 'Hora',
       hourPick: 'Escolher hora',
       note: 'Contexto opcional (vaga, empresa)',
-      submit: 'Enviar pedido',
+      submit: 'Abrir e-mail com o pedido',
       sending: 'Enviando…',
       fail: 'O site não conseguiu enviar. O e-mail local abre como reserva.',
       sentTitle: 'Pedido enviado',
@@ -870,7 +870,7 @@ export const ui = {
     hero: {
       badge: '阿根廷 · 数据工程',
       lead:
-        '我在生产环境设计并实施完整的数据链路：对接异构系统、统一计算口径，并按身份发布看板。在 ECOM，使用这套分析的机构与建设团队不是同一方。应用和网站把同一套信息落到日常操作。',
+        '我让决策建立在可靠的数据上：一套计算口径、看得懂的看板、已上线的系统。在 ECOM，使用这套分析的机构与建设团队不是同一方。',
       bodyBefore:
         '生产环境技术栈：Django、SQL（PostgreSQL / SQL Server）、Apache Superset、Power BI、n8n，以及离线优先应用。高级程序员（',
       utn: '国立技术大学（UTN）雷西斯滕西亚地区分校',
@@ -892,7 +892,7 @@ export const ui = {
       ],
     },
     home: {
-      metodo: '从来源分散，到口径唯一、可发布、可运营的指标。',
+      metodo: '从分散数据到可靠、可发布、可用的指标。',
       proofs: '生产环境',
       ecomTitle: '机构看板',
       ecom: '生产环境分析：SQL Server 与 PostgreSQL，按机构划分范围。',
@@ -939,30 +939,30 @@ export const ui = {
       kicker: '方法',
       title: '从来源到指标',
       intro:
-        '工作从数据来源和每项指标的含义开始。然后才建模、发布看板。软件的设计是为了让口径站住：库里、看板上、导出里是同一套定义。',
+        '先约定每个数字是什么意思。再统一、发布一张看得懂的看板。软件是为了让口径站住：库里、看板上、报表里同一套。',
       note:
-        '访问按身份划分。查询和导出有记录。自动任务会重试，仍失败则升级处理。不会悄悄丢掉。',
+        '每人只看自己该看的。查询有记录。更新失败会有人知道。',
       lab: '技术示例 →',
       steps: [
         {
-          title: '来源与约定',
-          body: '盘点数据库、API 和文件。不重写原系统，而是按约定的字段、类型和频率对外提供。',
+          title: '要量什么',
+          body: '和使用者、决策者约定每个指标的含义。没有这一步，看板只会让错误更快。',
+          detail: '盘点数据库、API 和文件。不重写原系统，按约定字段和频率对外提供。',
         },
         {
-          title: '质量与准备',
-          body: '统一名称、去重、校验范围。规则不依赖引擎（Airflow、Spark 或 Celery）。',
+          title: '一套口径',
+          body: '统一并清洗，让看板和报表不互相打架。争论的是问题，不是哪张表才算数。',
+          detail: '质量、范围和可复用模型。规则不依赖引擎（Airflow、Spark 或 Celery）。',
         },
         {
-          title: '语义模型',
-          body: '可复用的事实表与维度。一个指标、一套口径：看板和导出数据集不能分叉。',
+          title: '拿出来做决定',
+          body: '把看板放到日常工作里：清楚、好用，每个角色看到该看的。',
+          detail: '在已汇总数据上用 Apache Superset 或 Power BI。不是邮件里传来传去的文件。',
         },
         {
-          title: '发布',
-          body: '在已汇总的数据上做看板，嵌进日常系统，按角色划分可见范围。不是在邮件里传来传去的文件。',
-        },
-        {
-          title: '运营',
-          body: '批次失败或指标偏离时发出告警。数据不只停在图表，会触发动作或管控。',
+          title: '让它继续跑',
+          body: '加载失败会告知。数字不只停在图上，要撑住运营。',
+          detail: '重试、查询与导出记录，任务没跑完就告警。',
         },
       ],
     },
@@ -982,7 +982,7 @@ export const ui = {
         },
         {
           kicker: '之后',
-          title: '一套口径、一个范围、一条痕迹',
+          title: '一套口径，看得见、留得下',
           accent: true,
           lines: [
             '每个主体一个定义，看板和导出完全一致。',
@@ -1067,8 +1067,8 @@ export const ui = {
     book: {
       kicker: '预约',
       title: '探索性面试，25 分钟',
-      body: '招聘方可提议时段。确认邮件发至 fabricioduarteoficial@gmail.com。',
-      meta: 'Google Meet 或你指定的会议室。本站不嵌入摄像头。',
+      body: '请提议一个时段。站点会写好发给 fabricioduarteoficial@gmail.com 的邮件。没有内嵌日历。',
+      meta: 'Google Meet 或你指定的会议室。若未开通自动发送，会打开你的邮件客户端。',
       zone: '时段为布宜诺斯艾利斯时区（GMT−3）。',
       name: '姓名',
       email: '联系邮箱',
@@ -1076,7 +1076,7 @@ export const ui = {
       hour: '时间',
       hourPick: '选择时间',
       note: '可选背景（职位、公司）',
-      submit: '发送申请',
+      submit: '打开邮件填写申请',
       sending: '发送中…',
       fail: '站点未能发送。将打开本地邮件作为备用。',
       sentTitle: '申请已发送',

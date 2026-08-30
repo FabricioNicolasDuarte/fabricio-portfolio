@@ -1,0 +1,34 @@
+---
+description: Plan de estándar internacional de fabricioduarte.tech — voz, P0/P1 y qué no romper
+alwaysApply: true
+---
+
+# Estándar internacional — fabricioduarte.tech
+
+Sitio personal de reclutamiento (datos primero). Nota actual ~5.3/10. Informe: canvas `fabricioduarte-international-standard.canvas.tsx`.
+
+## No romper
+
+Nav de 4 (Trabajo, Skadia, Sobre, Agendar). Cmd+K. Path i18n (`/` ES; `/en` `/pt` `/zh`). Argentina como ubicación (no “Resistencia, Chaco”). UTN — Facultad Regional Resistencia (nombre oficial). Skadia, no Axia. 25+ en producción. ECOM primero. Sobre: botones superiores Trayectoria / Método / Agendar. Lima `#A2FF00` sobre negro. Sin middleware `?lang=`.
+
+## Voz (no oscilar cada commit)
+
+- Prosa profesional. Decisiones sobre **datos fieles**. Calidad de producto, visualización, usabilidad, eficiencia.
+- No consignas (“que toda la organización…”), no coloquial (WhatsApp, viernes 18), no jerga suelta (contrato de orígenes, recorte por identidad, Celery) como lead.
+- Método: capa A (gerente) primero; capa B técnica opcional. Apps/web son soporte del dato, no el relato.
+
+## P0 — en curso / hecho en código
+
+1. Video Nutrogan 4.4 GB: ya no se sirve; poster `/mockups/nutrogan.jpg` + gitignore del master
+2. Headers + CSP en `nuxt.config.ts` (HSTS solo production; iframe lakehouse SAMEORIGIN)
+3. Agendar: mailto honesto; API si hay `RESEND_API_KEY` + `RESEND_FROM`
+4. Hero: una promesa, stats como prueba, un CTA (Agendar); Trabajo en texto
+5. Método: capa A (pasos) + `detail` técnico opcional
+
+## P1
+
+Lockfile versionado + Playwright (home, sobre, metodo, agendar) + axe. CV ZH: inglés con aviso, o PDF propio. JSON-LD y mail de reserva según locale. Regenerar `cv-visual.pdf`. error.vue con shell. Sobre como hub. Borrar keys muertas (`intro`, `hero.cvVisual`, `method.lab`, `caso.metrics`).
+
+## Calidad
+
+No fingir motion (`CountUp` estático). No commitear masters de video. Self-host de fuentes cuando se toque tipografía. Meta description por ruta. Sin tests inventados de KPIs ECOM.

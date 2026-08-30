@@ -13,7 +13,7 @@
       <a class="fd-btn-outline" href="/agtech/dashboard.html">{{ copy.openDash }}</a>
     </div>
     <h2 class="mt-12 text-xs font-medium tracking-widest text-lime-400 uppercase">{{ copy.gold }}</h2>
-    <iframe title="gold dashboard" src="/agtech/dashboard.html" class="mt-3 h-[70vh] min-h-[480px] w-full border border-lime-400/25 bg-slate-950" loading="lazy" />
+    <iframe title="gold dashboard" src="/agtech/dashboard.html" class="mt-3 h-[70vh] min-h-[480px] w-full border border-lime-400/25 bg-slate-950" loading="lazy" sandbox="allow-scripts allow-same-origin" />
     <h2 class="mt-12 text-xs font-medium tracking-widest text-lime-400 uppercase">{{ copy.field }}</h2>
     <ul class="mt-3 max-w-3xl space-y-2 text-[15px] text-slate-400">
       <li v-for="l in copy.fieldLines" :key="l"><strong class="text-slate-200">{{ l[0] }}</strong> — {{ l[1] }}</li>

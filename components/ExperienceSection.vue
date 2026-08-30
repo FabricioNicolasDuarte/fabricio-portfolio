@@ -62,8 +62,6 @@ const { t, tx } = useLocale()
 const jobs = [
   {
     featured: true,
-    period: '2023 — actualidad',
-    periodEn: '2023 — present',
     title: 'Ingeniería de datos y software',
     titleEn: 'Data and software engineering',
     titlePt: 'Engenharia de dados e software',

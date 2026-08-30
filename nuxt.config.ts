@@ -1,5 +1,31 @@
 import { PATH_LOCALES, PRERENDER_ROUTES, withLocalePrefix } from './utils/localePath.js'
 
+const securityHeaders = {
+  'X-Content-Type-Options': 'nosniff',
+  'X-Frame-Options': 'SAMEORIGIN',
+  'Referrer-Policy': 'strict-origin-when-cross-origin',
+  'Permissions-Policy': 'camera=(), microphone=(), geolocation=()',
+  'X-DNS-Prefetch-Control': 'off',
+  'Content-Security-Policy': [
+    "default-src 'self'",
+    "base-uri 'self'",
+    "form-action 'self'",
+    "frame-ancestors 'self'",
+    "object-src 'none'",
+    "img-src 'self' data: blob:",
+    "media-src 'self'",
+    "font-src 'self' https://fonts.gstatic.com",
+    "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+    "script-src 'self' 'unsafe-inline' https://cloud.umami.is",
+    "connect-src 'self' https://cloud.umami.is https://api-gateway.umami.dev",
+    "frame-src 'self'",
+  ].join('; '),
+}
+
+if (process.env.NODE_ENV === 'production') {
+  securityHeaders['Strict-Transport-Security'] = 'max-age=31536000; includeSubDomains'
+}
+
 export default defineNuxtConfig({
   ssr: true,
   devtools: { enabled: false },
@@ -31,9 +57,13 @@ export default defineNuxtConfig({
       crawlLinks: true,
       routes: PRERENDER_ROUTES,
     },
+    routeRules: {
+      '/**': { headers: securityHeaders },
+    },
   },
   runtimeConfig: {
     resendApiKey: process.env.RESEND_API_KEY || '',
+    resendFrom: process.env.RESEND_FROM || 'Fabricio Duarte <onboarding@resend.dev>',
   },
   app: {
     head: {

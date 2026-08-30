@@ -17,6 +17,7 @@
         <div>
           <h2 class="font-display text-xl font-semibold text-white">{{ step.title }}</h2>
           <p class="mt-2 text-[15px] leading-relaxed text-slate-400">{{ step.body }}</p>
+          <p v-if="step.detail" class="mt-3 text-xs leading-relaxed text-muted">{{ step.detail }}</p>
         </div>
       </li>
     </ol>

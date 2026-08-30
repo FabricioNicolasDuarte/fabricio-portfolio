@@ -138,9 +138,14 @@ async function send() {
       return
     }
     throw new Error('bad')
-  } catch {
+  } catch (err) {
+    const code = err?.statusCode || err?.status || err?.data?.statusCode
+    const mailto = err?.data?.channel === 'mailto' || code === 503
+    if (mailto) {
+      window.location.href = mailtoHref()
+      return
+    }
     formError.value = t.value.book.fail
-    window.location.href = mailtoHref()
   } finally {
     sending.value = false
   }
