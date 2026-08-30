@@ -87,7 +87,9 @@ export default defineEventHandler(async (event) => {
 
   const config = useRuntimeConfig()
   const key = config.resendApiKey
-  if (!key) {
+  const from = config.resendFrom
+  const fromOk = from && !String(from).includes('onboarding@resend.dev')
+  if (!key || !fromOk) {
     throw createError({ statusCode: 503, statusMessage: 'Mail unavailable', data: { channel: 'mailto' } })
   }
 
@@ -98,7 +100,7 @@ export default defineEventHandler(async (event) => {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      from: config.resendFrom,
+      from,
       to: [TO],
       reply_to: email,
       subject: `${copy.subject} — ${name || email} — ${day} ${hour}`,

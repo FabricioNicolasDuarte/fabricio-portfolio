@@ -64,7 +64,7 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     resendApiKey: process.env.RESEND_API_KEY || '',
-    resendFrom: process.env.RESEND_FROM || 'Fabricio Duarte <onboarding@resend.dev>',
+    resendFrom: process.env.RESEND_FROM || '',
   },
   app: {
     head: {
@@ -72,10 +72,12 @@ export default defineNuxtConfig({
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { name: 'theme-color', content: '#080808' },
       ],
       link: [
         { rel: 'icon', type: 'image/png', href: '/brand/mark.png' },
         { rel: 'apple-touch-icon', href: '/brand/mark.png' },
+        { rel: 'manifest', href: '/site.webmanifest' },
         { rel: 'preload', href: '/brand/mark.png', as: 'image' },
         { rel: 'preload', href: '/images/og-banner.jpg', as: 'image' },
       ],

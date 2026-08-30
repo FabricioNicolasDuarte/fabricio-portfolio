@@ -24,7 +24,7 @@
 :root {
   --fd-paper: #080808;
   --fd-ink: #f4f4f5;
-  --fd-muted: #a1a1aa;
+  --fd-muted: #c4c4cc;
   --fd-signal: #A2FF00;
   --fd-line: rgba(255, 255, 255, 0.12);
   --fd-radius: 16px;
@@ -133,63 +133,12 @@ a.fd-card:focus-visible {
   color: var(--fd-signal);
 }
 
-html.fd-intro,
-html.fd-intro body {
-  overflow: hidden;
-}
-
-html.fd-intro .skip-to-content {
-  visibility: hidden;
-}
-
-.intro-lockup {
-  animation: intro-in 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
-.intro-name {
-  animation: intro-in 0.85s cubic-bezier(0.16, 1, 0.3, 1) 1.65s both;
-}
-
-.intro-go {
-  animation: intro-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) 2.05s both;
-}
-
-.intro-go:hover {
-  transform: translateX(4px);
-}
-
-@keyframes intro-in {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-html.fd-intro-out .intro-root {
-  animation: intro-out 0.5s ease forwards;
-}
-
-@keyframes intro-out {
-  to {
-    opacity: 0;
-    visibility: hidden;
-  }
+.text-slate-400 {
+  color: #c4c4cc;
 }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .intro-lockup,
-  .intro-name,
-  .intro-go,
-  .intro-root {
-    animation: none !important;
-    opacity: 1;
-    transform: none;
-  }
   .hero-video { display: none; }
   .hero-pause { display: none; }
   .hero-poster { display: block !important; }

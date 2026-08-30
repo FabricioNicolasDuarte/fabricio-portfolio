@@ -37,6 +37,10 @@ Fuentes self-hosted (Outfit, Chakra Petch). Página `/privacidad`. Sitemap con `
 
 CI (lint + Playwright). Sobre: extracto ECOM + asesoría Livio. Home muestra los 4 pasos del método. Caso: resultado cualitativo (sin KPIs inventados de ECOM). `noindex` en `/agendar/enviado`. Sin fallback Space Grotesk.
 
+## P4 — hecho
+
+Contraste AA (muted más claro; axe color-contrast serious). CSS de intro muerto fuera. Catálogo de trabajo en `content/work.js`. Favicons huérfanos y fotos de proyecto sin uso, fuera. Manifest + theme-color. Reserva: Resend solo si hay `RESEND_FROM` propio (no onboarding).
+
 ## Calidad
 
 No fingir motion (`CountUp` estático). No commitear masters de video. Self-host de fuentes cuando se toque tipografía. Meta description por ruta. Sin tests inventados de KPIs ECOM.

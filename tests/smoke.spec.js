@@ -10,10 +10,10 @@ for (const path of routes) {
     await expect(page.locator('#contenido')).toBeVisible()
 
     const results = await new AxeBuilder({ page }).analyze()
-    const critical = results.violations.filter((v) => v.impact === 'critical')
+    const blocking = results.violations.filter((v) => v.impact === 'critical' || (v.id === 'color-contrast' && v.impact === 'serious'))
     expect(
-      critical,
-      critical.map((v) => `${v.id}: ${v.help}`).join('\n') || 'no critical axe issues',
+      blocking,
+      blocking.map((v) => `${v.id} (${v.impact}): ${v.help}`).join('\n') || 'no blocking axe issues',
     ).toEqual([])
   })
 }

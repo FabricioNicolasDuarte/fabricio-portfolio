@@ -6,7 +6,7 @@
       <p class="mt-3 max-w-2xl text-[15px] leading-relaxed text-slate-400">{{ t.book.body }}</p>
       <p class="mt-2 text-sm text-muted">{{ t.book.meta }}</p>
       <p class="mt-2 text-sm text-muted">{{ t.book.zone }}</p>
-      <p class="mt-4 text-sm text-lime-200/90">
+      <p class="mt-4 text-sm text-slate-200">
         <a class="underline decoration-white/20 underline-offset-4 hover:text-white" href="mailto:fabricioduarteoficial@gmail.com">fabricioduarteoficial@gmail.com</a>
       </p>
 
