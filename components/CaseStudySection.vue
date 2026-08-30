@@ -25,6 +25,11 @@
         </ul>
       </article>
     </div>
+
+    <p class="mt-8 max-w-2xl text-[15px] leading-relaxed text-slate-300">
+      <span class="fd-kicker mr-3">{{ t.caso.resultKicker }}</span>
+      {{ t.caso.result }}
+    </p>
   </section>
 </template>
 

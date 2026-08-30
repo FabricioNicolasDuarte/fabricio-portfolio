@@ -87,6 +87,17 @@ export const ui = {
       school: 'Programador senior, UTN — Facultad Regional Resistencia, promedio 9.40. Data engineer en curso, Universidad del Gran Rosario. Más de 25 productos o sistemas en uso.',
       hubPath: 'Experiencia, formación y el detalle de cada rol.',
       hubMethod: 'Cómo se pasa de fuentes dispersas a un indicador fiel.',
+      trustKicker: 'En uso',
+      trust: [
+        {
+          title: 'ECOM',
+          body: 'Analítica institucional en producción: la usan organismos distintos al equipo que la construye.',
+        },
+        {
+          title: 'Asesoría',
+          body: 'Consultoría personal en datos y modernización de procesos para Livio Gutiérrez.',
+        },
+      ],
       points: [
         {
           title: 'Datos fieles',
@@ -158,6 +169,9 @@ export const ui = {
         },
       ],
       moreSkadia: 'Caso Skadia →',
+      resultKicker: 'Qué queda',
+      result:
+        'Un criterio visible en el tablero y en la exportación, con registro de consulta. Se discute el problema, no qué planilla es la verdadera.',
     },
     skadia: {
       kicker: 'Producto',
@@ -385,6 +399,17 @@ export const ui = {
       school: 'Senior programmer, UTN — Facultad Regional Resistencia, GPA 9.40. Data engineer in progress, Universidad del Gran Rosario. 25+ products or systems in use.',
       hubPath: 'Experience, education, and the detail of each role.',
       hubMethod: 'How scattered sources become a faithful metric.',
+      trustKicker: 'In use',
+      trust: [
+        {
+          title: 'ECOM',
+          body: 'Institutional analytics in production: used by agencies other than the team that builds it.',
+        },
+        {
+          title: 'Advisory',
+          body: 'Personal consulting on data and process modernization for Livio Gutiérrez.',
+        },
+      ],
       points: [
         {
           title: 'Faithful data',
@@ -456,6 +481,9 @@ export const ui = {
         },
       ],
       moreSkadia: 'Skadia case →',
+      resultKicker: 'What remains',
+      result:
+        'One rule, visible on the dashboard and in the export, with a query log. The debate is the problem, not which spreadsheet is true.',
     },
     skadia: {
       kicker: 'Product',
@@ -683,6 +711,17 @@ export const ui = {
       school: 'Programador sênior, UTN — Faculdade Regional Resistencia, média 9,40. Data engineer em andamento, Universidad del Gran Rosario. Mais de 25 produtos ou sistemas em uso.',
       hubPath: 'Experiência, formação e o detalhe de cada função.',
       hubMethod: 'Como fontes dispersas viram um indicador fiel.',
+      trustKicker: 'Em uso',
+      trust: [
+        {
+          title: 'ECOM',
+          body: 'Analytics institucional em produção: usada por órgãos distintos da equipe que a constrói.',
+        },
+        {
+          title: 'Assessoria',
+          body: 'Consultoria pessoal em dados e modernização de processos para Livio Gutiérrez.',
+        },
+      ],
       points: [
         {
           title: 'Dados fiéis',
@@ -754,6 +793,9 @@ export const ui = {
         },
       ],
       moreSkadia: 'Caso Skadia →',
+      resultKicker: 'O que fica',
+      result:
+        'Um critério visível no painel e na exportação, com registro de consulta. Discute-se o problema, não qual planilha é a verdadeira.',
     },
     skadia: {
       kicker: 'Produto',
@@ -981,6 +1023,17 @@ export const ui = {
       school: '高级程序员，国立技术大学（UTN）雷西斯滕西亚地区分校，平均分 9.40。数据工程师在读，Universidad del Gran Rosario。25 个以上在用产品或系统。',
       hubPath: '经历、学历与每个岗位的细节。',
       hubMethod: '分散来源如何变成可靠指标。',
+      trustKicker: '在用',
+      trust: [
+        {
+          title: 'ECOM',
+          body: '生产环境的机构分析：使用方与建设团队不是同一机构。',
+        },
+        {
+          title: '咨询',
+          body: '为 Livio Gutiérrez 提供数据与流程现代化方面的个人咨询。',
+        },
+      ],
       points: [
         {
           title: '可靠的数据',
@@ -1052,6 +1105,9 @@ export const ui = {
         },
       ],
       moreSkadia: 'Skadia 案例 →',
+      resultKicker: '留下什么',
+      result:
+        '看板和导出里同一套口径，查询有记录。争论的是问题，不是哪张表才算数。',
     },
     skadia: {
       kicker: '产品',

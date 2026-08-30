@@ -5,7 +5,7 @@ alwaysApply: true
 
 # Estándar internacional — fabricioduarte.tech
 
-Sitio personal de reclutamiento (datos primero). Nota actual ~5.3/10. Informe: canvas `fabricioduarte-international-standard.canvas.tsx`.
+Sitio personal de reclutamiento (datos primero). Nota actual ~7.1/10. Informe: canvas `fabricioduarte-international-standard.canvas.tsx`.
 
 ## No romper
 
@@ -32,6 +32,10 @@ Lockfile versionado + Playwright (home, sobre, metodo, agendar) + axe (solo crit
 ## P2 — hecho
 
 Fuentes self-hosted (Outfit, Chakra Petch). Página `/privacidad`. Sitemap con `lastmod` generado. README en Nuxt 4.
+
+## P3 — hecho
+
+CI (lint + Playwright). Sobre: extracto ECOM + asesoría Livio. Home muestra los 4 pasos del método. Caso: resultado cualitativo (sin KPIs inventados de ECOM). `noindex` en `/agendar/enviado`. Sin fallback Space Grotesk.
 
 ## Calidad
 

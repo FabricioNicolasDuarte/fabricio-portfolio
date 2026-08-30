@@ -28,7 +28,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ['Outfit', 'system-ui', 'sans-serif'],
-        display: ['Chakra Petch', 'Space Grotesk', 'Outfit', 'sans-serif'],
+        display: ['Chakra Petch', 'Outfit', 'sans-serif'],
       },
       keyframes: {
         float: {

@@ -8,6 +8,13 @@
       <NuxtLink :to="localePath('/metodo')" class="fd-btn-outline">{{ t.nav.method }}</NuxtLink>
     </div>
 
+    <ol class="mt-8 grid gap-3 sm:grid-cols-4">
+      <li v-for="(step, i) in t.method.steps" :key="step.title" class="fd-card p-4">
+        <p class="fd-kicker">{{ String(i + 1).padStart(2, '0') }}</p>
+        <p class="mt-2 font-display text-base font-semibold text-white">{{ step.title }}</p>
+      </li>
+    </ol>
+
     <p class="fd-kicker mt-14">{{ t.home.proofs }}</p>
     <div class="mt-8 grid gap-4 sm:grid-cols-2">
       <template v-for="item in proofs" :key="item.kicker">

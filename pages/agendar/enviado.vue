@@ -19,4 +19,7 @@
 <script setup>
 const { t, localePath } = useLocale()
 usePageMeta(() => t.value.book.sentTitle)
+useHead({
+  meta: [{ name: 'robots', content: 'noindex, nofollow' }],
+})
 </script>
