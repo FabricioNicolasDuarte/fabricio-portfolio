@@ -25,11 +25,6 @@ export const ui = {
       soundOn: 'Activar sonido',
       soundOff: 'Silenciar',
     },
-    intro: {
-      title: 'Bienvenida',
-      go: 'Ir',
-      skip: 'Saltar introducción',
-    },
     search: {
       title: 'Buscar',
       placeholder: 'Páginas y trabajo',
@@ -48,8 +43,6 @@ export const ui = {
       utn: 'UTN — Facultad Regional Resistencia',
       bodyMid: ', promedio 9.40). Data engineer en curso en la ',
       ugr: 'Universidad del Gran Rosario',
-      cvVisual: 'Descargar CV visual',
-      cvAts: 'Descargar CV ATS',
       book: 'Agendar 25 min',
       pause: 'Pausar retrato',
       play: 'Reproducir retrato',
@@ -83,7 +76,6 @@ export const ui = {
       sigclAlt: 'SIGCL: tablero del instituto.',
       sigclCta: 'Repositorio →',
       moreWork: 'El resto del trabajo, en una sola lista.',
-      aboutTeaser: 'Perfil, formación y contexto profesional.',
     },
     about: {
       title: 'Perfil profesional',
@@ -92,6 +84,8 @@ export const ui = {
       body:
         'En ECOM diseño y opero plataformas de datos para organismos distintos al equipo que las construye: analítica en producción (Apache Superset, Power BI), control de acceso y backend Django sobre SQL Server y PostgreSQL. Trabajo remoto desde Argentina. Si el entorno es complejo —varias fuentes, permisos, campo sin conectividad o un producto que no se adopta— busco la solución más eficiente, no la más aparatosa. El resultado se mide en menos retrabajo, menos error y mejor uso del tiempo de quien decide.',
       school: 'Programador senior, UTN — Facultad Regional Resistencia, promedio 9.40. Data engineer en curso, Universidad del Gran Rosario. Más de 25 productos o sistemas en uso.',
+      hubPath: 'Experiencia, formación y el detalle de cada rol.',
+      hubMethod: 'Cómo se pasa de fuentes dispersas a un indicador fiel.',
       points: [
         {
           title: 'Datos fieles',
@@ -114,7 +108,6 @@ export const ui = {
         'Primero se acuerda qué significa cada número. Después se unifica y se publica un tablero que se entiende. El software existe para que ese criterio se sostenga: el mismo en la base, en el panel y en el reporte.',
       note:
         'Cada persona ve lo que le corresponde. Queda registro de consultas. Si una actualización falla, se avisa.',
-      lab: 'Ejemplo técnico →',
       steps: [
         {
           title: 'Qué hay que medir',
@@ -163,13 +156,6 @@ export const ui = {
           ],
         },
       ],
-      metrics: [
-        { label: 'Animales (demo)', value: '2.000', note: 'Dataset de demostración del lakehouse: 90 días de pesadas.' },
-        { label: 'Ganancia diaria', value: '0,58 kg', note: 'ADG calculado en Airflow + PySpark (clip −1,2 / 2,4).' },
-        { label: 'BCS bajo', value: '23,69 %', note: 'Hacienda con condición corporal baja en el mismo corte. Dataset de demostración.' },
-      ],
-      demoTag: 'Las cifras de abajo son de un dataset de demostración (lakehouse), no de un establecimiento real.',
-      moreEcom: 'Caso ECOM →',
       moreSkadia: 'Caso Skadia →',
     },
     skadia: {
@@ -264,10 +250,26 @@ export const ui = {
       city: 'Buenos Aires',
       files: 'Curriculum',
       time: 'Hora',
+      atsEn: 'El CV ATS se descarga en inglés.',
     },
     meta: {
       title: 'Fabricio Duarte — Ingeniería de datos, analítica y producto',
       description: 'Ingeniería de datos y analítica en producción: Django, SQL Server, PostgreSQL, Apache Superset, Power BI, n8n. Programador senior UTN. Argentina.',
+      jobTitle: 'Ingeniería de datos y analítica',
+      knowsAbout: ['Ingeniería de datos', 'Analítica', 'Apache Superset', 'Power BI', 'Django', 'SQL'],
+      pages: {
+        '/': 'Ingeniería de datos y analítica en producción: Django, SQL Server, PostgreSQL, Apache Superset, Power BI, n8n. Programador senior UTN. Argentina.',
+        '/sobre': 'Perfil profesional: datos fieles, visualización usable y eficiencia. UTN 9.40. Trabajo remoto desde Argentina.',
+        '/metodo': 'Cómo se pasa de fuentes dispersas a un indicador fiel, publicado y usable.',
+        '/trabajo': 'Trabajo seleccionado: ingeniería de datos, analítica y productos en producción.',
+        '/agendar': 'Entrevista exploratoria de 25 minutos. El sitio arma el correo; no hay calendario embebido.',
+        '/agendar/enviado': 'Pedido de entrevista enviado. Confirmación por correo.',
+        '/skadia': 'Skadia: dato de campo, SIGAG y ganadería de precisión para Argentina y Paraguay.',
+        '/trayectoria': 'Experiencia, formación y roles: ECOM, Skadia y consultoría.',
+        '/casos/ecom': 'Caso ECOM: analítica institucional en producción sobre SQL Server y PostgreSQL.',
+        '/casos/skadia': 'Caso Skadia: app de campo, visión e indicadores sin depender de señal.',
+        '/agtech/lakehouse': 'Laboratorio agtech: lakehouse de demostración para ganadería de precisión.',
+      },
     },
     error: {
       title: 'Página no encontrada',
@@ -301,11 +303,6 @@ export const ui = {
       soundOn: 'Turn sound on',
       soundOff: 'Mute',
     },
-    intro: {
-      title: 'Welcome',
-      go: 'Enter',
-      skip: 'Skip introduction',
-    },
     search: {
       title: 'Search',
       placeholder: 'Pages and work',
@@ -324,8 +321,6 @@ export const ui = {
       utn: 'UTN — Facultad Regional Resistencia',
       bodyMid: ', GPA 9.40). Data engineer in progress at ',
       ugr: 'Universidad del Gran Rosario',
-      cvVisual: 'Download visual CV',
-      cvAts: 'Download ATS CV',
       book: 'Book 25 min',
       pause: 'Pause portrait',
       play: 'Play portrait',
@@ -359,7 +354,6 @@ export const ui = {
       sigclAlt: 'SIGCL: institute dashboard.',
       sigclCta: 'Repository →',
       moreWork: 'The rest of the work, in one list.',
-      aboutTeaser: 'Profile, education, and professional context.',
     },
     about: {
       title: 'Professional profile',
@@ -368,6 +362,8 @@ export const ui = {
       body:
         'At ECOM I design and operate data platforms for agencies other than the team that builds them: production analytics (Apache Superset, Power BI), access control, and Django backends on SQL Server and PostgreSQL. I work remotely from Argentina. When the setting is complex — several sources, permissions, field work without connectivity, or a product nobody adopts — I look for the most efficient solution, not the most elaborate one. The result is less rework, fewer errors, and better use of the decision-maker’s time.',
       school: 'Senior programmer, UTN — Facultad Regional Resistencia, GPA 9.40. Data engineer in progress, Universidad del Gran Rosario. 25+ products or systems in use.',
+      hubPath: 'Experience, education, and the detail of each role.',
+      hubMethod: 'How scattered sources become a faithful metric.',
       points: [
         {
           title: 'Faithful data',
@@ -390,7 +386,6 @@ export const ui = {
         'First we agree what each number means. Then we unify it and publish a dashboard people can use. Software exists so that rule holds: the same in the database, on the panel, and in the report.',
       note:
         'Each person sees what they are allowed to see. Queries are logged. If an update fails, someone is told.',
-      lab: 'Technical example →',
       steps: [
         {
           title: 'What to measure',
@@ -439,13 +434,6 @@ export const ui = {
           ],
         },
       ],
-      metrics: [
-        { label: 'Animals (demo)', value: '2,000', note: 'Lakehouse demo dataset: 90 days of weighings.' },
-        { label: 'Daily gain', value: '0.58 kg', note: 'ADG from Airflow + PySpark (clip −1.2 / 2.4).' },
-        { label: 'Low BCS', value: '23.69%', note: 'Share of cattle with low body condition in the same cut. Demonstration dataset.' },
-      ],
-      demoTag: 'The figures below come from a demonstration lakehouse dataset, not from a live ranch.',
-      moreEcom: 'ECOM case →',
       moreSkadia: 'Skadia case →',
     },
     skadia: {
@@ -540,10 +528,26 @@ export const ui = {
       city: 'Buenos Aires',
       files: 'Resume',
       time: 'Time',
+      atsEn: 'The ATS CV downloads in English.',
     },
     meta: {
       title: 'Fabricio Duarte — Data engineering, analytics, and product',
       description: 'Production data engineering and analytics: Django, SQL Server, PostgreSQL, Apache Superset, Power BI, n8n. Senior programmer, UTN. Argentina.',
+      jobTitle: 'Data engineering and analytics',
+      knowsAbout: ['Data engineering', 'Analytics', 'Apache Superset', 'Power BI', 'Django', 'SQL'],
+      pages: {
+        '/': 'Production data engineering and analytics: Django, SQL Server, PostgreSQL, Apache Superset, Power BI, n8n. Senior programmer, UTN. Argentina.',
+        '/sobre': 'Professional profile: faithful data, usable visualization, and efficiency. UTN GPA 9.40. Remote from Argentina.',
+        '/metodo': 'How scattered sources become a faithful metric, published and usable.',
+        '/trabajo': 'Selected work: data engineering, analytics, and products in production.',
+        '/agendar': 'Exploratory 25-minute interview. The site prepares the email; there is no embedded calendar.',
+        '/agendar/enviado': 'Interview request sent. Confirmation by email.',
+        '/skadia': 'Skadia: field data, SIGAG, and precision livestock for Argentina and Paraguay.',
+        '/trayectoria': 'Experience, education, and roles: ECOM, Skadia, and consulting.',
+        '/casos/ecom': 'ECOM case: institutional analytics in production on SQL Server and PostgreSQL.',
+        '/casos/skadia': 'Skadia case: field app, vision, and indicators without relying on signal.',
+        '/agtech/lakehouse': 'Agtech lab: demonstration lakehouse for precision livestock.',
+      },
     },
     error: {
       title: 'Page not found',
@@ -577,11 +581,6 @@ export const ui = {
       soundOn: 'Ativar som',
       soundOff: 'Silenciar',
     },
-    intro: {
-      title: 'Boas-vindas',
-      go: 'Ir',
-      skip: 'Pular introdução',
-    },
     search: {
       title: 'Buscar',
       placeholder: 'Páginas e trabalho',
@@ -600,8 +599,6 @@ export const ui = {
       utn: 'UTN — Faculdade Regional Resistencia',
       bodyMid: ', média 9,40). Data engineer em andamento na ',
       ugr: 'Universidad del Gran Rosario',
-      cvVisual: 'Baixar CV visual',
-      cvAts: 'Baixar CV ATS',
       book: 'Agendar 25 min',
       pause: 'Pausar retrato',
       play: 'Reproduzir retrato',
@@ -635,7 +632,6 @@ export const ui = {
       sigclAlt: 'SIGCL: painel do instituto.',
       sigclCta: 'Repositório →',
       moreWork: 'O restante do trabalho, em uma lista.',
-      aboutTeaser: 'Perfil, formação e contexto profissional.',
     },
     about: {
       title: 'Perfil profissional',
@@ -644,6 +640,8 @@ export const ui = {
       body:
         'Na ECOM desenho e opero plataformas de dados para órgãos distintos da equipe que as constrói: analytics em produção (Apache Superset, Power BI), controle de acesso e backend Django sobre SQL Server e PostgreSQL. Trabalho remoto da Argentina. Se o ambiente é complexo — várias fontes, permissões, campo sem conectividade ou um produto que ninguém adota — busco a solução mais eficiente, não a mais aparatosa. O resultado se mede em menos retrabalho, menos erro e melhor uso do tempo de quem decide.',
       school: 'Programador sênior, UTN — Faculdade Regional Resistencia, média 9,40. Data engineer em andamento, Universidad del Gran Rosario. Mais de 25 produtos ou sistemas em uso.',
+      hubPath: 'Experiência, formação e o detalhe de cada função.',
+      hubMethod: 'Como fontes dispersas viram um indicador fiel.',
       points: [
         {
           title: 'Dados fiéis',
@@ -666,7 +664,6 @@ export const ui = {
         'Primeiro se acorda o que cada número significa. Depois se unifica e se publica um painel que se entende. O software existe para que esse critério se sustente: o mesmo na base, no painel e no relatório.',
       note:
         'Cada pessoa vê o que lhe corresponde. Consultas ficam registradas. Se uma atualização falha, avisa-se.',
-      lab: 'Exemplo técnico →',
       steps: [
         {
           title: 'O que medir',
@@ -715,13 +712,6 @@ export const ui = {
           ],
         },
       ],
-      metrics: [
-        { label: 'Animais (demo)', value: '2.000', note: 'Dataset de demonstração do lakehouse: 90 dias de pesagens.' },
-        { label: 'Ganho diário', value: '0,58 kg', note: 'GMD calculado no Airflow + PySpark (clip −1,2 / 2,4).' },
-        { label: 'BCS baixo', value: '23,69%', note: 'Gado com condição corporal baixa no mesmo recorte. Dataset de demonstração.' },
-      ],
-      demoTag: 'Os números abaixo vêm de um dataset de demonstração (lakehouse), não de um estabelecimento real.',
-      moreEcom: 'Caso ECOM →',
       moreSkadia: 'Caso Skadia →',
     },
     skadia: {
@@ -816,10 +806,26 @@ export const ui = {
       city: 'Buenos Aires',
       files: 'Currículo',
       time: 'Hora',
+      atsEn: 'O CV ATS é baixado em inglês.',
     },
     meta: {
       title: 'Fabricio Duarte — Engenharia de dados, analytics e produto',
       description: 'Engenharia de dados e analytics em produção: Django, SQL Server, PostgreSQL, Apache Superset, Power BI, n8n. Programador sênior UTN. Argentina.',
+      jobTitle: 'Engenharia de dados e analytics',
+      knowsAbout: ['Engenharia de dados', 'Analytics', 'Apache Superset', 'Power BI', 'Django', 'SQL'],
+      pages: {
+        '/': 'Engenharia de dados e analytics em produção: Django, SQL Server, PostgreSQL, Apache Superset, Power BI, n8n. Programador sênior UTN. Argentina.',
+        '/sobre': 'Perfil profissional: dados fiéis, visualização usável e eficiência. UTN 9,40. Trabalho remoto da Argentina.',
+        '/metodo': 'Como fontes dispersas viram um indicador fiel, publicado e usável.',
+        '/trabajo': 'Trabalho selecionado: engenharia de dados, analytics e produtos em produção.',
+        '/agendar': 'Entrevista exploratória de 25 minutos. O site monta o e-mail; não há calendário embutido.',
+        '/agendar/enviado': 'Pedido de entrevista enviado. Confirmação por e-mail.',
+        '/skadia': 'Skadia: dado de campo, SIGAG e pecuária de precisão para Argentina e Paraguai.',
+        '/trayectoria': 'Experiência, formação e funções: ECOM, Skadia e consultoria.',
+        '/casos/ecom': 'Caso ECOM: analytics institucional em produção sobre SQL Server e PostgreSQL.',
+        '/casos/skadia': 'Caso Skadia: app de campo, visão e indicadores sem depender de sinal.',
+        '/agtech/lakehouse': 'Laboratório agtech: lakehouse de demonstração para pecuária de precisão.',
+      },
     },
     error: {
       title: 'Página não encontrada',
@@ -853,11 +859,6 @@ export const ui = {
       soundOn: '打开声音',
       soundOff: '静音',
     },
-    intro: {
-      title: '欢迎',
-      go: '进入',
-      skip: '跳过介绍',
-    },
     search: {
       title: '搜索',
       placeholder: '页面与作品',
@@ -876,8 +877,6 @@ export const ui = {
       utn: '国立技术大学（UTN）雷西斯滕西亚地区分校',
       bodyMid: '，平均分 9.40，满分 10）。数据工程师在读：',
       ugr: 'Universidad del Gran Rosario',
-      cvVisual: '下载视觉版简历',
-      cvAts: '下载 ATS 简历',
       book: '预约 25 分钟',
       pause: '暂停肖像',
       play: '播放肖像',
@@ -911,7 +910,6 @@ export const ui = {
       sigclAlt: 'SIGCL：机构看板。',
       sigclCta: '仓库 →',
       moreWork: '其余工作，列在同一清单。',
-      aboutTeaser: '个人简介、学历与职业背景。',
     },
     about: {
       title: '职业简介',
@@ -920,6 +918,8 @@ export const ui = {
       body:
         '在 ECOM，我为建设团队以外的机构设计并运营数据平台：生产级分析（Apache Superset、Power BI）、访问控制，以及基于 SQL Server 与 PostgreSQL 的 Django 后端。我在阿根廷远程工作。环境再复杂——多源、权限、无网田间，或没人用的产品——我找的是最有效的方案，不是最铺张的。结果用更少返工、更少差错、更好利用决策者的时间来衡量。',
       school: '高级程序员，国立技术大学（UTN）雷西斯滕西亚地区分校，平均分 9.40。数据工程师在读，Universidad del Gran Rosario。25 个以上在用产品或系统。',
+      hubPath: '经历、学历与每个岗位的细节。',
+      hubMethod: '分散来源如何变成可靠指标。',
       points: [
         {
           title: '可靠的数据',
@@ -942,7 +942,6 @@ export const ui = {
         '先约定每个数字是什么意思。再统一、发布一张看得懂的看板。软件是为了让口径站住：库里、看板上、报表里同一套。',
       note:
         '每人只看自己该看的。查询有记录。更新失败会有人知道。',
-      lab: '技术示例 →',
       steps: [
         {
           title: '要量什么',
@@ -991,13 +990,6 @@ export const ui = {
           ],
         },
       ],
-      metrics: [
-        { label: '牲畜（演示）', value: '2,000', note: 'Lakehouse 演示数据：90 天称重。' },
-        { label: '日增重', value: '0.58 kg', note: 'Airflow + PySpark 算出的 ADG（截断 −1.2 / 2.4）。' },
-        { label: '低体况', value: '23.69%', note: '同一批次中体况偏低的比例。演示数据集。' },
-      ],
-      demoTag: '以下数字来自演示 lakehouse 数据集，不是真实牧场。',
-      moreEcom: 'ECOM 案例 →',
       moreSkadia: 'Skadia 案例 →',
     },
     skadia: {
@@ -1092,10 +1084,26 @@ export const ui = {
       city: 'Buenos Aires',
       files: '简历',
       time: '时间',
+      atsEn: 'ATS 简历下载为英文版。',
     },
     meta: {
       title: 'Fabricio Duarte — 数据工程、分析与产品',
       description: '生产环境数据工程与分析：Django、SQL Server、PostgreSQL、Apache Superset、Power BI、n8n。UTN 高级程序员。阿根廷。',
+      jobTitle: '数据工程与分析',
+      knowsAbout: ['数据工程', '分析', 'Apache Superset', 'Power BI', 'Django', 'SQL'],
+      pages: {
+        '/': '生产环境数据工程与分析：Django、SQL Server、PostgreSQL、Apache Superset、Power BI、n8n。UTN 高级程序员。阿根廷。',
+        '/sobre': '职业简介：可靠数据、可用可视化与效率。UTN 平均分 9.40。自阿根廷远程工作。',
+        '/metodo': '分散来源如何变成可靠、可发布、可用的指标。',
+        '/trabajo': '精选工作：生产环境的数据工程、分析与产品。',
+        '/agendar': '25 分钟探索性面试。站点写好邮件；没有内嵌日历。',
+        '/agendar/enviado': '面试申请已发送。邮件确认。',
+        '/skadia': 'Skadia：田间数据、SIGAG 与面向阿根廷和巴拉圭的精准畜牧。',
+        '/trayectoria': '经历、学历与岗位：ECOM、Skadia 与咨询。',
+        '/casos/ecom': 'ECOM 案例：生产环境机构分析，基于 SQL Server 与 PostgreSQL。',
+        '/casos/skadia': 'Skadia 案例：田间应用、视觉与指标，不依赖信号。',
+        '/agtech/lakehouse': '农业科技实验室：精准畜牧演示 lakehouse。',
+      },
     },
     error: {
       title: '页面不存在',

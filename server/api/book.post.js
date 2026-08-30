@@ -1,6 +1,45 @@
 const TO = 'fabricioduarteoficial@gmail.com'
 const recent = new Map()
 
+const MAIL = {
+  es: {
+    title: 'Pedido de entrevista 25 min — fabricioduarte.tech',
+    name: 'Nombre',
+    email: 'Email',
+    slot: 'Horario (Buenos Aires)',
+    lang: 'Idioma',
+    empty: '(sin nota)',
+    subject: 'Pedido de entrevista',
+  },
+  en: {
+    title: '25 min interview request — fabricioduarte.tech',
+    name: 'Name',
+    email: 'Email',
+    slot: 'Slot (Buenos Aires)',
+    lang: 'Language',
+    empty: '(no note)',
+    subject: 'Interview request',
+  },
+  pt: {
+    title: 'Pedido de entrevista 25 min — fabricioduarte.tech',
+    name: 'Nome',
+    email: 'E-mail',
+    slot: 'Horário (Buenos Aires)',
+    lang: 'Idioma',
+    empty: '(sem nota)',
+    subject: 'Pedido de entrevista',
+  },
+  zh: {
+    title: '25 分钟面试申请 — fabricioduarte.tech',
+    name: '姓名',
+    email: '邮箱',
+    slot: '时段（布宜诺斯艾利斯）',
+    lang: '语言',
+    empty: '（无备注）',
+    subject: '面试申请',
+  },
+}
+
 function tooMany(ip) {
   const now = Date.now()
   const hits = (recent.get(ip) || []).filter((t) => now - t < 15 * 60 * 1000)
@@ -30,19 +69,20 @@ export default defineEventHandler(async (event) => {
   const hour = clean(body.hour, 8)
   const note = clean(body.note, 800)
   const locale = clean(body.locale, 8)
+  const copy = MAIL[locale] || MAIL.es
 
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || !/^\d{4}-\d{2}-\d{2}$/.test(day) || !/^\d{2}:\d{2}$/.test(hour)) {
     throw createError({ statusCode: 400, statusMessage: 'Invalid booking' })
   }
 
   const text = [
-    'Pedido de entrevista 25 min — fabricioduarte.tech',
-    `Nombre: ${name || '—'}`,
-    `Email: ${email}`,
-    `Slot (Buenos Aires): ${day} ${hour}`,
-    `Idioma: ${locale || 'es'}`,
+    copy.title,
+    `${copy.name}: ${name || '—'}`,
+    `${copy.email}: ${email}`,
+    `${copy.slot}: ${day} ${hour}`,
+    `${copy.lang}: ${locale || 'es'}`,
     '',
-    note || '(sin nota)',
+    note || copy.empty,
   ].join('\n')
 
   const config = useRuntimeConfig()
@@ -61,7 +101,7 @@ export default defineEventHandler(async (event) => {
       from: config.resendFrom,
       to: [TO],
       reply_to: email,
-      subject: `Pedido de entrevista — ${name || email} — ${day} ${hour}`,
+      subject: `${copy.subject} — ${name || email} — ${day} ${hour}`,
       text,
     }),
   })

@@ -50,6 +50,7 @@ export default defineNuxtConfig({
     },
   },
   devServer: {
+    host: 'localhost',
     port: 3055,
   },
   nitro: {

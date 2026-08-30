@@ -56,7 +56,11 @@ export const useLocale = () => {
     if (locale.value === 'es') {
       return { href: '/cv/cv-ats.pdf', file: 'CV_Fabricio_Duarte_ATS.pdf' }
     }
-    return { href: '/cv/cv-ats-en.pdf', file: 'CV_Fabricio_Duarte_ATS_EN.pdf' }
+    return {
+      href: '/cv/cv-ats-en.pdf',
+      file: 'CV_Fabricio_Duarte_ATS_EN.pdf',
+      note: locale.value === 'zh' ? t.value.footer.atsEn : undefined,
+    }
   })
 
   return { locale, isEn, setLocale, localePath, pagePath, tx, t, atsCv }

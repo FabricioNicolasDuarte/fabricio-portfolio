@@ -32,6 +32,17 @@
         </ul>
 
         <p class="mt-6 text-sm leading-relaxed text-muted">{{ t.about.school }}</p>
+
+        <div class="mt-8 grid gap-3 sm:grid-cols-2">
+          <NuxtLink :to="localePath('/trayectoria')" class="fd-card block p-4">
+            <p class="fd-kicker">{{ t.nav.path }}</p>
+            <p class="mt-2 text-sm leading-relaxed text-slate-400">{{ t.about.hubPath }}</p>
+          </NuxtLink>
+          <NuxtLink :to="localePath('/metodo')" class="fd-card block p-4">
+            <p class="fd-kicker">{{ t.nav.method }}</p>
+            <p class="mt-2 text-sm leading-relaxed text-slate-400">{{ t.about.hubMethod }}</p>
+          </NuxtLink>
+        </div>
       </div>
     </section>
   </main>

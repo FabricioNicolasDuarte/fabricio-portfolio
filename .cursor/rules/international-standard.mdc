@@ -25,9 +25,9 @@ Nav de 4 (Trabajo, Skadia, Sobre, Agendar). Cmd+K. Path i18n (`/` ES; `/en` `/pt
 4. Hero: una promesa, stats como prueba, un CTA (Agendar); Trabajo en texto
 5. Método: capa A (pasos) + `detail` técnico opcional
 
-## P1
+## P1 — hecho
 
-Lockfile versionado + Playwright (home, sobre, metodo, agendar) + axe. CV ZH: inglés con aviso, o PDF propio. JSON-LD y mail de reserva según locale. Regenerar `cv-visual.pdf`. error.vue con shell. Sobre como hub. Borrar keys muertas (`intro`, `hero.cvVisual`, `method.lab`, `caso.metrics`).
+Lockfile versionado + Playwright (home, sobre, metodo, agendar) + axe (solo critical). CV ZH: inglés con aviso. JSON-LD y mail de reserva según locale. Regenerar `cv-visual.pdf`. error.vue con shell. Sobre como hub (botones + cards). Keys muertas borradas.
 
 ## Calidad
 

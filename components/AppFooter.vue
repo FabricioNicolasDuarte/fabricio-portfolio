@@ -37,6 +37,7 @@
           </li>
           <li>
             <a :href="atsCv.href" :download="atsCv.file" class="hover:text-white">{{ t.footer.ats }}</a>
+            <span v-if="atsCv.note" class="mt-1 block text-xs text-muted">{{ atsCv.note }}</span>
           </li>
           <li>
             <a href="/cv/cv-visual.pdf" download="CV_Fabricio_Duarte_Visual.pdf" class="hover:text-white">{{ t.footer.visual }}</a>

@@ -50,14 +50,14 @@ useHead({
     { name: 'twitter:description', content: computed(() => t.value.meta.description) },
     { name: 'twitter:image', content: `${origin}/images/og-banner.jpg` },
   ],
-  script: [
+  script: computed(() => [
     {
       type: 'application/ld+json',
       children: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'Person',
         name: 'Fabricio Nicolás Duarte',
-        jobTitle: 'Ingeniero de datos · Programador senior',
+        jobTitle: t.value.meta.jobTitle,
         url: origin,
         email: 'mailto:fabricioduarteoficial@gmail.com',
         telephone: '+54-370-402-2201',
@@ -66,7 +66,7 @@ useHead({
           { '@type': 'CollegeOrUniversity', name: 'Universidad Tecnológica Nacional — Facultad Regional Resistencia' },
           { '@type': 'CollegeOrUniversity', name: 'Universidad del Gran Rosario' },
         ],
-        knowsAbout: ['Data engineering', 'Business intelligence', 'Apache Superset', 'Django', 'SQL', 'Automation'],
+        knowsAbout: t.value.meta.knowsAbout,
         sameAs: [
           'https://www.linkedin.com/in/fabricionicolasduarte/',
           'https://github.com/FabricioNicolasDuarte',
@@ -76,6 +76,6 @@ useHead({
         founder: { '@type': 'Organization', name: 'Skadia', url: 'https://fabricionicolasduarte.github.io/skadia-webgl/' },
       }),
     },
-  ],
+  ]),
 })
 </script>
