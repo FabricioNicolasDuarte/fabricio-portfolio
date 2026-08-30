@@ -1,6 +1,14 @@
 <template>
   <section class="mx-auto max-w-6xl px-5 pb-20 sm:px-8">
-    <p class="fd-kicker border-t border-white/10 pt-12">{{ t.home.proofs }}</p>
+    <div class="flex flex-col items-start justify-between gap-4 border-t border-white/10 pt-12 sm:flex-row sm:items-end">
+      <div>
+        <p class="fd-kicker">{{ t.nav.method }}</p>
+        <p class="mt-2 max-w-xl font-display text-2xl font-semibold text-white">{{ t.home.metodo }}</p>
+      </div>
+      <NuxtLink :to="localePath('/metodo')" class="fd-btn-outline">{{ t.nav.method }}</NuxtLink>
+    </div>
+
+    <p class="fd-kicker mt-14">{{ t.home.proofs }}</p>
     <div class="mt-8 grid gap-4 sm:grid-cols-2">
       <template v-for="item in proofs" :key="item.kicker">
         <a

@@ -22,9 +22,12 @@
             <span v-if="i"> · </span>{{ step }}
           </template>
         </p>
-        <div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
+        <div class="mt-8 flex flex-wrap items-center gap-x-4 gap-y-3">
           <NuxtLink :to="localePath('/agendar')" class="fd-btn">
             {{ t.hero.book }}
+          </NuxtLink>
+          <NuxtLink :to="localePath('/trabajo')" class="fd-btn-outline">
+            {{ t.nav.work }}
           </NuxtLink>
           <a :href="atsCv.href" :download="atsCv.file" class="text-sm text-slate-300 underline decoration-white/20 underline-offset-4 hover:text-white">
             {{ t.hero.cvAts }}

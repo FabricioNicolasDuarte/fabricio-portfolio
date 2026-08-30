@@ -3,7 +3,7 @@
     <div class="mx-auto grid max-w-6xl gap-10 px-5 py-12 sm:px-8 md:grid-cols-3">
       <div>
         <p class="font-display text-sm font-semibold tracking-wide text-white">Fabricio Nicolás Duarte</p>
-        <p class="mt-3 text-sm leading-relaxed text-muted">Resistencia, Chaco</p>
+        <p class="mt-3 text-sm leading-relaxed text-muted">{{ t.place }}</p>
         <p class="mt-1 text-sm text-muted">{{ t.hero.open }}</p>
       </div>
       <div>

@@ -46,6 +46,13 @@ body {
   background: rgba(12, 12, 12, 0.92);
   border: 1px solid var(--fd-line);
   border-radius: var(--fd-radius);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+a.fd-card:hover,
+a.fd-card:focus-visible {
+  border-color: color-mix(in srgb, var(--fd-signal) 35%, transparent);
+  transform: translateY(-2px);
 }
 
 .fd-btn {
@@ -58,6 +65,7 @@ body {
   font-size: 0.875rem;
   font-weight: 600;
   color: #000000;
+  transition: background 0.2s ease;
 }
 
 .fd-btn:hover {
@@ -87,6 +95,7 @@ body {
   padding: 0.625rem 1.25rem;
   font-size: 0.875rem;
   color: var(--fd-ink);
+  transition: border-color 0.2s ease, color 0.2s ease;
 }
 
 .fd-btn-outline:hover {

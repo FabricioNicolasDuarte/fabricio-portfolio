@@ -1,32 +1,34 @@
 <template>
-  <section id="architecture" class="relative mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-24">
+  <section id="architecture" class="relative mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
     <p class="fd-kicker">{{ t.method.kicker }}</p>
-    <h2 class="mt-2 font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+    <h1 class="mt-2 max-w-2xl font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl">
       {{ t.method.title }}
-    </h2>
-    <p class="mt-3 max-w-2xl text-[15px] leading-relaxed text-slate-400">{{ t.method.intro }}</p>
+    </h1>
+    <p class="mt-4 max-w-2xl text-lg leading-relaxed text-slate-300">{{ t.method.intro }}</p>
 
-    <div class="mt-10 grid grid-cols-1 gap-3 md:grid-cols-5">
-      <article v-for="(step, i) in t.method.steps" :key="step.title" class="fd-card relative p-5">
-        <p class="font-mono text-[10px] tracking-widest text-lime-400/80">0{{ i + 1 }}</p>
-        <h3 class="mt-2 font-display text-base font-semibold text-white">{{ step.title }}</h3>
-        <p class="mt-2 text-[13px] leading-relaxed text-slate-400">{{ step.body }}</p>
-        <ul class="mt-3 flex flex-wrap gap-1.5">
-          <li v-for="tag in step.tags" :key="tag" class="rounded-full border border-white/10 bg-white/5 px-2 py-0.5 text-[10px] text-slate-300">
-            {{ tag }}
-          </li>
-        </ul>
-        <span v-if="i < t.method.steps.length - 1" class="pointer-events-none absolute -right-2 top-1/2 hidden -translate-y-1/2 text-lime-400/50 md:block" aria-hidden="true">→</span>
-      </article>
+    <ol class="mt-10 grid gap-4 sm:grid-cols-2">
+      <li v-for="(step, i) in t.method.steps" :key="step.title" class="fd-card flex gap-4 p-6">
+        <span
+          class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[var(--fd-signal)] font-display text-sm font-semibold text-black"
+          aria-hidden="true"
+        >
+          {{ i + 1 }}
+        </span>
+        <div>
+          <h2 class="font-display text-xl font-semibold text-white">{{ step.title }}</h2>
+          <p class="mt-2 text-[15px] leading-relaxed text-slate-400">{{ step.body }}</p>
+        </div>
+      </li>
+    </ol>
+
+    <p class="mt-8 max-w-2xl text-sm leading-relaxed text-muted">{{ t.method.note }}</p>
+    <div class="mt-8 flex flex-wrap gap-3">
+      <NuxtLink :to="localePath('/agendar')" class="fd-btn">{{ t.nav.book }}</NuxtLink>
+      <NuxtLink :to="localePath('/trabajo')" class="fd-btn-outline">{{ t.nav.work }}</NuxtLink>
     </div>
-
-    <p class="mt-6 text-sm text-muted">{{ t.method.note }}</p>
-    <p class="mt-3 text-sm">
-      <a href="/agtech/lakehouse/" class="text-lime-300 hover:text-lime-200">{{ t.method.lab }}</a>
-    </p>
   </section>
 </template>
 
 <script setup>
-const { t } = useLocale()
+const { t, localePath } = useLocale()
 </script>

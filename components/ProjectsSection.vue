@@ -83,6 +83,10 @@
         {{ expanded ? t.work.less : t.work.more }}
       </button>
     </div>
+    <div v-if="!compact" class="mt-12 flex flex-col items-start justify-between gap-4 border-t border-white/10 pt-8 sm:flex-row sm:items-center">
+      <p class="max-w-md text-[15px] leading-relaxed text-slate-400">{{ t.home.metodo }}</p>
+      <NuxtLink :to="localePath('/agendar')" class="fd-btn">{{ t.hero.book }}</NuxtLink>
+    </div>
   </section>
 </template>
 
