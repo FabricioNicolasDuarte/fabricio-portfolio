@@ -40,9 +40,9 @@ export const ui = {
     },
     place: 'Argentina',
     hero: {
-      badge: 'Argentina · Desarrollador',
+      badge: 'Argentina · Ingeniería de datos',
       lead:
-        'Diseño y programo aplicaciones y sitios web que un equipo puede usar sin pedir ayuda a sistemas. Cuando el negocio lo necesita, también dejo los datos en un solo lugar y en un tablero que se entiende.',
+        'Diseño e implemento el ciclo del dato en producción: integro sistemas heterogéneos, unifico el criterio de cálculo y publico tableros con recorte por identidad. En ECOM esa analítica la consumen organismos distintos al equipo que la construye. El desarrollo de aplicaciones y sitios sostiene esa misma información en operación.',
       bodyBefore:
         'Stack en producción: Django, SQL (PostgreSQL / SQL Server), Apache Superset, Power BI, n8n y aplicaciones offline-first. Programador senior (',
       utn: 'UTN — Facultad Regional Resistencia',
@@ -54,8 +54,8 @@ export const ui = {
       pause: 'Pausar retrato',
       play: 'Reproducir retrato',
       open: 'remoto',
-      line: 'Aplicaciones · Web · Datos',
-      pipeline: ['Diseño', 'Producto', 'Datos', 'Entrega'],
+      line: 'Ingeniería de datos · Analítica · Automatización',
+      pipeline: ['Integración', 'Modelo', 'Tablero', 'Decisión'],
       stats: [
         { label: 'Promedio UTN', value: '9.40' },
         { label: 'Productos en producción', n: 25, suffix: '+' },
@@ -64,7 +64,7 @@ export const ui = {
       ],
     },
     home: {
-      metodo: 'Cómo pasamos de un pedido suelto a un sistema en uso.',
+      metodo: 'De orígenes dispersos a un indicador con un solo criterio, publicado y operable.',
       proofs: 'En producción',
       ecomTitle: 'Tableros institucionales',
       ecom: 'Analítica en producción sobre SQL Server y PostgreSQL, con recorte por organismo.',
@@ -86,76 +86,80 @@ export const ui = {
       aboutTeaser: 'Perfil, formación y contexto profesional.',
     },
     about: {
-      title: 'Sobre mí',
+      title: 'Perfil profesional',
       lead:
-        'Hago software que se usa: aplicaciones, sitios y paneles. Me importa que se vea claro, que se entienda en un minuto y que no dependa de mí para cada cambio.',
+        'Ingeniería de datos y analítica en producción. Integro fuentes heterogéneas, defino el criterio de cada indicador y lo publico en tableros con recorte por organismo. Un número mal definido no es un defecto de interfaz: altera trámites, operación y decisiones.',
       body:
-        'Trabajo remoto desde Argentina. Programo el producto y también cómo se ve: pantallas, flujos y el detalle que evita que un gerente tenga que preguntar “¿dónde se carga esto?”.',
-      school: 'Programador senior, UTN. Data engineer en curso, Universidad del Gran Rosario.',
+        'En ECOM diseño y opero plataformas de datos que usan organismos distintos al equipo que las construye: Apache Superset y Power BI, RLS, identidad federada, backend Django (GIS, KPIs, auditoría) e integración SQL Server / PostgreSQL. Trabajo remoto desde Argentina. El desarrollo de aplicaciones y sitios forma parte del mismo oficio: el indicador tiene que vivir en un sistema que se opera todos los días.',
+      school: 'Programador senior, UTN — Facultad Regional Resistencia, promedio 9.40. Data engineer en curso, Universidad del Gran Rosario. Más de 25 productos o sistemas en uso.',
       points: [
         {
-          title: 'Aplicaciones',
-          body: 'Productos para el día a día: carga, consulta, impresión, trabajo sin señal cuando hace falta. Lo vendo y lo dejo andando.',
+          title: 'Integración y modelo',
+          body: 'Contrato de orígenes (campos, tipos, frecuencia), procesos repetibles y un modelo con un solo criterio. Correr dos veces no duplica filas.',
         },
         {
-          title: 'Web y diseño',
-          body: 'Sitios y sistemas con una interfaz que un contador, un director o un operador puede usar sin capacitación larga.',
+          title: 'Analítica y acceso',
+          body: 'Tableros institucionales con recorte por identidad, registro de consulta y exportación, y alerta si un proceso de carga falla.',
         },
         {
-          title: 'Datos, cuando suman',
-          body: 'Si el problema es “cada área tiene su Excel”, unifico y muestro un solo número. No es el único trabajo: es una parte.',
+          title: 'Software sobre el dato',
+          body: 'Aplicaciones y sitios (Django, Vue/Nuxt, Expo) que capturan o publican la misma información, incluida operación sin conectividad cuando el entorno lo exige.',
         },
       ],
     },
     method: {
       kicker: 'Método',
-      title: 'Cómo encaramos un sistema',
+      title: 'Del origen al indicador',
       intro:
-        'Primero qué tiene que poder hacer la persona. Después la pantalla. Al final, si hace falta, conectamos los sistemas que ya existen. Sin jerga: un pedido claro, un producto usable, y alguien que lo pueda operar.',
+        'El trabajo empieza en las fuentes y en el significado de cada métrica. Recién después se construye el modelo y se publica el tablero. El software se diseña para que ese criterio se sostenga: misma definición en la base, en el panel y en la exportación.',
       note:
-        'Cada usuario ve lo suyo. Queda registro de cambios importantes. Si algo se rompe, el sistema avisa: no se entera una semana después por WhatsApp.',
-      lab: 'Un ejemplo técnico (opcional) →',
+        'El acceso se define por identidad. Queda registro de consultas y exportaciones. Los procesos automáticos reintentan y, si persisten en fallar, escalan. Nada se pierde en silencio.',
+      lab: 'Ejemplo técnico →',
       steps: [
         {
-          title: 'Qué hay que resolver',
-          body: 'Hablamos con quien va a usar el sistema, no solo con quien lo paga. Anoto pantallas, excepciones y qué no puede fallar un viernes a las 18.',
+          title: 'Orígenes y contrato',
+          body: 'Inventario de bases, APIs y archivos. No reescribo el sistema de origen: lo expongo con campos, tipos y frecuencia acordados.',
         },
         {
-          title: 'Cómo se va a usar',
-          body: 'Dibujo el flujo: entrar, cargar, buscar, imprimir, aprobar. Si un paso no se entiende en el dibujo, no va a entenderse en el sistema.',
+          title: 'Calidad y preparación',
+          body: 'Unifico nombres, elimino duplicados y valido rangos. La regla es independiente del motor (Airflow, Spark o Celery).',
         },
         {
-          title: 'Se construye y se prueba',
-          body: 'Programo, muestro versiones cortas y corrijo con gente real. Prefiero un módulo bien cerrado a un sistema enorme que nadie termina de adoptar.',
+          title: 'Modelo semántico',
+          body: 'Hechos y dimensiones reutilizables. Un indicador, un criterio: el tablero y el dataset exportado no pueden divergir.',
         },
         {
-          title: 'Queda en uso',
-          body: 'Capacitación breve, accesos, y un canal para el día dos. El trabajo termina cuando el equipo lo usa sin mí al lado.',
+          title: 'Publicación',
+          body: 'Tableros sobre datos ya consolidados, embebidos donde se trabaja, con recorte por rol. No es un archivo que circula por correo.',
+        },
+        {
+          title: 'Operación',
+          body: 'Si un lote falla o un indicador se desvía, llega una alerta. El dato no termina en un gráfico: dispara una acción o un control.',
         },
       ],
     },
     caso: {
       kicker: 'En la práctica',
-      title: 'Antes y después de un sistema bien hecho',
-      intro: 'Pasa en un municipio, un instituto o una empresa: la información existe, pero cada uno la arma a su manera.',
+      title: 'Cuando hay datos y no hay un criterio',
+      intro: 'El patrón es institucional. La información existe en varios sistemas; el número cambia según quién lo calcule; la exportación no deja rastro.',
       cols: [
         {
           kicker: 'Antes',
-          title: 'Cada uno con su archivo',
+          title: 'Cada área con su número',
           lines: [
-            'Los reportes se copian a mano desde varios lugares.',
-            'El mismo dato cambia según quién lo calcule.',
-            'Nadie sabe bien quién puede ver o editar qué.',
+            'Los reportes se arman a mano desde varias bases y planillas.',
+            'La misma métrica cambia de definición según el área.',
+            'Casi cualquiera exporta; no hay registro de quién consultó qué.',
           ],
         },
         {
           kicker: 'Después',
-          title: 'Una pantalla, un criterio',
+          title: 'Un criterio, un recorte, un rastro',
           accent: true,
           lines: [
-            'La gente carga y consulta en el mismo sistema.',
-            'El número del tablero es el mismo que el del PDF.',
-            'Cada rol ve lo suyo. Si algo falla, se nota al momento.',
+            'Una definición por entidad, idéntica en el tablero y en la exportación.',
+            'El panel vive en el sistema de trabajo, con acceso por identidad.',
+            'Las consultas quedan registradas. Si un proceso falla, el sistema avisa.',
           ],
         },
       ],
@@ -183,7 +187,7 @@ export const ui = {
     work: {
       kicker: 'Portafolio',
       title: 'Trabajo seleccionado',
-      intro: 'Más de 25 productos o sistemas en uso: aplicaciones, sitios, tableros y automatización. ECOM, SIGCL, Cocoma, Skadia y trabajo a medida.',
+      intro: 'Ingeniería de datos, analítica y automatización en producción, y más de 25 productos o sistemas en uso. ECOM, SIGCL, Cocoma, Skadia y trabajo a medida.',
       role: 'Rol · ',
       repo: 'Repositorio →',
       more: 'Ver el resto',
@@ -262,8 +266,8 @@ export const ui = {
       time: 'Hora',
     },
     meta: {
-      title: 'Fabricio Duarte — Desarrollador: apps, web y sistemas',
-      description: 'Desarrollador en Argentina: aplicaciones, web y sistemas en producción. Django, Vue/Nuxt, Expo, SQL, tableros y automatización.',
+      title: 'Fabricio Duarte — Ingeniería de datos, analítica y producto',
+      description: 'Ingeniería de datos y analítica en producción: Django, SQL Server, PostgreSQL, Apache Superset, Power BI, n8n. Programador senior UTN. Argentina.',
     },
     error: {
       title: 'Página no encontrada',
@@ -312,9 +316,9 @@ export const ui = {
     },
     place: 'Argentina',
     hero: {
-      badge: 'Argentina · Developer',
+      badge: 'Argentina · Data engineering',
       lead:
-        'I design and build applications and websites that a team can use without calling IT for every click. When the business needs it, I also put the numbers in one place and on a dashboard people can read.',
+        'I design and run the data cycle in production: I integrate heterogeneous systems, unify the calculation rule, and publish dashboards scoped by identity. At ECOM that analytics is consumed by agencies other than the team that builds it. Applications and sites carry the same information into day-to-day operations.',
       bodyBefore:
         'Production stack: Django, SQL (PostgreSQL / SQL Server), Apache Superset, Power BI, n8n, and offline-first applications. Senior programmer (',
       utn: 'UTN — Facultad Regional Resistencia',
@@ -326,8 +330,8 @@ export const ui = {
       pause: 'Pause portrait',
       play: 'Play portrait',
       open: 'remote',
-      line: 'Apps · Web · Data',
-      pipeline: ['Design', 'Product', 'Data', 'Handoff'],
+      line: 'Data engineering · Analytics · Automation',
+      pipeline: ['Integration', 'Model', 'Dashboard', 'Decision'],
       stats: [
         { label: 'UTN GPA', value: '9.40' },
         { label: 'Products in production', n: 25, suffix: '+' },
@@ -336,7 +340,7 @@ export const ui = {
       ],
     },
     home: {
-      metodo: 'From a loose request to a system people actually use.',
+      metodo: 'From scattered sources to a single-definition metric, published and operable.',
       proofs: 'In production',
       ecomTitle: 'Institutional dashboards',
       ecom: 'Production analytics on SQL Server and PostgreSQL, scoped by organization.',
@@ -358,76 +362,80 @@ export const ui = {
       aboutTeaser: 'Profile, education, and professional context.',
     },
     about: {
-      title: 'About',
+      title: 'Professional profile',
       lead:
-        'I build software people actually use: apps, sites, and admin screens. It should look clear, make sense in a minute, and not depend on me for every small change.',
+        'Data engineering and production analytics. I integrate heterogeneous sources, define the rule for each metric, and publish dashboards scoped by organization. A poorly defined number is not a UI defect: it alters procedures, operations, and decisions.',
       body:
-        'I work remotely from Argentina. I write the product and I design how it looks: screens, flows, and the details that keep a manager from asking “where do I enter this?”',
-      school: 'Senior programmer, UTN. Data engineer in progress, Universidad del Gran Rosario.',
+        'At ECOM I design and operate data platforms used by agencies other than the team that builds them: Apache Superset and Power BI, RLS, federated identity, Django backends (GIS, KPIs, audit), and SQL Server / PostgreSQL integration. I work remotely from Argentina. Applications and sites are part of the same practice: the metric has to live in a system people operate every day.',
+      school: 'Senior programmer, UTN — Facultad Regional Resistencia, GPA 9.40. Data engineer in progress, Universidad del Gran Rosario. 25+ products or systems in use.',
       points: [
         {
-          title: 'Applications',
-          body: 'Day-to-day products: enter, search, print, work offline when needed. I sell them and leave them running.',
+          title: 'Integration and model',
+          body: 'Source contracts (fields, types, schedule), repeatable jobs, and one calculation rule. Running twice does not duplicate rows.',
         },
         {
-          title: 'Web and design',
-          body: 'Sites and systems an accountant, a director, or an operator can use without a long training course.',
+          title: 'Analytics and access',
+          body: 'Institutional dashboards scoped by identity, logged queries and exports, and an alert if a load job fails.',
         },
         {
-          title: 'Data, when it helps',
-          body: 'If the problem is “every team has its own spreadsheet”, I unify and show one number. That is part of the work — not the whole story.',
+          title: 'Software on the data',
+          body: 'Applications and sites (Django, Vue/Nuxt, Expo) that capture or publish the same information, including offline operation when the environment requires it.',
         },
       ],
     },
     method: {
       kicker: 'Method',
-      title: 'How we take on a system',
+      title: 'From source to metric',
       intro:
-        'First what the person needs to get done. Then the screen. Last, if needed, we connect the systems you already have. Plain terms: a clear request, a usable product, and a team that can run it.',
+        'The work starts with the sources and the meaning of each metric. Only then comes the model and the dashboard. Software is designed so that definition holds: the same rule in the database, on the dashboard, and in the export.',
       note:
-        'Each user sees their own slice. Important changes are logged. If something breaks, the system says so — you do not find out a week later on WhatsApp.',
-      lab: 'A technical example (optional) →',
+        'Access is defined by identity. Queries and exports are logged. Automated jobs retry and, if they keep failing, escalate. Nothing disappears in silence.',
+      lab: 'Technical example →',
       steps: [
         {
-          title: 'What has to work',
-          body: 'I talk to the people who will use it, not only the person who pays. I write down screens, exceptions, and what cannot fail on a Friday at 6 p.m.',
+          title: 'Sources and contract',
+          body: 'Inventory of databases, APIs, and files. I do not rewrite the source system: I expose it with agreed fields, types, and frequency.',
         },
         {
-          title: 'How it will be used',
-          body: 'I sketch the path: sign in, enter, search, print, approve. If a step is unclear on paper, it will be unclear in the product.',
+          title: 'Quality and preparation',
+          body: 'I align names, remove duplicates, and validate ranges. The rule is independent of the engine (Airflow, Spark, or Celery).',
         },
         {
-          title: 'Build and try',
-          body: 'I ship short versions and fix them with real users. I would rather close one module well than leave a huge system nobody adopts.',
+          title: 'Semantic model',
+          body: 'Reusable facts and dimensions. One metric, one rule: the dashboard and the exported dataset cannot diverge.',
         },
         {
-          title: 'It stays in use',
-          body: 'Short training, access, and a channel for day two. The job is done when the team uses it without me in the room.',
+          title: 'Publication',
+          body: 'Dashboards on already-consolidated data, embedded where people work, scoped by role. Not a file circulating by email.',
+        },
+        {
+          title: 'Operations',
+          body: 'If a batch fails or a metric drifts, an alert fires. Data does not stop at a chart: it triggers an action or a control.',
         },
       ],
     },
     caso: {
       kicker: 'In practice',
-      title: 'Before and after a system that works',
-      intro: 'A city office, a school, or a company: the information exists, but everyone builds it their own way.',
+      title: 'When data exists and the rule does not',
+      intro: 'The pattern is institutional. Information lives in several systems; the figure changes with whoever calculates it; exports leave no trail.',
       cols: [
         {
           kicker: 'Before',
-          title: 'Everyone with their own file',
+          title: 'Each area with its own number',
           lines: [
-            'Reports are copied by hand from several places.',
-            'The same figure changes depending on who calculates it.',
-            'Nobody is sure who can see or edit what.',
+            'Reports are assembled by hand from several databases and spreadsheets.',
+            'The same metric changes definition by department.',
+            'Almost anyone can export; there is no record of who queried what.',
           ],
         },
         {
           kicker: 'After',
-          title: 'One screen, one rule',
+          title: 'One rule, one scope, one trail',
           accent: true,
           lines: [
-            'People enter and look up data in the same system.',
-            'The number on the dashboard matches the PDF.',
-            'Each role sees its own slice. If something fails, you see it immediately.',
+            'One definition per entity, identical on the dashboard and in the export.',
+            'The panel lives in the working system, with identity-based access.',
+            'Queries are logged. If a job fails, the system alerts.',
           ],
         },
       ],
@@ -455,7 +463,7 @@ export const ui = {
     work: {
       kicker: 'Portfolio',
       title: 'Selected work',
-      intro: '25+ products or systems in use: apps, sites, dashboards, and automation. ECOM, SIGCL, Cocoma, Skadia, and custom work.',
+      intro: 'Data engineering, analytics, and automation in production, and 25+ products or systems in use. ECOM, SIGCL, Cocoma, Skadia, and custom work.',
       role: 'Role · ',
       repo: 'Repository →',
       more: 'See the rest',
@@ -534,8 +542,8 @@ export const ui = {
       time: 'Time',
     },
     meta: {
-      title: 'Fabricio Duarte — Developer: apps, web, and systems',
-      description: 'Developer in Argentina: apps, web, and production systems. Django, Vue/Nuxt, Expo, SQL, dashboards, and automation.',
+      title: 'Fabricio Duarte — Data engineering, analytics, and product',
+      description: 'Production data engineering and analytics: Django, SQL Server, PostgreSQL, Apache Superset, Power BI, n8n. Senior programmer, UTN. Argentina.',
     },
     error: {
       title: 'Page not found',
@@ -584,9 +592,9 @@ export const ui = {
     },
     place: 'Argentina',
     hero: {
-      badge: 'Argentina · Desenvolvedor',
+      badge: 'Argentina · Engenharia de dados',
       lead:
-        'Desenho e programo aplicativos e sites que uma equipe usa sem pedir ajuda a sistemas a cada clique. Quando o negócio precisa, também deixo os números num só lugar e num painel que se entende.',
+        'Desenho e implemento o ciclo do dado em produção: integro sistemas heterogêneos, unifico o critério de cálculo e publico painéis com recorte por identidade. Na ECOM essa analytics é consumida por órgãos distintos da equipe que a constrói. O desenvolvimento de aplicativos e sites sustenta a mesma informação na operação.',
       bodyBefore:
         'Stack em produção: Django, SQL (PostgreSQL / SQL Server), Apache Superset, Power BI, n8n e aplicações offline-first. Programador sênior (',
       utn: 'UTN — Faculdade Regional Resistencia',
@@ -598,8 +606,8 @@ export const ui = {
       pause: 'Pausar retrato',
       play: 'Reproduzir retrato',
       open: 'remoto',
-      line: 'Aplicativos · Web · Dados',
-      pipeline: ['Desenho', 'Produto', 'Dados', 'Entrega'],
+      line: 'Engenharia de dados · Analytics · Automação',
+      pipeline: ['Integração', 'Modelo', 'Painel', 'Decisão'],
       stats: [
         { label: 'Média UTN', value: '9.40' },
         { label: 'Produtos em produção', n: 25, suffix: '+' },
@@ -608,7 +616,7 @@ export const ui = {
       ],
     },
     home: {
-      metodo: 'De um pedido solto a um sistema que a equipe usa de verdade.',
+      metodo: 'De origens dispersas a um indicador com um só critério, publicado e operável.',
       proofs: 'Em produção',
       ecomTitle: 'Painéis institucionais',
       ecom: 'Analytics em produção sobre SQL Server e PostgreSQL, recortado por órgão.',
@@ -630,76 +638,80 @@ export const ui = {
       aboutTeaser: 'Perfil, formação e contexto profissional.',
     },
     about: {
-      title: 'Sobre mim',
+      title: 'Perfil profissional',
       lead:
-        'Faço software que se usa: aplicativos, sites e painéis. Quero que se veja claro, que se entenda em um minuto e que não dependa de mim para cada alteração.',
+        'Engenharia de dados e analytics em produção. Integro fontes heterogêneas, defino o critério de cada indicador e o publico em painéis com recorte por órgão. Um número mal definido não é defeito de interface: altera trâmites, operação e decisões.',
       body:
-        'Trabalho remoto da Argentina. Programo o produto e também como ele aparece: telas, fluxos e o detalhe que evita que um gerente pergunte “onde se carrega isto?”.',
-      school: 'Programador sênior, UTN. Data engineer em andamento, Universidad del Gran Rosario.',
+        'Na ECOM desenho e opero plataformas de dados usadas por órgãos distintos da equipe que as constrói: Apache Superset e Power BI, RLS, identidade federada, backend Django (GIS, KPIs, auditoria) e integração SQL Server / PostgreSQL. Trabalho remoto da Argentina. O desenvolvimento de aplicativos e sites faz parte do mesmo ofício: o indicador precisa viver num sistema operado todos os dias.',
+      school: 'Programador sênior, UTN — Faculdade Regional Resistencia, média 9,40. Data engineer em andamento, Universidad del Gran Rosario. Mais de 25 produtos ou sistemas em uso.',
       points: [
         {
-          title: 'Aplicativos',
-          body: 'Produtos do dia a dia: cadastrar, consultar, imprimir, trabalhar sem sinal quando precisa. Vendo e deixo rodando.',
+          title: 'Integração e modelo',
+          body: 'Contrato de origens (campos, tipos, frequência), processos repetíveis e um modelo com um só critério. Rodar duas vezes não duplica linhas.',
         },
         {
-          title: 'Web e design',
-          body: 'Sites e sistemas que um contador, um diretor ou um operador usa sem um curso longo.',
+          title: 'Analytics e acesso',
+          body: 'Painéis institucionais com recorte por identidade, registro de consulta e exportação, e alerta se um processo de carga falha.',
         },
         {
-          title: 'Dados, quando somam',
-          body: 'Se o problema é “cada área tem a sua planilha”, unifico e mostro um número só. É uma parte do trabalho, não o relato inteiro.',
+          title: 'Software sobre o dado',
+          body: 'Aplicativos e sites (Django, Vue/Nuxt, Expo) que capturam ou publicam a mesma informação, inclusive operação sem conectividade quando o ambiente exige.',
         },
       ],
     },
     method: {
       kicker: 'Método',
-      title: 'Como encaramos um sistema',
+      title: 'Da origem ao indicador',
       intro:
-        'Primeiro o que a pessoa precisa conseguir fazer. Depois a tela. Por último, se for preciso, ligamos os sistemas que já existem. Sem jargão: um pedido claro, um produto usável e alguém que consiga operar.',
+        'O trabalho começa nas fontes e no significado de cada métrica. Só depois se constrói o modelo e se publica o painel. O software é desenhado para que esse critério se sustente: a mesma definição na base, no painel e na exportação.',
       note:
-        'Cada usuário vê o que é dele. Mudanças importantes ficam registradas. Se algo quebra, o sistema avisa — ninguém descobre uma semana depois no WhatsApp.',
-      lab: 'Um exemplo técnico (opcional) →',
+        'O acesso se define por identidade. Consultas e exportações ficam registradas. Processos automáticos tentam de novo e, se continuam falhando, escalam. Nada se perde em silêncio.',
+      lab: 'Exemplo técnico →',
       steps: [
         {
-          title: 'O que tem de resolver',
-          body: 'Falo com quem vai usar o sistema, não só com quem paga. Anoto telas, exceções e o que não pode falhar numa sexta às 18h.',
+          title: 'Origens e contrato',
+          body: 'Inventário de bancos, APIs e arquivos. Não reescrevo o sistema de origem: exponho com campos, tipos e frequência acordados.',
         },
         {
-          title: 'Como vai ser usado',
-          body: 'Desenho o fluxo: entrar, cadastrar, buscar, imprimir, aprovar. Se um passo não se entende no desenho, não se vai entender no sistema.',
+          title: 'Qualidade e preparação',
+          body: 'Unifico nomes, elimino duplicatas e valido faixas. A regra independe do motor (Airflow, Spark ou Celery).',
         },
         {
-          title: 'Constrói e testa',
-          body: 'Programo, mostro versões curtas e corrijo com gente de verdade. Prefiro um módulo bem fechado a um sistema enorme que ninguém adota.',
+          title: 'Modelo semântico',
+          body: 'Fatos e dimensões reutilizáveis. Um indicador, um critério: o painel e o dataset exportado não podem divergir.',
         },
         {
-          title: 'Fica em uso',
-          body: 'Treino curto, acessos e um canal para o dia dois. O trabalho acaba quando a equipe usa sem mim do lado.',
+          title: 'Publicação',
+          body: 'Painéis sobre dados já consolidados, embutidos onde se trabalha, com recorte por papel. Não é um arquivo que circula por e-mail.',
+        },
+        {
+          title: 'Operação',
+          body: 'Se um lote falha ou um indicador desvia, chega um alerta. O dado não termina no gráfico: dispara uma ação ou um controle.',
         },
       ],
     },
     caso: {
       kicker: 'Na prática',
-      title: 'Antes e depois de um sistema bem feito',
-      intro: 'Prefeitura, instituto ou empresa: a informação existe, mas cada um monta do seu jeito.',
+      title: 'Quando há dados e não há um critério',
+      intro: 'O padrão é institucional. A informação existe em vários sistemas; o número muda conforme quem calcula; a exportação não deixa rastro.',
       cols: [
         {
           kicker: 'Antes',
-          title: 'Cada um com o seu arquivo',
+          title: 'Cada área com o seu número',
           lines: [
-            'Relatórios copiados à mão de vários lugares.',
-            'O mesmo dado muda conforme quem calcula.',
-            'Ninguém sabe bem quem pode ver ou editar o quê.',
+            'Relatórios montados à mão a partir de vários bancos e planilhas.',
+            'A mesma métrica muda de definição conforme a área.',
+            'Quase qualquer um exporta; não há registro de quem consultou o quê.',
           ],
         },
         {
           kicker: 'Depois',
-          title: 'Uma tela, um critério',
+          title: 'Um critério, um recorte, um rastro',
           accent: true,
           lines: [
-            'A equipe cadastra e consulta no mesmo sistema.',
-            'O número do painel é o mesmo do PDF.',
-            'Cada papel vê o que é seu. Se algo falha, aparece na hora.',
+            'Uma definição por entidade, idêntica no painel e na exportação.',
+            'O painel vive no sistema de trabalho, com acesso por identidade.',
+            'As consultas ficam registradas. Se um processo falha, o sistema avisa.',
           ],
         },
       ],
@@ -727,7 +739,7 @@ export const ui = {
     work: {
       kicker: 'Portfólio',
       title: 'Trabalho selecionado',
-      intro: 'Mais de 25 produtos ou sistemas em uso: aplicativos, sites, painéis e automação. ECOM, SIGCL, Cocoma, Skadia e trabalho sob medida.',
+      intro: 'Engenharia de dados, analytics e automação em produção, e mais de 25 produtos ou sistemas em uso. ECOM, SIGCL, Cocoma, Skadia e trabalho sob medida.',
       role: 'Função · ',
       repo: 'Repositório →',
       more: 'Ver o restante',
@@ -806,8 +818,8 @@ export const ui = {
       time: 'Hora',
     },
     meta: {
-      title: 'Fabricio Duarte — Desenvolvedor: aplicativos, web e sistemas',
-      description: 'Desenvolvedor na Argentina: aplicativos, web e sistemas em produção. Django, Vue/Nuxt, Expo, SQL, painéis e automação.',
+      title: 'Fabricio Duarte — Engenharia de dados, analytics e produto',
+      description: 'Engenharia de dados e analytics em produção: Django, SQL Server, PostgreSQL, Apache Superset, Power BI, n8n. Programador sênior UTN. Argentina.',
     },
     error: {
       title: 'Página não encontrada',
@@ -856,9 +868,9 @@ export const ui = {
     },
     place: '阿根廷',
     hero: {
-      badge: '阿根廷 · 开发者',
+      badge: '阿根廷 · 数据工程',
       lead:
-        '我设计和开发团队能自己用的应用和网站，不必每点一下都找技术人员。业务需要时，也会把数字收拢到一处，做成看得懂的看板。',
+        '我在生产环境设计并实施完整的数据链路：对接异构系统、统一计算口径，并按身份发布看板。在 ECOM，使用这套分析的机构与建设团队不是同一方。应用和网站把同一套信息落到日常操作。',
       bodyBefore:
         '生产环境技术栈：Django、SQL（PostgreSQL / SQL Server）、Apache Superset、Power BI、n8n，以及离线优先应用。高级程序员（',
       utn: '国立技术大学（UTN）雷西斯滕西亚地区分校',
@@ -870,8 +882,8 @@ export const ui = {
       pause: '暂停肖像',
       play: '播放肖像',
       open: '远程',
-      line: '应用 · 网站 · 数据',
-      pipeline: ['设计', '产品', '数据', '交付'],
+      line: '数据工程 · 分析 · 自动化',
+      pipeline: ['集成', '建模', '看板', '决策'],
       stats: [
         { label: 'UTN 平均分', value: '9.40' },
         { label: '已上线产品', n: 25, suffix: '+' },
@@ -880,7 +892,7 @@ export const ui = {
       ],
     },
     home: {
-      metodo: '从一份松散需求，做到团队真正在用的系统。',
+      metodo: '从来源分散，到口径唯一、可发布、可运营的指标。',
       proofs: '生产环境',
       ecomTitle: '机构看板',
       ecom: '生产环境分析：SQL Server 与 PostgreSQL，按机构划分范围。',
@@ -902,76 +914,80 @@ export const ui = {
       aboutTeaser: '个人简介、学历与职业背景。',
     },
     about: {
-      title: '关于我',
+      title: '职业简介',
       lead:
-        '我做真正会用起来的软件：应用、网站和管理后台。要看起来清楚，一分钟能看懂，小改动不必事事找我。',
+        '生产环境的数据工程与分析。对接异构来源，为每个指标确定口径，并按机构范围发布看板。数字定义不当不是界面问题：它会改变办事流程、运营与决策。',
       body:
-        '我在阿根廷远程工作。既写产品，也设计它长什么样：界面、流程，以及避免经理问“这个填在哪？”的细节。',
-      school: '高级程序员，UTN。数据工程师在读，Universidad del Gran Rosario。',
+        '在 ECOM，我设计并运营供建设团队以外的机构使用的数据平台：Apache Superset 与 Power BI、行级权限、联邦身份、Django 后端（GIS、KPI、审计）以及 SQL Server / PostgreSQL 集成。我在阿根廷远程工作。应用与网站属于同一项工作：指标必须活在每天都在操作的系统里。',
+      school: '高级程序员，国立技术大学（UTN）雷西斯滕西亚地区分校，平均分 9.40。数据工程师在读，Universidad del Gran Rosario。25 个以上在用产品或系统。',
       points: [
         {
-          title: '应用',
-          body: '日常产品：录入、查询、打印，需要时还能离线用。卖出去，并保证能跑起来。',
+          title: '集成与模型',
+          body: '来源约定（字段、类型、频率）、可重复作业，以及单一计算口径。跑两遍不会重复写行。',
         },
         {
-          title: '网站与设计',
-          body: '会计、主管或操作员不用上长培训也能用的网站和系统。',
+          title: '分析与访问控制',
+          body: '按身份划分的机构看板，查询与导出有记录；加载任务失败会告警。',
         },
         {
-          title: '数据，在用得上时',
-          body: '如果问题是“每个部门各有一份表”，我会统一并只展示一个数字。这是工作的一部分，不是全部。',
+          title: '建立在数据上的软件',
+          body: '用 Django、Vue/Nuxt、Expo 做应用和网站，采集或发布同一套信息；环境需要时支持离线运行。',
         },
       ],
     },
     method: {
       kicker: '方法',
-      title: '我们怎么接手一套系统',
+      title: '从来源到指标',
       intro:
-        '先弄清人要完成什么。再画屏幕。最后才在需要时接上已有系统。不用行话：需求清楚、产品能用、有人能自己操作。',
+        '工作从数据来源和每项指标的含义开始。然后才建模、发布看板。软件的设计是为了让口径站住：库里、看板上、导出里是同一套定义。',
       note:
-        '每人只看自己那一块。重要改动有记录。出了问题系统会说，不会一周后才在聊天软件里发现。',
-      lab: '技术示例（可选）→',
+        '访问按身份划分。查询和导出有记录。自动任务会重试，仍失败则升级处理。不会悄悄丢掉。',
+      lab: '技术示例 →',
       steps: [
         {
-          title: '要解决什么',
-          body: '我和真正会用的人谈，不只和付钱的人谈。记下屏幕、例外，以及周五傍晚不能坏的事。',
+          title: '来源与约定',
+          body: '盘点数据库、API 和文件。不重写原系统，而是按约定的字段、类型和频率对外提供。',
         },
         {
-          title: '怎么用',
-          body: '画出路径：登录、录入、查找、打印、审批。纸上一步看不懂，产品里也看不懂。',
+          title: '质量与准备',
+          body: '统一名称、去重、校验范围。规则不依赖引擎（Airflow、Spark 或 Celery）。',
         },
         {
-          title: '做出来再试',
-          body: '先交短版本，再和真实用户改。宁可把一个模块做完整，也不做没人用的大系统。',
+          title: '语义模型',
+          body: '可复用的事实表与维度。一个指标、一套口径：看板和导出数据集不能分叉。',
         },
         {
-          title: '留下能用',
-          body: '短培训、账号，以及第二天的联系方式。团队不用我在场也能用，才算做完。',
+          title: '发布',
+          body: '在已汇总的数据上做看板，嵌进日常系统，按角色划分可见范围。不是在邮件里传来传去的文件。',
+        },
+        {
+          title: '运营',
+          body: '批次失败或指标偏离时发出告警。数据不只停在图表，会触发动作或管控。',
         },
       ],
     },
     caso: {
-      kicker: '实际会怎样',
-      title: '系统做好之前和之后',
-      intro: '市政、学校或公司：信息在，但每个人各做各的。',
+      kicker: '实际情形',
+      title: '有数据，却没有统一口径',
+      intro: '这是机构里的常见格局。信息散在多个系统；数字随计算的人而变；导出不留痕迹。',
       cols: [
         {
           kicker: '之前',
-          title: '每人一份自己的文件',
+          title: '每个部门一个数字',
           lines: [
-            '报表从好几个地方手抄。',
-            '同一个数字，谁算谁一套。',
-            '谁能看、谁能改，说不清。',
+            '报表靠人手从多个库和表格里拼。',
+            '同一指标，部门不同，定义不同。',
+            '几乎谁都能导出；查过什么没有记录。',
           ],
         },
         {
           kicker: '之后',
-          title: '一个界面，一个口径',
+          title: '一套口径、一个范围、一条痕迹',
           accent: true,
           lines: [
-            '大家在同一套系统里录入和查询。',
-            '看板上的数字和 PDF 一致。',
-            '每个角色看自己的。出问题马上能看见。',
+            '每个主体一个定义，看板和导出完全一致。',
+            '看板嵌在工作系统里，按身份授权。',
+            '查询有记录。任务失败时系统会告警。',
           ],
         },
       ],
@@ -999,7 +1015,7 @@ export const ui = {
     work: {
       kicker: '作品集',
       title: '精选工作',
-      intro: '25 个以上在用的产品或系统：应用、网站、看板与自动化。ECOM、SIGCL、Cocoma、Skadia 以及定制工作。',
+      intro: '生产环境的数据工程、分析与自动化，以及 25 个以上在用的产品或系统。ECOM、SIGCL、Cocoma、Skadia 以及定制工作。',
       role: '职责 · ',
       repo: '代码仓库 →',
       more: '查看其余',
@@ -1078,8 +1094,8 @@ export const ui = {
       time: '时间',
     },
     meta: {
-      title: 'Fabricio Duarte — 开发者：应用、网站与系统',
-      description: '阿根廷开发者：应用、网站与生产系统。Django、Vue/Nuxt、Expo、SQL、看板与自动化。',
+      title: 'Fabricio Duarte — 数据工程、分析与产品',
+      description: '生产环境数据工程与分析：Django、SQL Server、PostgreSQL、Apache Superset、Power BI、n8n。UTN 高级程序员。阿根廷。',
     },
     error: {
       title: '页面不存在',

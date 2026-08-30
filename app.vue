@@ -57,7 +57,7 @@ useHead({
         '@context': 'https://schema.org',
         '@type': 'Person',
         name: 'Fabricio Nicolás Duarte',
-        jobTitle: 'Desarrollador',
+        jobTitle: 'Ingeniero de datos · Programador senior',
         url: origin,
         email: 'mailto:fabricioduarteoficial@gmail.com',
         telephone: '+54-370-402-2201',
@@ -66,7 +66,7 @@ useHead({
           { '@type': 'CollegeOrUniversity', name: 'Universidad Tecnológica Nacional — Facultad Regional Resistencia' },
           { '@type': 'CollegeOrUniversity', name: 'Universidad del Gran Rosario' },
         ],
-        knowsAbout: ['Software development', 'Application design', 'Web applications', 'Dashboards', 'Django', 'Vue'],
+        knowsAbout: ['Data engineering', 'Business intelligence', 'Apache Superset', 'Django', 'SQL', 'Automation'],
         sameAs: [
           'https://www.linkedin.com/in/fabricionicolasduarte/',
           'https://github.com/FabricioNicolasDuarte',
