@@ -94,16 +94,16 @@ export const ui = {
       school: 'Programador senior, UTN — Facultad Regional Resistencia, promedio 9.40. Data engineer en curso, Universidad del Gran Rosario. Más de 25 productos o sistemas en uso.',
       points: [
         {
-          title: 'Integración y modelo',
-          body: 'Contrato de orígenes (campos, tipos, frecuencia), procesos repetibles y un modelo con un solo criterio. Correr dos veces no duplica filas.',
+          title: 'Que toda la organización use el mismo número',
+          body: 'Hoy cada área arma su informe. Yo conecto esos sistemas y dejo una sola definición de cada indicador. El tablero, el PDF y la planilla dejan de contradecirse.',
         },
         {
-          title: 'Analítica y acceso',
-          body: 'Tableros institucionales con recorte por identidad, registro de consulta y exportación, y alerta si un proceso de carga falla.',
+          title: 'Que quien decide pueda mostrar el tablero',
+          body: 'Cada organismo o área ve solo lo suyo. Queda constancia de quién consultó o exportó. Si una actualización falla, se sabe al momento: no se presenta un número vencido.',
         },
         {
-          title: 'Software sobre el dato',
-          body: 'Aplicaciones y sitios (Django, Vue/Nuxt, Expo) que capturan o publican la misma información, incluida operación sin conectividad cuando el entorno lo exige.',
+          title: 'Que el dato viva donde se trabaja',
+          body: 'También diseño las aplicaciones y los sitios en los que se carga y se consulta esa información. El indicador no queda en un archivo suelto: queda en la operación diaria, incluso sin señal si el trabajo es en campo.',
         },
       ],
     },
@@ -370,16 +370,16 @@ export const ui = {
       school: 'Senior programmer, UTN — Facultad Regional Resistencia, GPA 9.40. Data engineer in progress, Universidad del Gran Rosario. 25+ products or systems in use.',
       points: [
         {
-          title: 'Integration and model',
-          body: 'Source contracts (fields, types, schedule), repeatable jobs, and one calculation rule. Running twice does not duplicate rows.',
+          title: 'One number for the whole organization',
+          body: 'Each area usually builds its own report. I connect those systems and leave a single definition for every metric. The dashboard, the PDF, and the spreadsheet stop contradicting each other.',
         },
         {
-          title: 'Analytics and access',
-          body: 'Institutional dashboards scoped by identity, logged queries and exports, and an alert if a load job fails.',
+          title: 'A dashboard a decision-maker can present',
+          body: 'Each agency or area sees only its own slice. Queries and exports leave a record. If an update fails, it is known at once — nobody presents a stale figure.',
         },
         {
-          title: 'Software on the data',
-          body: 'Applications and sites (Django, Vue/Nuxt, Expo) that capture or publish the same information, including offline operation when the environment requires it.',
+          title: 'The data lives where people work',
+          body: 'I also design the applications and sites where that information is entered and looked up. The metric does not sit in a stray file: it sits in daily operations, including without signal when the work is in the field.',
         },
       ],
     },
@@ -646,16 +646,16 @@ export const ui = {
       school: 'Programador sênior, UTN — Faculdade Regional Resistencia, média 9,40. Data engineer em andamento, Universidad del Gran Rosario. Mais de 25 produtos ou sistemas em uso.',
       points: [
         {
-          title: 'Integração e modelo',
-          body: 'Contrato de origens (campos, tipos, frequência), processos repetíveis e um modelo com um só critério. Rodar duas vezes não duplica linhas.',
+          title: 'Que a organização inteira use o mesmo número',
+          body: 'Hoje cada área monta o seu relatório. Eu conecto esses sistemas e deixo uma só definição de cada indicador. O painel, o PDF e a planilha deixam de se contradizer.',
         },
         {
-          title: 'Analytics e acesso',
-          body: 'Painéis institucionais com recorte por identidade, registro de consulta e exportação, e alerta se um processo de carga falha.',
+          title: 'Que quem decide possa mostrar o painel',
+          body: 'Cada órgão ou área vê só o que é seu. Fica registro de quem consultou ou exportou. Se uma atualização falha, sabe-se na hora: ninguém apresenta um número vencido.',
         },
         {
-          title: 'Software sobre o dado',
-          body: 'Aplicativos e sites (Django, Vue/Nuxt, Expo) que capturam ou publicam a mesma informação, inclusive operação sem conectividade quando o ambiente exige.',
+          title: 'Que o dado viva onde se trabalha',
+          body: 'Também desenho os aplicativos e os sites em que essa informação se cadastra e se consulta. O indicador não fica num arquivo solto: fica na operação do dia, inclusive sem sinal se o trabalho é em campo.',
         },
       ],
     },
@@ -922,16 +922,16 @@ export const ui = {
       school: '高级程序员，国立技术大学（UTN）雷西斯滕西亚地区分校，平均分 9.40。数据工程师在读，Universidad del Gran Rosario。25 个以上在用产品或系统。',
       points: [
         {
-          title: '集成与模型',
-          body: '来源约定（字段、类型、频率）、可重复作业，以及单一计算口径。跑两遍不会重复写行。',
+          title: '让整个机构用同一个数字',
+          body: '现在各部门各自做报表。我把这些系统接上，给每个指标留下一套定义。看板、PDF 和表格不再互相打架。',
         },
         {
-          title: '分析与访问控制',
-          body: '按身份划分的机构看板，查询与导出有记录；加载任务失败会告警。',
+          title: '让决策者敢把看板拿出去讲',
+          body: '每个机构或部门只看自己的范围。谁查过、谁导出过有记录。更新失败马上知道，不会拿过期数字去汇报。',
         },
         {
-          title: '建立在数据上的软件',
-          body: '用 Django、Vue/Nuxt、Expo 做应用和网站，采集或发布同一套信息；环境需要时支持离线运行。',
+          title: '让数据活在日常工作里',
+          body: '我也设计录入和查询这些信息的应用与网站。指标不落在一份散落的文件里，而在每天的操作中；田间作业没信号也能用。',
         },
       ],
     },
