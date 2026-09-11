@@ -1,9 +1,9 @@
 <template>
   <header class="sticky top-0 z-50 border-b border-white/10 bg-black/90 backdrop-blur-md">
     <div class="mx-auto flex max-w-6xl items-center justify-between gap-3 px-5 py-3 sm:px-8">
-      <NuxtLink :to="localePath('/')" class="flex shrink-0 items-center gap-2">
-        <img src="/brand/mark.png" alt="Fabricio Duarte" class="h-8 w-8" width="32" height="32" />
-        <span class="hidden font-display text-sm font-semibold lowercase tracking-wide text-signal sm:inline">portfolio</span>
+      <NuxtLink :to="localePath('/')" class="flex shrink-0 items-center gap-2" :aria-label="t.nav.brand">
+        <img src="/brand/mark.png" alt="" class="h-8 w-8" width="32" height="32" />
+        <span class="hidden font-display text-sm font-semibold tracking-wide text-signal sm:inline" aria-hidden="true">{{ t.nav.brand }}</span>
       </NuxtLink>
       <nav class="hidden min-w-0 flex-1 items-center justify-center gap-1 text-sm sm:flex md:gap-2" :aria-label="t.nav.menu">
         <NuxtLink
@@ -20,11 +20,13 @@
       <div class="flex items-center gap-1.5">
         <button
           type="button"
-          class="hidden min-h-9 rounded-full px-2.5 text-xs text-muted sm:inline"
+          class="hidden min-h-9 items-center gap-2 rounded-full px-2.5 text-xs text-muted sm:inline-flex"
           aria-keyshortcuts="Control+K Meta+K"
+          :aria-label="t.nav.search"
           @click="cmdk = true"
         >
-          {{ t.nav.search }}
+          <span>{{ t.nav.search }}</span>
+          <kbd class="rounded border border-white/15 px-1.5 py-0.5 font-sans text-[10px] text-slate-400">{{ searchKeys }}</kbd>
         </button>
         <div class="flex items-center rounded-full border border-white/10 p-0.5 text-xs font-semibold" role="group" :aria-label="t.nav.lang">
           <button
@@ -73,14 +75,20 @@
 </template>
 
 <script setup>
-import { computed, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { LOCALES, LOCALE_META } from '~/utils/localePath'
 
 const open = ref(false)
 const cmdk = useState('fd-cmdk', () => false)
+const searchKeys = ref('Ctrl+K')
 const { locale, setLocale, localePath, pagePath, t } = useLocale()
 const locales = LOCALES
 const meta = LOCALE_META
+
+onMounted(() => {
+  const mac = /Mac|iPhone|iPad|iPod/.test(navigator.platform) || navigator.userAgent.includes('Mac')
+  searchKeys.value = mac ? '⌘K' : 'Ctrl+K'
+})
 
 const items = computed(() => [
   { path: '/trabajo', to: localePath('/trabajo'), label: t.value.nav.work },

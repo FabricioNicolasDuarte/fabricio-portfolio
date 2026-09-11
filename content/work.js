@@ -103,7 +103,7 @@ export const work = [
   },
   {
     pin: true,
-    featured: false,
+    featured: true,
     kind: 'Analytics · ECOM',
     title: 'Tableros institucionales — Apache Superset & Power BI',
     titleEn: 'Institutional dashboards — Apache Superset & Power BI',

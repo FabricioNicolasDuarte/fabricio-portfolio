@@ -1,9 +1,10 @@
 <template>
   <section id="book" class="relative mx-auto max-w-6xl px-5 py-16 sm:px-8">
-    <div class="fd-card overflow-hidden p-8 sm:p-10">
+    <div class="overflow-hidden border border-white/10 p-8 sm:p-10">
       <p class="fd-kicker">{{ t.book.kicker }}</p>
-      <h2 class="mt-2 font-display text-3xl font-semibold tracking-tight text-white sm:text-4xl">{{ t.book.title }}</h2>
+      <h1 class="mt-2 font-display text-3xl font-semibold tracking-tight text-white sm:text-4xl">{{ t.book.title }}</h1>
       <p class="mt-3 max-w-2xl text-[15px] leading-relaxed text-slate-400">{{ t.book.body }}</p>
+      <p class="mt-3 max-w-2xl text-sm font-medium text-slate-200">{{ t.book.expect }}</p>
       <p class="mt-2 text-sm text-muted">{{ t.book.meta }}</p>
       <p class="mt-2 text-sm text-muted">{{ t.book.zone }}</p>
       <p class="mt-4 text-sm text-slate-200">

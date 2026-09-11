@@ -3,10 +3,10 @@
     <div class="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
       <div>
         <p class="fd-kicker">{{ t.work.kicker }}</p>
-        <h2 class="mt-2 font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl">{{ t.work.title }}</h2>
+        <h1 class="mt-2 font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl">{{ t.work.title }}</h1>
         <p class="mt-3 max-w-lg text-[15px] leading-relaxed text-slate-400">{{ t.work.intro }}</p>
       </div>
-      <div v-if="!compact" class="flex flex-wrap gap-2">
+      <div v-if="!compact" class="flex flex-wrap gap-2" role="group" :aria-label="t.work.kicker">
         <button
           v-for="f in filters"
           :key="f.id"
@@ -23,32 +23,30 @@
       </div>
     </div>
 
-    <div class="grid grid-cols-1 gap-4" :class="compact ? '' : 'md:grid-cols-2'">
+    <div class="grid grid-cols-1 gap-6" :class="compact ? '' : 'md:grid-cols-2'">
       <article
         v-for="item in visible"
         :key="item.title"
-        class="group fd-card relative overflow-hidden p-6 sm:p-7"
-        :class="item.featured && !compact ? 'md:col-span-2' : ''"
+        class="group relative overflow-hidden border border-white/10 p-6 transition hover:border-[color-mix(in_srgb,var(--fd-signal)_30%,transparent)] sm:p-7"
+        :class="isLead(item) && !compact ? 'md:col-span-2' : ''"
       >
         <p class="fd-kicker mb-2">{{ tx(item, 'kind') }}</p>
-        <h3 class="font-display text-2xl font-semibold tracking-tight text-white">{{ tx(item, 'title') }}</h3>
+        <h2 class="font-display text-2xl font-semibold tracking-tight text-white">{{ tx(item, 'title') }}</h2>
         <img
           v-if="item.shot"
           :src="item.shot"
           :alt="tx(item, 'shotAlt') || tx(item, 'title')"
-          class="mt-4 w-full rounded-xl border border-white/10 object-cover object-top"
+          class="mt-4 w-full border border-white/10 object-cover object-top"
           loading="lazy"
           width="1200"
           height="720"
-          :class="compact || item.featured ? 'max-h-[420px]' : 'max-h-[240px]'"
+          :class="compact || isLead(item) ? 'max-h-[420px]' : 'max-h-[240px]'"
         />
         <p class="mt-3 max-w-3xl text-[15px] leading-relaxed text-slate-400">{{ tx(item, 'summary') }}</p>
         <p class="mt-3 text-sm text-muted"><span class="text-muted">{{ t.work.role }}</span>{{ tx(item, 'role') }}</p>
-        <ul class="mt-4 flex flex-wrap gap-2">
-          <li v-for="tag in (tx(item, 'tags') || item.tags)" :key="tag" class="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[11px] text-slate-300">
-            {{ tag }}
-          </li>
-        </ul>
+        <p class="mt-4 text-xs leading-relaxed tracking-wide text-slate-500">
+          {{ (tx(item, 'tags') || item.tags || []).slice(0, 4).join(' · ') }}
+        </p>
         <div v-if="item.href || item.hrefRepo" class="mt-4 flex flex-wrap gap-4">
           <a
             v-if="item.href"
@@ -103,6 +101,17 @@ const expanded = ref(false)
 const PIN_COUNT = computed(() => 4)
 const filters = computed(() => t.value.work.filters)
 
+function isLead(item) {
+  return item.href === '/casos/ecom' || (item.featured && item.cats?.includes('ecom'))
+}
+
+function pinRank(item) {
+  if (item.href === '/casos/ecom') return 0
+  if (item.cats?.includes('ecom')) return 1
+  if (item.featured) return 2
+  return 3
+}
+
 const filtered = computed(() => {
   if (active.value === 'all') return work
   return work.filter(w => w.cats.includes(active.value))
@@ -110,8 +119,10 @@ const filtered = computed(() => {
 
 const visible = computed(() => {
   const list = filtered.value
-  if (active.value !== 'all' || expanded.value) return list
-  const pinned = list.filter(w => w.pin)
+  if (active.value !== 'all' || expanded.value) {
+    return [...list].sort((a, b) => pinRank(a) - pinRank(b))
+  }
+  const pinned = list.filter(w => w.pin).sort((a, b) => pinRank(a) - pinRank(b))
   const cap = PIN_COUNT.value
   return pinned.length ? pinned.slice(0, cap) : list.slice(0, cap)
 })

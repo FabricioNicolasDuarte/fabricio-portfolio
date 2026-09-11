@@ -6,19 +6,12 @@
     </h1>
     <p class="mt-4 max-w-2xl text-lg leading-relaxed text-slate-300">{{ t.method.intro }}</p>
 
-    <ol class="mt-10 grid gap-4 sm:grid-cols-2">
-      <li v-for="(step, i) in t.method.steps" :key="step.title" class="fd-card flex gap-4 p-6">
-        <span
-          class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[var(--fd-signal)] font-display text-sm font-semibold text-black"
-          aria-hidden="true"
-        >
-          {{ i + 1 }}
-        </span>
-        <div>
-          <h2 class="font-display text-xl font-semibold text-white">{{ step.title }}</h2>
-          <p class="mt-2 text-[15px] leading-relaxed text-slate-400">{{ step.body }}</p>
-          <p v-if="step.detail" class="mt-3 text-xs leading-relaxed text-muted">{{ step.detail }}</p>
-        </div>
+    <ol class="mt-10 grid gap-8 sm:grid-cols-2">
+      <li v-for="(step, i) in t.method.steps" :key="step.title" class="border-t border-white/10 pt-5">
+        <p class="fd-kicker text-signal">{{ String(i + 1).padStart(2, '0') }}</p>
+        <h2 class="mt-2 font-display text-xl font-semibold text-white">{{ step.title }}</h2>
+        <p class="mt-2 text-[15px] leading-relaxed text-slate-400">{{ step.body }}</p>
+        <p v-if="step.detail" class="mt-3 text-xs leading-relaxed text-muted">{{ step.detail }}</p>
       </li>
     </ol>
 

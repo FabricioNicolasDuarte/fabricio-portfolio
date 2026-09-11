@@ -23,6 +23,7 @@ export const ui = {
       sent: 'Pedido enviado',
       privacy: 'Privacidad',
       search: 'Buscar',
+      brand: 'Fabricio',
       soundOn: 'Activar sonido',
       soundOff: 'Silenciar',
     },
@@ -86,9 +87,7 @@ export const ui = {
         'Me ocupo de que las decisiones se tomen sobre datos fieles. Integro sistemas, unifico el criterio de cada indicador y lo presento en tableros y productos que se entienden y se usan. La visualización y la usabilidad no son un adorno: son lo que convierte un número correcto en una decisión a tiempo.',
       body:
         'En ECOM diseño y opero plataformas de datos para organismos distintos al equipo que las construye: analítica en producción (Apache Superset, Power BI), control de acceso y backend Django sobre SQL Server y PostgreSQL. Trabajo remoto desde Argentina. Si el entorno es complejo —varias fuentes, permisos, campo sin conectividad o un producto que no se adopta— busco la solución más eficiente, no la más aparatosa. El resultado se mide en menos retrabajo, menos error y mejor uso del tiempo de quien decide.',
-      school: 'Programador senior, UTN — Facultad Regional Resistencia, promedio 9.40. Data engineer en curso, Universidad del Gran Rosario. Más de 25 productos o sistemas en uso.',
-      hubPath: 'Experiencia, formación y el detalle de cada rol.',
-      hubMethod: 'Cómo se pasa de fuentes dispersas a un indicador fiel.',
+      school: 'Programador senior, UTN — Facultad Regional Resistencia, promedio 9.40. Data engineer en curso, Universidad del Gran Rosario. Más de 25 productos o sistemas en uso.',
       trustKicker: 'En uso',
       trust: [
         {
@@ -98,20 +97,6 @@ export const ui = {
         {
           title: 'Asesoría',
           body: 'Consultoría personal en datos y modernización de procesos para Livio Gutiérrez.',
-        },
-      ],
-      points: [
-        {
-          title: 'Datos fieles',
-          body: 'La decisión vale lo que vale el dato. Dejo un criterio único de cálculo para que el tablero y el reporte coincidan con la base. Se discute el problema, no qué planilla es la verdadera.',
-        },
-        {
-          title: 'Visualización y usabilidad',
-          body: 'Un indicador que no se lee, o un sistema que cuesta usar, no produce resultado. Diseño la interfaz y el flujo para que un director, un analista o un operador trabaje sin fricción: claridad, orden visual y calidad de producto.',
-        },
-        {
-          title: 'Eficiencia en lo complejo',
-          body: 'No eludo lo difícil. Integro, simplifico y entrego un producto estable y medible. La calidad está en gastar menos esfuerzo para un mejor resultado: menos retrabajo, más rentabilidad del tiempo invertido.',
         },
       ],
     },
@@ -243,6 +228,7 @@ export const ui = {
       kicker: 'Agenda',
       title: 'Entrevista exploratoria, 25 minutos',
       body: 'Proponé un horario. El sitio envía el pedido. No hay calendario embebido.',
+      expect: 'Esto es un pedido de entrevista, no una reserva confirmada. Te respondo por correo.',
       meta: 'Google Meet u otra sala que indiques. Si el envío automático no está activo, se abre tu cliente de correo.',
       zone: 'Horarios en zona Buenos Aires (GMT−3).',
       name: 'Nombre',
@@ -338,6 +324,7 @@ export const ui = {
       sent: 'Request sent',
       privacy: 'Privacy',
       search: 'Search',
+      brand: 'Fabricio',
       soundOn: 'Turn sound on',
       soundOff: 'Mute',
     },
@@ -401,9 +388,7 @@ export const ui = {
         'I work so that decisions are made on faithful data. I integrate systems, unify the rule for each metric, and present it in dashboards and products people understand and use. Visualization and usability are not decoration: they are what turn a correct number into a timely decision.',
       body:
         'At ECOM I design and operate data platforms for agencies other than the team that builds them: production analytics (Apache Superset, Power BI), access control, and Django backends on SQL Server and PostgreSQL. I work remotely from Argentina. When the setting is complex — several sources, permissions, field work without connectivity, or a product nobody adopts — I look for the most efficient solution, not the most elaborate one. The result is less rework, fewer errors, and better use of the decision-maker’s time.',
-      school: 'Senior programmer, UTN — Facultad Regional Resistencia, GPA 9.40. Data engineer in progress, Universidad del Gran Rosario. 25+ products or systems in use.',
-      hubPath: 'Experience, education, and the detail of each role.',
-      hubMethod: 'How scattered sources become a faithful metric.',
+      school: 'Senior programmer, UTN — Facultad Regional Resistencia, GPA 9.40. Data engineer in progress, Universidad del Gran Rosario. 25+ products or systems in use.',
       trustKicker: 'In use',
       trust: [
         {
@@ -413,20 +398,6 @@ export const ui = {
         {
           title: 'Advisory',
           body: 'Personal consulting on data and process modernization for Livio Gutiérrez.',
-        },
-      ],
-      points: [
-        {
-          title: 'Faithful data',
-          body: 'A decision is only as good as the data behind it. I leave a single calculation rule so the dashboard and the report match the source. The debate is the problem, not which spreadsheet is true.',
-        },
-        {
-          title: 'Visualization and usability',
-          body: 'A metric that cannot be read, or a system that is hard to use, does not produce a result. I design the interface and the flow so a director, an analyst, or an operator can work without friction: clarity, visual order, and product quality.',
-        },
-        {
-          title: 'Efficiency in complexity',
-          body: 'I do not avoid the hard parts. I integrate, simplify, and ship a stable, measurable product. Quality means less effort for a better outcome: less rework, more return on the time invested.',
         },
       ],
     },
@@ -558,6 +529,7 @@ export const ui = {
       kicker: 'Schedule',
       title: 'Exploratory interview, 25 minutes',
       body: 'Propose a slot. The site sends the request. There is no embedded calendar.',
+      expect: 'This is an interview request, not a confirmed booking. I reply by email.',
       meta: 'Google Meet or another room you name. If automatic send is off, your mail client opens.',
       zone: 'Slots are in Buenos Aires time (GMT−3).',
       name: 'Name',
@@ -653,6 +625,7 @@ export const ui = {
       sent: 'Pedido enviado',
       privacy: 'Privacidade',
       search: 'Buscar',
+      brand: 'Fabricio',
       soundOn: 'Ativar som',
       soundOff: 'Silenciar',
     },
@@ -716,9 +689,7 @@ export const ui = {
         'Cuido para que as decisões se tomem sobre dados fiéis. Integro sistemas, unifico o critério de cada indicador e o apresento em painéis e produtos que se entendem e se usam. Visualização e usabilidade não são enfeite: são o que transforma um número correto numa decisão a tempo.',
       body:
         'Na ECOM desenho e opero plataformas de dados para órgãos distintos da equipe que as constrói: analytics em produção (Apache Superset, Power BI), controle de acesso e backend Django sobre SQL Server e PostgreSQL. Trabalho remoto da Argentina. Se o ambiente é complexo — várias fontes, permissões, campo sem conectividade ou um produto que ninguém adota — busco a solução mais eficiente, não a mais aparatosa. O resultado se mede em menos retrabalho, menos erro e melhor uso do tempo de quem decide.',
-      school: 'Programador sênior, UTN — Faculdade Regional Resistencia, média 9,40. Data engineer em andamento, Universidad del Gran Rosario. Mais de 25 produtos ou sistemas em uso.',
-      hubPath: 'Experiência, formação e o detalhe de cada função.',
-      hubMethod: 'Como fontes dispersas viram um indicador fiel.',
+      school: 'Programador sênior, UTN — Faculdade Regional Resistencia, média 9,40. Data engineer em andamento, Universidad del Gran Rosario. Mais de 25 produtos ou sistemas em uso.',
       trustKicker: 'Em uso',
       trust: [
         {
@@ -728,20 +699,6 @@ export const ui = {
         {
           title: 'Assessoria',
           body: 'Consultoria pessoal em dados e modernização de processos para Livio Gutiérrez.',
-        },
-      ],
-      points: [
-        {
-          title: 'Dados fiéis',
-          body: 'A decisão vale o que vale o dado. Deixo um critério único de cálculo para que o painel e o relatório coincidam com a base. Discute-se o problema, não qual planilha é a verdadeira.',
-        },
-        {
-          title: 'Visualização e usabilidade',
-          body: 'Um indicador que não se lê, ou um sistema difícil de usar, não produz resultado. Desenho a interface e o fluxo para que um diretor, um analista ou um operador trabalhe sem atrito: clareza, ordem visual e qualidade de produto.',
-        },
-        {
-          title: 'Eficiência no complexo',
-          body: 'Não evito o difícil. Integro, simplifico e entrego um produto estável e mensurável. Qualidade é gastar menos esforço por um resultado melhor: menos retrabalho, mais retorno do tempo investido.',
         },
       ],
     },
@@ -873,6 +830,7 @@ export const ui = {
       kicker: 'Agenda',
       title: 'Entrevista exploratória, 25 minutos',
       body: 'Proponha um horário. O site envia o pedido. Não há calendário embutido.',
+      expect: 'Isto é um pedido de entrevista, não uma reserva confirmada. Respondo por e-mail.',
       meta: 'Google Meet ou outra sala que você indicar. Se o envio automático não estiver ativo, abre o seu cliente de e-mail.',
       zone: 'Horários no fuso de Buenos Aires (GMT−3).',
       name: 'Nome',
@@ -968,6 +926,7 @@ export const ui = {
       sent: '申请已发送',
       privacy: '隐私',
       search: '搜索',
+      brand: 'Fabricio',
       soundOn: '打开声音',
       soundOff: '静音',
     },
@@ -1031,9 +990,7 @@ export const ui = {
         '我的工作是让决策建立在可靠的数据上。对接系统、统一每个指标的口径，并呈现在看得懂、用得上的看板和产品里。可视化与可用性不是装饰：它们把正确的数字变成及时的决定。',
       body:
         '在 ECOM，我为建设团队以外的机构设计并运营数据平台：生产级分析（Apache Superset、Power BI）、访问控制，以及基于 SQL Server 与 PostgreSQL 的 Django 后端。我在阿根廷远程工作。环境再复杂——多源、权限、无网田间，或没人用的产品——我找的是最有效的方案，不是最铺张的。结果用更少返工、更少差错、更好利用决策者的时间来衡量。',
-      school: '高级程序员，国立技术大学（UTN）雷西斯滕西亚地区分校，平均分 9.40。数据工程师在读，Universidad del Gran Rosario。25 个以上在用产品或系统。',
-      hubPath: '经历、学历与每个岗位的细节。',
-      hubMethod: '分散来源如何变成可靠指标。',
+      school: '高级程序员，国立技术大学（UTN）雷西斯滕西亚地区分校，平均分 9.40。数据工程师在读，Universidad del Gran Rosario。25 个以上在用产品或系统。',
       trustKicker: '在用',
       trust: [
         {
@@ -1043,20 +1000,6 @@ export const ui = {
         {
           title: '咨询',
           body: '为 Livio Gutiérrez 提供数据与流程现代化方面的个人咨询。',
-        },
-      ],
-      points: [
-        {
-          title: '可靠的数据',
-          body: '决策的分量取决于数据。我留下一套计算口径，让看板和报表与库里一致。争论的是问题本身，不是哪张表才算数。',
-        },
-        {
-          title: '可视化与可用性',
-          body: '读不懂的指标、难用的系统，产生不了结果。我设计界面和流程，让主管、分析师或操作员能顺畅工作：清楚、有序、产品过关。',
-        },
-        {
-          title: '复杂之中的效率',
-          body: '不回避难处。对接、简化，交出稳定、可衡量的产品。质量是用更少力气换更好结果：更少返工，投入的时间更值。',
         },
       ],
     },
@@ -1188,6 +1131,7 @@ export const ui = {
       kicker: '预约',
       title: '探索性面试，25 分钟',
       body: '请提议一个时段。站点会发送申请。没有内嵌日历。',
+      expect: '这是面试申请，不是已确认的预约。我会用邮件回复。',
       meta: 'Google Meet 或你指定的会议室。若未开通自动发送，会打开你的邮件客户端。',
       zone: '时段为布宜诺斯艾利斯时区（GMT−3）。',
       name: '姓名',

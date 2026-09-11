@@ -40,39 +40,20 @@
         </h1>
         <p class="mt-5 text-lg leading-relaxed text-slate-200">{{ t.about.lead }}</p>
         <p class="mt-4 text-[15px] leading-relaxed text-slate-400">{{ t.about.body }}</p>
+        <p class="mt-4 text-sm leading-relaxed text-muted">{{ t.about.school }}</p>
 
-        <div class="mt-8 flex flex-wrap gap-3">
+        <p class="fd-kicker mt-10">{{ t.about.trustKicker }}</p>
+        <ul class="mt-3 space-y-4 border-l border-white/10 pl-4">
+          <li v-for="item in t.about.trust" :key="item.title">
+            <p class="font-display text-base font-semibold text-white">{{ item.title }}</p>
+            <p class="mt-1 text-sm leading-relaxed text-slate-400">{{ item.body }}</p>
+          </li>
+        </ul>
+
+        <div class="mt-10 flex flex-wrap gap-3">
           <NuxtLink :to="localePath('/trayectoria')" class="fd-btn">{{ t.nav.path }}</NuxtLink>
           <NuxtLink :to="localePath('/metodo')" class="fd-btn-outline">{{ t.nav.method }}</NuxtLink>
           <NuxtLink :to="localePath('/agendar')" class="fd-btn-outline">{{ t.nav.book }}</NuxtLink>
-        </div>
-
-        <p class="fd-kicker mt-10">{{ t.about.trustKicker }}</p>
-        <ul class="mt-3 grid gap-3 sm:grid-cols-2">
-          <li v-for="item in t.about.trust" :key="item.title" class="fd-card p-4">
-            <p class="font-display text-base font-semibold text-white">{{ item.title }}</p>
-            <p class="mt-1 text-sm leading-relaxed text-slate-400">{{ item.body }}</p>
-          </li>
-        </ul>
-
-        <ul class="mt-8 grid gap-3">
-          <li v-for="item in t.about.points" :key="item.title" class="fd-card p-4">
-            <p class="font-display text-base font-semibold text-white">{{ item.title }}</p>
-            <p class="mt-1 text-sm leading-relaxed text-slate-400">{{ item.body }}</p>
-          </li>
-        </ul>
-
-        <p class="mt-6 text-sm leading-relaxed text-muted">{{ t.about.school }}</p>
-
-        <div class="mt-8 grid gap-3 sm:grid-cols-2">
-          <NuxtLink :to="localePath('/trayectoria')" class="fd-card block p-4">
-            <p class="fd-kicker">{{ t.nav.path }}</p>
-            <p class="mt-2 text-sm leading-relaxed text-slate-400">{{ t.about.hubPath }}</p>
-          </NuxtLink>
-          <NuxtLink :to="localePath('/metodo')" class="fd-card block p-4">
-            <p class="fd-kicker">{{ t.nav.method }}</p>
-            <p class="mt-2 text-sm leading-relaxed text-slate-400">{{ t.about.hubMethod }}</p>
-          </NuxtLink>
         </div>
       </div>
     </section>

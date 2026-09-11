@@ -137,9 +137,30 @@ a.fd-card:focus-visible {
   color: #c4c4cc;
 }
 
+.fd-rise {
+  animation: fd-rise 0.7s ease-out both;
+}
+
+.fd-rise-delay {
+  animation-delay: 0.12s;
+}
+
+@keyframes fd-rise {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .hero-video { display: none; }
   .hero-pause { display: none; }
   .hero-poster { display: block !important; }
+  .fd-rise,
+  .fd-rise-delay {
+    animation: none;
+  }
+  a.fd-card:hover,
+  a.fd-card:focus-visible {
+    transform: none;
+  }
 }

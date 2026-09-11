@@ -8,45 +8,61 @@
       <NuxtLink :to="localePath('/metodo')" class="fd-btn-outline">{{ t.nav.method }}</NuxtLink>
     </div>
 
-    <ol class="mt-8 grid gap-3 sm:grid-cols-4">
-      <li v-for="(step, i) in t.method.steps" :key="step.title" class="fd-card p-4">
+    <ol class="mt-8 grid gap-6 border-l border-white/10 pl-5 sm:grid-cols-4 sm:gap-4 sm:border-l-0 sm:pl-0">
+      <li v-for="(step, i) in t.method.steps" :key="step.title" class="sm:border-t sm:border-white/10 sm:pt-4">
         <p class="fd-kicker">{{ String(i + 1).padStart(2, '0') }}</p>
         <p class="mt-2 font-display text-base font-semibold text-white">{{ step.title }}</p>
       </li>
     </ol>
 
     <p class="fd-kicker mt-14">{{ t.home.proofs }}</p>
-    <div class="mt-8 grid gap-4 sm:grid-cols-2">
-      <template v-for="item in proofs" :key="item.kicker">
-        <a
-          v-if="item.href"
-          :href="item.href"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="fd-card group block overflow-hidden"
-        >
-          <img :src="item.shot" :alt="item.alt" class="h-44 w-full object-cover object-top" width="1200" height="720" loading="lazy" />
-          <div class="p-5">
+    <div class="mt-8 grid gap-4">
+      <NuxtLink
+        :to="localePath('/casos/ecom')"
+        class="group block overflow-hidden border border-white/10 transition hover:border-[color-mix(in_srgb,var(--fd-signal)_35%,transparent)] sm:grid sm:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]"
+      >
+        <img
+          src="/mockups/superset.png"
+          :alt="t.home.ecomAlt"
+          class="h-52 w-full object-cover object-top sm:h-full sm:min-h-[280px]"
+          width="1200"
+          height="720"
+          loading="lazy"
+        />
+        <div class="flex flex-col justify-center p-6 sm:p-8">
+          <p class="fd-kicker">ECOM</p>
+          <h2 class="mt-2 font-display text-2xl font-semibold text-white group-hover:text-lime-300 sm:text-3xl">{{ t.home.ecomTitle }}</h2>
+          <p class="mt-3 text-[15px] leading-relaxed text-slate-400">{{ t.home.ecom }}</p>
+          <p class="mt-4 text-sm text-lime-300">{{ t.home.ecomCta }}</p>
+        </div>
+      </NuxtLink>
+
+      <div class="grid gap-4 sm:grid-cols-3">
+        <template v-for="item in secondary" :key="item.kicker">
+          <a
+            v-if="item.href"
+            :href="item.href"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group block border border-white/10 p-5 transition hover:border-[color-mix(in_srgb,var(--fd-signal)_35%,transparent)]"
+          >
             <p class="fd-kicker">{{ item.kicker }}</p>
-            <h2 class="mt-2 font-display text-xl font-semibold text-white group-hover:text-lime-300">{{ item.title }}</h2>
+            <h2 class="mt-2 font-display text-lg font-semibold text-white group-hover:text-lime-300">{{ item.title }}</h2>
             <p class="mt-2 text-sm leading-relaxed text-slate-400">{{ item.body }}</p>
             <p class="mt-3 text-sm text-lime-300">{{ item.cta }}</p>
-          </div>
-        </a>
-        <NuxtLink
-          v-else
-          :to="item.to"
-          class="fd-card group block overflow-hidden"
-        >
-          <img :src="item.shot" :alt="item.alt" class="h-44 w-full object-cover object-top" width="1200" height="720" loading="lazy" />
-          <div class="p-5">
+          </a>
+          <NuxtLink
+            v-else
+            :to="item.to"
+            class="group block border border-white/10 p-5 transition hover:border-[color-mix(in_srgb,var(--fd-signal)_35%,transparent)]"
+          >
             <p class="fd-kicker">{{ item.kicker }}</p>
-            <h2 class="mt-2 font-display text-xl font-semibold text-white group-hover:text-lime-300">{{ item.title }}</h2>
+            <h2 class="mt-2 font-display text-lg font-semibold text-white group-hover:text-lime-300">{{ item.title }}</h2>
             <p class="mt-2 text-sm leading-relaxed text-slate-400">{{ item.body }}</p>
             <p class="mt-3 text-sm text-lime-300">{{ item.cta }}</p>
-          </div>
-        </NuxtLink>
-      </template>
+          </NuxtLink>
+        </template>
+      </div>
     </div>
   </section>
 </template>
@@ -54,25 +70,14 @@
 <script setup>
 const { t, localePath } = useLocale()
 
-const proofs = computed(() => {
+const secondary = computed(() => {
   const h = t.value.home
   return [
-    {
-      kicker: 'ECOM',
-      title: h.ecomTitle,
-      body: h.ecom,
-      to: localePath('/casos/ecom'),
-      shot: '/mockups/superset.png',
-      alt: h.ecomAlt,
-      cta: h.ecomCta,
-    },
     {
       kicker: 'Skadia',
       title: h.sigagTitle,
       body: h.skadia,
       to: localePath('/casos/skadia'),
-      shot: '/mockups/sigag.jpg',
-      alt: h.sigagAlt,
       cta: h.sigagCta,
     },
     {
@@ -80,8 +85,6 @@ const proofs = computed(() => {
       title: h.cocomaTitle,
       body: h.cocoma,
       href: 'https://cocoma-app.onrender.com',
-      shot: '/mockups/cocoma.jpg',
-      alt: h.cocomaAlt,
       cta: h.cocomaCta,
     },
     {
@@ -89,8 +92,6 @@ const proofs = computed(() => {
       title: h.sigclTitle,
       body: h.sigcl,
       href: 'https://github.com/FabricioNicolasDuarte/SIGCL',
-      shot: '/mockups/sigcl.png',
-      alt: h.sigclAlt,
       cta: h.sigclCta,
     },
   ]

@@ -9,7 +9,7 @@
         v-for="col in t.caso.cols"
         :key="col.kicker"
         class="fd-card p-6"
-        :class="col.accent ? 'border-[color-mix(in_srgb,var(--fd-signal)_35%,transparent)] bg-[color-mix(in_srgb,var(--fd-signal)_4%,transparent)]' : 'opacity-90'"
+        :class="col.accent ? 'border-[color-mix(in_srgb,var(--fd-signal)_35%,transparent)]' : 'opacity-90'"
       >
         <p class="fd-kicker" :class="col.accent ? 'text-signal' : ''">{{ col.kicker }}</p>
         <h3 class="mt-2 font-display text-lg font-semibold text-white">{{ col.title }}</h3>
