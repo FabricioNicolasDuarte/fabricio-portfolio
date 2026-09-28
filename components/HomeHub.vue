@@ -74,10 +74,10 @@ const secondary = computed(() => {
   const h = t.value.home
   return [
     {
-      kicker: 'Skadia',
+      kicker: 'Agronys',
       title: h.sigagTitle,
-      body: h.skadia,
-      to: localePath('/casos/skadia'),
+      body: h.agronys,
+      to: localePath('/casos/agronys'),
       cta: h.sigagCta,
     },
     {

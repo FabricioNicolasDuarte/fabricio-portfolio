@@ -2,12 +2,12 @@
   <div>
     <div class="relative min-h-screen font-sans text-ink">
       <a href="#contenido" class="skip-to-content sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[90] focus:rounded-full focus:bg-signal focus:px-4 focus:py-2 focus:text-black">{{ t.nav.skip }}</a>
-      <DataField />
-      <NavBar />
+      <DataField v-if="!hidePublicChrome" />
+      <NavBar v-if="!hidePublicChrome" />
       <NuxtPage />
-      <AppFooter />
+      <AppFooter v-if="!hidePublicChrome" />
     </div>
-    <JsonLd :data="personLd" />
+    <JsonLd v-if="!hidePublicChrome" :data="personLd" />
     <ClientOnly>
       <CommandPalette />
     </ClientOnly>
@@ -22,6 +22,11 @@ const { locale, t, pagePath } = useLocale()
 const origin = 'https://fabricioduarte.tech'
 const pageUrl = computed(() => origin + withLocalePrefix(pagePath.value, locale.value))
 const langHref = (code) => origin + withLocalePrefix(pagePath.value, code)
+
+const hidePublicChrome = computed(() => {
+  const p = pagePath.value
+  return p.startsWith('/panel') || p.startsWith('/c/')
+})
 
 useHead({
   htmlAttrs: { lang: computed(() => LOCALE_META[locale.value]?.html || 'es') },
@@ -73,10 +78,10 @@ const personLd = computed(() => ({
   sameAs: [
     'https://www.linkedin.com/in/fabricionicolasduarte/',
     'https://github.com/FabricioNicolasDuarte',
-    'https://fabricionicolasduarte.github.io/skadia-webgl/',
+    'https://agronys.com/',
   ],
   image: `${origin}/images/hero-portrait.jpg`,
   worksFor: { '@type': 'Organization', name: 'ECOM Chaco', url: 'https://www.ecom.com.ar/' },
-  founder: { '@type': 'Organization', name: 'Skadia', url: 'https://fabricionicolasduarte.github.io/skadia-webgl/' },
+  founder: { '@type': 'Organization', name: 'Agronys', url: 'https://agronys.com/' },
 }))
 </script>

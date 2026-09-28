@@ -126,7 +126,7 @@ const jobs = [
     titleEn: 'Lead Developer & CTO',
     titlePt: 'Lead Developer e CTO',
     titleZh: '技术负责人兼 CTO',
-    org: 'Skadia',
+    org: 'Agronys',
     lead: 'Dirección técnica de productos digitales en agrotech.',
     leadEn: 'Technical direction of digital products in agrotech.',
     leadPt: 'Direção técnica de produtos digitais em agrotech.',

@@ -1,12 +1,12 @@
 <template>
   <main id="contenido" tabindex="-1">
     <PathTrail />
-    <SkadiaSection />
+    <AgronysSection />
     <VideoSection />
   </main>
 </template>
 
 <script setup>
 const { t } = useLocale()
-usePageMeta(() => t.value.nav.skadia)
+usePageMeta(() => t.value.nav.agronys)
 </script>

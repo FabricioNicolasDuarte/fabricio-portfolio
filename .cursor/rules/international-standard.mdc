@@ -9,7 +9,7 @@ Sitio personal de reclutamiento (datos primero). Nota actual ~8.4/10. Informe vi
 
 ## No romper
 
-Nav de 4 (Trabajo, Skadia, Sobre, Agendar). Cmd+K. Path i18n (`/` ES; `/en` `/pt` `/zh`). Argentina como ubicación (no “Resistencia, Chaco”). UTN — Facultad Regional Resistencia (nombre oficial). Skadia, no Axia. 25+ en producción. ECOM primero. Sobre: botones superiores Trayectoria / Método / Agendar. Lima `#A2FF00` sobre negro. Sin middleware `?lang=`.
+Nav de 4 (Trabajo, Agronys, Sobre, Agendar). Cmd+K. Path i18n (`/` ES; `/en` `/pt` `/zh`). Argentina como ubicación (no “Resistencia, Chaco”). UTN — Facultad Regional Resistencia (nombre oficial). Agronys (no Skadia ni Axia). 25+ en producción. ECOM primero. Sobre: botones superiores Trayectoria / Método / Agendar. Lima `#A2FF00` sobre negro. Sin middleware `?lang=`.
 
 ## Voz (no oscilar cada commit)
 

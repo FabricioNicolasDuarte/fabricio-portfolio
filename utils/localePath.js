@@ -32,7 +32,7 @@ export function withLocalePrefix(path, locale) {
 export const CORE_ROUTES = [
   '/',
   '/trabajo',
-  '/skadia',
+  '/agronys',
   '/sobre',
   '/metodo',
   '/trayectoria',
@@ -40,13 +40,29 @@ export const CORE_ROUTES = [
   '/agendar/enviado',
   '/privacidad',
   '/casos/ecom',
-  '/casos/skadia',
+  '/casos/agronys',
   '/agtech/lakehouse',
+]
+
+/** Rutas privadas: prerender sí, sitemap no */
+export const PRIVATE_ROUTES = [
+  '/propuestas',
+  '/propuestas/axia',
+  '/ingresar',
+  '/panel',
+  '/panel/proyectos',
+  '/panel/proyectos/pr-axia-pwa',
+  '/panel/clientes',
+  '/panel/documentos',
+  '/c/axia',
 ]
 
 export const SITEMAP_ROUTES = CORE_ROUTES.filter((path) => path !== '/agendar/enviado')
 
 export const PRERENDER_ROUTES = [
   ...CORE_ROUTES,
-  ...PATH_LOCALES.flatMap((lang) => CORE_ROUTES.map((path) => withLocalePrefix(path, lang))),
+  ...PRIVATE_ROUTES,
+  ...PATH_LOCALES.flatMap((lang) =>
+    [...CORE_ROUTES, ...PRIVATE_ROUTES].map((path) => withLocalePrefix(path, lang)),
+  ),
 ]

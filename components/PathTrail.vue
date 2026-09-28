@@ -24,15 +24,18 @@ const crumbs = computed(() => {
   const table = {
     '/metodo': [home, { label: n.method }],
     '/trabajo': [home, { label: n.work }],
-    '/skadia': [home, { label: n.skadia }],
+    '/agronys': [home, { label: n.agronys }],
     '/sobre': [home, { label: n.about }],
     '/trayectoria': [home, { to: localePath('/sobre'), label: n.about }, { label: n.path }],
     '/privacidad': [home, { label: n.privacy }],
     '/agendar': [home, { label: n.book }],
     '/agendar/enviado': [home, { to: localePath('/agendar'), label: n.book }, { label: n.sent }],
     '/casos/ecom': [home, { to: localePath('/trabajo'), label: n.work }, { label: n.caseEcom }],
-    '/casos/skadia': [home, { to: localePath('/skadia'), label: n.skadia }, { label: n.caseSkadia }],
+    '/casos/agronys': [home, { to: localePath('/agronys'), label: n.agronys }, { label: n.caseAgronys }],
     '/agtech/lakehouse': [home, { to: localePath('/trabajo'), label: n.work }, { label: n.lakehouse }],
+    '/propuestas': [home, { label: 'Propuestas' }],
+    '/propuestas/axia': [home, { to: localePath('/propuestas'), label: 'Propuestas' }, { label: 'AXIA' }],
+    '/ingresar': [home, { label: 'Ingresar' }],
   }
   return table[path] || []
 })

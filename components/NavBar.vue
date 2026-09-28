@@ -40,6 +40,12 @@
             @click="setLocale(code)"
           >{{ meta[code].label }}</button>
         </div>
+        <NuxtLink
+          :to="localePath('/ingresar')"
+          class="hidden min-h-9 items-center rounded-full border border-signal/40 px-3 text-xs font-semibold uppercase tracking-wide text-signal transition hover:bg-signal hover:text-black sm:inline-flex"
+        >
+          {{ enterLabel }}
+        </NuxtLink>
         <button
           type="button"
           class="min-h-9 px-2 text-sm text-slate-300 sm:hidden"
@@ -70,6 +76,13 @@
       >
         {{ item.label }}
       </NuxtLink>
+      <NuxtLink
+        :to="localePath('/ingresar')"
+        class="mt-1 block py-2.5 text-sm font-semibold text-signal"
+        @click="open = false"
+      >
+        {{ enterLabel }}
+      </NuxtLink>
     </div>
   </header>
 </template>
@@ -90,9 +103,14 @@ onMounted(() => {
   searchKeys.value = mac ? '⌘K' : 'Ctrl+K'
 })
 
+const enterLabel = computed(() => {
+  const map = { es: 'Ingresar', en: 'Sign in', pt: 'Entrar', zh: '登录' }
+  return map[locale.value] || 'Ingresar'
+})
+
 const items = computed(() => [
   { path: '/trabajo', to: localePath('/trabajo'), label: t.value.nav.work },
-  { path: '/skadia', to: localePath('/skadia'), label: t.value.nav.skadia },
+  { path: '/agronys', to: localePath('/agronys'), label: t.value.nav.agronys },
   { path: '/sobre', to: localePath('/sobre'), label: t.value.nav.about },
   { path: '/agendar', to: localePath('/agendar'), label: t.value.nav.book },
 ])

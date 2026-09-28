@@ -85,7 +85,7 @@ const pack = {
         heading: 'Qué no es este trabajo',
         paras: [
           'No es un Excel departamental. No es un rediseño del core transaccional. No es un producto comercial de ECOM expuesto en esta página. ECOM es el contexto laboral; el sitio documenta el tipo de analítica en producción, con el enlace público de la organización.',
-          'Skadia, SIGAG y el lakehouse de demostración son otro contexto: campo, offline, ganadería. El método se parece (unificar, modelar, publicar, avisar si falla). El entorno no: acá el usuario es un organismo; allá, quien está en el potrero sin señal.',
+          'Agronys, SIGAG y el lakehouse de demostración son otro contexto: campo, offline, ganadería. El método se parece (unificar, modelar, publicar, avisar si falla). El entorno no: acá el usuario es un organismo; allá, quien está en el potrero sin señal.',
         ],
       },
     ],
@@ -130,7 +130,7 @@ const pack = {
         heading: 'What this work is not',
         paras: [
           'It is not a departmental spreadsheet. It is not a rewrite of the transactional core. It is not a commercial ECOM product exposed on this page. ECOM is the employment context; the site documents the kind of production analytics, with the organization’s public URL.',
-          'Skadia, SIGAG, and the demonstration lakehouse are another context: field, offline, livestock. The method is similar (unify, model, publish, alert on failure). The environment is not: here the user is an agency; there, someone in a paddock without signal.',
+          'Agronys, SIGAG, and the demonstration lakehouse are another context: field, offline, livestock. The method is similar (unify, model, publish, alert on failure). The environment is not: here the user is an agency; there, someone in a paddock without signal.',
         ],
       },
     ],
@@ -175,7 +175,7 @@ const pack = {
         heading: 'O que este trabalho não é',
         paras: [
           'Não é uma planilha departamental. Não é reescrita do core transacional. Não é um produto comercial da ECOM exposto nesta página. ECOM é o contexto laboral; o site documenta o tipo de analytics em produção, com a URL pública da organização.',
-          'Skadia, SIGAG e o lakehouse de demonstração são outro contexto: campo, offline, pecuária. O método se parece. O ambiente não: aqui o usuário é um órgão; lá, quem está no piquete sem sinal.',
+          'Agronys, SIGAG e o lakehouse de demonstração são outro contexto: campo, offline, pecuária. O método se parece. O ambiente não: aqui o usuário é um órgão; lá, quem está no piquete sem sinal.',
         ],
       },
     ],
@@ -220,7 +220,7 @@ const pack = {
         heading: '这不是什么',
         paras: [
           '不是部门 Excel。不是重写事务核心。不是本页展示的 ECOM 商业产品。ECOM 是工作场景；本站说明生产级分析的类型，并给出机构的公开网址。',
-          'Skadia、SIGAG 与演示 lakehouse 是另一场景：田间、离线、畜牧。方法相近，环境不同：这里用户是机构，那里是没有信号的围场。',
+          'Agronys、SIGAG 与演示 lakehouse 是另一场景：田间、离线、畜牧。方法相近，环境不同：这里用户是机构，那里是没有信号的围场。',
         ],
       },
     ],

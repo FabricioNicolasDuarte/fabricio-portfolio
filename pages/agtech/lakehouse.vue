@@ -9,7 +9,7 @@
       <li v-for="tag in copy.tags" :key="tag" class="rounded-full border border-lime-400/40 px-3 py-1 font-mono text-[11px] text-lime-200">{{ tag }}</li>
     </ul>
     <div class="mt-6 flex flex-wrap gap-3">
-      <a class="fd-btn" href="https://github.com/FabricioNicolasDuarte/skadia-data-engineering">{{ copy.repo }}</a>
+      <a class="fd-btn" href="https://github.com/FabricioNicolasDuarte/agronys-data-engineering">{{ copy.repo }}</a>
       <a class="fd-btn-outline" href="/agtech/dashboard.html">{{ copy.openDash }}</a>
     </div>
     <h2 class="mt-12 text-xs font-medium tracking-widest text-lime-400 uppercase">{{ copy.gold }}</h2>
@@ -21,7 +21,7 @@
     <h2 class="mt-12 text-xs font-medium tracking-widest text-lime-400 uppercase">{{ copy.eng }}</h2>
     <p class="mt-3 max-w-3xl text-[14px] leading-relaxed text-slate-400">{{ copy.engBody }}</p>
     <p class="mt-8 text-sm text-slate-400">{{ copy.clone }}</p>
-    <p class="mt-2 font-mono text-xs text-lime-200/90">git clone https://github.com/FabricioNicolasDuarte/skadia-data-engineering.git</p>
+    <p class="mt-2 font-mono text-xs text-lime-200/90">git clone https://github.com/FabricioNicolasDuarte/agronys-data-engineering.git</p>
     <p class="mt-1 font-mono text-xs text-lime-200/90">docker compose up -d --build && docker compose run --rm pipeline run-all</p>
   </main>
 </template>
@@ -33,7 +33,7 @@ const { locale } = useLocale()
 
 const pack = {
   es: {
-    kicker: 'Proyecto · ganadería de precisión · Skadia',
+    kicker: 'Proyecto · ganadería de precisión · Agronys',
     title: 'De las planillas del campo a un tablero de indicadores',
     lede: 'El peso, el clima, la condición corporal y los tratamientos suelen estar en Excel. Este proyecto toma esas planillas y calcula cuatro números del día a día: cuánto gana el animal por día, cuántos hay por hectárea, cuánto calor de riesgo hubo y qué porcentaje está flaco.',
     sub: 'Abajo está el tablero ya calculado. En GitHub está el Docker para repetirlo (Airflow + PySpark). Si no hay cluster, Spark corre en la PC.',
@@ -53,7 +53,7 @@ const pack = {
     clone: 'Docker Desktop, unos 4 GB de RAM. Airflow http://localhost:8088 (admin/admin). Streamlit http://localhost:8501.',
   },
   en: {
-    kicker: 'Project · precision livestock · Skadia',
+    kicker: 'Project · precision livestock · Agronys',
     title: 'From farm spreadsheets to a four-metric dashboard',
     lede: 'Weights, weather, body condition and treatments usually sit in Excel. This project loads those files and computes four numbers that matter on the ranch: daily gain, animals per hectare, heat-stress hours, and the share of thin cattle.',
     sub: 'The dashboard below is already computed. GitHub has Docker to replay it (Airflow + PySpark). Spark runs on a laptop if there is no cluster.',
@@ -73,7 +73,7 @@ const pack = {
     clone: 'Docker Desktop, about 4 GB RAM. Airflow http://localhost:8088 (admin/admin). Streamlit http://localhost:8501.',
   },
   pt: {
-    kicker: 'Projeto · pecuária de precisão · Skadia',
+    kicker: 'Projeto · pecuária de precisão · Agronys',
     title: 'Das planilhas do campo a um painel de indicadores',
     lede: 'Peso, clima, condição corporal e tratamentos costumam estar no Excel. Este projeto lê essas planilhas e calcula quatro números do dia a dia: ganho por dia, animais por hectare, horas de calor de risco e percentual de gado magro.',
     sub: 'Abaixo está o painel já calculado. No GitHub está o Docker para repetir (Airflow + PySpark). Sem cluster, o Spark roda no PC.',
@@ -93,7 +93,7 @@ const pack = {
     clone: 'Docker Desktop, cerca de 4 GB de RAM. Airflow http://localhost:8088 (admin/admin). Streamlit http://localhost:8501.',
   },
   zh: {
-    kicker: '项目 · 精准畜牧 · Skadia',
+    kicker: '项目 · 精准畜牧 · Agronys',
     title: '从牧场表格到四指标看板',
     lede: '体重、天气、体况和用药往往还在 Excel 里。本项目读取这些表，算出牧场天天要用的四个数：日增重、每公顷牲畜、热应激小时、瘦弱比例。',
     sub: '下方看板已经算好。GitHub 上有 Docker 可复现（Airflow + PySpark）。没有集群时 Spark 在电脑上跑。',

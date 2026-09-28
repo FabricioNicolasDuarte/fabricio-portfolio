@@ -17,7 +17,7 @@ const securityHeaders = {
     "font-src 'self'",
     "style-src 'self' 'unsafe-inline'",
     "script-src 'self' 'unsafe-inline' https://cloud.umami.is",
-    "connect-src 'self' https://cloud.umami.is https://api-gateway.umami.dev",
+    "connect-src 'self' https://cloud.umami.is https://api-gateway.umami.dev https://*.supabase.co wss://*.supabase.co",
     "frame-src 'self'",
   ].join('; '),
 }
@@ -60,11 +60,35 @@ export default defineNuxtConfig({
     },
     routeRules: {
       '/**': { headers: securityHeaders },
+      '/ingresar': { prerender: true },
+      '/panel': { prerender: true },
+      '/panel/**': { prerender: true },
+      '/c/**': { prerender: true },
+      '/skadia': { redirect: { to: '/agronys', statusCode: 301 } },
+      '/en/skadia': { redirect: { to: '/en/agronys', statusCode: 301 } },
+      '/pt/skadia': { redirect: { to: '/pt/agronys', statusCode: 301 } },
+      '/zh/skadia': { redirect: { to: '/zh/agronys', statusCode: 301 } },
+      '/casos/skadia': { redirect: { to: '/casos/agronys', statusCode: 301 } },
+      '/en/casos/skadia': { redirect: { to: '/en/casos/agronys', statusCode: 301 } },
+      '/pt/casos/skadia': { redirect: { to: '/pt/casos/agronys', statusCode: 301 } },
+      '/zh/casos/skadia': { redirect: { to: '/zh/casos/agronys', statusCode: 301 } },
+      '/skadia/**': { redirect: { to: '/agronys/**', statusCode: 301 } },
+      '/skadia-lakehouse-embed.html': {
+        redirect: { to: '/agronys-lakehouse-embed.html', statusCode: 301 },
+      },
+      '/mockups/skadia-web.jpg': { redirect: { to: '/mockups/agronys-web.jpg', statusCode: 301 } },
+      '/mockups/skadia-lakehouse.png': {
+        redirect: { to: '/mockups/agronys-lakehouse.png', statusCode: 301 },
+      },
     },
   },
   runtimeConfig: {
     resendApiKey: process.env.RESEND_API_KEY || '',
     resendFrom: process.env.RESEND_FROM || '',
+    public: {
+      supabaseUrl: process.env.NUXT_PUBLIC_SUPABASE_URL || '',
+      supabaseAnonKey: process.env.NUXT_PUBLIC_SUPABASE_ANON_KEY || '',
+    },
   },
   app: {
     head: {
