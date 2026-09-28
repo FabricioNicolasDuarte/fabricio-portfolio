@@ -135,8 +135,7 @@ begin
 
     insert into public.documents (project_id, title, kind, href, note, downloadable, visible_to_client)
     values
-      (pid, 'Propuesta comercial (web)', 'presupuesto', '/propuestas/axia', null, false, true),
-      (pid, 'Propuesta HTML (archivo local / PDF)', 'documento', null, 'Versión descargable al publicar en Storage', false, true);
+      (pid, 'Propuesta comercial', 'presupuesto', '/propuestas/axia', null, true, true);
 
     insert into public.milestones (project_id, label, status)
     values

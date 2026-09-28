@@ -1,13 +1,20 @@
 <template>
-  <main id="contenido" tabindex="-1" class="pb-28">
+  <main id="contenido" tabindex="-1" class="propuesta-page pb-28">
     <div class="mx-auto max-w-3xl px-5 pt-8 sm:px-8 sm:pt-12">
       <PathTrail flush />
 
-      <p class="fd-kicker mt-8">Propuesta comercial · Confidencial</p>
-      <h1 class="mt-2 font-display text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-        {{ p.title }}
-      </h1>
-      <p class="mt-2 text-sm text-signal">{{ p.client }}</p>
+      <div class="mt-8 flex flex-wrap items-start justify-between gap-4">
+        <div>
+          <p class="fd-kicker">Propuesta comercial · Confidencial</p>
+          <h1 class="mt-2 font-display text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+            {{ p.title }}
+          </h1>
+          <p class="mt-2 text-sm text-signal">{{ p.client }}</p>
+        </div>
+        <button type="button" class="fd-btn-outline no-print shrink-0 text-xs" @click="downloadPdf">
+          Descargar PDF
+        </button>
+      </div>
       <p class="mt-4 text-[16px] leading-relaxed text-slate-300">{{ p.summary }}</p>
 
       <div class="mt-8 grid gap-3 sm:grid-cols-3">
@@ -138,19 +145,24 @@
     </div>
 
     <!-- CTA fijo -->
-    <div class="fixed inset-x-0 bottom-0 z-40 border-t border-white/10 bg-black/95 px-4 py-3 backdrop-blur-md">
-      <div class="mx-auto flex max-w-3xl items-center justify-between gap-3">
+    <div class="no-print fixed inset-x-0 bottom-0 z-40 border-t border-white/10 bg-black/95 px-4 py-3 backdrop-blur-md">
+      <div class="mx-auto flex max-w-3xl flex-wrap items-center justify-end gap-2 sm:justify-between">
         <p class="hidden text-sm text-slate-400 sm:block">
           ¿Dudas sobre la propuesta?
         </p>
-        <a
-          :href="wa"
-          class="fd-btn w-full justify-center sm:w-auto"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Consultar por WhatsApp
-        </a>
+        <div class="flex w-full gap-2 sm:w-auto">
+          <button type="button" class="fd-btn-outline flex-1 justify-center text-xs sm:flex-none" @click="downloadPdf">
+            Descargar PDF
+          </button>
+          <a
+            :href="wa"
+            class="fd-btn flex-1 justify-center sm:flex-none"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Consultar por WhatsApp
+          </a>
+        </div>
       </div>
     </div>
   </main>
@@ -168,8 +180,13 @@ if (!p) {
 
 const wa = whatsappHref(p.client)
 
+function downloadPdf() {
+  if (import.meta.client) window.print()
+}
+
 usePageMeta(() => `${p.client} · Propuesta`)
 useHead({
+  bodyAttrs: { class: 'print-proposal' },
   meta: [
     { name: 'robots', content: 'noindex, nofollow' },
     {

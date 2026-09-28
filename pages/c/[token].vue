@@ -39,7 +39,9 @@
               <p class="text-sm text-white">{{ d.title }}</p>
               <p class="text-xs text-muted">{{ d.kind }}</p>
             </div>
-            <NuxtLink v-if="d.href" :to="localePath(d.href)" class="fd-btn text-xs">Ver</NuxtLink>
+            <NuxtLink v-if="d.href" :to="localePath(d.href)" class="fd-btn text-xs">
+              {{ d.downloadable ? 'Ver y descargar' : 'Ver' }}
+            </NuxtLink>
             <span v-else class="text-xs text-slate-500">{{ d.note || 'Pronto' }}</span>
           </li>
         </ul>
