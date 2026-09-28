@@ -126,6 +126,7 @@ export const PROPUESTAS = [
       'Gestión del correo institucional',
       'Honorario del contador externo',
     ],
+    formalDoc: '/propuestas/axia-documento.html',
   },
 ]
 

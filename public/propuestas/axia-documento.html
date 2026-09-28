@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Propuesta comercial — AXIA Real Estate · Fabricio Duarte</title>
+  <style>
+    :root {
+      --ink: #111111;
+      --muted: #444444;
+      --line: #cccccc;
+      --paper: #ffffff;
+      --soft: #f5f5f5;
+      --accent: #1a1a1a;
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      font-size: 11pt;
+      line-height: 1.55;
+    }
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      gap: 8px;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 10px 16px;
+      background: #fafafa;
+      border-bottom: 1px solid var(--line);
+    }
+    .toolbar .hint {
+      margin-right: auto;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .toolbar button, .toolbar a.btn {
+      font: 600 12px/1 "Segoe UI", Arial, sans-serif;
+      border: 1px solid var(--ink);
+      background: var(--ink);
+      color: #fff;
+      padding: 9px 14px;
+      cursor: pointer;
+      text-decoration: none;
+      border-radius: 2px;
+    }
+    .toolbar button.ghost {
+      background: #fff;
+      color: var(--ink);
+    }
+    .doc {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 28px 24px 64px;
+    }
+    .letterhead {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: flex-start;
+      border-bottom: 2px solid var(--ink);
+      padding-bottom: 16px;
+      margin-bottom: 22px;
+    }
+    .letterhead img { width: 40px; height: 40px; }
+    .letterhead .who strong {
+      display: block;
+      font-size: 14pt;
+      letter-spacing: 0.02em;
+    }
+    .letterhead .who span { font-size: 9.5pt; color: var(--muted); }
+    .letterhead .meta {
+      text-align: right;
+      font-size: 9.5pt;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+    h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 20pt;
+      font-weight: 700;
+      line-height: 1.2;
+      margin: 0 0 10px;
+    }
+    .subtitle {
+      font-size: 11pt;
+      color: var(--muted);
+      margin: 0 0 18px;
+      max-width: 62ch;
+    }
+    .summary-boxes {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin: 18px 0 28px;
+    }
+    .summary-boxes div {
+      border: 1px solid var(--line);
+      background: var(--soft);
+      padding: 12px 12px 10px;
+    }
+    .summary-boxes span {
+      display: block;
+      font-size: 8.5pt;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .summary-boxes strong {
+      font-size: 13pt;
+      font-family: Georgia, serif;
+    }
+    section {
+      margin: 0 0 26px;
+      page-break-inside: avoid;
+    }
+    h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 13.5pt;
+      margin: 0 0 8px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--line);
+    }
+    h3 {
+      font-size: 11pt;
+      margin: 16px 0 6px;
+    }
+    p { margin: 0 0 10px; color: var(--ink); }
+    .muted { color: var(--muted); }
+    ul, ol { margin: 0 0 12px; padding-left: 1.25rem; }
+    li { margin-bottom: 5px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 10pt;
+      margin: 10px 0 14px;
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 7px 8px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: var(--soft);
+      font-weight: 600;
+      font-size: 9pt;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    td.num, th.num { text-align: right; white-space: nowrap; }
+    .strike { text-decoration: line-through; color: #777; }
+    .deal { font-weight: 700; }
+    tr.total td { background: var(--soft); font-weight: 700; }
+    .box {
+      border: 1px solid var(--line);
+      padding: 12px 14px;
+      margin: 12px 0;
+      background: var(--soft);
+    }
+    .box strong { display: block; margin-bottom: 4px; }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 12px 0;
+    }
+    .grid-2 > div {
+      border: 1px solid var(--line);
+      padding: 12px;
+    }
+    .grid-2 h4 { margin: 0 0 6px; font-size: 10.5pt; }
+    .grid-2 p { margin: 0; font-size: 10pt; color: var(--muted); }
+    footer {
+      margin-top: 36px;
+      padding-top: 14px;
+      border-top: 2px solid var(--ink);
+      font-size: 9pt;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    footer a { color: var(--ink); }
+    @media (max-width: 640px) {
+      .summary-boxes, .grid-2 { grid-template-columns: 1fr; }
+      .letterhead { flex-direction: column; }
+      .letterhead .meta { text-align: left; }
+    }
+    @media print {
+      .toolbar { display: none !important; }
+      body { background: #fff; }
+      .doc { max-width: none; padding: 0; }
+      a { color: inherit; text-decoration: none; }
+      @page { margin: 14mm 12mm; size: A4; }
+      section { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <p class="hint">Documento formal · Guardar como PDF en el diálogo de impresión</p>
+    <a class="btn ghost" href="/propuestas/axia">Volver</a>
+    <button type="button" onclick="window.print()">Descargar PDF</button>
+  </div>
+
+  <article class="doc">
+    <header class="letterhead">
+      <div class="who" style="display:flex;gap:12px;align-items:center">
+        <img src="/brand/mark.png" alt="" width="40" height="40" />
+        <div>
+          <strong>Fabricio Duarte</strong>
+          <span>Ingeniería de datos y producto digital<br />fabricioduarte.tech · Argentina</span>
+        </div>
+      </div>
+      <div class="meta">
+        Propuesta comercial · Confidencial<br />
+        Destinatario: AXIA Real Estate<br />
+        Fecha: 28 de septiembre de 2026<br />
+        Vigencia: 30 días
+      </div>
+    </header>
+
+    <h1>Propuesta técnica y comercial<br />Plataforma de inversión inmobiliaria AXIA</h1>
+    <p class="subtitle">
+      Documento de alcance, arquitectura, plan de implementación, infraestructura
+      operativa y presupuesto para el desarrollo de una aplicación web instalable
+      (PWA) con propiedad a nombre del cliente.
+    </p>
+
+    <div class="summary-boxes">
+      <div>
+        <span>Inversión producto</span>
+        <strong>USD 3.500</strong>
+      </div>
+      <div>
+        <span>Operación mensual</span>
+        <strong>USD 150</strong>
+      </div>
+      <div>
+        <span>Horizonte completo</span>
+        <strong>3–4 meses</strong>
+      </div>
+    </div>
+
+    <section>
+      <h2>1. Objeto del acuerdo</h2>
+      <p>
+        El presente documento describe la construcción e implantación de un
+        <strong>producto digital propio</strong> para AXIA Real Estate (Paraguay),
+        orientado a la captación y operación de inversiones inmobiliarias.
+      </p>
+      <p>
+        El entregable no es un alquiler de software de terceros ni una licencia
+        temporal: al completar el plan, Axia recibe una aplicación operativa
+        (código, diseño, configuración y accesos técnicos) con
+        <strong>cesión de propiedad a su nombre</strong>.
+      </p>
+      <div class="box">
+        <strong>Alcance funcional del producto</strong>
+        Sitio público institucional; portal del inversor con autenticación;
+        cobranzas con canales locales y lectura asistida de comprobantes (OCR/IA
+        con confirmación humana); administración de mandatos de renta y
+        liquidaciones; registro contable operativo exportable para el contador
+        externo; panel de administración para el equipo Axia.
+      </div>
+      <p class="muted">
+        Es posible contratar de forma independiente la <strong>Etapa 1</strong>
+        (sitio público + editor), manteniendo el resto como hoja de ruta
+        contractual.
+      </p>
+    </section>
+
+    <section>
+      <h2>2. Arquitectura técnica propuesta</h2>
+      <p>
+        Se recomienda una <strong>Progressive Web App (PWA)</strong>: una única
+        base de código desplegable en navegador e instalable en la pantalla de
+        inicio de iPhone, Android y Windows. Evita, en esta fase, el costo y los
+        tiempos de publicación en App Store / Google Play, sin impedir evaluar
+        apps nativas más adelante.
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>Componente</th>
+            <th>Función</th>
+            <th>Justificación</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Cliente PWA</strong></td>
+            <td>Interfaz pública, portal e admin</td>
+            <td>Un solo código; actualizaciones inmediatas; maqueta de partida existente</td>
+          </tr>
+          <tr>
+            <td><strong>Supabase</strong></td>
+            <td>Auth, base PostgreSQL, Storage, RLS</td>
+            <td>Seguridad por filas, sin operar servidores propios</td>
+          </tr>
+          <tr>
+            <td><strong>Hosting (Vercel u equiv.)</strong></td>
+            <td>Publicación HTTPS y CDN</td>
+            <td>Despliegue continuo y dominio propio del cliente</td>
+          </tr>
+          <tr>
+            <td><strong>PSP local (p. ej. Arnipay)</strong></td>
+            <td>QR / billeteras Paraguay</td>
+            <td>Cumplimiento local; comisión por cobro exitoso</td>
+          </tr>
+          <tr>
+            <td><strong>OCR / IA de comprobantes</strong></td>
+            <td>Extracción de monto, fecha, referencia</td>
+            <td>Asistencia operativa; siempre con validación humana Axia</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        El dominio y las cuentas de infraestructura se dan de alta
+        <strong>a nombre de Axia</strong>. El correo institucional no forma parte
+        de este acuerdo: el cliente lo gestiona con su proveedor actual.
+      </p>
+    </section>
+
+    <section>
+      <h2>3. Plan de implementación por etapas</h2>
+      <p>
+        Horizonte estimado del producto completo: <strong>3 a 4 meses</strong>.
+        Cada etapa deja un incremento usable en producción.
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>Etapa</th>
+            <th>Entregable</th>
+            <th>Duración</th>
+            <th class="num">Ref.</th>
+            <th class="num">Propuesta</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1</strong></td>
+            <td>Sitio público + editor de contenidos (textos, medios, orden de bloques). Prioridad de arranque.</td>
+            <td>2–3 sem.</td>
+            <td class="num strike">1.400</td>
+            <td class="num deal">700</td>
+          </tr>
+          <tr>
+            <td><strong>2</strong></td>
+            <td>Portal del inversor: login, unidades, cuotas, documentos, avance de obra, alertas y mensajería.</td>
+            <td>3–4 sem.</td>
+            <td class="num strike">2.100</td>
+            <td class="num deal">1.050</td>
+          </tr>
+          <tr>
+            <td><strong>3</strong></td>
+            <td>Pagos locales, carga de comprobantes, OCR/IA e historial con confirmación Axia.</td>
+            <td>2–3 sem.</td>
+            <td class="num strike">1.400</td>
+            <td class="num deal">700</td>
+          </tr>
+          <tr>
+            <td><strong>4</strong></td>
+            <td>Administración de inversiones: mandatos de renta, liquidaciones y vista del inversor.</td>
+            <td>2–3 sem.</td>
+            <td class="num strike">980</td>
+            <td class="num deal">490</td>
+          </tr>
+          <tr>
+            <td><strong>5</strong></td>
+            <td>Contabilidad operativa: movimientos ordenados y exportación para contador externo.</td>
+            <td>1–2 sem.</td>
+            <td class="num strike">700</td>
+            <td class="num deal">350</td>
+          </tr>
+          <tr>
+            <td><strong>6</strong></td>
+            <td>QA en móvil/PC, manual operativo breve, capacitación y transferencia de accesos.</td>
+            <td>1 sem.</td>
+            <td class="num strike">420</td>
+            <td class="num deal">210</td>
+          </tr>
+          <tr class="total">
+            <td colspan="3">Total mano de obra (producto completo)</td>
+            <td class="num strike">USD 7.000</td>
+            <td class="num deal">USD 3.500</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="muted">
+        La columna «Propuesta» refleja una reducción del 50&nbsp;% sobre el valor
+        de referencia de mano de obra (diseño, desarrollo, integración y entrega).
+      </p>
+    </section>
+
+    <section>
+      <h2>4. Infraestructura y operación mensual</h2>
+      <p>
+        Mientras la aplicación esté en producción, se abona un
+        <strong>plan de operación de USD 150 / mes</strong> que cubre
+        infraestructura y acompañamiento técnico. No incluye funcionalidades
+        nuevas de envergadura (se cotizan aparte).
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>Concepto</th>
+            <th>Detalle</th>
+            <th class="num">Monto</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Hosting</td>
+            <td>Publicación HTTPS / CDN de la PWA</td>
+            <td class="num">USD 35 / mes</td>
+          </tr>
+          <tr>
+            <td>Supabase</td>
+            <td>Auth, base de datos, almacenamiento, políticas de acceso</td>
+            <td class="num">USD 35 / mes</td>
+          </tr>
+          <tr>
+            <td>Dominio</td>
+            <td>USD 20 / año prorrateado</td>
+            <td class="num">USD 1,67 / mes</td>
+          </tr>
+          <tr>
+            <td>Correo institucional</td>
+            <td>Gestionado por el cliente · fuera de alcance</td>
+            <td class="num">USD 0</td>
+          </tr>
+          <tr>
+            <td>Soporte + mantenimiento + versiones</td>
+            <td>Incidencias, preventivo y actualizaciones de plataforma</td>
+            <td class="num">USD 78,33 / mes</td>
+          </tr>
+          <tr class="total">
+            <td colspan="2">Total plan de operación</td>
+            <td class="num">USD 150 / mes</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        La pasarela de pagos local factura <strong>comisión por cobro exitoso</strong>
+        según el proveedor autorizado (PSP); no forma parte del cargo fijo de
+        USD 150.
+      </p>
+    </section>
+
+    <section>
+      <h2>5. Condiciones económicas del producto</h2>
+      <div class="grid-2">
+        <div>
+          <h4>Valor de referencia</h4>
+          <p><span class="strike">USD 7.000</span> — mano de obra sin descuento.</p>
+        </div>
+        <div>
+          <h4>Inversión propuesta</h4>
+          <p><strong class="deal">USD 3.500</strong> — 50&nbsp;% de reducción sobre referencia.</p>
+        </div>
+      </div>
+      <h3>5.1 Solo Etapa 1 (sitio público)</h3>
+      <p>
+        <span class="strike">USD 1.400</span> → <strong>USD 700</strong>.
+        Operación USD 150 / mes desde la publicación.
+      </p>
+      <h3>5.2 Planes de desembolso del producto completo</h3>
+      <div class="grid-2">
+        <div>
+          <h4>Plan A — Por hitos (recomendado)</h4>
+          <p>
+            40&nbsp;% al firmar (USD 1.400)<br />
+            35&nbsp;% al portal operativo (USD 1.225)<br />
+            25&nbsp;% a la entrega final (USD 875)<br />
+            Propiedad al acta de entrega / pago final.
+          </p>
+        </div>
+        <div>
+          <h4>Plan B — Cuotas mensuales</h4>
+          <p>
+            5 × USD 700 (total USD 3.500)<br />
+            Primera al firmar; luego mensuales<br />
+            Propiedad al completar la 5.ª cuota y el acta.
+          </p>
+        </div>
+      </div>
+      <h3>5.3 Variante Etapa 1</h3>
+      <ul>
+        <li>Hitos: 50&nbsp;% al firmar (USD 350) + 50&nbsp;% al publicar (USD 350).</li>
+        <li>Mensual: 2 × USD 350. Operación USD 150 / mes desde el aire.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>6. Inclusiones y exclusiones</h2>
+      <div class="grid-2">
+        <div>
+          <h4>Incluido</h4>
+          <p>
+            UX/UI de pantallas pactadas; desarrollo de las seis etapas;
+            integración de pagos y OCR con confirmación humana; CMS de contenidos;
+            pruebas; capacitación; transferencia de accesos y propiedad del activo.
+          </p>
+        </div>
+        <div>
+          <h4>No incluido</h4>
+          <p>
+            Apps nativas en tiendas Apple/Google; publicidad y copy de marketing;
+            fotografía profesional; blockchain o sensores de edificio; honorarios
+            del contador externo; gestión del correo institucional.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>7. Procedimiento de arranque</h2>
+      <ol>
+        <li>Aprobación de este documento (producto completo o solo Etapa 1).</li>
+        <li>Elección del Plan A (hitos) o Plan B (cuotas).</li>
+        <li>Firma de acuerdo con cláusula de cesión de propiedad a Axia.</li>
+        <li>Primer desembolso y alta de dominio/hosting a nombre del cliente.</li>
+        <li>Kickoff de la Etapa 1 en la fecha acordada.</li>
+      </ol>
+      <div class="box">
+        <strong>Vigencia de cifras</strong>
+        Los montos y la reducción del 50&nbsp;% en mano de obra aplican durante
+        30 días corridos desde la fecha de este documento. Contacto:
+        fabricioduarteoficial@gmail.com · WhatsApp +54 370 402 2201.
+      </div>
+    </section>
+
+    <footer>
+      Fabricio Duarte ·
+      <a href="https://fabricioduarte.tech">fabricioduarte.tech</a><br />
+      Propuesta para AXIA Real Estate · Documento confidencial · Montos en USD<br />
+      Enlace de seguimiento del proyecto:
+      <a href="https://fabricioduarte.tech/c/axia">fabricioduarte.tech/c/axia</a>
+    </footer>
+  </article>
+
+  <script>
+    (function () {
+      var q = new URLSearchParams(location.search);
+      if (q.get('print') === '1') {
+        window.addEventListener('load', function () {
+          setTimeout(function () { window.print(); }, 400);
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

@@ -181,12 +181,13 @@ if (!p) {
 const wa = whatsappHref(p.client)
 
 function downloadPdf() {
-  if (import.meta.client) window.print()
+  if (!import.meta.client) return
+  const href = `${p.formalDoc || `/propuestas/${p.slug}-documento.html`}?print=1`
+  window.open(href, '_blank', 'noopener')
 }
 
 usePageMeta(() => `${p.client} · Propuesta`)
 useHead({
-  bodyAttrs: { class: 'print-proposal' },
   meta: [
     { name: 'robots', content: 'noindex, nofollow' },
     {
