@@ -7,7 +7,7 @@
         <p class="mt-4 text-[15px] leading-relaxed text-slate-400">{{ t.video.body }}</p>
         <p class="mt-4 text-sm text-muted">Stack: Vue · Quasar · Pinia · PostgreSQL · TensorFlow.js</p>
         <p class="mt-4 text-sm">
-          <a class="text-lime-300 underline decoration-lime-500/30 underline-offset-4 hover:text-lime-200" href="https://github.com/FabricioNicolasDuarte/Nutrogan" target="_blank" rel="noopener noreferrer">github.com/FabricioNicolasDuarte/Nutrogan</a>
+          <a class="text-lime-300 underline decoration-lime-500/30 underline-offset-4 hover:text-lime-200" href="https://www.nutrogan.site" target="_blank" rel="noopener noreferrer">www.nutrogan.site</a>
         </p>
       </div>
       <div class="overflow-hidden border border-white/10 bg-slate-950">

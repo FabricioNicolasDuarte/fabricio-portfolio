@@ -275,7 +275,7 @@ export const work = [
     kindZh: '产品 · 农业 · 数据',
     tags: ['Vue', 'Quasar', 'Pinia', 'PostgreSQL', 'TensorFlow.js'],
     cats: ['product', 'da', 'de', 'agtech'],
-    href: 'https://github.com/FabricioNicolasDuarte/Nutrogan',
+    href: 'https://www.nutrogan.site',
     shot: '/mockups/nutrogan.jpg',
     shotAlt: 'Nutrogan: potreros, mapa y gestión de recursos.',
     shotAltEn: 'Nutrogan: paddocks, map, and resource management.',

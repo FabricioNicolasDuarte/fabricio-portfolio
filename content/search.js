@@ -18,6 +18,6 @@ export const searchWork = [
   { to: '/casos/ecom', title: 'Tableros institucionales', titleEn: 'Institutional dashboards', titlePt: 'Painéis institucionais', titleZh: '机构看板', tags: 'Superset Power BI ECOM' },
   { href: 'https://cocoma-app.onrender.com', title: 'Cocoma', titleEn: 'Cocoma', titlePt: 'Cocoma', titleZh: 'Cocoma', tags: 'Laravel demo' },
   { href: 'https://github.com/FabricioNicolasDuarte/SIGCL', title: 'SIGCL', titleEn: 'SIGCL', titlePt: 'SIGCL', titleZh: 'SIGCL', tags: 'Laravel Livewire' },
-  { href: 'https://github.com/FabricioNicolasDuarte/Nutrogan', title: 'Nutrogan', titleEn: 'Nutrogan', titlePt: 'Nutrogan', titleZh: 'Nutrogan', tags: 'Vue Quasar' },
+  { href: 'https://www.nutrogan.site', title: 'Nutrogan', titleEn: 'Nutrogan', titlePt: 'Nutrogan', titleZh: 'Nutrogan', tags: 'Vue Quasar' },
   { href: 'https://github.com/FabricioNicolasDuarte/formobus', title: 'FormoBus', titleEn: 'FormoBus', titlePt: 'FormoBus', titleZh: 'FormoBus', tags: 'PWA' },
 ]
