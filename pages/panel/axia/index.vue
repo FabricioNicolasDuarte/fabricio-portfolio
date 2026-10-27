@@ -17,7 +17,7 @@
               </svg>
               <div>
                 <span class="rounded-full border border-[#d08b22]/40 bg-[#d08b22]/10 px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-[#efc981]">
-                  Portal Comercial AXIA
+                  Portal Comercial AXIA • Sistema 2026
                 </span>
                 <p class="mt-0.5 text-xs text-slate-400">
                   Bienvenida, <strong class="text-white">{{ session?.name || 'Asesora AXIA' }}</strong>
@@ -25,411 +25,338 @@
               </div>
             </div>
 
-            <!-- Acciones directas -->
+            <!-- Acceso directo a la Subsección de Herramientas -->
             <div class="flex items-center gap-2">
-              <a
-                href="#descargas"
+              <NuxtLink
+                :to="localePath('/panel/axia/herramientas')"
                 class="fd-btn text-xs font-semibold !bg-[#d08b22] !text-black hover:!bg-[#efc981]"
               >
-                📥 Descargas de Marca
-              </a>
-              <a
-                href="#auditor-ia"
-                class="fd-btn-outline text-xs"
-              >
-                🤖 Auditor de Videos
-              </a>
+                🛠️ Ir a Herramientas & Auditor IA →
+              </NuxtLink>
             </div>
+          </div>
+
+          <!-- Barra de Navegación de Subsecciones -->
+          <div class="mt-6 flex flex-wrap gap-2 border-t border-white/5 pt-4">
+            <span class="rounded-xl bg-[#d08b22]/20 px-4 py-2 text-xs font-semibold text-[#efc981] border border-[#d08b22]/40">
+              📊 1. Flujo Completo & Estrategia
+            </span>
+            <NuxtLink
+              :to="localePath('/panel/axia/herramientas')"
+              class="rounded-xl px-4 py-2 text-xs font-medium text-slate-400 transition hover:bg-white/5 hover:text-white"
+            >
+              🛠️ 2. Banco de Herramientas & Descargas
+            </NuxtLink>
+            <a
+              href="#manual-meta"
+              class="rounded-xl px-4 py-2 text-xs font-medium text-slate-400 transition hover:bg-white/5 hover:text-white"
+            >
+              📘 3. Manual Interno de Meta Ads
+            </a>
           </div>
         </div>
       </section>
 
       <div class="mx-auto max-w-6xl px-5 pt-8 sm:px-8">
         <!-- Hero Header -->
-        <div class="text-center sm:text-left">
-          <p class="text-xs uppercase tracking-widest text-[#d08b22]">SISTEMA DE ESCALABILIDAD COMERCIAL 2025/2026</p>
+        <div>
+          <p class="text-xs uppercase tracking-widest text-[#d08b22]">ESTRATEGIA & ARQUITECTURA COMERCIAL</p>
           <h1 class="mt-2 font-display text-3xl font-bold tracking-tight text-white sm:text-4xl">
-            Plan de Choque y Crecimiento: <span class="text-[#efc981]">AXIA Inmobiliaria</span>
+            Flujo de Trabajo Operativo: <span class="text-[#efc981]">AXIA Inmobiliaria</span>
           </h1>
           <p class="mt-3 max-w-3xl text-sm leading-relaxed text-slate-300">
-            De prospectos fríos y curiosos a compradores e inversionistas calificados mediante Meta Advantage+, Inteligencia Artificial Multimodal y Calificación Automatizada en WhatsApp.
+            Diagrama interactivo del sistema comercial de punta a punta. Hacé clic en cualquier etapa del gráfico para ver la explicación detallada, los responsables y los criterios de ejecución.
           </p>
           <div class="mt-4 flex flex-wrap items-center gap-3 text-xs text-slate-400">
-            <span>Socio Estratégico & Tecnología: <strong class="text-white">Fabricio Nicolás Duarte</strong></span>
+            <span>Socio Estratégico: <strong class="text-white">Fabricio Nicolás Duarte</strong></span>
             <span>•</span>
-            <span>Alianza a Comisión por Éxito: <strong class="text-[#efc981]">5% por Cierre</strong></span>
+            <span>Comisión de Cierre: <strong class="text-[#efc981]">5% por Operación</strong></span>
             <span>•</span>
-            <span>Base de Operaciones: <strong class="text-white">Asunción, Paraguay</strong></span>
-          </div>
-        </div>
-
-        <!-- 4 KPI Cards -->
-        <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          <div class="fd-card border-[#d08b22]/30 p-5">
-            <p class="text-[11px] uppercase tracking-wider text-[#efc981]">Incentivo Mutuo</p>
-            <p class="mt-1 font-display text-3xl font-bold text-[#efc981]">5%</p>
-            <p class="mt-2 text-xs text-slate-400">Comisión por cierre. No vendo horas de software, ganamos cuando ustedes firman señas.</p>
-          </div>
-
-          <div class="fd-card border-[#d08b22]/30 p-5">
-            <p class="text-[11px] uppercase tracking-wider text-[#efc981]">Velocidad de Respuesta</p>
-            <p class="mt-1 font-display text-3xl font-bold text-white">&lt; 60s</p>
-            <p class="mt-2 text-xs text-slate-400">Calificación en WhatsApp. Ningún lead interesado se enfría ni se va a otra inmobiliaria.</p>
-          </div>
-
-          <div class="fd-card border-[#d08b22]/30 p-5">
-            <p class="text-[11px] uppercase tracking-wider text-[#efc981]">Creativos Validados</p>
-            <p class="mt-1 font-display text-3xl font-bold text-white">3 Áng.</p>
-            <p class="mt-2 text-xs text-slate-400">El gancho (Hook) es la segmentación: pozo para inversión, estilo de vida y autoridad.</p>
-          </div>
-
-          <div class="fd-card border-[#d08b22]/30 p-5">
-            <p class="text-[11px] uppercase tracking-wider text-[#efc981]">Control de Calidad</p>
-            <p class="mt-1 font-display text-3xl font-bold text-white">100% IA</p>
-            <p class="mt-2 text-xs text-slate-400">Auditoría multimodal de retención y dicción antes de invertir presupuesto en pauta.</p>
+            <span>Mercado Objetivo: <strong class="text-white">Asunción & Gran Asunción</strong></span>
           </div>
         </div>
 
         <!-- ================================================================= -->
-        <!-- SUBSECCIÓN: BANCO DE DESCARGAS & MATERIALES DE MARCA -->
+        <!-- GRÁFICO INTERACTIVO DEL FLUJO DE TRABAJO COMPLETO -->
         <!-- ================================================================= -->
-        <section id="descargas" class="mt-16 scroll-mt-24">
-          <div class="flex flex-wrap items-end justify-between gap-4 border-b border-white/10 pb-4">
+        <section class="mt-12">
+          <div class="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-4">
             <div>
-              <p class="text-xs uppercase tracking-wider text-[#d08b22]">Herramientas de Trabajo</p>
-              <h2 class="font-display text-2xl font-bold text-white">Banco de Descargas Oficiales AXIA</h2>
-              <p class="mt-1 text-xs text-slate-400">Archivos oficiales listos para usar en tus redes, presentaciones y cierres.</p>
+              <p class="text-xs uppercase tracking-wider text-[#d08b22]">Diagrama de Procesos</p>
+              <h2 class="font-display text-2xl font-bold text-white">Gráfico del Flujo de Trabajo Completo</h2>
+              <p class="mt-1 text-xs text-slate-400">Tocá cualquier bloque del gráfico para ver la explicación detallada y extensa.</p>
             </div>
-            <span class="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-slate-300">
-              Manual de Identidad 2025
-            </span>
+            <span class="text-[11px] text-slate-400">Paso activo: <strong class="text-[#efc981]">{{ activeNode.title }}</strong></span>
           </div>
 
-          <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            <!-- 1. Pack de Logos -->
-            <div class="fd-card flex flex-col justify-between p-5">
-              <div>
-                <div class="flex items-center justify-between">
-                  <span class="text-2xl">📁</span>
-                  <span class="text-[10px] font-semibold uppercase tracking-wider text-[#efc981]">ZIP • 840 KB</span>
-                </div>
-                <h3 class="mt-3 font-display text-lg font-semibold text-white">Pack Completo de Logotipos</h3>
-                <p class="mt-1 text-xs text-slate-400">
-                  Logos oficiales en alta resolución (PNG fondo transparente y SVG vectorial), versión monocromática, tipográfica y con luces.
-                </p>
+          <!-- Flowchart Gráfico Horizontal/Vertical -->
+          <div class="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-6">
+            <div
+              v-for="(node, nIdx) in workflowNodes"
+              :key="node.id"
+              class="group relative cursor-pointer rounded-2xl border p-4 transition-all"
+              :class="activeNode.id === node.id ? 'border-[#d08b22] bg-[#d08b22]/15 shadow-[0_0_20px_rgba(208,139,34,0.3)] scale-[1.02]' : 'border-white/10 bg-black/40 hover:border-white/25 hover:bg-white/5'"
+              @click="activeNode = node"
+            >
+              <!-- Número de Etapa -->
+              <div class="flex items-center justify-between">
+                <span
+                  class="flex h-7 w-7 items-center justify-center rounded-lg font-mono text-xs font-bold"
+                  :class="activeNode.id === node.id ? 'bg-[#d08b22] text-black' : 'bg-white/10 text-white'"
+                >
+                  0{{ nIdx + 1 }}
+                </span>
+                <span class="text-xs">{{ node.icon }}</span>
               </div>
-              <a
-                href="/axia/pack-logos-axia.zip"
-                download="AXIA_Pack_Logos.zip"
-                class="fd-btn mt-5 w-full justify-center text-xs font-semibold !bg-[#d08b22] !text-black hover:!bg-[#efc981]"
-              >
-                Descargar Pack Logos (.ZIP)
-              </a>
+
+              <!-- Título & Subtítulo -->
+              <h3 class="mt-3 font-display text-sm font-semibold text-white group-hover:text-[#efc981]">
+                {{ node.shortTitle }}
+              </h3>
+              <p class="mt-1 text-[11px] text-slate-400 line-clamp-2">
+                {{ node.quickSummary }}
+              </p>
+
+              <!-- Indicador de acción -->
+              <div class="mt-3 flex items-center justify-between border-t border-white/10 pt-2 text-[10px] font-semibold text-[#efc981]">
+                <span>{{ activeNode.id === node.id ? 'Viendo detalle' : 'Tocar para ver' }}</span>
+                <span>→</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Detalle Extenso del Nodo Seleccionado (Drawer / Detalle Expansivo) -->
+          <div class="mt-6 rounded-2xl border border-[#d08b22]/40 bg-gradient-to-br from-[#182f40]/80 to-black p-6 sm:p-8 shadow-2xl backdrop-blur-md">
+            <div class="flex flex-wrap items-start justify-between gap-4 border-b border-white/10 pb-5">
+              <div>
+                <span class="rounded-full bg-[#d08b22]/20 px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#efc981]">
+                  Etapa 0{{ workflowNodes.findIndex(n => n.id === activeNode.id) + 1 }} • {{ activeNode.category }}
+                </span>
+                <h3 class="mt-2 font-display text-2xl font-bold text-white">
+                  {{ activeNode.title }}
+                </h3>
+                <p class="mt-1 text-xs text-slate-300">{{ activeNode.objective }}</p>
+              </div>
+
+              <div class="flex flex-wrap gap-2 text-xs">
+                <span class="rounded-lg border border-white/10 bg-black/40 px-3 py-1.5 text-slate-300">
+                  Responsable: <strong class="text-white">{{ activeNode.owner }}</strong>
+                </span>
+                <span class="rounded-lg border border-white/10 bg-black/40 px-3 py-1.5 text-slate-300">
+                  Herramienta: <strong class="text-[#efc981]">{{ activeNode.tools }}</strong>
+                </span>
+              </div>
             </div>
 
-            <!-- 2. Manual de Marca PDF -->
-            <div class="fd-card flex flex-col justify-between p-5">
-              <div>
-                <div class="flex items-center justify-between">
-                  <span class="text-2xl">📕</span>
-                  <span class="text-[10px] font-semibold uppercase tracking-wider text-[#efc981]">PDF • 543 KB</span>
+            <!-- Cuerpo Explicativo Extenso -->
+            <div class="mt-6 grid gap-6 lg:grid-cols-3">
+              <div class="lg:col-span-2 space-y-4 text-xs leading-relaxed text-slate-200">
+                <div>
+                  <h4 class="font-semibold text-white uppercase tracking-wider text-[11px] text-[#efc981] mb-1">
+                    Descripción Operativa & Enfoque Comercial:
+                  </h4>
+                  <p>{{ activeNode.detailedExplanation }}</p>
                 </div>
-                <h3 class="mt-3 font-display text-lg font-semibold text-white">Manual de Marca AXIA 2025</h3>
-                <p class="mt-1 text-xs text-slate-400">
-                  Guía oficial de identidad: colores corporativos Pantone 2768 C, Dorado Axia (#CC800D), proporciones y sugerencias de uso.
-                </p>
-              </div>
-              <a
-                href="/axia/Axia Manual de Marca 2025.pdf"
-                download="Axia_Manual_de_Marca_2025.pdf"
-                target="_blank"
-                class="fd-btn-outline mt-5 w-full justify-center text-xs"
-              >
-                Descargar Manual (PDF)
-              </a>
-            </div>
 
-            <!-- 3. Fuentes Tipográficas -->
-            <div class="fd-card flex flex-col justify-between p-5">
-              <div>
-                <div class="flex items-center justify-between">
-                  <span class="text-2xl">🔤</span>
-                  <span class="text-[10px] font-semibold uppercase tracking-wider text-[#efc981]">ZIP • 4.4 MB</span>
+                <div>
+                  <h4 class="font-semibold text-white uppercase tracking-wider text-[11px] text-[#efc981] mb-1">
+                    Procedimiento Exacto Paso a Paso:
+                  </h4>
+                  <ul class="list-disc pl-4 space-y-1.5 text-slate-300">
+                    <li v-for="(step, sIdx) in activeNode.actionSteps" :key="sIdx">
+                      {{ step }}
+                    </li>
+                  </ul>
                 </div>
-                <h3 class="mt-3 font-display text-lg font-semibold text-white">Fuentes Oficiales: Branding SF</h3>
-                <p class="mt-1 text-xs text-slate-400">
-                  Familia tipográfica completa (Bold, Medium, Light, SemiBold, Narrow y Cmp) para instalar en tu computadora o Canva.
-                </p>
               </div>
-              <a
-                href="/axia/pack-fuentes-branding-sf.zip"
-                download="AXIA_Fuentes_Branding_SF.zip"
-                class="fd-btn-outline mt-5 w-full justify-center text-xs"
-              >
-                Descargar Fuentes (.ZIP)
-              </a>
-            </div>
 
-            <!-- 4. Isotipo Vectorial con Luces -->
-            <div class="fd-card flex flex-col justify-between p-5">
-              <div>
-                <div class="flex items-center justify-between">
-                  <span class="text-2xl">✨</span>
-                  <span class="text-[10px] font-semibold uppercase tracking-wider text-[#efc981]">SVG • Vector</span>
+              <!-- Tarjeta de Control & Criterio de Éxito -->
+              <div class="rounded-xl border border-white/10 bg-black/40 p-5 space-y-4 text-xs">
+                <div>
+                  <span class="text-[10px] uppercase font-bold text-slate-400">Criterio de Éxito (SLA):</span>
+                  <p class="mt-1 font-semibold text-emerald-400">{{ activeNode.successCriteria }}</p>
                 </div>
-                <h3 class="mt-3 font-display text-lg font-semibold text-white">Isotipo Delta con Luces</h3>
-                <p class="mt-1 text-xs text-slate-400">
-                  Versión premium con degradado dorado metalizado y azul noche pizarra. Ideal para cierres de video y marcas de agua.
-                </p>
-              </div>
-              <a
-                href="/axia/logo-con-luces.svg"
-                download="AXIA_Isotipo_Con_Luces.svg"
-                class="fd-btn-outline mt-5 w-full justify-center text-xs"
-              >
-                Descargar Isotipo (.SVG)
-              </a>
-            </div>
 
-            <!-- 5. Logotipo Blanco Negativo -->
-            <div class="fd-card flex flex-col justify-between p-5">
-              <div>
-                <div class="flex items-center justify-between">
-                  <span class="text-2xl">⚪</span>
-                  <span class="text-[10px] font-semibold uppercase tracking-wider text-[#efc981]">SVG • Blanco</span>
+                <div class="border-t border-white/10 pt-3">
+                  <span class="text-[10px] uppercase font-bold text-slate-400">Entregable Concreto:</span>
+                  <p class="mt-1 text-slate-300">{{ activeNode.deliverable }}</p>
                 </div>
-                <h3 class="mt-3 font-display text-lg font-semibold text-white">Logotipo Blanco para Reels</h3>
-                <p class="mt-1 text-xs text-slate-400">
-                  Versión en blanco puro (#FFF) para colocar sobre videos o fotos oscuras sin perder visibilidad ni contraste.
-                </p>
-              </div>
-              <a
-                href="/axia/TECTO-BLANCO-SOLO.svg"
-                download="AXIA_Texto_Blanco.svg"
-                class="fd-btn-outline mt-5 w-full justify-center text-xs"
-              >
-                Descargar Logo Blanco (.SVG)
-              </a>
-            </div>
 
-            <!-- 6. Carpeta Drive de Videos Reales -->
-            <div class="fd-card flex flex-col justify-between border-[#d08b22]/40 bg-[#d08b22]/5 p-5">
-              <div>
-                <div class="flex items-center justify-between">
-                  <span class="text-2xl">🎬</span>
-                  <span class="text-[10px] font-semibold uppercase tracking-wider text-[#efc981]">Google Drive</span>
+                <div class="border-t border-white/10 pt-3">
+                  <span class="text-[10px] uppercase font-bold text-slate-400">Impacto en la Comisión (5%):</span>
+                  <p class="mt-1 text-[#efc981]">{{ activeNode.commissionImpact }}</p>
                 </div>
-                <h3 class="mt-3 font-display text-lg font-semibold text-white">Carpeta de Videos en Bruto</h3>
-                <p class="mt-1 text-xs text-slate-400">
-                  Acceso a la carpeta en la nube con los 4 videos grabados para auditar, descargar o subir nuevo material.
-                </p>
               </div>
-              <a
-                href="https://drive.google.com/drive/folders/15vYyUnXLzlA7N1HijYjCLsut8ofDeao-"
-                target="_blank"
-                rel="noopener"
-                class="fd-btn mt-5 w-full justify-center text-xs font-semibold !bg-[#d08b22] !text-black hover:!bg-[#efc981]"
-              >
-                Abrir Carpeta Google Drive ↗
-              </a>
             </div>
           </div>
         </section>
 
         <!-- ================================================================= -->
-        <!-- SUBSECCIÓN: AUDITOR DE VIDEOS CON IA (CASOS REALES) -->
+        <!-- MANUAL DE USUARIO INTERNO: HERRAMIENTAS DE META -->
         <!-- ================================================================= -->
-        <section id="auditor-ia" class="mt-16 scroll-mt-24">
+        <section id="manual-meta" class="mt-20 scroll-mt-24">
           <div class="border-b border-white/10 pb-4">
-            <p class="text-xs uppercase tracking-wider text-[#d08b22]">Simulación de Auditoría Multimodal</p>
-            <h2 class="font-display text-2xl font-bold text-white">Auditor de Videos con IA: Ejemplos Concretos</h2>
+            <p class="text-xs uppercase tracking-wider text-[#d08b22]">Manual de Uso Interno</p>
+            <h2 class="font-display text-2xl font-bold text-white">Manual Interno de Herramientas de Meta</h2>
             <p class="mt-1 text-xs text-slate-400">
-              Evaluamos dos casos reales extraídos de la carpeta de Drive: uno con fallas críticas que quemaría presupuesto y otro con estructura ganadora.
+              Guía técnica y visual de cómo configuramos Meta Ads Manager, Advantage+, WhatsApp Cloud y Conversions API para evitar penalizaciones y maximizar el retorno.
             </p>
           </div>
 
-          <!-- Selector de Caso -->
-          <div class="mt-6 flex flex-wrap gap-3">
-            <button
-              type="button"
-              class="rounded-xl border px-4 py-2.5 text-xs font-semibold transition"
-              :class="activeCase === 'bad' ? 'border-rose-400 bg-rose-400/10 text-rose-300' : 'border-white/10 text-slate-400 hover:border-white/20'"
-              @click="activeCase = 'bad'"
-            >
-              ⚠️ Caso 1: Video con Mucho a Corregir (Rechazado)
-            </button>
-            <button
-              type="button"
-              class="rounded-xl border px-4 py-2.5 text-xs font-semibold transition"
-              :class="activeCase === 'good' ? 'border-[#d08b22] bg-[#d08b22]/10 text-[#efc981]' : 'border-white/10 text-slate-400 hover:border-white/20'"
-              @click="activeCase = 'good'"
-            >
-              ✅ Caso 2: Video con Excelente Criterio (Aprobado)
-            </button>
-          </div>
-
-          <!-- Vista de Caso 1: A Corregir -->
-          <div v-if="activeCase === 'bad'" class="mt-6 grid gap-6 lg:grid-cols-2">
-            <div class="fd-card border-rose-500/30 bg-rose-950/10 p-6">
-              <div class="flex items-center justify-between">
-                <span class="rounded-full bg-rose-500/20 px-2.5 py-1 text-xs font-bold text-rose-400">
-                  SCORE IA: 48 / 100 • RECHAZADO
+          <div class="mt-8 space-y-8">
+            <!-- Herramienta 1: Meta Ads Manager & Housing Category -->
+            <div class="fd-card p-6 sm:p-8">
+              <div class="flex flex-wrap items-center justify-between gap-3">
+                <div class="flex items-center gap-3">
+                  <span class="flex h-9 w-9 items-center justify-center rounded-xl bg-blue-600/20 text-blue-400 font-bold text-sm">
+                    M1
+                  </span>
+                  <div>
+                    <h3 class="font-display text-lg font-bold text-white">1. Meta Ads Manager: Categoría Especial de Anuncios (Housing)</h3>
+                    <p class="text-xs text-slate-400">Regla estricta obligatoria para inmobiliarias en Meta</p>
+                  </div>
+                </div>
+                <span class="rounded-full bg-emerald-500/15 border border-emerald-500/30 px-3 py-1 text-[11px] font-bold text-emerald-400">
+                  Configuración Obligatoria
                 </span>
-                <span class="text-xs text-slate-400">Video #01 (Bruto)</span>
               </div>
-              <h3 class="mt-4 font-display text-xl font-bold text-white">
-                Reel: "Hola chicas, miren este depto..."
-              </h3>
-              <p class="mt-2 text-xs text-slate-300">
-                Típica grabación espontánea: la asesora entra caminando, acomoda el celular durante los primeros 3 segundos y describe la habitación sin mencionar precio ni financiamiento.
-              </p>
 
-              <div class="mt-6 space-y-3">
-                <div class="rounded-lg border border-rose-500/20 bg-black/40 p-3">
-                  <p class="text-xs font-semibold text-rose-400">❌ Gancho Inicial (0-3s): Fallo crítico</p>
-                  <p class="mt-1 text-xs text-slate-400">
-                    Comienza con saludo genérico ("Hola amigos..."). El 82% de las personas en Instagram deslizan hacia arriba (scroll) antes de que empiece a hablar del edificio.
-                  </p>
+              <!-- Mockup UI Meta Ads Manager -->
+              <div class="mt-6 rounded-xl border border-white/10 bg-[#0a1017] p-5">
+                <div class="flex items-center justify-between border-b border-white/10 pb-3 text-xs text-slate-400">
+                  <span class="font-mono text-slate-300">Meta Ads Manager • Campaña: AXIA_Pozo_LasMercedes_2026</span>
+                  <span class="rounded bg-blue-500/20 px-2 py-0.5 text-blue-300">Modo: Subasta</span>
                 </div>
 
-                <div class="rounded-lg border border-rose-500/20 bg-black/40 p-3">
-                  <p class="text-xs font-semibold text-rose-400">❌ Oferta Comercial: Ausente</p>
-                  <p class="mt-1 text-xs text-slate-400">
-                    No se especifica si es pozo o listo, ni las cuotas mensuales, ni el retorno estimado de renta en dólares. El curioso pregunta "¿precio?" y no compra.
-                  </p>
-                </div>
+                <div class="mt-4 grid gap-4 sm:grid-cols-2 text-xs">
+                  <div class="rounded-lg border border-emerald-500/30 bg-emerald-950/10 p-3">
+                    <p class="font-semibold text-emerald-300">✓ Special Ad Category: Vivienda (Housing)</p>
+                    <p class="mt-1 text-slate-400">
+                      <strong>Activado.</strong> Protege la cuenta publicitaria de baneos permanentes. Declara formalmente que se trata de bienes raíces.
+                    </p>
+                  </div>
 
-                <div class="rounded-lg border border-rose-500/20 bg-black/40 p-3">
-                  <p class="text-xs font-semibold text-rose-400">❌ Audio & Música: Compitiendo con la voz</p>
-                  <p class="mt-1 text-xs text-slate-400">
-                    Música de tendencia con volumen elevado que tapa la dicción de la asesora. Eco notable en el ambiente.
-                  </p>
+                  <div class="rounded-lg border border-amber-500/30 bg-amber-950/10 p-3">
+                    <p class="font-semibold text-amber-300">⚠️ Segmentación Demográfica Bloqueada por Meta</p>
+                    <p class="mt-1 text-slate-400">
+                      En vivienda Meta bloquea el filtro por edad o género. <em>Por eso el contenido del video (el gancho) hace la segmentación de capital.</em>
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-4 text-xs leading-relaxed text-slate-300">
+                <strong>¿Por qué es vital para AXIA?</strong> Si intentamos engañar a Meta segmentando manualmente sin tildar "Vivienda", el algoritmo detecta palabras como "departamento", "en pozo" o "renta" y bloquea la cuenta publicitaria comercial. Con nuestra arquitectura, declaramos la categoría y dejamos que el video atraiga al inversor calificado.
+              </div>
+            </div>
+
+            <!-- Herramienta 2: Meta Advantage+ -->
+            <div class="fd-card p-6 sm:p-8">
+              <div class="flex flex-wrap items-center justify-between gap-3">
+                <div class="flex items-center gap-3">
+                  <span class="flex h-9 w-9 items-center justify-center rounded-xl bg-purple-600/20 text-purple-400 font-bold text-sm">
+                    M2
+                  </span>
+                  <div>
+                    <h3 class="font-display text-lg font-bold text-white">2. Meta Advantage+: Distribución Algorítmica Inteligente</h3>
+                    <p class="text-xs text-slate-400">Entrega de presupuesto autónoma por Inteligencia Artificial</p>
+                  </div>
+                </div>
+                <span class="rounded-full bg-purple-500/15 border border-purple-500/30 px-3 py-1 text-[11px] font-bold text-purple-300">
+                  Advantage+ Leads
+                </span>
+              </div>
+
+              <!-- Mockup UI Advantage+ -->
+              <div class="mt-6 rounded-xl border border-white/10 bg-[#0a1017] p-5">
+                <div class="grid gap-3 sm:grid-cols-3 text-xs">
+                  <div class="rounded-lg border border-white/10 bg-black/40 p-3">
+                    <p class="font-semibold text-[#efc981]">Advantage+ Budget (CBO)</p>
+                    <p class="mt-1 text-slate-400">El presupuesto diario se asigna automáticamente al video que genera prospectos al menor costo.</p>
+                  </div>
+
+                  <div class="rounded-lg border border-white/10 bg-black/40 p-3">
+                    <p class="font-semibold text-[#efc981]">Advantage+ Placements</p>
+                    <p class="mt-1 text-slate-400">Publicación en Reels de Instagram, Stories y Feed de Facebook sin desperdiciar ubicaciones muertas.</p>
+                  </div>
+
+                  <div class="rounded-lg border border-white/10 bg-black/40 p-3">
+                    <p class="font-semibold text-[#efc981]">Advantage+ Creative</p>
+                    <p class="mt-1 text-slate-400">Ajusta el contraste, brillo y formato de pantalla según el dispositivo de cada usuario.</p>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <div class="fd-card flex flex-col justify-between p-6">
-              <div>
-                <span class="text-xs font-bold uppercase tracking-wider text-[#efc981]">
-                  Directivas de Corrección para la Agente
+            <!-- Herramienta 3: WhatsApp Cloud API & Webhook -->
+            <div class="fd-card p-6 sm:p-8">
+              <div class="flex flex-wrap items-center justify-between gap-3">
+                <div class="flex items-center gap-3">
+                  <span class="flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-600/20 text-emerald-400 font-bold text-sm">
+                    M3
+                  </span>
+                  <div>
+                    <h3 class="font-display text-lg font-bold text-white">3. WhatsApp Cloud API: Interceptación en &lt;60 Segundos</h3>
+                    <p class="text-xs text-slate-400">Conexión Click-to-WhatsApp directa desde anuncios</p>
+                  </div>
+                </div>
+                <span class="rounded-full bg-emerald-500/15 border border-emerald-500/30 px-3 py-1 text-[11px] font-bold text-emerald-400">
+                  Speed to Lead
                 </span>
-                <h4 class="mt-2 font-display text-lg font-semibold text-white">
-                  Cómo transformar este video en una máquina de leads:
-                </h4>
-                <ol class="mt-4 list-decimal space-y-3 pl-4 text-xs text-slate-300">
-                  <li><strong>Cortar los primeros 3 segundos:</strong> Iniciar directo con la imagen más atractiva (terraza o cocina) y la frase del gancho financiero.</li>
-                  <li><strong>Inyectar subtítulos dinámicos:</strong> Resaltar en amarillo y blanco las palabras clave ("CUOTAS", "ASUNCIÓN", "RENTA 12%").</li>
-                  <li><strong>Cambiar el cierre genérico por llamada a la acción:</strong> Reemplazar el <em>"cualquier cosa me escriben"</em> por <em>"tocá el botón de WhatsApp para recibir el brochure con precios de lanzamiento"</em>.</li>
+              </div>
+
+              <div class="mt-6 rounded-xl border border-white/10 bg-[#0a1017] p-5 text-xs text-slate-300 leading-relaxed">
+                <p>
+                  Cuando el usuario toca el anuncio en Instagram, se abre su WhatsApp nativo con un mensaje precargado. En ese mismo instante, nuestro servidor de webhook dispara:
+                </p>
+                <ol class="mt-3 list-decimal pl-5 space-y-1.5 text-slate-400">
+                  <li>Envío inmediato del PDF Brochure del edificio en menos de 15 segundos.</li>
+                  <li>Pregunta de calificación 1: ¿Vivienda o inversión?</li>
+                  <li>Pregunta de calificación 2: Rango de presupuesto y plazo de entrega.</li>
+                  <li>Notificación inmediata a la asesora asignada por WhatsApp con la ficha completa.</li>
                 </ol>
               </div>
-
-              <div class="mt-6 rounded-xl border border-white/10 bg-black/30 p-4">
-                <p class="text-xs text-muted">¿Querés comparar con los archivos originales?</p>
-                <a
-                  href="https://drive.google.com/drive/folders/15vYyUnXLzlA7N1HijYjCLsut8ofDeao-"
-                  target="_blank"
-                  rel="noopener"
-                  class="mt-2 inline-flex items-center gap-1.5 text-xs text-[#efc981] hover:underline"
-                >
-                  Abrir carpeta en Drive para ver el video ↗
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Vista de Caso 2: Buen Criterio -->
-          <div v-else class="mt-6 grid gap-6 lg:grid-cols-2">
-            <div class="fd-card border-emerald-500/30 bg-emerald-950/10 p-6">
-              <div class="flex items-center justify-between">
-                <span class="rounded-full bg-emerald-500/20 px-2.5 py-1 text-xs font-bold text-emerald-400">
-                  SCORE IA: 94 / 100 • APROBADO PARA PAUTA
-                </span>
-                <span class="text-xs text-slate-400">Video #02 (Estructurado)</span>
-              </div>
-              <h3 class="mt-4 font-display text-xl font-bold text-white">
-                Reel: "Dejar tus ahorros en el banco te está costando plata"
-              </h3>
-              <p class="mt-2 text-xs text-slate-300">
-                La asesora mira a cámara con energía, presenta la oportunidad en pozo en Las Mercedes, muestra el render y cierra enviando al WhatsApp.
-              </p>
-
-              <div class="mt-6 space-y-3">
-                <div class="rounded-lg border border-emerald-500/20 bg-black/40 p-3">
-                  <p class="text-xs font-semibold text-emerald-400">✓ Gancho de 3s (Hook): 96% retención</p>
-                  <p class="mt-1 text-xs text-slate-400">
-                    Frena el scroll del inversionista inmediatamente atacando la pérdida de poder adquisitivo del dinero en el banco.
-                  </p>
-                </div>
-
-                <div class="rounded-lg border border-emerald-500/20 bg-black/40 p-3">
-                  <p class="text-xs font-semibold text-emerald-400">✓ Claridad Financiera: 92%</p>
-                  <p class="mt-1 text-xs text-slate-400">
-                    Menciona cuotas desde $450 USD sin intereses durante la obra y rentabilidad estimada del 10% al 12% anual en dólares.
-                  </p>
-                </div>
-
-                <div class="rounded-lg border border-emerald-500/20 bg-black/40 p-3">
-                  <p class="text-xs font-semibold text-emerald-400">✓ Conexión con el Bot de WhatsApp: 95%</p>
-                  <p class="mt-1 text-xs text-slate-400">
-                    Llamada a la acción precisa que activa la calificación automatizada en menos de 60 segundos.
-                  </p>
-                </div>
-              </div>
             </div>
 
-            <div class="fd-card flex flex-col justify-between p-6">
-              <div>
-                <span class="text-xs font-bold uppercase tracking-wider text-[#efc981]">
-                  Resultado Estimado en Campaña Meta Advantage+
-                </span>
-                <h4 class="mt-2 font-display text-lg font-semibold text-white">
-                  Por qué este formato maximiza las comisiones:
-                </h4>
-                <div class="mt-4 space-y-3 text-xs text-slate-300">
-                  <div class="flex items-center justify-between border-b border-white/10 pb-2">
-                    <span class="text-slate-400">Costo por Lead Calificado estimado:</span>
-                    <strong class="text-white">$1.80 – $2.60 USD</strong>
-                  </div>
-                  <div class="flex items-center justify-between border-b border-white/10 pb-2">
-                    <span class="text-slate-400">Tasa de respuesta en WhatsApp:</span>
-                    <strong class="text-emerald-400">78% en &lt; 5 minutos</strong>
-                  </div>
-                  <div class="flex items-center justify-between border-b border-white/10 pb-2">
-                    <span class="text-slate-400">Perfil de prospectos:</span>
-                    <strong class="text-white">Inversionistas con capital propio</strong>
-                  </div>
-                  <div class="flex items-center justify-between pb-2">
-                    <span class="text-slate-400">Comisión por unidad cerrada:</span>
-                    <strong class="text-[#efc981]">$3.500 – $6.000 USD</strong>
+            <!-- Herramienta 4: Meta Conversions API (CAPI) -->
+            <div class="fd-card p-6 sm:p-8">
+              <div class="flex flex-wrap items-center justify-between gap-3">
+                <div class="flex items-center gap-3">
+                  <span class="flex h-9 w-9 items-center justify-center rounded-xl bg-amber-600/20 text-amber-400 font-bold text-sm">
+                    M4
+                  </span>
+                  <div>
+                    <h3 class="font-display text-lg font-bold text-white">4. Meta Conversions API (CAPI): Retroalimentación de Ventas</h3>
+                    <p class="text-xs text-slate-400">Entrenamiento del algoritmo con compradores reales</p>
                   </div>
                 </div>
+                <span class="rounded-full bg-amber-500/15 border border-amber-500/30 px-3 py-1 text-[11px] font-bold text-amber-300">
+                  Optimización de Cierre
+                </span>
               </div>
 
-              <div class="mt-6 rounded-xl border border-[#d08b22]/30 bg-[#d08b22]/10 p-4">
-                <p class="text-xs text-[#efc981] font-semibold">Listo para grabar tu versión:</p>
-                <p class="mt-1 text-xs text-slate-300">Hacé clic abajo para copiar el guion exacto de este video en tu celular.</p>
-                <a
-                  href="#guiones"
-                  class="mt-3 inline-block rounded-lg bg-[#d08b22] px-3 py-1.5 text-xs font-semibold text-black hover:bg-[#efc981]"
-                >
-                  Ver Guion Inversor en Pozo ↓
-                </a>
+              <div class="mt-6 rounded-xl border border-white/10 bg-[#0a1017] p-5 text-xs text-slate-300 leading-relaxed">
+                <p>
+                  Cuando una agente cierra una operación y se cobra la seña o se firma el boleto de compraventa, el backend de Fabricio envía una petición POST a la <strong>Graph API de Meta (endpoint /events)</strong> con el evento <code>Purchase / RealEstateDeposit</code>.
+                </p>
+                <p class="mt-2 text-slate-400">
+                  <strong>Efecto comercial:</strong> Meta aprende qué personas en Asunción tienen realmente $70.000 a $120.000 USD y busca perfiles idénticos para las próximas campañas.
+                </p>
               </div>
             </div>
           </div>
         </section>
 
         <!-- ================================================================= -->
-        <!-- SUBSECCIÓN: GUIONES MAESTROS INTERACTIVOS -->
+        <!-- GUIONES MAESTROS INTERACTIVOS PARA TELEPROMPTER -->
         <!-- ================================================================= -->
-        <section id="guiones" class="mt-16 scroll-mt-24">
+        <section id="guiones" class="mt-20 scroll-mt-24">
           <div class="border-b border-white/10 pb-4">
-            <p class="text-xs uppercase tracking-wider text-[#d08b22]">Teleprompter & Grabación</p>
-            <h2 class="font-display text-2xl font-bold text-white">Los 3 Guiones de Alta Conversión</h2>
-            <p class="mt-1 text-xs text-slate-400">Hagan clic en cada pestaña y usen el botón "Copiar Guion" para pegarlo en su aplicación de teleprompter o notas.</p>
+            <p class="text-xs uppercase tracking-wider text-[#d08b22]">Material de Producción</p>
+            <h2 class="font-display text-2xl font-bold text-white">Guiones de Grabación para las Agentes</h2>
+            <p class="mt-1 text-xs text-slate-400">Seleccioná el guion correspondiente y usá el botón para copiarlo al teleprompter.</p>
           </div>
 
-          <!-- Selector de Guion -->
           <div class="mt-6 flex flex-wrap gap-2">
             <button
               v-for="(g, idx) in guiones"
@@ -443,7 +370,6 @@
             </button>
           </div>
 
-          <!-- Guion Activo -->
           <div class="fd-card mt-6 p-6">
             <div class="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-4">
               <div>
@@ -463,7 +389,7 @@
               </button>
             </div>
 
-            <!-- Desglose por tiempos -->
+            <!-- Pasos -->
             <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               <div
                 v-for="(step, sIdx) in guiones[activeScript].steps"
@@ -478,7 +404,7 @@
               </div>
             </div>
 
-            <!-- Texto continuo para lectura -->
+            <!-- Texto continuo -->
             <div class="mt-6 rounded-xl border border-dashed border-[#d08b22]/40 bg-black/50 p-4 text-xs leading-relaxed text-slate-200">
               <p class="font-semibold text-[#efc981] mb-1">Texto continuo para teleprompter:</p>
               {{ guiones[activeScript].fullText }}
@@ -486,138 +412,16 @@
           </div>
         </section>
 
-        <!-- ================================================================= -->
-        <!-- SUBSECCIÓN: SIMULADOR DE WHATSAPP -->
-        <!-- ================================================================= -->
-        <section class="mt-16">
-          <div class="border-b border-white/10 pb-4">
-            <p class="text-xs uppercase tracking-wider text-[#d08b22]">Embudo Automatizado</p>
-            <h2 class="font-display text-2xl font-bold text-white">Filtrado en WhatsApp en Menos de 60 Segundos</h2>
-            <p class="mt-1 text-xs text-slate-400">
-              Así es como el sistema intercepta a los interesados y les pasa únicamente a los clientes con solvencia y ganas de visitar.
-            </p>
-          </div>
-
-          <div class="mt-6 grid gap-6 lg:grid-cols-2 items-center">
-            <!-- Mockup Chat -->
-            <div class="mx-auto w-full max-w-md rounded-3xl border border-white/15 bg-[#0b141a] p-4 shadow-2xl">
-              <div class="flex items-center gap-3 border-b border-white/10 pb-3">
-                <div class="flex h-10 w-10 items-center justify-center rounded-full bg-[#d08b22] font-bold text-black text-sm">
-                  AX
-                </div>
-                <div>
-                  <p class="text-sm font-semibold text-white">Asistente Comercial AXIA</p>
-                  <p class="text-[10px] text-emerald-400">en línea • respuesta &lt;60s</p>
-                </div>
-              </div>
-
-              <div class="mt-4 space-y-3 text-xs">
-                <div class="max-w-[85%] rounded-2xl rounded-tl-sm bg-[#202c33] p-3 text-white">
-                  Hola, vi el video del proyecto en pozo en Las Mercedes. ¿Tienen precios?
-                  <span class="block text-right text-[9px] text-slate-400 mt-1">21:40</span>
-                </div>
-
-                <div class="ml-auto max-w-[85%] rounded-2xl rounded-tr-sm bg-[#005c4b] p-3 text-white">
-                  ¡Hola! Te comparto el brochure oficial 📑✨
-                  <br><br>
-                  Para darte las unidades exactas: <strong>¿Buscás para vivienda o como inversión para renta?</strong>
-                  <span class="block text-right text-[9px] text-slate-300 mt-1">21:40</span>
-                </div>
-
-                <div class="max-w-[85%] rounded-2xl rounded-tl-sm bg-[#202c33] p-3 text-white">
-                  Para inversión de renta.
-                  <span class="block text-right text-[9px] text-slate-400 mt-1">21:41</span>
-                </div>
-
-                <div class="ml-auto max-w-[85%] rounded-2xl rounded-tr-sm bg-[#005c4b] p-3 text-white">
-                  Excelente. Unidades desde <strong>$55.000 a $110.000 USD</strong> con entrega accesible y cuotas durante obra.
-                  <br><br>
-                  ¿En qué rango de inversión estás proyectando ingresar?
-                  <span class="block text-right text-[9px] text-slate-300 mt-1">21:41</span>
-                </div>
-
-                <div class="max-w-[85%] rounded-2xl rounded-tl-sm bg-[#202c33] p-3 text-white">
-                  Tengo para la entrega y busco hasta $85.000 en cuotas.
-                  <span class="block text-right text-[9px] text-slate-400 mt-1">21:42</span>
-                </div>
-
-                <div class="rounded-xl border border-[#d08b22]/40 bg-[#d08b22]/15 p-2.5 text-center text-[11px] text-[#efc981]">
-                  ⚡ <strong>LEAD CALIFICADO:</strong> Derivado inmediatamente a la asesora de guardia con ficha completa.
-                </div>
-              </div>
-            </div>
-
-            <!-- Ficha resultante -->
-            <div class="fd-card border-[#d08b22]/30 p-6">
-              <span class="text-xs font-bold uppercase tracking-wider text-[#efc981]">
-                Notificación Directa a la Asesora
-              </span>
-              <h3 class="mt-2 font-display text-xl font-bold text-white">
-                Ficha que reciben en su WhatsApp:
-              </h3>
-              <p class="mt-2 text-xs text-slate-300">
-                Ustedes no pierden tiempo preguntando si tiene plata. Saben exactamente el perfil antes de llamarlo:
-              </p>
-
-              <div class="mt-6 rounded-xl border border-white/10 bg-black/40 p-4 space-y-2 text-xs">
-                <div class="flex justify-between border-b border-white/10 pb-2">
-                  <span class="text-slate-400">Prospecto:</span>
-                  <strong class="text-white">Ing. Carlos Benítez</strong>
-                </div>
-                <div class="flex justify-between border-b border-white/10 pb-2">
-                  <span class="text-slate-400">Objetivo:</span>
-                  <strong class="text-[#efc981]">Inversión en Pozo (Renta en USD)</strong>
-                </div>
-                <div class="flex justify-between border-b border-white/10 pb-2">
-                  <span class="text-slate-400">Capacidad declarada:</span>
-                  <strong class="text-emerald-400">$75.000 – $85.000 USD</strong>
-                </div>
-                <div class="flex justify-between pt-1">
-                  <span class="text-slate-400">Acción sugerida:</span>
-                  <strong class="text-white">Agendar visita showroom antes del viernes</strong>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- ================================================================= -->
-        <!-- SUBSECCIÓN: CHECKLIST OPERATIVO -->
-        <!-- ================================================================= -->
-        <section class="mt-16">
-          <div class="border-b border-white/10 pb-4">
-            <p class="text-xs uppercase tracking-wider text-[#d08b22]">Compromiso Mutuo</p>
-            <h2 class="font-display text-2xl font-bold text-white">Checklist de Lanzamiento: Próximos 7 Días</h2>
-            <p class="mt-1 text-xs text-slate-400">Marquen los pasos a medida que los completen. Se guardan en su navegador.</p>
-          </div>
-
-          <div class="fd-card mt-6 p-6 space-y-3">
-            <label
-              v-for="(task, tIdx) in checklist"
-              :key="tIdx"
-              class="flex items-center gap-3 rounded-lg border border-white/5 p-3 text-xs text-slate-300 transition hover:bg-white/5 cursor-pointer"
-            >
-              <input
-                v-model="task.done"
-                type="checkbox"
-                class="h-4 w-4 rounded border-white/20 bg-black text-[#d08b22] focus:ring-[#d08b22]"
-                @change="saveChecklist"
-              />
-              <span :class="{ 'line-through text-slate-500': task.done }">{{ task.label }}</span>
-            </label>
-          </div>
-        </section>
-
-        <!-- Footer del Portal con autoría de Fabricio -->
-        <footer class="mt-20 border-t border-white/10 pt-8 text-center text-xs text-slate-400">
+        <!-- Footer con autoría estricta de fabricioduarte.tech -->
+        <footer class="mt-24 border-t border-white/10 pt-8 text-center text-xs text-slate-400">
           <p class="font-medium text-white">
-            Desarrollado y operado por <a href="https://fabricioduarte.tech" class="text-[#efc981] hover:underline" target="_blank">Fabricio Nicolás Duarte</a>
+            © {{ new Date().getFullYear() }} <a href="https://fabricioduarte.tech" class="text-[#efc981] hover:underline" target="_blank">fabricioduarte.tech</a> • Fabricio Nicolás Duarte. Todos los derechos reservados.
           </p>
-          <p class="mt-1">
-            Software Engineer & Strategic Partner • WhatsApp: <a href="https://wa.me/543704022201" class="text-white hover:underline">+54 370 402-2201</a>
+          <p class="mt-1 text-slate-500">
+            Plataforma interna de desarrollo, herramientas y operaciones estratégicas. Software Engineer & Strategic Partner.
           </p>
-          <p class="mt-3 text-[11px] text-slate-500">
-            AXIA Inmobiliaria © {{ new Date().getFullYear() }} • Documento privado y confidencial para el equipo de ventas.
+          <p class="mt-2 text-slate-400">
+            WhatsApp: <a href="https://wa.me/543704022201" class="text-[#efc981] hover:underline" target="_blank">+54 370 402-2201</a> • Correo: <a href="mailto:fabricioduarteoficial@gmail.com" class="text-white hover:underline">fabricioduarteoficial@gmail.com</a>
           </p>
         </footer>
       </div>
@@ -627,12 +431,138 @@
 
 <script setup>
 const { session } = usePortal()
-const activeCase = ref('bad')
+const { localePath } = useLocale()
 const activeScript = ref(0)
 const copied = ref(false)
 
-usePageMeta(() => 'Portal Comercial AXIA')
+usePageMeta(() => 'Estrategia & Flujo AXIA')
 useHead({ meta: [{ name: 'robots', content: 'noindex, nofollow' }] })
+
+// Nodos del Flujo de Trabajo Completo
+const workflowNodes = [
+  {
+    id: 'prod',
+    icon: '🎬',
+    shortTitle: '1. Producción de Video',
+    title: 'Grabación de Videos con Gancho de 3 Segundos',
+    category: 'Creativos & Contenido',
+    quickSummary: 'Las asesoras graban 2 veces por semana siguiendo los guiones estructurados.',
+    objective: 'Captar la atención de inversionistas en los primeros 3 segundos y frenar el scroll en Instagram.',
+    owner: 'Asesoras AXIA (Josefina, Deborah, Karen)',
+    tools: 'Smartphone en vertical 9:16 + Guiones Maestros AXIA',
+    detailedExplanation: 'En el mercado inmobiliario actual de Asunción, el contenido no compite con otras inmobiliarias; compite con el entretenimiento. Por ello, el 100% de los videos debe arrancar con una cifra de alto impacto, una pregunta incómoda sobre la inflación o un recorrido visual de entrada inmediata. No se saluda con "hola chicos", se va directo a la propuesta financiera.',
+    actionSteps: [
+      'Elegir la unidad o pozo prioritario de la semana.',
+      'Grabar con buena luz frontal y micrófono de solapa o teléfono cerca.',
+      'Enviar el archivo de video en bruto (sin editar) a la carpeta de Google Drive.',
+    ],
+    successCriteria: '2 videos grabados semanalmente por asesora con dicción clara.',
+    deliverable: 'Archivos de video crudo subidos a Google Drive.',
+    commissionImpact: 'Alimenta el embudo con prospectos constantes para sostener cierres mensuales.',
+  },
+  {
+    id: 'audit',
+    icon: '🤖',
+    shortTitle: '2. Auditoría con IA',
+    title: 'Validación Multimodal con Gemini Pro',
+    category: 'Control de Calidad Pre-Pauta',
+    quickSummary: 'El motor de IA audita el video cuadro por cuadro y emite un Pass/Fail.',
+    objective: 'Garantizar que ningún video salga a pauta publicitaria si no cumple los estándares matemáticos de retención.',
+    owner: 'Fabricio Nicolás Duarte (Backend de IA)',
+    tools: 'Gemini 1.5 Pro Multimodal + OpenCV / MoviePy',
+    detailedExplanation: 'El video se analiza en 5 dimensiones críticas: gancho de los primeros 3 segundos, claridad de las cuotas y precios, energía y mirada a la cámara de la asesora, calidad sonora sin música invasiva y llamado a la acción hacia WhatsApp. Si obtiene menos de 80 puntos, se le entregan las correcciones exactas a la asesora para recortar o regrabar.',
+    actionSteps: [
+      'Ingesta automática del video desde Google Drive.',
+      'Evaluación multimodal con prompt estricto de marketing inmobiliario.',
+      'Generación de subtítulos dinámicos de alta retención para ver sin volumen.',
+    ],
+    successCriteria: 'Score mínimo de 85/100 para recibir presupuesto publicitario.',
+    deliverable: 'Video final aprobado con subtítulos y reporte de auditoría.',
+    commissionImpact: 'Evita quemar presupuesto en videos aburridos que solo generan costos sin ventas.',
+  },
+  {
+    id: 'ads',
+    icon: '📈',
+    shortTitle: '3. Despliegue Meta Ads',
+    title: 'Pauta Algorítmica con Meta Advantage+',
+    category: 'Distribución Publicitaria',
+    quickSummary: 'Lanzamiento con Categoría de Vivienda y optimización de presupuesto autónoma.',
+    objective: 'Entregar los anuncios a perfiles con alto interés de inversión en pozo y vivienda en Paraguay.',
+    owner: 'Fabricio Nicolás Duarte (Pauta & Ads)',
+    tools: 'Meta Ads Manager + Advantage+ Campaign Budget (CBO)',
+    detailedExplanation: 'Se configura la campaña bajo la Categoría Especial de Anuncios (Housing), blindando la cuenta de bloqueos. Meta Advantage+ distribuye el presupuesto de forma autónoma entre los videos ganadores, buscando prospectos en Instagram Reels, Stories y Feed de Facebook en Asunción, Gran Asunción y plazas inversoras.',
+    actionSteps: [
+      'Carga de creativos validados en el AdSet Advantage+.',
+      'Configuración de objetivo: Clientes Potenciales hacia WhatsApp.',
+      'Monitoreo de fatiga publicitaria y rotación de ángulos cada 10 días.',
+    ],
+    successCriteria: 'Costo por lead calificado por debajo de $2.50 USD.',
+    deliverable: 'Campañas activas generando consultas constantes hacia WhatsApp.',
+    commissionImpact: 'Garantiza volumen de interesados reales a costo predecible.',
+  },
+  {
+    id: 'wpp',
+    icon: '⚡',
+    shortTitle: '4. Filtrado en WhatsApp',
+    title: 'Interceptación y Calificación en <60s',
+    category: 'Speed to Lead',
+    quickSummary: 'Bot inteligente responde de inmediato, entrega brochure y filtra solvencia.',
+    objective: 'Eliminar el 90% de los curiosos sin dinero y calificar capacidad de compra en tiempo real.',
+    owner: 'Bot Asistente Virtual AXIA (Tecnología Fabricio Duarte)',
+    tools: 'WhatsApp Cloud API + Webhook en Node/Python',
+    detailedExplanation: 'En Paraguay el lead se enfría a los 15 minutos. Nuestro sistema entrega el brochure oficial en menos de 15 segundos y hace dos preguntas clave: ¿vivienda propia o inversión de renta? y ¿cuál es el rango de inversión disponible? Si el cliente tiene presupuesto, el bot dispara la alerta directa a la asesora.',
+    actionSteps: [
+      'Recepción del mensaje Click-to-WhatsApp.',
+      'Envío inmediato del brochure en PDF de la propiedad.',
+      'Extracción de datos de solvencia económica del interesado.',
+    ],
+    successCriteria: 'Tiempo de primera respuesta menor a 60 segundos las 24 horas.',
+    deliverable: 'Ficha comercial estructurada con presupuesto y contacto verificado.',
+    commissionImpact: 'Las asesoras no pierden tiempo chateando con personas sin dinero.',
+  },
+  {
+    id: 'sales',
+    icon: '🤝',
+    shortTitle: '5. Cierre Comercial',
+    title: 'Contacto en Caliente y Visita al Showroom',
+    category: 'Gestión Humana de Venta',
+    quickSummary: 'La asesora toma el contacto precalificado y agenda la visita presencial.',
+    objective: 'Convertir la consulta calificada en una visita presencial y firma de boleto o seña.',
+    owner: 'Asesoras AXIA (Josefina, Deborah, Karen)',
+    tools: 'WhatsApp Business Personal + Showroom del Edificio',
+    detailedExplanation: 'Con la ficha lista en la mano (sabiendo que el cliente tiene entre $70.000 y $95.000 USD), la asesora llama o escribe con un enfoque de alto estatus: "Hola Carlos, vi tu interés en el 2 dormitorios en Las Mercedes, tengo reservadas las 2 unidades con mayor rentabilidad en pozo para mostrarte esta semana".',
+    actionSteps: [
+      'Contactar al prospecto calificado en menos de 15 minutos de recibida la ficha.',
+      'Agendar videollamada de asesoramiento o visita presencial al showroom.',
+      'Acompañar en el plan de pagos y firma de reserva/seña.',
+    ],
+    successCriteria: 'Tasa de agendamiento de visitas superior al 25% de los leads calificados.',
+    deliverable: 'Reserva firmada, comprobante de seña y boleto de compraventa.',
+    commissionImpact: 'Es el momento donde se genera el dinero real: comisión para la asesora y 5% para Fabricio.',
+  },
+  {
+    id: 'capi',
+    icon: '🔄',
+    shortTitle: '6. Retroalimentación CAPI',
+    title: 'Sincronización de Conversiones con Meta',
+    category: 'Inteligencia de Datos',
+    quickSummary: 'Se envía el evento de venta a Meta para entrenar al algoritmo con compradores reales.',
+    objective: 'Educar a la IA de Meta para que busque clones de las personas que efectivamente compraron.',
+    owner: 'Fabricio Nicolás Duarte (Data & CAPI)',
+    tools: 'Meta Conversions API (CAPI) + Supabase',
+    detailedExplanation: 'Cada vez que una asesora reporta una seña concretada, se dispara un evento de conversión de servidor (Purchase) hacia Meta. El algoritmo cruza los datos de ese comprador real y optimiza la subasta para mostrarle los próximos anuncios a perfiles socioeconómicos idénticos en Paraguay.',
+    actionSteps: [
+      'Registro del valor del inmueble vendido en la base de datos.',
+      'Envío del payload cifrado a la Conversions API de Meta.',
+      'Ajuste del Lookalike Audience (Públicos Similares) de compradores reales.',
+    ],
+    successCriteria: '100% de las ventas cerradas sincronizadas con Meta CAPI.',
+    deliverable: 'Algoritmo de Meta entrenado para reducir el costo por comprador.',
+    commissionImpact: 'Cada cierre hace que el próximo cliente sea más fácil y rápido de conseguir.',
+  },
+]
+
+const activeNode = ref(workflowNodes[0])
 
 const guiones = [
   {
@@ -672,31 +602,6 @@ const guiones = [
     fullText: 'Si estás pensando en invertir en un departamento en pozo en Paraguay, no pongas un solo dólar sin revisar estos 3 puntos clave. Primero: la trayectoria de la desarrolladora y las obras que ya entregó en tiempo y forma. Segundo: si las cuotas durante la obra tienen ajuste o son fijas, y si el valor incluye cochera. Y tercero: el rendimiento neto real descontando administración y expensas. En AXIA auditamos cada proyecto para que tu inversión esté 100% segura. Escribinos la palabra ASESORÍA al WhatsApp para enviarte nuestro informe comparativo.',
   },
 ]
-
-const checklist = ref([
-  { label: '1. Definir las 2 primeras unidades prioritarias para pautar (Proyecto en pozo + Unidad lista).', done: false },
-  { label: '2. Centralizar los renders en alta resolución y la lista de precios de entrada.', done: false },
-  { label: '3. Las asesoras graban el primer video siguiendo el Guion A (Inversión en Pozo).', done: false },
-  { label: '4. Pasar el video crudo por el Auditor de IA y generar la versión final con subtítulos.', done: false },
-  { label: '5. Conectar el flujo automatizado de WhatsApp y encender las primeras campañas en Advantage+.', done: false },
-])
-
-onMounted(() => {
-  if (import.meta.client) {
-    try {
-      const saved = localStorage.getItem('axia-checklist')
-      if (saved) checklist.value = JSON.parse(saved)
-    } catch {
-      /* ignore */
-    }
-  }
-})
-
-function saveChecklist() {
-  if (import.meta.client) {
-    localStorage.setItem('axia-checklist', JSON.stringify(checklist.value))
-  }
-}
 
 async function copyText(text) {
   try {
