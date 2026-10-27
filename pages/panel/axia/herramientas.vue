@@ -114,80 +114,94 @@
             <div class="lg:col-span-5">
               <div class="overflow-hidden rounded-3xl border border-white/15 bg-black p-3 shadow-2xl">
                 <!-- Marco de Teléfono / 9:16 -->
-                <div class="relative aspect-[9/16] w-full overflow-hidden rounded-2xl bg-gradient-to-b from-[#182f40] to-[#0a141c]">
+                <div class="relative aspect-[9/16] w-full overflow-hidden rounded-2xl bg-black">
                   <!-- Video Header Overlay -->
-                  <div class="absolute left-0 top-0 z-20 flex w-full items-center justify-between p-4 bg-gradient-to-b from-black/80 to-transparent">
-                    <span class="rounded-full bg-black/60 px-2.5 py-0.5 text-[10px] font-bold text-[#efc981] backdrop-blur-md">
+                  <div class="pointer-events-none absolute left-0 top-0 z-20 flex w-full items-center justify-between p-3.5 bg-gradient-to-b from-black/90 via-black/40 to-transparent">
+                    <span class="rounded-full bg-black/70 px-2.5 py-1 text-[10px] font-bold text-[#efc981] backdrop-blur-md border border-white/10">
                       {{ selectedVideo === 'bad' ? 'CASO 1: EN BRUTO' : 'CASO 2: CONVERTIDOR' }}
                     </span>
-                    <span class="flex items-center gap-1.5 text-[10px] text-slate-300">
+                    <span class="flex items-center gap-1.5 rounded-full bg-black/70 px-2.5 py-1 text-[10px] text-slate-200 backdrop-blur-md border border-white/10">
                       <span class="h-2 w-2 rounded-full animate-ping" :class="selectedVideo === 'bad' ? 'bg-rose-400' : 'bg-emerald-400'"></span>
                       {{ selectedVideo === 'bad' ? 'FALLA EN RETENCIÓN' : 'ALTA CONVERSIÓN' }}
                     </span>
                   </div>
 
-                  <!-- Escáner láser animado -->
-                  <div class="pointer-events-none absolute left-0 z-10 h-1 w-full bg-gradient-to-r from-transparent via-[#efc981] to-transparent shadow-[0_0_12px_#efc981] animate-bounce"></div>
+                  <!-- Escáner láser sutil para estética de auditoría -->
+                  <div class="pointer-events-none absolute left-0 top-0 z-10 h-0.5 w-full bg-gradient-to-r from-transparent via-[#efc981]/70 to-transparent shadow-[0_0_8px_#efc981]"></div>
 
-                  <!-- Contenido visual del Video simulado / Canvas -->
-                  <div class="flex h-full flex-col justify-center items-center px-6 text-center">
-                    <div class="h-24 w-24 rounded-full border-2 border-[#d08b22] bg-[#182f40] flex items-center justify-center shadow-lg">
-                      <svg v-if="selectedVideo === 'bad'" class="h-10 w-10 text-rose-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                      </svg>
-                      <svg v-else class="h-10 w-10 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                    </div>
+                  <!-- Reproductor de Video Real MP4 -->
+                  <video
+                    ref="videoElement"
+                    :key="selectedVideo"
+                    :src="selectedVideo === 'bad' ? '/axia/videos/video-caso-1-corregir.mp4' : '/axia/videos/video-caso-2-aprobado.mp4'"
+                    :poster="selectedVideo === 'bad' ? '/axia/videos/poster-caso-1.jpg' : '/axia/videos/poster-caso-2.jpg'"
+                    controls
+                    playsinline
+                    preload="metadata"
+                    class="h-full w-full object-cover"
+                  ></video>
+                </div>
 
-                    <h4 class="mt-4 font-display text-lg font-bold text-white">
-                      {{ selectedVideo === 'bad' ? 'Reel: Recorrido Espontáneo' : 'Reel: Inversor en Pozo (Asunción)' }}
-                    </h4>
-                    <p class="mt-1 text-xs text-slate-300">
-                      {{ selectedVideo === 'bad' ? 'Grabado sin guion estructurado' : 'Grabado siguiendo el Guion Maestro A' }}
-                    </p>
-
-                    <!-- Subtítulos de muestra en pantalla -->
-                    <div class="mt-6 rounded-lg bg-black/75 px-3 py-2 text-[11px] font-semibold text-white backdrop-blur-sm border border-white/10">
-                      <span v-if="selectedVideo === 'bad'" class="text-rose-300">
-                        "Hola chicas... hoy les quiero mostrar este departamento..."
-                      </span>
-                      <span v-else class="text-[#efc981]">
-                        "¿Dejar tus ahorros en el banco? Te muestro cómo cambiarlos por pozo."
-                      </span>
-                    </div>
-
-                    <!-- Enlace de Apertura Directa en Drive -->
+                <!-- Barra de Herramientas de Auditoría & Descarga Directa -->
+                <div class="mt-3 rounded-2xl border border-white/10 bg-white/5 p-3.5">
+                  <div class="flex items-center justify-between text-[11px] text-slate-300">
+                    <span class="font-semibold text-white">Saltar a Segundo Clave:</span>
                     <a
-                      href="https://drive.google.com/drive/folders/15vYyUnXLzlA7N1HijYjCLsut8ofDeao-"
-                      target="_blank"
-                      rel="noopener"
-                      class="mt-6 inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-black/60 px-3 py-1.5 text-[10px] text-slate-200 backdrop-blur-md hover:bg-white/10"
+                      :href="selectedVideo === 'bad' ? '/axia/videos/video-caso-1-corregir.mp4' : '/axia/videos/video-caso-2-aprobado.mp4'"
+                      :download="selectedVideo === 'bad' ? 'AXIA_Caso_1_A_Corregir.mp4' : 'AXIA_Caso_2_Aprobado.mp4'"
+                      class="inline-flex items-center gap-1 text-[10px] font-semibold text-[#efc981] hover:underline"
                     >
-                      ▶ Ver archivo original en Google Drive ↗
+                      ⬇ Descargar MP4
                     </a>
                   </div>
 
-                  <!-- Controles de Reproducción Simulados -->
-                  <div class="absolute bottom-0 left-0 z-20 w-full bg-gradient-to-t from-black/90 to-transparent p-4">
-                    <!-- Barra de progreso con marcas de auditoría -->
-                    <div class="relative h-2 w-full rounded-full bg-white/20">
-                      <div
-                        class="h-full rounded-full"
-                        :class="selectedVideo === 'bad' ? 'w-1/3 bg-rose-500' : 'w-4/5 bg-[#d08b22]'"
-                      ></div>
-                      <!-- Puntos clave del video -->
-                      <span class="absolute left-[15%] top-[-3px] h-3.5 w-1 rounded-sm bg-white" title="Gancho 0-3s"></span>
-                      <span class="absolute left-[45%] top-[-3px] h-3.5 w-1 rounded-sm bg-white" title="Oferta 15s"></span>
-                      <span class="absolute left-[80%] top-[-3px] h-3.5 w-1 rounded-sm bg-white" title="CTA final"></span>
-                    </div>
+                  <!-- Chips de timestamps interactivos -->
+                  <div v-if="selectedVideo === 'bad'" class="mt-2.5 flex flex-wrap gap-1.5">
+                    <button
+                      type="button"
+                      class="rounded-lg border border-white/10 bg-black/40 px-2 py-1 text-[10px] font-medium text-slate-300 transition hover:border-rose-400/50 hover:bg-rose-500/10 hover:text-white"
+                      @click="seekVideo(0)"
+                    >
+                      ⏱ 00:00 (Inicio Lento)
+                    </button>
+                    <button
+                      type="button"
+                      class="rounded-lg border border-white/10 bg-black/40 px-2 py-1 text-[10px] font-medium text-slate-300 transition hover:border-rose-400/50 hover:bg-rose-500/10 hover:text-white"
+                      @click="seekVideo(12)"
+                    >
+                      ⚠️ 00:12 (Fuga de Audiencia)
+                    </button>
+                    <button
+                      type="button"
+                      class="rounded-lg border border-white/10 bg-black/40 px-2 py-1 text-[10px] font-medium text-slate-300 transition hover:border-rose-400/50 hover:bg-rose-500/10 hover:text-white"
+                      @click="seekVideo(30)"
+                    >
+                      ❌ 00:30 (Sin Precios/Cuotas)
+                    </button>
+                  </div>
 
-                    <div class="mt-2 flex items-center justify-between text-[10px] text-slate-300">
-                      <span>00:{{ selectedVideo === 'bad' ? '12' : '38' }} / 00:45</span>
-                      <span :class="selectedVideo === 'bad' ? 'text-rose-400' : 'text-emerald-400'">
-                        {{ selectedVideo === 'bad' ? 'Fuga del 82% de audiencia' : 'Retención proyectada 68%' }}
-                      </span>
-                    </div>
+                  <div v-else class="mt-2.5 flex flex-wrap gap-1.5">
+                    <button
+                      type="button"
+                      class="rounded-lg border border-white/10 bg-black/40 px-2 py-1 text-[10px] font-medium text-slate-300 transition hover:border-emerald-400/50 hover:bg-emerald-500/10 hover:text-white"
+                      @click="seekVideo(0)"
+                    >
+                      ⚡ 00:00 (Gancho Financiero)
+                    </button>
+                    <button
+                      type="button"
+                      class="rounded-lg border border-white/10 bg-black/40 px-2 py-1 text-[10px] font-medium text-slate-300 transition hover:border-emerald-400/50 hover:bg-emerald-500/10 hover:text-white"
+                      @click="seekVideo(15)"
+                    >
+                      🏢 00:15 (Oferta Pozo & Cuotas)
+                    </button>
+                    <button
+                      type="button"
+                      class="rounded-lg border border-white/10 bg-black/40 px-2 py-1 text-[10px] font-medium text-slate-300 transition hover:border-emerald-400/50 hover:bg-emerald-500/10 hover:text-white"
+                      @click="seekVideo(35)"
+                    >
+                      📲 00:35 (Filtro WhatsApp)
+                    </button>
                   </div>
                 </div>
               </div>
@@ -431,6 +445,14 @@
 const { session } = usePortal()
 const { localePath } = useLocale()
 const selectedVideo = ref('bad')
+const videoElement = ref(null)
+
+const seekVideo = (seconds) => {
+  if (videoElement.value) {
+    videoElement.value.currentTime = seconds
+    videoElement.value.play().catch(() => {})
+  }
+}
 
 usePageMeta(() => 'Herramientas & Descargas AXIA')
 useHead({ meta: [{ name: 'robots', content: 'noindex, nofollow' }] })
