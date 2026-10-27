@@ -68,22 +68,34 @@ const loading = ref(false)
 usePageMeta(() => 'Ingresar')
 useHead({ meta: [{ name: 'robots', content: 'noindex, nofollow' }] })
 
+const { session } = usePortal()
+
 onMounted(async () => {
   await init()
-  if (!supabaseReady.value) email.value = demoCredentials.email
-  if (isAuthed.value) await navigateTo(localePath('/panel'))
+  if (isAuthed.value) {
+    if (session.value?.role === 'axia_agent') {
+      await navigateTo(localePath('/panel/axia'))
+    } else {
+      await navigateTo(localePath('/panel'))
+    }
+  }
 })
 
 async function onSubmit() {
   error.value = ''
   loading.value = true
   try {
-    await login(email.value, password.value)
-    await navigateTo(localePath('/panel'))
+    const user = await login(email.value, password.value)
+    if (user?.role === 'axia_agent') {
+      await navigateTo(localePath('/panel/axia'))
+    } else {
+      await navigateTo(localePath('/panel'))
+    }
   } catch (e) {
     error.value = e?.message || 'No se pudo ingresar'
   } finally {
     loading.value = false
   }
 }
+
 </script>

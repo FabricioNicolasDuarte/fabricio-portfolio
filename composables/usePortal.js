@@ -1,5 +1,5 @@
 import { createClient } from '@supabase/supabase-js'
-import { PORTAL_DEMO_CREDENTIALS, PORTAL_SEED } from '~/content/portal-seed.js'
+import { PORTAL_DEMO_CREDENTIALS, PORTAL_SEED, PORTAL_USERS } from '~/content/portal-seed.js'
 
 const AUTH_KEY = 'fd-portal-auth'
 const DATA_KEY = 'fd-portal-data'
@@ -170,32 +170,40 @@ export function usePortal() {
   }
 
   async function login(email, password) {
+    const cleanEmail = String(email || '').trim().toLowerCase()
+    const cleanPass = String(password || '').trim()
+
     const supabase = getClient()
     if (supabase) {
-      const { data, error } = await supabase.auth.signInWithPassword({ email, password })
-      if (error) throw error
-      await applyAuthSession(supabase, data.session)
-      if (session.value?.role !== 'admin') {
-        await supabase.auth.signOut()
-        session.value = null
-        throw new Error('Tu usuario no tiene rol admin. Corré el SQL de profiles.')
+      try {
+        const { data, error } = await supabase.auth.signInWithPassword({ email: cleanEmail, password: cleanPass })
+        if (!error && data?.session) {
+          await applyAuthSession(supabase, data.session)
+          return session.value
+        }
+      } catch {
+        /* Fallback a usuarios configurados en local */
       }
-      return session.value
     }
-    const ok =
-      email.trim().toLowerCase() === PORTAL_DEMO_CREDENTIALS.email &&
-      password === PORTAL_DEMO_CREDENTIALS.password
-    if (!ok) throw new Error('Credenciales incorrectas')
+
+    const matchedUser = PORTAL_USERS.find(
+      (u) => u.email.toLowerCase() === cleanEmail && u.password === cleanPass,
+    )
+
+    if (!matchedUser) throw new Error('Credenciales incorrectas. Verificá tu correo y contraseña.')
+
     session.value = {
-      email: PORTAL_DEMO_CREDENTIALS.email,
-      name: PORTAL_DEMO_CREDENTIALS.name,
-      role: PORTAL_DEMO_CREDENTIALS.role,
-      mode: 'demo',
+      email: matchedUser.email,
+      name: matchedUser.name,
+      role: matchedUser.role,
+      company: matchedUser.company || '',
+      mode: 'local',
     }
     persistAuth()
     if (import.meta.client && !localStorage.getItem(DATA_KEY)) persistStore()
     return session.value
   }
+
 
   async function logout() {
     const supabase = getClient()

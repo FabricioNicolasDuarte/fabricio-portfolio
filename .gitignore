@@ -27,6 +27,8 @@ yarn-error.log*
 # System files
 .DS_Store
 Thumbs.db
+**/__MACOSX/
+__MACOSX/
 
 # Local media leftovers — do not ship
 public/images/hero2.mp4

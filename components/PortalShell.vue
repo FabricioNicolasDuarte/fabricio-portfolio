@@ -42,12 +42,24 @@
 const { localePath } = useLocale()
 const { session, logout, init, isAuthed } = usePortal()
 
-const nav = computed(() => [
-  { to: localePath('/panel'), label: 'Resumen' },
-  { to: localePath('/panel/proyectos'), label: 'Proyectos' },
-  { to: localePath('/panel/clientes'), label: 'Clientes' },
-  { to: localePath('/panel/documentos'), label: 'Documentos' },
-])
+const nav = computed(() => {
+  if (session.value?.role === 'axia_agent') {
+    return [
+      { to: localePath('/panel/axia'), label: 'Estrategia AXIA' },
+      { to: localePath('/panel/axia#descargas'), label: 'Descargas & Logos' },
+      { to: localePath('/panel/axia#guiones'), label: 'Guiones de Video' },
+      { to: localePath('/panel/axia#auditor-ia'), label: 'Auditor IA' },
+    ]
+  }
+  return [
+    { to: localePath('/panel'), label: 'Resumen' },
+    { to: localePath('/panel/axia'), label: 'Portal AXIA' },
+    { to: localePath('/panel/proyectos'), label: 'Proyectos' },
+    { to: localePath('/panel/clientes'), label: 'Clientes' },
+    { to: localePath('/panel/documentos'), label: 'Documentos' },
+  ]
+})
+
 
 onMounted(async () => {
   await init()
