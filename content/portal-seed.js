@@ -89,6 +89,24 @@ export const PORTAL_SEED = {
       visibleToClient: true,
     },
     {
+      id: 'doc-axia-tools',
+      projectId: 'pr-axia-pwa',
+      title: 'Banco de Herramientas & Videos (AXIA)',
+      kind: 'herramienta',
+      href: '/panel/axia/herramientas',
+      downloadable: true,
+      visibleToClient: true,
+    },
+    {
+      id: 'doc-axia-reuniones',
+      projectId: 'pr-axia-pwa',
+      title: 'Reuniones Virtuales & Minutas Meet (AXIA)',
+      kind: 'herramienta',
+      href: '/panel/axia/reuniones',
+      downloadable: true,
+      visibleToClient: true,
+    },
+    {
       id: 'doc-axia-prop',
       projectId: 'pr-axia-pwa',
       title: 'Propuesta comercial PWA',
@@ -101,7 +119,7 @@ export const PORTAL_SEED = {
   milestones: [
     { id: 'm1', projectId: 'pr-axia-pwa', label: 'Estrategia comercial y guiones de video', status: 'hecho', due: '2026-10-27' },
     { id: 'm2', projectId: 'pr-axia-pwa', label: 'Auditor de videos con IA y banco de recursos', status: 'hecho', due: '2026-10-27' },
-    { id: 'm3', projectId: 'pr-axia-pwa', label: 'Conexión bot WhatsApp y campañas Advantage+', status: 'pendiente', due: null },
+    { id: 'm3', projectId: 'pr-axia-pwa', label: 'Repositorio de reuniones y minutas Google Meet', status: 'hecho', due: '2026-10-27' },
+    { id: 'm4', projectId: 'pr-axia-pwa', label: 'Conexión bot WhatsApp y campañas Advantage+', status: 'pendiente', due: null },
   ],
 }
-

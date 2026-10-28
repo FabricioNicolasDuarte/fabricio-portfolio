@@ -45,13 +45,19 @@
               :to="localePath('/panel/axia/herramientas')"
               class="rounded-xl px-4 py-2 text-xs font-medium text-slate-400 transition hover:bg-white/5 hover:text-white"
             >
-              🛠️ 2. Banco de Herramientas & Descargas
+              🛠️ 2. Banco de Herramientas & Videos
+            </NuxtLink>
+            <NuxtLink
+              :to="localePath('/panel/axia/reuniones')"
+              class="rounded-xl px-4 py-2 text-xs font-medium text-slate-400 transition hover:bg-white/5 hover:text-white"
+            >
+              🎙️ 3. Reuniones & Minutas Meet
             </NuxtLink>
             <a
               href="#manual-meta"
               class="rounded-xl px-4 py-2 text-xs font-medium text-slate-400 transition hover:bg-white/5 hover:text-white"
             >
-              📘 3. Manual Interno de Meta Ads
+              📘 4. Manual Interno de Meta Ads
             </a>
           </div>
         </div>

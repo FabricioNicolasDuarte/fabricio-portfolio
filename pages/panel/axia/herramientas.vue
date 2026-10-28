@@ -50,13 +50,19 @@
               📊 1. Flujo Completo & Estrategia
             </NuxtLink>
             <span class="rounded-xl bg-[#d08b22]/20 px-4 py-2 text-xs font-semibold text-[#efc981] border border-[#d08b22]/40">
-              🛠️ 2. Banco de Herramientas & Auditor IA
+              🛠️ 2. Banco de Herramientas & Videos
             </span>
+            <NuxtLink
+              :to="localePath('/panel/axia/reuniones')"
+              class="rounded-xl px-4 py-2 text-xs font-medium text-slate-400 transition hover:bg-white/5 hover:text-white"
+            >
+              🎙️ 3. Reuniones & Minutas Meet
+            </NuxtLink>
             <NuxtLink
               :to="localePath('/panel/axia#manual-meta')"
               class="rounded-xl px-4 py-2 text-xs font-medium text-slate-400 transition hover:bg-white/5 hover:text-white"
             >
-              📘 3. Manual Interno de Meta Ads
+              📘 4. Manual Interno de Meta Ads
             </NuxtLink>
           </div>
         </div>
