@@ -5,11 +5,99 @@
     ref="sectionRef"
     data-kpr-theme="dark"
     :data-kpr-section="spec.id"
-    class="relative h-[225vh] w-full bg-black text-white select-none"
+    class="relative w-full bg-black text-white select-none md:h-[225vh]"
   >
-    <!-- Sticky Full-Viewport 3D Stage -->
+    <!-- Mobile: stacked architecture (no hold / no absolute HUD clutter) -->
+    <div class="md:hidden kpr-shell-pad border-t border-white/15 py-12">
+      <div class="overflow-hidden border border-white/20 bg-[#08070f] kpr-clip-card">
+        <div class="relative h-44 overflow-hidden border-b border-white/10">
+          <video
+            v-if="spec.bgVideo"
+            :src="spec.bgVideo"
+            autoplay
+            loop
+            muted
+            playsinline
+            class="h-full w-full object-cover opacity-55"
+          />
+          <img
+            v-else
+            :src="spec.bgImage"
+            :alt="spec.title"
+            class="h-full w-full object-cover opacity-55"
+            draggable="false"
+          />
+          <div class="absolute inset-0" :style="{ background: spec.gradient }" />
+          <div class="absolute inset-x-4 bottom-3 flex items-center gap-2 font-mono text-[10px] text-[#c0fb50]">
+            <span class="inline-block h-1.5 w-1.5 bg-[#c0fb50]" />
+            <span>TABLEAU // {{ spec.code }} · {{ spec.stencil }}</span>
+          </div>
+        </div>
+
+        <div class="space-y-5 p-5">
+          <div>
+            <span class="mb-2 inline-flex items-center gap-2 border border-[#c0fb50]/40 bg-black/80 px-2.5 py-1 font-mono text-[9px] font-bold uppercase tracking-wider text-[#c0fb50]">
+              {{ spec.code }} ■ {{ spec.kicker }}
+            </span>
+            <h3 class="font-display text-2xl font-bold uppercase tracking-tight text-white">
+              {{ spec.title }}
+            </h3>
+            <p class="mt-2 text-sm leading-relaxed text-white/80">
+              {{ spec.story }}
+            </p>
+          </div>
+
+          <div
+            v-for="(flow, fIdx) in (spec.flows || [])"
+            :key="flow.flowName || fIdx"
+            class="border-t border-white/10 pt-4"
+          >
+            <div class="mb-3 flex items-baseline justify-between gap-2">
+              <p class="font-mono text-[9px] font-bold uppercase tracking-wider text-[#c0fb50]">
+                {{ flow.flowName }}
+              </p>
+              <span class="font-mono text-[9px] text-white/40">
+                0{{ fIdx + 1 }} / 0{{ spec.flows.length }}
+              </span>
+            </div>
+            <p class="mb-4 font-mono text-[9px] uppercase text-white/50">
+              {{ flow.subtitle }}
+            </p>
+            <ul class="space-y-3">
+              <li
+                v-for="layer in flow.layers"
+                :key="layer.code"
+                class="border-l-2 border-[#c0fb50] bg-black/70 p-3"
+              >
+                <div class="font-mono text-[9px] font-bold uppercase text-[#c0fb50]">
+                  {{ layer.code }} // {{ layer.title }}
+                </div>
+                <p class="mt-1.5 text-xs leading-relaxed text-white/85">
+                  {{ layer.detail }}
+                </p>
+                <span class="mt-2 inline-block bg-[#c0fb50]/15 px-2 py-0.5 font-mono text-[9px] font-bold text-[#c0fb50]">
+                  {{ layer.metric }}
+                </span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="pt-1">
+            <KprBtnMain
+              :label="spec.ctaLabel"
+              :to="spec.ctaTo"
+              variant="green"
+              :corners="['tl', 'br']"
+              :cut-size="10"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Desktop: sticky hold / HUD stage -->
     <div
-      class="sticky top-0 flex h-screen w-full items-center justify-center overflow-hidden kpr-shell-pad"
+      class="sticky top-0 hidden h-screen w-full items-center justify-center overflow-hidden kpr-shell-pad md:flex"
       style="perspective: 1300px"
     >
       <!-- 3D Flying Tableau Card (`cardsTableau` / `card` in `Home.17c0ce45.js`) -->
@@ -702,6 +790,10 @@ function initThree() {
 }
 
 onMounted(() => {
+  // Mobile uses the stacked layout — skip heavy hold / three / scrub choreography
+  const isDesktop = window.matchMedia('(min-width: 768px)').matches
+  if (!isDesktop) return
+
   gsap.registerPlugin(ScrollTrigger)
   initThree()
 

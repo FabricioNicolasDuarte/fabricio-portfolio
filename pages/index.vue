@@ -417,13 +417,13 @@
               </h4>
             </div>
 
-            <div class="max-h-[min(52vh,28rem)] space-y-2 overflow-y-auto pr-1 font-mono text-[10px] [scrollbar-width:thin]">
+            <div class="space-y-2 font-mono text-[10px]">
               <div
                 v-for="row in hp.stackItems"
                 :key="row.name"
                 class="flex min-w-0 items-center justify-between gap-2 border border-white/10 bg-black/60 p-2.5"
               >
-                <span class="min-w-0 truncate text-white">{{ row.name }}</span>
+                <span class="min-w-0 break-words text-white pr-2">{{ row.name }}</span>
                 <span class="shrink-0 text-[#c0fb50]">{{ row.tag }}</span>
               </div>
             </div>
@@ -783,19 +783,62 @@
             <KprHackyText :text="t.home.trajectoryTitle" />
           </h2>
         </div>
-        <p class="font-mono text-xs text-white/50 mt-3 md:mt-0 uppercase">
+        <p class="hidden lg:block font-mono text-xs text-white/50 mt-3 md:mt-0 uppercase">
           {{ t.home.trajectoryHint }}
         </p>
       </div>
 
-      <!-- Main Interactive Split: Left Big Number + Right Timeline -->
-      <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start min-h-[580px]">
-        <!-- Left Container (7 cols): Monumental Numbers & Deep Antecedent Details -->
-        <div class="lg:col-span-7 flex flex-col justify-between h-full">
+      <!-- Mobile: all milestones expanded (no tap-to-reveal) -->
+      <div class="relative z-10 space-y-5 lg:hidden">
+        <article
+          v-for="m in careerMilestones"
+          :key="`m-${m.num}`"
+          class="kpr-clip-card border border-white/15 bg-black/70 p-5"
+        >
+          <div class="flex items-start justify-between gap-3 mb-3">
+            <span class="font-stencil text-4xl leading-none text-[#c0fb50]">{{ m.num }}</span>
+            <div class="flex flex-wrap justify-end gap-1.5">
+              <span class="border border-[#c0fb50]/40 bg-[#c0fb50]/10 px-2 py-0.5 font-mono text-[9px] font-bold text-[#c0fb50] uppercase">
+                {{ m.period }}
+              </span>
+              <span class="border border-white/15 bg-white/5 px-2 py-0.5 font-mono text-[9px] text-white/70 uppercase">
+                {{ m.status }}
+              </span>
+            </div>
+          </div>
+          <h3 class="font-display text-xl font-bold uppercase tracking-tight text-white">
+            {{ m.org }}
+          </h3>
+          <p class="mt-1 font-mono text-[10px] uppercase tracking-wider text-[#c0fb50]">
+            // {{ m.role }}
+          </p>
+          <p class="mt-4 text-sm leading-relaxed text-white/85">
+            {{ m.lead }}
+          </p>
+          <ul class="mt-4 space-y-2 text-xs leading-relaxed text-white/75">
+            <li v-for="(point, pIdx) in m.points" :key="pIdx" class="flex items-start gap-2">
+              <span class="mt-0.5 shrink-0 font-mono text-[#c0fb50]">■</span>
+              <span>{{ point }}</span>
+            </li>
+          </ul>
+          <div class="mt-4 flex flex-wrap gap-1.5">
+            <span
+              v-for="tech in m.tech"
+              :key="tech"
+              class="border border-white/20 bg-black/60 px-2 py-1 font-mono text-[9px] text-white/90"
+            >
+              {{ tech }}
+            </span>
+          </div>
+        </article>
+      </div>
+
+      <!-- Desktop: interactive split (detail + timeline picker) -->
+      <div class="relative z-10 hidden lg:grid grid-cols-12 gap-14 items-start min-h-[580px]">
+        <div class="col-span-7 flex flex-col justify-between h-full">
           <div>
-            <!-- Giant Stencil Number -->
             <div class="flex items-baseline gap-4">
-              <span class="font-stencil text-7xl sm:text-9xl lg:text-[11rem] leading-none text-[#c0fb50] tracking-tight drop-shadow-[0_0_40px_rgba(192,251,80,0.25)]">
+              <span class="font-stencil text-[11rem] leading-none text-[#c0fb50] tracking-tight drop-shadow-[0_0_40px_rgba(192,251,80,0.25)]">
                 {{ currentMilestone.num }}
               </span>
               <span class="font-mono text-xs text-white/40 uppercase tracking-widest">
@@ -803,42 +846,38 @@
               </span>
             </div>
 
-            <!-- Organization & Role -->
             <div class="mt-4">
-              <div class="flex flex-wrap items-center gap-3 mb-2">
-                <span class="px-2.5 py-1 bg-[#c0fb50]/20 border border-[#c0fb50]/50 font-mono text-[10px] font-bold text-[#c0fb50] uppercase tracking-wider">
+              <div class="mb-2 flex flex-wrap items-center gap-3">
+                <span class="border border-[#c0fb50]/50 bg-[#c0fb50]/20 px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-wider text-[#c0fb50]">
                   {{ currentMilestone.period }}
                 </span>
-                <span class="px-2.5 py-1 bg-white/10 font-mono text-[10px] text-white/80 uppercase tracking-wider">
+                <span class="bg-white/10 px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider text-white/80">
                   {{ currentMilestone.status }}
                 </span>
               </div>
-              <h3 class="font-display type-h1 font-bold text-white uppercase tracking-tight" data-hacky-host>
+              <h3 class="font-display type-h1 font-bold uppercase tracking-tight text-white" data-hacky-host>
                 <KprHackyText :text="currentMilestone.org" />
               </h3>
-              <p class="font-mono text-xs text-[#c0fb50] uppercase tracking-wider mt-1">
+              <p class="mt-1 font-mono text-xs uppercase tracking-wider text-[#c0fb50]">
                 // {{ currentMilestone.role }}
               </p>
             </div>
 
-            <!-- Narrative Body -->
-            <p class="mt-6 type-body1 text-white/85 text-sm sm:text-base leading-relaxed max-w-2xl">
+            <p class="mt-6 max-w-2xl type-body1 text-base leading-relaxed text-white/85">
               {{ currentMilestone.lead }}
             </p>
 
-            <!-- Key Points Bullet List -->
-            <ul class="mt-6 space-y-2.5 max-w-2xl font-sans text-xs sm:text-sm text-white/75">
+            <ul class="mt-6 max-w-2xl space-y-2.5 font-sans text-sm text-white/75">
               <li
                 v-for="(point, pIdx) in currentMilestone.points"
                 :key="pIdx"
                 class="flex items-start gap-2.5"
               >
-                <span class="text-[#c0fb50] mt-1 shrink-0 font-mono">■</span>
+                <span class="mt-1 shrink-0 font-mono text-[#c0fb50]">■</span>
                 <span>{{ point }}</span>
               </li>
             </ul>
 
-            <!-- Tech Badges -->
             <div class="mt-8 flex flex-wrap gap-1.5">
               <span
                 v-for="tech in currentMilestone.tech"
@@ -851,48 +890,42 @@
           </div>
         </div>
 
-        <!-- Right Container (5 cols): Interactive Vertical Timeline -->
-        <div class="lg:col-span-5 relative pl-6 border-l-2 border-[#c0fb50]/40 space-y-6">
+        <div class="relative col-span-5 space-y-6 border-l-2 border-[#c0fb50]/40 pl-6">
           <div
             v-for="(m, mIdx) in careerMilestones"
             :key="m.num"
             role="button"
             tabindex="0"
             data-sfx="card"
-            class="group relative p-5 border cursor-pointer transition-all duration-300 kpr-clip-card"
+            class="group relative cursor-pointer border p-5 transition-all duration-300 kpr-clip-card"
             :class="
               activeTimelineIdx === mIdx
-                ? 'bg-[#c0fb50]/10 border-[#c0fb50] shadow-[0_0_25px_rgba(192,251,80,0.18)] translate-x-2'
-                : 'bg-black/60 border-white/15 hover:border-white/40 hover:bg-white/5'
+                ? 'translate-x-2 border-[#c0fb50] bg-[#c0fb50]/10 shadow-[0_0_25px_rgba(192,251,80,0.18)]'
+                : 'border-white/15 bg-black/60 hover:border-white/40 hover:bg-white/5'
             "
             @mouseenter="playHover"
             @click="selectTimeline(mIdx)"
             @keydown.enter.prevent="selectTimeline(mIdx)"
           >
-            <!-- Timeline Node Indicator on Left Line -->
             <div
               class="absolute -left-[31px] top-6 h-3.5 w-3.5 rounded-full border-2 transition-all duration-300"
               :class="
                 activeTimelineIdx === mIdx
-                  ? 'border-[#c0fb50] bg-[#c0fb50] shadow-[0_0_12px_#c0fb50] scale-125'
+                  ? 'scale-125 border-[#c0fb50] bg-[#c0fb50] shadow-[0_0_12px_#c0fb50]'
                   : 'border-white/40 bg-black group-hover:border-[#c0fb50]'
               "
             />
-
-            <!-- Milestone Card Header -->
-            <div class="flex items-center justify-between font-mono text-[10px] mb-2">
-              <span class="text-[#c0fb50] font-bold">{{ m.period }}</span>
+            <div class="mb-2 flex items-center justify-between font-mono text-[10px]">
+              <span class="font-bold text-[#c0fb50]">{{ m.period }}</span>
               <span class="text-white/40">{{ m.num }} // SYS</span>
             </div>
-
-            <!-- Milestone Title & Role -->
             <h4
-              class="font-display text-base sm:text-lg font-bold uppercase transition-colors"
+              class="font-display text-lg font-bold uppercase transition-colors"
               :class="activeTimelineIdx === mIdx ? 'text-[#c0fb50]' : 'text-white'"
             >
               {{ m.org }}
             </h4>
-            <p class="font-mono text-[10px] text-white/60 uppercase mt-0.5">
+            <p class="mt-0.5 font-mono text-[10px] uppercase text-white/60">
               {{ m.role }}
             </p>
           </div>
