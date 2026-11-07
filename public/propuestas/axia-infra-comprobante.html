@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Presupuesto · Infraestructura mensual · AXIA</title>
+  <style>
+    :root {
+      --ink: #111;
+      --muted: #555;
+      --line: #bbb;
+      --soft: #f7f7f7;
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    body {
+      margin: 0;
+      background: #e8e8e8;
+      color: var(--ink);
+      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      font-size: 10.5pt;
+      line-height: 1.4;
+    }
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      gap: 8px;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 10px 16px;
+      background: #fafafa;
+      border-bottom: 1px solid var(--line);
+    }
+    .toolbar .hint {
+      margin-right: auto;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .toolbar button {
+      font: 600 12px/1 "Segoe UI", Arial, sans-serif;
+      border: 1px solid var(--ink);
+      background: var(--ink);
+      color: #fff;
+      padding: 9px 14px;
+      cursor: pointer;
+      border-radius: 2px;
+    }
+    .toolbar button.ghost {
+      background: #fff;
+      color: var(--ink);
+    }
+    .sheet {
+      max-width: 820px;
+      margin: 24px auto 48px;
+      background: #fff;
+      border: 1px solid #999;
+      box-shadow: 0 8px 24px rgba(0,0,0,.08);
+      padding: 22px 24px 28px;
+    }
+    .top {
+      display: grid;
+      grid-template-columns: 1fr 96px 1.15fr;
+      gap: 12px;
+      align-items: stretch;
+      margin-bottom: 14px;
+    }
+    .box {
+      border: 1px solid var(--ink);
+      padding: 10px 12px;
+      min-height: 118px;
+    }
+    .box h2 {
+      margin: 0 0 6px;
+      font-size: 9pt;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      color: var(--muted);
+      font-weight: 700;
+    }
+    .box .name { font-size: 12.5pt; font-weight: 700; }
+    .box .muted { color: var(--muted); font-size: 9.5pt; }
+    .tipo {
+      border: 2px solid var(--ink);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 8px;
+    }
+    .tipo .letra {
+      font-size: 28pt;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -.02em;
+    }
+    .tipo .cod {
+      font-size: 8pt;
+      font-weight: 700;
+      margin-top: 6px;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+    .tipo .sub {
+      font-size: 8pt;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+    .meta-row {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+    .meta-row .cell {
+      border: 1px solid var(--line);
+      padding: 8px 10px;
+      background: var(--soft);
+    }
+    .meta-row .label {
+      display: block;
+      font-size: 8pt;
+      text-transform: uppercase;
+      color: var(--muted);
+      letter-spacing: .04em;
+      margin-bottom: 2px;
+    }
+    .meta-row strong { font-size: 10.5pt; }
+    table.items {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 12px;
+    }
+    table.items th {
+      background: #111;
+      color: #fff;
+      font-size: 8.5pt;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      padding: 8px 8px;
+      text-align: left;
+      font-weight: 600;
+    }
+    table.items th.num, table.items td.num {
+      text-align: right;
+      white-space: nowrap;
+    }
+    table.items th.qty, table.items td.qty {
+      text-align: center;
+      width: 56px;
+    }
+    table.items td {
+      border-bottom: 1px solid #ddd;
+      padding: 8px;
+      vertical-align: top;
+      font-size: 9.5pt;
+    }
+    table.items tr:nth-child(even) td { background: #fafafa; }
+    table.items .desc { color: var(--muted); font-size: 8.5pt; display: block; margin-top: 2px; }
+    .totales {
+      width: 340px;
+      margin-left: auto;
+      border: 1px solid var(--ink);
+    }
+    .totales .row {
+      display: flex;
+      justify-content: space-between;
+      padding: 7px 10px;
+      border-bottom: 1px solid #ddd;
+      font-size: 9.5pt;
+    }
+    .totales .row:last-child { border-bottom: 0; }
+    .totales .row.grand {
+      background: #111;
+      color: #fff;
+      font-weight: 700;
+      font-size: 12pt;
+      padding: 10px;
+    }
+    .totales .row.credit {
+      color: #1a5c1a;
+      background: #f3faf3;
+    }
+    table.items tr.credit-hint td {
+      background: #f7faf7;
+      color: var(--muted);
+      font-size: 8.5pt;
+      font-style: italic;
+    }
+    .notes {
+      margin-top: 16px;
+      border: 1px dashed var(--line);
+      padding: 10px 12px;
+      font-size: 8.5pt;
+      color: var(--muted);
+    }
+    .notes strong { color: var(--ink); }
+    .footer-legal {
+      margin-top: 22px;
+      padding-top: 8px;
+      border-top: 1px solid #ddd;
+      color: #888;
+      font-size: 7pt;
+      font-weight: 400;
+      text-align: left;
+      line-height: 1.45;
+    }
+    @media print {
+      body { background: #fff; }
+      .toolbar { display: none; }
+      .sheet {
+        margin: 0;
+        border: 0;
+        box-shadow: none;
+        max-width: none;
+        padding: 0;
+      }
+    }
+    @media (max-width: 720px) {
+      .top, .meta-row { grid-template-columns: 1fr; }
+      .tipo { min-height: 90px; }
+      .totales { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <span class="hint">Presupuesto de infraestructura · AXIA</span>
+    <button type="button" class="ghost" onclick="window.print()">Imprimir / PDF</button>
+  </div>
+
+  <div class="sheet">
+    <div class="top">
+      <div class="box">
+        <h2>Emisor</h2>
+        <div class="name">Fabricio Nicolás Duarte</div>
+        <div class="muted">
+          CUIL/T 20-37082207-8<br />
+          Pueyrredón 462 · Resistencia, Chaco · Argentina<br />
+          Servicios de producto digital · Infraestructura y operación<br />
+          fabricioduarteoficial@gmail.com<br />
+          fabricioduarte.tech
+        </div>
+      </div>
+
+      <div class="tipo">
+        <div class="letra">P</div>
+        <div class="cod">Presupuesto</div>
+        <div class="sub">A pagar</div>
+      </div>
+
+      <div class="box">
+        <h2>Receptor</h2>
+        <div class="name">Karen Beatriz Montiel</div>
+        <div class="muted">
+          Cédula de Identidad Civil Nº 9211176<br />
+          AXIA Real Estate · Paraguay<br />
+          karen.montiel@axia.com.py<br />
+          Concepto: infra del sitio público y secciones públicas del portal
+        </div>
+      </div>
+    </div>
+
+    <div class="meta-row">
+      <div class="cell">
+        <span class="label">Nº de presupuesto</span>
+        <strong>PRE-AXIA-INFRA-2026-11</strong>
+      </div>
+      <div class="cell">
+        <span class="label">Período de servicio</span>
+        <strong>10/11/2026 — 10/12/2026</strong>
+      </div>
+      <div class="cell">
+        <span class="label">Fecha de emisión</span>
+        <strong>10/11/2026</strong>
+      </div>
+    </div>
+
+    <div class="meta-row">
+      <div class="cell">
+        <span class="label">Moneda</span>
+        <strong>USD — Dólares estadounidenses</strong>
+      </div>
+      <div class="cell">
+        <span class="label">Condición de pago</span>
+        <strong>Mensual · vencimiento al inicio del período</strong>
+      </div>
+      <div class="cell">
+        <span class="label">Vigencia del presupuesto</span>
+        <strong>30 días corridos</strong>
+      </div>
+    </div>
+
+    <table class="items">
+      <thead>
+        <tr>
+          <th style="width:36px">#</th>
+          <th>Detalle del servicio / ítem de infraestructura</th>
+          <th class="qty">Cant.</th>
+          <th class="num">Unitario USD</th>
+          <th class="num">Importe USD</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>
+            Vercel Pro — Application Hosting (sitio público)
+            <span class="desc">Despliegue SSR/PWA de home y secciones públicas · CI/CD por Git · Edge Network · ISR/prerender · TLS · ancho de banda del plan</span>
+          </td>
+          <td class="qty">1</td>
+          <td class="num">20,00</td>
+          <td class="num">20,00</td>
+        </tr>
+        <tr class="credit-hint">
+          <td></td>
+          <td colspan="3">Ítem 1 a tarifa de lista; en este período se bonifica (ver totales) y no impacta el importe a pagar.</td>
+          <td class="num">−20,00*</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>
+            DonWeb — Registro / renovación de dominio
+            <span class="desc">Dominio productivo del sitio público · DNS en DonWeb · tarifa anual USD 32,00 imputada en este período</span>
+          </td>
+          <td class="qty">1</td>
+          <td class="num">32,00</td>
+          <td class="num">32,00</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>
+            Amazon RDS for PostgreSQL — db.t3.micro
+            <span class="desc">Contenido público (páginas, bloques del CMS, catálogo visible) · GP3 · backups · cifrado · lectura desde Vercel</span>
+          </td>
+          <td class="qty">1</td>
+          <td class="num">24,00</td>
+          <td class="num">24,00</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>
+            Amazon S3 — Object Storage Standard
+            <span class="desc">Media pública: fotos, videos, PDFs y assets del sitio/portal visibles sin login · versionado · ciclo de vida</span>
+          </td>
+          <td class="qty">1</td>
+          <td class="num">5,80</td>
+          <td class="num">5,80</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>
+            Amazon CloudFront — CDN de assets públicos
+            <span class="desc">Distribución perimetral de objetos S3 · caché de imágenes/estáticos · TLS en edge · menor latencia para visitantes</span>
+          </td>
+          <td class="qty">1</td>
+          <td class="num">3,50</td>
+          <td class="num">3,50</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>
+            AWS Lambda + Amazon API Gateway — APIs públicas
+            <span class="desc">Endpoints de contenido público, formularios de contacto/lead y lecturas del CMS · sin lógica de cobranza ni área privada</span>
+          </td>
+          <td class="qty">1</td>
+          <td class="num">9,40</td>
+          <td class="num">9,40</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>
+            SEO técnico — sitemap, metadatos OG y canónicos
+            <span class="desc">Generación de sitemap.xml / robots · Open Graph &amp; Twitter Cards · URLs canónicas · redirecciones 301 vía CloudFront Functions / Lambda@Edge</span>
+          </td>
+          <td class="qty">1</td>
+          <td class="num">22,00</td>
+          <td class="num">22,00</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>
+            Amazon CloudWatch Synthetics — disponibilidad pública
+            <span class="desc">Canaries HTTP del home y rutas públicas clave · alarmas de caída · retención de logs 30 días</span>
+          </td>
+          <td class="qty">1</td>
+          <td class="num">8,50</td>
+          <td class="num">8,50</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>
+            AWS WAF — Web ACL (origen público)
+            <span class="desc">Reglas managed básicas frente a bots/abuso sobre el sitio público · asociado a CloudFront</span>
+          </td>
+          <td class="qty">1</td>
+          <td class="num">5,00</td>
+          <td class="num">5,00</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="totales">
+      <div class="row">
+        <span>Subtotal ítems (incl. Vercel a lista)</span>
+        <strong>USD 130,20</strong>
+      </div>
+      <div class="row credit">
+        <span>(−) Vercel Pro — sin cargo este período*</span>
+        <strong>− USD 20,00</strong>
+      </div>
+      <div class="row">
+        <span>IVA / tributos</span>
+        <strong>USD 0,00</strong>
+      </div>
+      <div class="row grand">
+        <span>TOTAL A PAGAR</span>
+        <span>USD 110,20</span>
+      </div>
+    </div>
+
+    <div class="notes">
+      <strong>Notas:</strong><br />
+      1. Alcance: infraestructura para la <strong>parte pública</strong> (home, secciones abiertas y
+      contenido del portal visible a cualquier visitante). No incluye auth privada, OCR de
+      comprobantes, cobranzas ni paneles internos.<br />
+      2. Stack: <strong>Vercel</strong> (hosting SSR/PWA), <strong>DonWeb</strong> (dominio/DNS),
+      <strong>AWS</strong> (RDS, S3, CloudFront, Lambda/API, WAF, CloudWatch) + <strong>SEO técnico</strong>
+      (sitemap, OG, canónicos, redirects).<br />
+      3. Vercel se informa a tarifa de lista (<strong>USD 20,00</strong>) y se bonifica en este período
+      (−20,00): figura en el discriminado pero no se imputa al total a pagar.<br />
+      4. Dominio DonWeb: tarifa anual <strong>USD 32,00</strong> imputada en este período.<br />
+      5. El período de servicio corre del día <strong>10</strong> de cada mes al día <strong>10</strong> del mes siguiente.
+    </div>
+
+    <div class="footer-legal">
+      Este documento es un presupuesto / cotización de costos de infraestructura y no constituye factura,
+      recibo fiscal ni comprobante legal. No posee CAE/CAI y no está emitido ante AFIP ni autoridad tributaria alguna.
+      Destinado únicamente a presentar el importe a pagar por el período indicado.
+    </div>
+  </div>
+</body>
+</html>

@@ -1,6 +1,7 @@
 ---
 description: Plan de estándar internacional de fabricioduarte.tech — voz, P0/P1 y qué no romper
-alwaysApply: true
+globs: **/*
+alwaysApply: false
 ---
 
 # Estándar internacional — fabricioduarte.tech

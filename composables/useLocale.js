@@ -17,14 +17,16 @@ export const useLocale = () => {
 
   const setLocale = async (next) => {
     const code = LOCALES.includes(next) ? next : 'es'
-    locale.value = code
+    const router = useRouter()
     if (import.meta.client) {
       localStorage.setItem('fd-locale', code)
-      document.documentElement.lang = LOCALE_META[code].html
+      document.documentElement.lang = LOCALE_META[code]?.html || 'es'
     }
     const dest = withLocalePrefix(stripLocalePrefix(route.path), code)
+    locale.value = code
     if (dest !== route.path) {
-      await navigateTo(dest)
+      // router.push updates the locale-prefixed URL reliably in pages:extend routes
+      await router.push(dest)
     }
   }
 

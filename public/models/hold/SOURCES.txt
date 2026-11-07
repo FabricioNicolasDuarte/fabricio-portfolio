@@ -1,0 +1,16 @@
+Hold GLB — SOLO estos dos (bytes = Desktop)
+==========================================
+
+Served (idénticos al Desktop, sin draco):
+  /models/hold/cattle-herd.glb              ← Desktop\cattle herd 3d model.glb
+  /models/hold/futuristic-data-hub.glb      ← Desktop\futuristic data hub 3d model.glb
+
+Raw backup:
+  _raw/cattle herd 3d model.glb
+  _raw/futuristic data hub 3d model.glb
+
+Cableado:
+  tableauFactions.modelUrl = cattle-herd.glb?v=desktop-20261107
+  tableauKeep.modelUrl     = futuristic-data-hub.glb?v=desktop-20261107
+
+Prohibido / eliminado: agtech-cattle*, data-hub*, drone, laptop, procedural cubes.

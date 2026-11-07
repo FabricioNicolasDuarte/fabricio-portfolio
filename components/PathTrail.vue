@@ -1,11 +1,29 @@
 <template>
-  <nav v-if="crumbs.length" :class="flush ? 'pt-2' : 'mx-auto max-w-6xl px-5 pt-6 sm:px-8'" :aria-label="t.nav.trail">
-    <p class="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted">
-      <NuxtLink :to="backTo" class="font-medium text-lime-300 hover:text-lime-200">← {{ t.nav.back }}</NuxtLink>
-      <span class="text-white/25">·</span>
+  <nav
+    v-if="crumbs.length"
+    :class="flush ? 'pt-2' : 'frame-container-first pb-2'"
+    :aria-label="t.nav.trail"
+  >
+    <p class="flex flex-wrap items-center gap-x-2.5 gap-y-1 font-mono text-[10px] uppercase tracking-wider text-white/50">
+      <NuxtLink
+        :to="backTo"
+        data-hacky-host
+        class="inline-flex items-center gap-1.5 font-bold text-[#c0fb50] hover:underline"
+      >
+        <span>←</span>
+        <KprHackyText :text="t.nav.back" />
+      </NuxtLink>
+      <span class="text-white/25">//</span>
       <template v-for="(c, i) in crumbs" :key="c.to || c.label">
-        <NuxtLink v-if="c.to && i < crumbs.length - 1" :to="c.to" class="hover:text-lime-200">{{ c.label }}</NuxtLink>
-        <span v-else class="text-slate-400">{{ c.label }}</span>
+        <NuxtLink
+          v-if="c.to && i < crumbs.length - 1"
+          :to="c.to"
+          data-hacky-host
+          class="hover:text-[#c0fb50] transition-colors"
+        >
+          <KprHackyText :text="c.label" />
+        </NuxtLink>
+        <span v-else class="text-white">{{ c.label }}</span>
         <span v-if="i < crumbs.length - 1" class="text-white/25">/</span>
       </template>
     </p>
@@ -41,7 +59,7 @@ const crumbs = computed(() => {
 })
 
 const backTo = computed(() => {
-  const linked = [...crumbs.value].reverse().find(c => c.to)
+  const linked = [...crumbs.value].reverse().find((c) => c.to)
   return linked?.to || localePath('/')
 })
 

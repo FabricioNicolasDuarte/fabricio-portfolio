@@ -1,24 +1,30 @@
 <template>
-  <section id="architecture" class="relative mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
-    <p class="fd-kicker">{{ t.method.kicker }}</p>
-    <h1 class="mt-2 max-w-2xl font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+  <section id="architecture" data-kpr-section="architecture" data-kpr-theme="dark" class="frame-container py-12 md:py-16">
+    <p class="fd-kicker">001 // {{ t.method.kicker }}</p>
+    <h1 class="mt-2 max-w-3xl type-h1 text-white">
       {{ t.method.title }}
     </h1>
-    <p class="mt-4 max-w-2xl text-lg leading-relaxed text-slate-300">{{ t.method.intro }}</p>
+    <p class="mt-4 max-w-2xl type-body2 text-white/80">{{ t.method.intro }}</p>
 
-    <ol class="mt-10 grid gap-8 sm:grid-cols-2">
-      <li v-for="(step, i) in t.method.steps" :key="step.title" class="border-t border-white/10 pt-5">
-        <p class="fd-kicker text-signal">{{ String(i + 1).padStart(2, '0') }}</p>
-        <h2 class="mt-2 font-display text-xl font-semibold text-white">{{ step.title }}</h2>
-        <p class="mt-2 text-[15px] leading-relaxed text-slate-400">{{ step.body }}</p>
-        <p v-if="step.detail" class="mt-3 text-xs leading-relaxed text-muted">{{ step.detail }}</p>
+    <ol class="mt-10 grid gap-6 sm:grid-cols-2">
+      <li
+        v-for="(step, i) in t.method.steps"
+        :key="step.title"
+        class="kpr-clip-card border border-white/15 bg-[#0a0a0a] p-6"
+      >
+        <p class="fd-kicker">{{ String(i + 1).padStart(2, '0') }}</p>
+        <h2 class="mt-2 type-h3 uppercase text-white">{{ step.title }}</h2>
+        <p class="mt-2 type-body1 text-white/80">{{ step.body }}</p>
+        <p v-if="step.detail" class="mt-3 font-mono text-[11px] leading-relaxed text-white/50">{{ step.detail }}</p>
       </li>
     </ol>
 
-    <p class="mt-8 max-w-2xl text-sm leading-relaxed text-muted">{{ t.method.note }}</p>
+    <p class="mt-8 max-w-2xl font-mono text-[11px] uppercase leading-relaxed text-[#c0fb50]">
+      // {{ t.method.note }}
+    </p>
     <div class="mt-8 flex flex-wrap gap-3">
-      <NuxtLink :to="localePath('/agendar')" class="fd-btn">{{ t.nav.book }}</NuxtLink>
-      <NuxtLink :to="localePath('/trabajo')" class="fd-btn-outline">{{ t.nav.work }}</NuxtLink>
+      <KprBtnMain :label="t.nav.book" :to="localePath('/agendar')" variant="green" :dot="true" />
+      <KprBtnMain :label="t.nav.work" :to="localePath('/trabajo')" variant="outline" />
     </div>
   </section>
 </template>

@@ -1,8 +1,8 @@
 <template>
-  <header class="sticky top-0 z-50 border-b border-white/10 bg-black/90 backdrop-blur-md">
+  <header class="sticky top-0 z-50 border-b border-white/[0.08] bg-[#05080e]/85 backdrop-blur-xl shadow-[0_4px_24px_rgba(0,0,0,0.6)]">
     <div class="mx-auto flex max-w-6xl items-center justify-between gap-3 px-5 py-3 sm:px-8">
-      <NuxtLink :to="localePath('/')" class="flex shrink-0 items-center gap-2" :aria-label="t.nav.brand">
-        <img src="/brand/mark.png" alt="" class="h-8 w-8" width="32" height="32" />
+      <NuxtLink :to="localePath('/')" class="group flex shrink-0 items-center gap-2.5" :aria-label="t.nav.brand">
+        <img src="/brand/mark.png" alt="" class="h-8 w-8 transition-transform duration-300 group-hover:rotate-6" width="32" height="32" />
         <span class="hidden font-display text-sm font-semibold tracking-wide text-signal sm:inline" aria-hidden="true">{{ t.nav.brand }}</span>
       </NuxtLink>
       <nav class="hidden min-w-0 flex-1 items-center justify-center gap-1 text-sm sm:flex md:gap-2" :aria-label="t.nav.menu">
@@ -10,17 +10,17 @@
           v-for="item in items"
           :key="item.to"
           :to="item.to"
-          class="rounded-full px-3 py-1.5 text-slate-400 transition hover:bg-white/5 hover:text-lime-200"
-          active-class="bg-white/10 text-lime-200"
+          class="rounded-full px-3.5 py-1.5 text-slate-300 transition-all duration-200 hover:bg-white/5 hover:text-white"
+          active-class="bg-white/10 text-signal font-medium shadow-[0_0_12px_rgba(162,255,0,0.2)]"
           :aria-current="pagePath === item.path ? 'page' : undefined"
         >
           {{ item.label }}
         </NuxtLink>
       </nav>
-      <div class="flex items-center gap-1.5">
+      <div class="flex items-center gap-2">
         <button
           type="button"
-          class="hidden min-h-9 items-center gap-2 rounded-full px-2.5 text-xs text-muted sm:inline-flex"
+          class="hidden min-h-9 items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-3 text-xs text-muted transition-all duration-200 hover:border-white/20 hover:text-white sm:inline-flex"
           aria-keyshortcuts="Control+K Meta+K"
           :aria-label="t.nav.search"
           @click="cmdk = true"
@@ -28,13 +28,13 @@
           <span>{{ t.nav.search }}</span>
           <kbd class="rounded border border-white/15 px-1.5 py-0.5 font-sans text-[10px] text-slate-400">{{ searchKeys }}</kbd>
         </button>
-        <div class="flex items-center rounded-full border border-white/10 p-0.5 text-xs font-semibold" role="group" :aria-label="t.nav.lang">
+        <div class="flex items-center rounded-full border border-white/10 bg-white/[0.02] p-0.5 text-xs font-semibold" role="group" :aria-label="t.nav.lang">
           <button
             v-for="code in locales"
             :key="code"
             type="button"
-            class="min-h-9 min-w-9 rounded-full px-2.5 py-2"
-            :class="locale === code ? 'bg-signal text-black' : 'text-muted'"
+            class="min-h-8 min-w-8 rounded-full px-2.5 py-1 transition-all duration-200"
+            :class="locale === code ? 'bg-signal text-black font-bold shadow-[0_0_10px_rgba(162,255,0,0.4)]' : 'text-muted hover:text-white'"
             :aria-pressed="locale === code"
             :aria-current="locale === code ? 'true' : undefined"
             @click="setLocale(code)"
@@ -42,7 +42,7 @@
         </div>
         <NuxtLink
           :to="localePath('/ingresar')"
-          class="hidden min-h-9 items-center rounded-full border border-signal/40 px-3 text-xs font-semibold uppercase tracking-wide text-signal transition hover:bg-signal hover:text-black sm:inline-flex"
+          class="hidden min-h-9 items-center rounded-full border border-signal/50 bg-signal/5 px-3.5 text-xs font-semibold uppercase tracking-wider text-signal transition-all duration-200 hover:bg-signal hover:text-black hover:shadow-[0_0_15px_rgba(162,255,0,0.4)] sm:inline-flex"
         >
           {{ enterLabel }}
         </NuxtLink>
@@ -57,20 +57,20 @@
         </button>
       </div>
     </div>
-    <div v-if="open" id="nav-mobile" class="border-t border-white/10 px-5 py-3 sm:hidden">
+    <div v-if="open" id="nav-mobile" class="border-t border-white/10 bg-[#05080e]/95 px-5 py-3 backdrop-blur-2xl sm:hidden">
       <button
         type="button"
-        class="mb-2 block py-2.5 text-sm text-slate-300"
+        class="mb-2 block w-full rounded-lg bg-white/5 py-2.5 text-center text-sm text-slate-300"
         @click="cmdk = true; open = false"
       >
-        {{ t.nav.search }}
+        {{ t.nav.search }} ({{ searchKeys }})
       </button>
       <NuxtLink
         v-for="item in items"
         :key="item.to"
         :to="item.to"
-        class="block py-2.5 text-sm text-slate-300"
-        active-class="text-lime-200"
+        class="block py-2.5 text-sm text-slate-300 transition hover:text-signal"
+        active-class="text-signal font-semibold"
         :aria-current="pagePath === item.path ? 'page' : undefined"
         @click="open = false"
       >
@@ -78,7 +78,7 @@
       </NuxtLink>
       <NuxtLink
         :to="localePath('/ingresar')"
-        class="mt-1 block py-2.5 text-sm font-semibold text-signal"
+        class="mt-1 block rounded-lg border border-signal/40 bg-signal/10 py-2.5 text-center text-sm font-semibold text-signal"
         @click="open = false"
       >
         {{ enterLabel }}
@@ -111,6 +111,7 @@ const enterLabel = computed(() => {
 const items = computed(() => [
   { path: '/trabajo', to: localePath('/trabajo'), label: t.value.nav.work },
   { path: '/agronys', to: localePath('/agronys'), label: t.value.nav.agronys },
+  { path: '/metodo', to: localePath('/metodo'), label: t.value.nav.method },
   { path: '/sobre', to: localePath('/sobre'), label: t.value.nav.about },
   { path: '/agendar', to: localePath('/agendar'), label: t.value.nav.book },
 ])

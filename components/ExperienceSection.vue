@@ -1,5 +1,5 @@
 <template>
-  <section id="path" class="relative mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-24">
+  <section id="path" data-kpr-section="path" data-kpr-theme="dark" class="frame-container py-16 md:py-20">
     <p class="fd-kicker">{{ t.path.kicker }}</p>
     <h2 class="mt-2 mb-12 font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl">{{ t.path.title }}</h2>
 
@@ -127,29 +127,29 @@ const jobs = [
     titlePt: 'Lead Developer e CTO',
     titleZh: '技术负责人兼 CTO',
     org: 'Agronys',
-    lead: 'Dirección técnica de productos digitales en agrotech.',
-    leadEn: 'Technical direction of digital products in agrotech.',
-    leadPt: 'Direção técnica de produtos digitais em agrotech.',
-    leadZh: '农业科技数字产品的技术负责人。',
+    lead: 'Dirección técnica en Agronys (agronys.com): Nutrogan, SIGAG y Datagronys.',
+    leadEn: 'Technical direction at Agronys (agronys.com): Nutrogan, SIGAG and Datagronys.',
+    leadPt: 'Direção técnica na Agronys (agronys.com): Nutrogan, SIGAG e Datagronys.',
+    leadZh: 'Agronys（agronys.com）技术负责人：Nutrogan、SIGAG、Datagronys。',
     points: [
-      'Arquitectura, stack y pipelines CI/CD.',
+      'Arquitectura, stack y pipelines CI/CD para software de establecimiento.',
       'Gestión de equipos con metodologías ágiles (Jira / Scrum).',
-      'SIGAG: Sistema Integral de Gestión Agrícola Ganadera.',
+      'Familia de productos: Nutrogan (registro), SIGAG (jornada) y Datagronys (campaña).',
     ],
     pointsEn: [
-      'Architecture, stack, and CI/CD pipelines.',
+      'Architecture, stack, and CI/CD for establishment software.',
       'Team management with agile methods (Jira / Scrum).',
-      'SIGAG: Integrated Agricultural and Livestock Management System.',
+      'Product family: Nutrogan (record), SIGAG (livestock day) and Datagronys (campaign).',
     ],
     pointsPt: [
-      'Arquitetura, stack e pipelines de CI/CD.',
+      'Arquitetura, stack e pipelines de CI/CD para software de estabelecimento.',
       'Gestão de equipes com métodos ágeis (Jira / Scrum).',
-      'SIGAG: Sistema Integral de Gestão Agrícola e Pecuária.',
+      'Família de produtos: Nutrogan (registro), SIGAG (jornada) e Datagronys (campanha).',
     ],
     pointsZh: [
-      '架构、技术栈与 CI/CD 流水线。',
+      '牧场软件的架构、技术栈与 CI/CD。',
       '用敏捷方法带团队（Jira / Scrum）。',
-      'SIGAG：农牧综合管理系统。',
+      '产品线：Nutrogan（记录）、SIGAG（工作日）、Datagronys（产季）。',
     ],
   },
   {

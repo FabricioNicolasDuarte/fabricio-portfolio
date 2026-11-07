@@ -1,10 +1,10 @@
 <template>
-  <section id="skills" class="relative mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-24">
+  <section id="skills" data-kpr-section="skills" data-kpr-theme="dark" class="frame-container py-16 md:py-20">
     <p class="fd-kicker">{{ t.skills.kicker }}</p>
     <h2 class="mt-2 font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl">{{ t.skills.title }}</h2>
     <p class="mt-3 max-w-2xl text-[15px] leading-relaxed text-slate-400">{{ t.skills.intro }}</p>
 
-    <div class="mt-10 grid grid-cols-1 gap-4 lg:grid-cols-3">
+    <div class="mt-10 grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4">
       <article v-for="group in groups" :key="group.title" class="fd-card p-6">
         <p class="fd-kicker">{{ group.kicker }}</p>
         <h3 class="mt-1 font-display text-lg font-semibold text-white">{{ group.title }}</h3>
@@ -57,11 +57,14 @@ const groups = computed(() => {
       title: t.value.skills.g2,
       blurb: t.value.skills.g2b,
       items: [
-        L('Laravel / Livewire / PHP', 3, 'prod'),
         L('Vue 3 / Nuxt / TypeScript', 3, 'prod'),
+        L('Tailwind / CSS / responsive UI', 3, 'prod'),
+        L('Laravel / Livewire / PHP', 3, 'prod'),
+        L('REST / APIs', 3, 'prod'),
         L('n8n / webhooks', 3, 'prod'),
         L('Expo / WatermelonDB', 2, 'solid'),
-        L('REST / APIs', 3, 'prod'),
+        L('GSAP / motion / micro-interactions', 3, 'prod'),
+        L('Three.js / WebGL', 2, 'solid'),
       ],
     },
     {
@@ -73,6 +76,22 @@ const groups = computed(() => {
         L('Apache Airflow', 2, 'solid'),
         L('Databricks', 1, 'applied'),
         L('TensorFlow', 1, 'applied'),
+      ],
+    },
+    {
+      kicker: t.value.skills.g4k,
+      title: t.value.skills.g4,
+      blurb: t.value.skills.g4b,
+      items: [
+        L('Figma / UI systems / prototipos', 3, 'prod'),
+        L('Adobe Photoshop / Illustrator', 3, 'prod'),
+        L('Adobe Premiere / After Effects', 3, 'prod'),
+        L('Audition / diseño de audio', 2, 'solid'),
+        L('Blender / 3D / GLB', 2, 'solid'),
+        L('SketchUp / modelado espacial', 2, 'solid'),
+        L('BIM / lectura de planos', 2, 'solid'),
+        L('UX / journeys / usabilidad', 3, 'prod'),
+        L('Video · FX · branding motion', 3, 'prod'),
       ],
     },
   ]

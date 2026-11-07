@@ -1,17 +1,18 @@
 <template>
-  <section id="book" class="relative mx-auto max-w-6xl px-5 py-16 sm:px-8">
-    <div class="overflow-hidden border border-white/10 p-8 sm:p-10">
-      <p class="fd-kicker">{{ t.book.kicker }}</p>
-      <h1 class="mt-2 font-display text-3xl font-semibold tracking-tight text-white sm:text-4xl">{{ t.book.title }}</h1>
-      <p class="mt-3 max-w-2xl text-[15px] leading-relaxed text-slate-400">{{ t.book.body }}</p>
-      <p class="mt-3 max-w-2xl text-sm font-medium text-slate-200">{{ t.book.expect }}</p>
-      <p class="mt-2 text-sm text-muted">{{ t.book.meta }}</p>
-      <p class="mt-2 text-sm text-muted">{{ t.book.zone }}</p>
-      <p class="mt-4 text-sm text-slate-200">
-        <a class="underline decoration-white/20 underline-offset-4 hover:text-white" href="mailto:fabricioduarteoficial@gmail.com">fabricioduarteoficial@gmail.com</a>
+  <section id="book" data-kpr-section="book" data-kpr-theme="dark" class="frame-container py-12 md:py-16 flex items-center justify-center">
+    <div class="kpr-clip-folder border border-white/15 bg-[#0a0a0a] p-6 sm:p-10 max-w-2xl w-full mx-auto shadow-2xl">
+      <p class="fd-kicker text-center">008 // {{ t.book.kicker }}</p>
+      <h1 class="mt-2 type-h1 text-white text-center">{{ t.book.title }}</h1>
+      <p class="mt-3 type-body1 text-white/80 text-center">{{ t.book.body }}</p>
+      <p class="mt-3 font-mono text-[11px] uppercase text-[#c0fb50] text-center">// {{ t.book.expect }}</p>
+      <p class="mt-2 font-mono text-[10px] uppercase text-white/50 text-center">{{ t.book.meta }} · {{ t.book.zone }}</p>
+      <p class="mt-4 font-mono text-[12px] text-white text-center">
+        <a class="underline decoration-[#c0fb50] underline-offset-4 hover:text-[#c0fb50]" href="mailto:fabricioduarteoficial@gmail.com">
+          FABRICIODUARTEOFICIAL@GMAIL.COM
+        </a>
       </p>
 
-      <form class="mt-8 grid max-w-xl gap-3" @submit.prevent="send">
+      <form class="mt-8 grid w-full gap-4" @submit.prevent="send">
         <input
           v-model="honeypot"
           type="text"
@@ -21,7 +22,7 @@
           class="absolute -left-[9999px] h-0 w-0 overflow-hidden"
           :aria-hidden="true"
         />
-        <label class="text-xs text-muted" for="book-name">
+        <label class="font-mono text-[10px] uppercase tracking-wider text-white/70" for="book-name">
           {{ t.book.name }}
           <input
             id="book-name"
@@ -29,10 +30,11 @@
             type="text"
             maxlength="120"
             autocomplete="name"
-            class="mt-1 w-full rounded-xl border border-white/10 bg-black/60 px-3 py-2 text-sm text-white outline-none focus:border-lime-400/50"
+            class="mt-1.5 w-full border border-white/20 bg-black px-3.5 py-2.5 font-sans text-sm text-white outline-none focus:border-[#c0fb50]"
+            @focus="playHover"
           />
         </label>
-        <label class="text-xs text-muted" for="book-email">
+        <label class="font-mono text-[10px] uppercase tracking-wider text-white/70" for="book-email">
           {{ t.book.email }}
           <input
             id="book-email"
@@ -43,11 +45,12 @@
             autocomplete="email"
             :aria-invalid="!!formError"
             aria-describedby="book-status"
-            class="mt-1 w-full rounded-xl border border-white/10 bg-black/60 px-3 py-2 text-sm text-white outline-none focus:border-lime-400/50"
+            class="mt-1.5 w-full border border-white/20 bg-black px-3.5 py-2.5 font-sans text-sm text-white outline-none focus:border-[#c0fb50]"
+            @focus="playHover"
           />
         </label>
-        <div class="grid gap-3 sm:grid-cols-2">
-          <label class="text-xs text-muted" for="book-day">
+        <div class="grid gap-4 sm:grid-cols-2">
+          <label class="font-mono text-[10px] uppercase tracking-wider text-white/70" for="book-day">
             {{ t.book.day }}
             <input
               id="book-day"
@@ -55,34 +58,46 @@
               required
               type="date"
               :min="minDay"
-              class="mt-1 w-full rounded-xl border border-white/10 bg-black/60 px-3 py-2 text-sm text-white outline-none focus:border-lime-400/50"
+              class="mt-1.5 w-full border border-white/20 bg-black px-3.5 py-2.5 font-sans text-sm text-white outline-none focus:border-[#c0fb50]"
+              @change="playFilter"
+              @focus="playHover"
             />
           </label>
-          <label class="text-xs text-muted" for="book-hour">
+          <label class="font-mono text-[10px] uppercase tracking-wider text-white/70" for="book-hour">
             {{ t.book.hour }}
             <select
               id="book-hour"
               v-model="hour"
               required
-              class="mt-1 w-full rounded-xl border border-white/10 bg-black/60 px-3 py-2 text-sm text-white outline-none focus:border-lime-400/50"
+              data-sfx="filter"
+              class="mt-1.5 w-full border border-white/20 bg-black px-3.5 py-2.5 font-sans text-sm text-white outline-none focus:border-[#c0fb50]"
+              @change="playFilter"
+              @focus="playHover"
             >
               <option disabled value="">{{ t.book.hourPick }}</option>
               <option v-for="slot in slots" :key="slot" :value="slot">{{ slot }}</option>
             </select>
           </label>
         </div>
-        <label class="text-xs text-muted" for="book-note">
+        <label class="font-mono text-[10px] uppercase tracking-wider text-white/70" for="book-note">
           {{ t.book.note }}
           <textarea
             id="book-note"
             v-model="note"
             rows="3"
             maxlength="800"
-            class="mt-1 w-full rounded-xl border border-white/10 bg-black/60 px-3 py-2 text-sm text-white outline-none focus:border-lime-400/50"
+            class="mt-1.5 w-full border border-white/20 bg-black px-3.5 py-2.5 font-sans text-sm text-white outline-none focus:border-[#c0fb50]"
+            @focus="playHover"
           />
         </label>
-        <p v-if="formError" id="book-status" class="text-sm text-red-300" role="alert">{{ formError }}</p>
-        <button type="submit" class="fd-btn w-fit" :disabled="sending">
+        <p v-if="formError" id="book-status" class="font-mono text-xs text-red-400" role="alert">{{ formError }}</p>
+        <button
+          type="submit"
+          class="fd-btn w-fit mt-2 cursor-pointer mx-auto"
+          :disabled="sending"
+          @mouseenter="playHover"
+          @click="playClick"
+        >
           {{ sending ? t.book.sending : t.book.submit }}
         </button>
       </form>
@@ -92,6 +107,7 @@
 
 <script setup>
 const { t, locale, localePath } = useLocale()
+const { playHover, playClick, playFilter } = useKprAudio()
 const name = ref('')
 const email = ref('')
 const day = ref('')

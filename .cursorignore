@@ -1,0 +1,39 @@
+# Secretos
+.env
+.env.*
+!.env.example
+
+# Dependencias y builds
+node_modules/
+.venv/
+venv/
+__pycache__/
+dist/
+build/
+.nuxt/
+.output/
+.next/
+coverage/
+
+# Librerías de terceros y archivos generados
+**/vendors/
+*.min.js
+*.min.css
+*.map
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+uv.lock
+
+# Binarios y multimedia
+*.mp4
+*.mov
+*.webm
+*.wav
+*.mp3
+*.gif
+*.pdf
+*.zip
+*.whl
+*.dump
+*.bak

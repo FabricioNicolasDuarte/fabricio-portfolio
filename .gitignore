@@ -35,3 +35,16 @@ public/images/hero2.mp4
 public/images/og-banner.png
 public/images/nutrogan-demo.mp4
 public/images/profile-video.mp4
+# Raw oversized GLB sources (use *-lite.glb in hold/)
+public/models/hold/_raw/
+
+# Local scratch / AE / unused trailer (do not ship)
+ae/
+scratch*/
+scratch-*.jpg
+scratch-*.mjs
+verify-*.jpg
+public/videos/trailer/
+public/models/**/* *
+*.aep
+*.psd

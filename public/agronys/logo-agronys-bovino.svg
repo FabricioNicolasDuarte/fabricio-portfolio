@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 210" fill="none" role="img" aria-label="Agronys">
+  <title>Agronys</title>
+  <desc>Variante: silueta bovina geom�trica + brote + �rbita.</desc>
+
+  <g id="mark" transform="translate(40, 22)">
+    <ellipse
+      cx="84" cy="84"
+      rx="90" ry="34"
+      stroke="#A2FF00"
+      stroke-width="2.6"
+      transform="rotate(-26 84 84)"
+    />
+
+    <!-- Cabeza bovina frontal, geometr�a reducida (hacienda) -->
+    <path
+      fill="#A2FF00"
+      d="
+        M 30 58
+        C 22 40, 34 22, 52 28
+        L 52 44
+        C 58 40, 70 38, 84 38
+        C 98 38, 110 40, 116 44
+        L 116 28
+        C 134 22, 146 40, 138 58
+        C 148 70, 148 92, 132 108
+        C 118 124, 100 132, 84 132
+        C 68 132, 50 124, 36 108
+        C 20 92, 20 70, 30 58
+        Z
+      "
+    />
+    <!-- Hocico / contraforma -->
+    <ellipse cx="84" cy="96" rx="18" ry="14" fill="#0A0A0A"/>
+    <circle cx="84" cy="94" r="4" fill="#A2FF00"/>
+
+    <!-- Brote en la frente (agricultura integrada) -->
+    <path
+      fill="#0A0A0A"
+      d="M84 48 C92 56 94 66 90 74 C88 70 84 68 84 68 C84 68 80 70 78 74 C74 66 76 56 84 48 Z"
+    />
+  </g>
+
+  <text
+    x="250" y="122"
+    fill="#F4F4F4"
+    font-family="Outfit, 'Helvetica Neue', Helvetica, Arial, sans-serif"
+    font-size="66"
+    font-weight="600"
+    letter-spacing="-0.045em"
+  >Agronys</text>
+</svg>

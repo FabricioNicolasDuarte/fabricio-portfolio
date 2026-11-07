@@ -1,166 +1,503 @@
-@import '@fontsource/outfit/latin-300.css';
-@import '@fontsource/outfit/latin-ext-300.css';
-@import '@fontsource/outfit/latin-400.css';
-@import '@fontsource/outfit/latin-ext-400.css';
-@import '@fontsource/outfit/latin-500.css';
-@import '@fontsource/outfit/latin-ext-500.css';
-@import '@fontsource/outfit/latin-600.css';
-@import '@fontsource/outfit/latin-ext-600.css';
-@import '@fontsource/outfit/latin-700.css';
-@import '@fontsource/outfit/latin-ext-700.css';
-@import '@fontsource/outfit/latin-800.css';
-@import '@fontsource/outfit/latin-ext-800.css';
-@import '@fontsource/chakra-petch/latin-500.css';
-@import '@fontsource/chakra-petch/latin-ext-500.css';
-@import '@fontsource/chakra-petch/latin-600.css';
-@import '@fontsource/chakra-petch/latin-ext-600.css';
-@import '@fontsource/chakra-petch/latin-700.css';
-@import '@fontsource/chakra-petch/latin-ext-700.css';
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --fd-paper: #080808;
-  --fd-ink: #f4f4f5;
-  --fd-muted: #c4c4cc;
-  --fd-signal: #A2FF00;
-  --fd-line: rgba(255, 255, 255, 0.12);
-  --fd-radius: 16px;
-  --fd-radius-pill: 999px;
+@font-face {
+  font-display: swap;
+  font-family: 'ABCWhyteInktrap';
+  font-stretch: 50% 300%;
+  font-weight: 125 950;
+  src: url('/kpr/fonts/ABCWhyteInktrapVariable.woff2') format('woff2-variations');
 }
 
-html { scroll-behavior: smooth; }
+@font-face {
+  font-display: swap;
+  font-family: 'ABCWhytePlus';
+  font-stretch: 50% 300%;
+  font-weight: 125 950;
+  src: url('/kpr/fonts/ABCWhytePlusVariable.woff2') format('woff2-variations');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'ABCWhyte';
+  font-stretch: 50% 300%;
+  font-weight: 125 950;
+  src: url('/kpr/fonts/ABCWhyteVariable.woff2') format('woff2-variations');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Hexaframe';
+  font-stretch: normal;
+  font-weight: 700;
+  src: url('/kpr/fonts/HexaframeCF-Bold.otf') format('opentype');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'IBMPlexMono';
+  font-stretch: normal;
+  font-weight: 400;
+  src: url('/kpr/fonts/IBMPlexMono-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'IBMPlexMono';
+  font-stretch: normal;
+  font-weight: 500;
+  src: url('/kpr/fonts/IBMPlexMono-Text.ttf') format('truetype');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'IBMPlexMono';
+  font-stretch: normal;
+  font-weight: 600;
+  src: url('/kpr/fonts/IBMPlexMono-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'IBMPlexMono';
+  font-stretch: normal;
+  font-weight: 700;
+  src: url('/kpr/fonts/IBMPlexMono-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Fraktion';
+  font-stretch: normal;
+  font-weight: 700;
+  src: url('/kpr/fonts/PPFraktionSans-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Fraktion';
+  font-stretch: normal;
+  font-weight: 500;
+  src: url('/kpr/fonts/PPFraktionSans-Medium.ttf') format('truetype');
+}
+
+:root {
+  --z-frame: 100;
+  --z-footer: 200;
+  --z-overlays: 300;
+  --z-resize-overlays: 350;
+  --z-loader: 400;
+  --z-menu: 500;
+  --z-console: 600;
+  --z-debug: 1000;
+  --vh100: 100vh;
+  --radius: 10px;
+  --overlap: 20px;
+  --parallax: 40px;
+  --line-light: hsla(0, 0%, 100%, 0.2);
+  --line-dark: rgba(0, 0, 0, 0.12);
+  --line-thickness: 1px;
+  --menu-width: 67px;
+  --menu-height: 51px;
+  --menu-pad: 20px;
+  --menu-radius: 10px;
+  --menu-submenu: 0px;
+  --frame-gutter: 1.5rem;
+  --menu-top: calc(var(--menu-pad) + var(--menu-height));
+  --menu-bottom: calc(var(--menu-pad));
+  --menu-left: calc(var(--menu-pad) + var(--menu-width));
+  --menu-right: calc(var(--menu-pad));
+  --shell-pad-top: calc(var(--menu-pad) + var(--menu-height) + var(--frame-gutter));
+  --shell-pad-left: calc(var(--menu-pad) + var(--menu-width) + var(--frame-gutter));
+  --shell-pad-right: calc(var(--menu-pad) + var(--frame-gutter));
+  --shell-pad-bottom: calc(var(--menu-pad) + var(--frame-gutter));
+
+  --cl-black: #000000;
+  --cl-white: #ffffff;
+  --cl-green: #c0fb50;
+  --cl-lavender: #968adf;
+  --cl-lavender-bright: #9b96f3;
+  --cl-blue: #8ca6ff;
+  --cl-error: #b83e35;
+
+  --ease-out-cubic: cubic-bezier(0.215, 0.61, 0.355, 1);
+  --ease-out-quart: cubic-bezier(0.165, 0.84, 0.44, 1);
+  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+@media only screen and (max-width: 767px) {
+  :root {
+    --radius: 6px;
+    --overlap: 10px;
+    --parallax: 20px;
+    --padding: 16px;
+    --menu-width: 0px;
+    --menu-height: 44px;
+    --menu-pad: 0px;
+    --menu-radius: 0px;
+    --menu-submenu: 0px;
+    --frame-gutter: 1rem;
+    --menu-bottom: calc(var(--menu-pad) + var(--frame-gutter));
+    --menu-left: calc(var(--menu-pad));
+    --shell-pad-top: calc(var(--menu-height) + var(--frame-gutter));
+    --shell-pad-left: var(--frame-gutter);
+    --shell-pad-right: var(--frame-gutter);
+    --shell-pad-bottom: var(--frame-gutter);
+  }
+}
+
+/* Tablet: keep rail, tighten gutters so 2-col matrices breathe */
+@media only screen and (min-width: 768px) and (max-width: 1279px) {
+  :root {
+    --frame-gutter: 1.15rem;
+    --shell-pad-top: calc(var(--menu-pad) + var(--menu-height) + var(--frame-gutter));
+    --shell-pad-left: calc(var(--menu-pad) + var(--menu-width) + var(--frame-gutter));
+    --shell-pad-right: calc(var(--menu-pad) + var(--frame-gutter));
+    --shell-pad-bottom: calc(var(--menu-pad) + var(--frame-gutter));
+  }
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: none;
+  background-color: #000000;
+  color: #ffffff;
+  font-family: 'ABCWhytePlus', system-ui, -apple-system, sans-serif;
+  scroll-behavior: smooth;
+}
 
 body {
-  background: var(--fd-paper);
-  color: var(--fd-ink);
-  -webkit-font-smoothing: antialiased;
-}
-
-.site-atmosphere {
-  pointer-events: none;
-  z-index: -1;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.035) 0%, transparent 22%),
-    linear-gradient(180deg, #121212 0%, #0c0c0c 42%, #060606 78%, #000000 100%);
+  margin: 0;
+  background-color: #000000;
+  color: #ffffff;
+  overflow-x: clip;
 }
 
 ::selection {
-  background: var(--fd-signal);
+  background: var(--cl-green);
   color: #000000;
 }
 
-.fd-kicker {
-  font-size: 0.6875rem;
-  font-weight: 500;
-  letter-spacing: 0.18em;
+/* KPR Typography System (scaled to standard 16px root or responsive viewport) */
+.type-dh1 {
+  font-feature-settings: 'zero' on;
+  font-family: 'Hexaframe', sans-serif;
+  font-size: clamp(10rem, 28vw, 31.5rem);
+  font-weight: 700;
+  letter-spacing: -0.095em;
+  line-height: 0.85;
   text-transform: uppercase;
-  color: var(--fd-muted);
 }
 
-.fd-card,
-.glass {
-  background: rgba(12, 12, 12, 0.92);
-  border: 1px solid var(--fd-line);
-  border-radius: var(--fd-radius);
-  transition: border-color 0.2s ease, transform 0.2s ease;
+.type-h0 {
+  font-feature-settings: 'zero' on;
+  font-family: 'ABCWhytePlus', sans-serif;
+  font-size: clamp(2.75rem, 5vw, 5rem);
+  font-variation-settings: 'opsz' 0.5;
+  font-weight: 700;
+  letter-spacing: -0.075em;
+  line-height: 0.87;
+  text-transform: uppercase;
 }
 
-a.fd-card:hover,
-a.fd-card:focus-visible {
-  border-color: color-mix(in srgb, var(--fd-signal) 35%, transparent);
-  transform: translateY(-2px);
+.type-h1 {
+  font-feature-settings: 'zero' on;
+  font-family: 'ABCWhytePlus', sans-serif;
+  font-size: clamp(1.85rem, 3.35vw, 3.4rem);
+  font-variation-settings: 'opsz' 0.5;
+  font-weight: 650;
+  letter-spacing: -0.07em;
+  line-height: 0.9;
+  text-transform: uppercase;
 }
 
-.fd-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--fd-radius-pill);
-  background: var(--fd-signal);
-  padding: 0.625rem 1.25rem;
-  font-size: 0.875rem;
+.type-h2 {
+  font-feature-settings: 'zero' on;
+  font-family: 'ABCWhytePlus', sans-serif;
+  font-size: clamp(1.5rem, 2.3vw, 2.35rem);
+  font-variation-settings: 'opsz' 0.5;
   font-weight: 600;
-  color: #000000;
-  transition: background 0.2s ease;
+  letter-spacing: -0.06em;
+  line-height: 0.88;
+  text-transform: uppercase;
 }
 
-.fd-btn:hover {
-  background: #c0ff4d;
+.type-h3 {
+  font-feature-settings: 'zero' on;
+  font-family: 'ABCWhytePlus', sans-serif;
+  font-size: clamp(1.1rem, 1.4vw, 1.45rem);
+  font-variation-settings: 'opsz' 0.5;
+  font-weight: 575;
+  letter-spacing: -0.04em;
+  line-height: 0.98;
 }
 
-.fd-btn-ghost {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--fd-radius-pill);
-  padding: 0.5rem 1rem;
-  font-size: 0.875rem;
-  color: var(--fd-ink);
+.type-body1 {
+  font-feature-settings: 'zero' on;
+  font-family: 'ABCWhytePlus', sans-serif;
+  font-size: clamp(0.82rem, 0.95vw, 0.98rem);
+  font-variation-settings: 'opsz' 0;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.35;
 }
 
-.fd-btn-ghost:hover {
-  color: var(--fd-signal);
+.type-body2 {
+  font-feature-settings: 'zero' on;
+  font-family: 'ABCWhyte', sans-serif;
+  font-size: clamp(0.95rem, 1.15vw, 1.15rem);
+  font-variation-settings: 'opsz' 0;
+  font-weight: 350;
+  letter-spacing: normal;
+  line-height: 1.5;
 }
 
-.fd-btn-outline {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--fd-radius-pill);
-  border: 1px solid var(--fd-line);
-  padding: 0.625rem 1.25rem;
-  font-size: 0.875rem;
-  color: var(--fd-ink);
-  transition: border-color 0.2s ease, color 0.2s ease;
+.type-caption2 {
+  font-feature-settings: 'zero' on;
+  font-family: 'IBMPlexMono', monospace;
+  font-size: 10px;
+  font-weight: 450;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  text-transform: uppercase;
 }
 
-.fd-btn-outline:hover {
-  border-color: color-mix(in srgb, var(--fd-signal) 40%, transparent);
+.type-caption3 {
+  font-feature-settings: 'zero' on;
+  font-family: 'IBMPlexMono', monospace;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  text-transform: uppercase;
 }
 
-.fd-btn:focus-visible,
-.fd-btn-ghost:focus-visible,
-.fd-btn-outline:focus-visible,
-.skip-to-content:focus-visible {
-  outline: 2px solid var(--fd-signal);
-  outline-offset: 3px;
+.type-caption4 {
+  font-feature-settings: 'zero' on;
+  font-family: 'IBMPlexMono', monospace;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  text-transform: uppercase;
 }
 
-.shine-text {
-  color: var(--fd-signal);
+.type-btn {
+  font-feature-settings: 'zero' on;
+  font-family: 'IBMPlexMono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 0.9;
+  text-transform: uppercase;
 }
 
-.text-slate-400 {
-  color: #c4c4cc;
+/* Page shell: stays inside the KPR frame. Do NOT combine with px-* / pl-* / pr-* / pt-* —
+   those Tailwind utilities override these paddings and shove content under the rail. */
+.frame-container,
+.frame-container-first,
+.kpr-shell {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  padding-left: var(--shell-pad-left) !important;
+  padding-right: var(--shell-pad-right) !important;
 }
 
-.fd-rise {
-  animation: fd-rise 0.7s ease-out both;
+.frame-container-first,
+.kpr-shell-first {
+  padding-top: var(--shell-pad-top) !important;
 }
 
-.fd-rise-delay {
-  animation-delay: 0.12s;
+/* Full inset (top+sides+bottom) for section roots that own their padding */
+.kpr-shell-pad {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  padding-top: var(--shell-pad-top) !important;
+  padding-left: var(--shell-pad-left) !important;
+  padding-right: var(--shell-pad-right) !important;
+  padding-bottom: var(--shell-pad-bottom) !important;
 }
 
-@keyframes fd-rise {
-  from { opacity: 0; transform: translateY(16px); }
-  to { opacity: 1; transform: translateY(0); }
+.frame-container {
+  /* vertical rhythm left to section classes (py-*) */
 }
 
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  .hero-video { display: none; }
-  .hero-pause { display: none; }
-  .hero-poster { display: block !important; }
-  .fd-rise,
-  .fd-rise-delay {
-    animation: none;
+/* Opaque chrome so rail/top never look “behind” scrolling content.
+   pointer-events is NOT inherited — every frame wrapper must be none;
+   only interactive controls set pointer-events-auto. */
+.the-frame,
+.the-frame * {
+  pointer-events: none;
+}
+.the-frame .pointer-events-auto,
+.the-frame a,
+.the-frame button,
+.the-frame [role="button"],
+.the-frame input,
+.the-frame select,
+.the-frame textarea {
+  pointer-events: auto;
+}
+
+.the-frame .line-outer {
+  overflow: hidden;
+}
+
+.the-frame .line-outer > .top,
+.the-frame .line-outer > .left {
+  background: #000000 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  z-index: 5;
+  box-shadow: none;
+}
+
+.the-frame .line-outer > .left {
+  isolation: isolate;
+}
+
+.the-frame .line-outer > .left .bottom {
+  background: #000000 !important;
+}
+
+.the-frame .btn-console,
+.the-frame .btn-audio,
+.the-frame .btn-burger {
+  position: relative;
+  z-index: 6;
+  background: #000000 !important;
+}
+
+.the-frame .btn-console:hover {
+  background: #c0fb50 !important;
+  color: #000000 !important;
+}
+
+.the-frame .btn-audio:hover,
+.the-frame .btn-burger:hover {
+  background: #111111 !important;
+}
+
+/* Keep page paint under the frame chrome */
+.layout-default > .relative.z-10 {
+  isolation: isolate;
+}
+
+/* KPR folder / chamfered corner polygon clips */
+.kpr-clip-card {
+  clip-path: polygon(0 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 22px 100%, 0 calc(100% - 22px));
+}
+
+.kpr-clip-folder {
+  clip-path: polygon(0 0, 58% 0, 64% 26px, 100% 26px, 100% calc(100% - 24px), calc(100% - 24px) 100%, 0 100%);
+}
+
+.kpr-clip-folder-alt {
+  clip-path: polygon(0 28px, 18% 28px, 23% 0, 100% 0, 100% calc(100% - 24px), calc(100% - 24px) 100%, 0 100%);
+}
+
+.kpr-clip-btn {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 10px 100%, 0 calc(100% - 10px));
+}
+
+/* Legacy utility classes mapped to KPR aesthetic for subpages */
+@layer components {
+  .fd-kicker {
+    font-family: 'IBMPlexMono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--cl-green);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
   }
-  a.fd-card:hover,
-  a.fd-card:focus-visible {
-    transform: none;
+  .fd-kicker::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: currentColor;
   }
+
+  .fd-card {
+    background: #0a0a0a;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
+  }
+
+  .fd-btn {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 transition;
+    font-family: 'IBMPlexMono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    background: #ffffff;
+    color: #000000;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 10px 100%, 0 calc(100% - 10px));
+  }
+  .fd-btn:hover {
+    background: var(--cl-green);
+    color: #000000;
+  }
+
+  .fd-btn-outline {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-3 transition;
+    font-family: 'IBMPlexMono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    color: #ffffff;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 10px 100%, 0 calc(100% - 10px));
+  }
+  .fd-btn-outline:hover {
+    border-color: var(--cl-green);
+    color: var(--cl-green);
+  }
+
+  .fd-chip {
+    font-family: 'IBMPlexMono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 3px 8px;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    color: rgba(255, 255, 255, 0.85);
+  }
+}
+
+/* Hero monumental lines — staggered reveal (no fake counters) */
+.homeLanding .hero-line {
+  opacity: 0;
+  transform: translateX(-18px);
+  animation: kpr-hero-line-in 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes kpr-hero-line-in {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes kpr-equalizer-1 {
+  0%, 100% { transform: scaleY(0.25); }
+  50% { transform: scaleY(0.95); }
+}
+@keyframes kpr-equalizer-2 {
+  0%, 100% { transform: scaleY(0.85); }
+  40% { transform: scaleY(0.2); }
+  80% { transform: scaleY(1); }
+}
+@keyframes kpr-equalizer-3 {
+  0%, 100% { transform: scaleY(0.4); }
+  30% { transform: scaleY(1); }
+  70% { transform: scaleY(0.3); }
 }

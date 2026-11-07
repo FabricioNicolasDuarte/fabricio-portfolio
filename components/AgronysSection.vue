@@ -1,52 +1,51 @@
 <template>
-  <section id="agronys" class="relative mx-auto max-w-6xl px-5 py-16 sm:px-8">
-    <div class="overflow-hidden border border-white/10 p-8 sm:p-10">
+  <section id="agronys" data-kpr-section="agronys" data-kpr-theme="dark" class="frame-container py-12 md:py-16">
+    <div class="kpr-clip-folder border border-white/15 bg-[#0a0a0a] p-6 sm:p-10">
       <div class="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
         <div>
-          <p class="fd-kicker">{{ t.agronys.kicker }}</p>
-          <h1 class="mt-2 font-display text-3xl font-semibold tracking-tight text-white sm:text-4xl">{{ t.agronys.title }}</h1>
-          <p class="mt-3 max-w-2xl text-[15px] leading-relaxed text-slate-400">{{ t.agronys.body }}</p>
+          <p class="fd-kicker">003 // {{ t.agronys.kicker }}</p>
+          <h1 class="mt-2 type-h1 text-white">{{ t.agronys.title }}</h1>
+          <p class="mt-3 max-w-2xl type-body1 text-white/80">{{ t.agronys.body }}</p>
         </div>
-        <img src="/agronys/marca-agronys.svg" alt="Agronys" class="h-10 w-auto shrink-0 opacity-90 sm:h-12" />
+        <img src="/agronys/logo-texto-blanco.svg" alt="Agronys" class="h-9 w-auto max-w-[11rem] shrink-0 sm:h-11 sm:max-w-[14rem]" width="280" height="45" />
       </div>
 
       <a
-        :href="href"
+        :href="AGRONYS_SITE"
         target="_blank"
         rel="noopener noreferrer"
-        class="group mt-8 block overflow-hidden border border-white/10"
+        class="group mt-8 block kpr-clip-card overflow-hidden border border-white/15"
       >
         <img
           src="/mockups/agronys-web.jpg"
           :alt="t.agronys.shotAlt"
-          class="w-full object-cover object-top transition duration-300 group-hover:opacity-95"
+          class="w-full object-cover object-top transition duration-500 group-hover:scale-[1.02]"
         />
       </a>
 
-      <ul class="mt-8 grid grid-cols-1 gap-6 border-t border-white/10 pt-8 sm:grid-cols-3">
-        <li v-for="line in t.agronys.lines" :key="line.name">
-          <img :src="line.icon" alt="" class="h-8 w-8" />
-          <p class="mt-3 font-display text-base font-semibold text-white">{{ line.name }}</p>
-          <p class="mt-1 text-[13px] leading-relaxed text-slate-400">{{ line.blurb }}</p>
+      <ul class="mt-8 grid grid-cols-1 gap-6 border-t border-white/15 pt-8 sm:grid-cols-3">
+        <li
+          v-for="line in t.agronys.lines"
+          :key="line.name"
+          class="kpr-clip-card border border-white/10 bg-black p-5"
+        >
+          <img :src="line.icon" :alt="line.name" class="h-5 w-auto max-w-[9.5rem] object-contain object-left sm:h-6 sm:max-w-[11rem]" width="180" height="24" />
+          <p class="mt-3 type-h3 uppercase text-[#c0fb50]">{{ line.name }}</p>
+          <p class="mt-2 type-body1 text-white/75">{{ line.blurb }}</p>
         </li>
       </ul>
 
-      <div class="mt-8 flex flex-wrap gap-x-6 gap-y-2">
-        <a
-          :href="href"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center gap-1 text-sm text-lime-300 transition hover:text-lime-200"
-        >
-          {{ t.agronys.cta }}
-        </a>
-        <NuxtLink :to="localePath('/casos/agronys')" class="inline-flex text-sm text-lime-300 hover:text-lime-200">{{ t.caso.moreAgronys }}</NuxtLink>
+      <div class="mt-8 flex flex-wrap gap-4">
+        <KprBtnMain :label="t.agronys.cta" :href="AGRONYS_SITE" :external="true" variant="green" :dot="true" />
+        <KprBtnMain :label="t.caso.moreAgronys" :to="localePath('/casos/agronys')" variant="outline" />
+        <KprBtnMain :label="t.agronys.labCta" :to="localePath('/agtech/lakehouse')" variant="outline" />
       </div>
     </div>
   </section>
 </template>
 
 <script setup>
+import { AGRONYS_SITE } from '~/utils/agronys'
+
 const { t, localePath } = useLocale()
-const href = 'https://agronys.com/'
 </script>

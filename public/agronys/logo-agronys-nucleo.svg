@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 200" fill="none" role="img" aria-label="Agronys">
+  <title>Agronys</title>
+  <desc>Variante: núcleo circular (unidad/sensor) + órbita. Misma teoría, centro más atemporal.</desc>
+
+  <g id="mark" transform="translate(36, 20)">
+    <ellipse
+      cx="80" cy="80"
+      rx="88" ry="34"
+      stroke="#A2FF00"
+      stroke-width="2.6"
+      transform="rotate(-30 80 80)"
+    />
+    <!-- Núcleo: unidad observada (no es planeta ilustrado) -->
+    <circle cx="80" cy="80" r="30" fill="#A2FF00"/>
+    <circle cx="80" cy="80" r="16" fill="#0A0A0A"/>
+    <circle cx="80" cy="80" r="6.5" fill="#A2FF00"/>
+  </g>
+
+  <text
+    x="230" y="118"
+    fill="#F4F4F4"
+    font-family="Outfit, 'Helvetica Neue', Helvetica, Arial, sans-serif"
+    font-size="66"
+    font-weight="600"
+    letter-spacing="-0.045em"
+  >Agronys</text>
+</svg>

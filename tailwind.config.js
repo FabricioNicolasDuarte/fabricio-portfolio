@@ -1,34 +1,38 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   content: [
-    "./components/**/*.{js,vue,ts}",
-    "./pages/**/*.{js,vue,ts}",
-    "./app.vue",
-    "./error.vue",
+    './components/**/*.{vue,js,ts}',
+    './layouts/**/*.vue',
+    './pages/**/*.vue',
+    './composables/**/*.{js,ts}',
+    './app.vue',
   ],
   theme: {
     extend: {
-      colors: {
-        paper: 'var(--fd-paper)',
-        ink: 'var(--fd-ink)',
-        muted: 'var(--fd-muted)',
-        signal: 'var(--fd-signal)',
-        lime: {
-          50: '#f4ffe6',
-          100: '#e6ffb8',
-          200: '#d4ff80',
-          300: '#c0ff4d',
-          400: '#A2FF00',
-          500: '#8ae000',
-          600: '#6bb300',
-          700: '#4d8000',
-          800: '#335500',
-          900: '#1a2b00',
-        },
-      },
       fontFamily: {
-        sans: ['Outfit', 'system-ui', 'sans-serif'],
-        display: ['Chakra Petch', 'Outfit', 'sans-serif'],
+        sans: ['"ABCWhytePlus"', '"ABCWhyte"', 'system-ui', 'sans-serif'],
+        display: ['"ABCWhytePlus"', 'system-ui', 'sans-serif'],
+        stencil: ['"Hexaframe"', 'system-ui', 'sans-serif'],
+        mono: ['"IBMPlexMono"', 'monospace'],
+      },
+      colors: {
+        obsidian: '#000000',
+        surface: '#0a0a0a',
+        ink: '#000000',
+        muted: '#888888',
+        kpr: {
+          black: '#000000',
+          white: '#ffffff',
+          green: '#c0fb50',
+          lavender: '#968adf',
+          lavenderLight: '#9b96f3',
+          blue: '#8ca6ff',
+          gray: '#e1e1e1',
+        },
+        lime: {
+          400: '#c0fb50',
+          300: '#d1fc7d',
+        },
       },
     },
   },

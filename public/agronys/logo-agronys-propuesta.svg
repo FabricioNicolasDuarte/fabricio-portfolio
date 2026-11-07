@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 210" fill="none" role="img" aria-label="Agronys">
+  <title>Agronys</title>
+  <desc>
+    Órbita + agropecuario: hoja (agricultura) y cuernos (ganadería) bajo monitoreo satelital.
+    Sin lettermark. Una idea: el campo productivo observado desde arriba.
+  </desc>
+
+  <!--
+    Concepto: “Campo vivo bajo órbita”
+    Semiótica:
+      • Hoja central     → agricultura / cultivo
+      • Arcos laterales  → cuernos / hacienda (gestalt, no vaca literal)
+      • Órbita           → satélite / control continuo
+    Principios: dualidad agropecuaria unificada por un solo gesto orbital.
+  -->
+
+  <g id="mark" transform="translate(32, 18)">
+    <!-- Órbita (atrás) -->
+    <ellipse
+      cx="88" cy="88"
+      rx="92" ry="36"
+      stroke="#A2FF00"
+      stroke-width="2.6"
+      transform="rotate(-26 88 88)"
+    />
+
+    <!-- Cuerno izquierdo -->
+    <path
+      fill="#A2FF00"
+      d="M 28 78
+         C 18 52, 28 28, 48 22
+         C 40 40, 38 58, 42 78
+         Z"
+    />
+    <!-- Cuerno derecho (espejo) -->
+    <path
+      fill="#A2FF00"
+      d="M 148 78
+         C 158 52, 148 28, 128 22
+         C 136 40, 138 58, 134 78
+         Z"
+    />
+
+    <!-- Hoja / brote (agricultura) — sólido, sin textura -->
+    <path
+      fill="#A2FF00"
+      d="M 88 36
+         C 112 52, 124 78, 118 108
+         C 108 128, 88 138, 88 138
+         C 88 138, 68 128, 58 108
+         C 52 78, 64 52, 88 36
+         Z"
+    />
+    <!-- Nervadura (contraforma) = lectura de planta, no de letra -->
+    <path
+      stroke="#0A0A0A"
+      stroke-width="4"
+      stroke-linecap="round"
+      d="M 88 52 L 88 122"
+    />
+    <path
+      stroke="#0A0A0A"
+      stroke-width="3"
+      stroke-linecap="round"
+      d="M 88 78 Q 74 88 70 100"
+    />
+    <path
+      stroke="#0A0A0A"
+      stroke-width="3"
+      stroke-linecap="round"
+      d="M 88 78 Q 102 88 106 100"
+    />
+  </g>
+
+  <text
+    x="250" y="122"
+    fill="#F4F4F4"
+    font-family="Outfit, 'Helvetica Neue', Helvetica, Arial, sans-serif"
+    font-size="66"
+    font-weight="600"
+    letter-spacing="-0.045em"
+  >Agronys</text>
+</svg>

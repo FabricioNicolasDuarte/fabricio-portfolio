@@ -577,7 +577,7 @@ const saveNewMeeting = () => {
     : ['General']
 
   const pointsList = newForm.value.keyPointsText
-    ? newForm.value.keyPointsText.split('\n').map(s => s.trim().replace(/^[•\-\*]\s*/, '')).filter(Boolean)
+    ? newForm.value.keyPointsText.split('\n').map(s => s.trim().replace(/^[•\-*]\s*/, '')).filter(Boolean)
     : []
 
   const newMeeting = {

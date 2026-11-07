@@ -1,7 +1,7 @@
 <template>
-  <main id="contenido" tabindex="-1">
-    <section class="relative mx-auto grid min-h-[calc(100vh-3.5rem)] max-w-6xl lg:grid-cols-2">
-      <div class="relative min-h-[38vh] lg:min-h-full">
+  <main id="contenido" tabindex="-1" data-kpr-theme="dark" class="frame-container-first min-h-screen py-8 md:py-12">
+    <section class="grid min-h-[calc(100vh-8rem)] gap-8 lg:grid-cols-12 items-center">
+      <div class="lg:col-span-5 relative min-h-[420px] lg:h-[640px] kpr-clip-folder overflow-hidden border border-white/20 bg-black">
         <img
           src="/images/about-poster.jpg"
           alt="Fabricio Duarte"
@@ -23,37 +23,42 @@
         >
           <source src="/images/about.mp4" type="video/mp4" />
         </video>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-transparent lg:to-black/40" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-transparent" />
         <button
           type="button"
-          class="hero-pause absolute bottom-3 left-3 z-10 rounded-full border border-white/20 bg-black/75 px-3 py-1.5 text-[11px] tracking-wide text-white lg:bottom-auto lg:left-auto lg:right-3 lg:top-[calc(100dvh-5.5rem)]"
+          class="absolute bottom-5 left-5 z-10 kpr-clip-btn bg-black/85 border border-white/25 px-4 py-2 font-mono text-[10px] uppercase tracking-wider text-[#c0fb50] hover:bg-[#c0fb50] hover:text-black transition-colors cursor-pointer"
           @click="toggleGreeting"
         >
           {{ playing ? t.about.pause : t.about.play }}
         </button>
       </div>
-      <div class="flex flex-col justify-center px-5 py-12 sm:px-8 lg:px-12 lg:py-16">
+
+      <div class="lg:col-span-7 flex flex-col justify-center lg:pl-6">
         <PathTrail flush />
-        <p class="fd-kicker mt-6">{{ t.place }}</p>
-        <h1 class="mt-3 font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+        <p class="fd-kicker mt-6">001 // {{ t.place }}</p>
+        <h1 class="mt-2 type-h1 text-white">
           {{ t.about.title }}
         </h1>
-        <p class="mt-5 text-lg leading-relaxed text-slate-200">{{ t.about.lead }}</p>
-        <p class="mt-4 text-[15px] leading-relaxed text-slate-400">{{ t.about.body }}</p>
-        <p class="mt-4 text-sm leading-relaxed text-muted">{{ t.about.school }}</p>
+        <p class="mt-5 type-body2 text-white/90">{{ t.about.lead }}</p>
+        <p class="mt-4 type-body1 text-white/75">{{ t.about.body }}</p>
+        <p class="mt-4 font-mono text-[11px] uppercase text-[#c0fb50]">// {{ t.about.school }}</p>
 
-        <p class="fd-kicker mt-10">{{ t.about.trustKicker }}</p>
-        <ul class="mt-3 space-y-4 border-l border-white/10 pl-4">
-          <li v-for="item in t.about.trust" :key="item.title">
-            <p class="font-display text-base font-semibold text-white">{{ item.title }}</p>
-            <p class="mt-1 text-sm leading-relaxed text-slate-400">{{ item.body }}</p>
+        <p class="fd-kicker mt-8">{{ t.about.trustKicker }}</p>
+        <ul class="mt-4 grid gap-4 sm:grid-cols-2">
+          <li
+            v-for="item in t.about.trust"
+            :key="item.title"
+            class="kpr-clip-card border border-white/15 bg-[#0a0a0a] p-5"
+          >
+            <p class="type-h3 uppercase text-[#c0fb50]">{{ item.title }}</p>
+            <p class="mt-2 type-body1 text-white/75">{{ item.body }}</p>
           </li>
         </ul>
 
-        <div class="mt-10 flex flex-wrap gap-3">
-          <NuxtLink :to="localePath('/trayectoria')" class="fd-btn">{{ t.nav.path }}</NuxtLink>
-          <NuxtLink :to="localePath('/metodo')" class="fd-btn-outline">{{ t.nav.method }}</NuxtLink>
-          <NuxtLink :to="localePath('/agendar')" class="fd-btn-outline">{{ t.nav.book }}</NuxtLink>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <KprBtnMain :label="t.nav.path" :to="localePath('/trayectoria')" variant="green" :dot="true" />
+          <KprBtnMain :label="t.nav.method" :to="localePath('/metodo')" variant="outline" />
+          <KprBtnMain :label="t.nav.book" :to="localePath('/agendar')" variant="outline" />
         </div>
       </div>
     </section>
