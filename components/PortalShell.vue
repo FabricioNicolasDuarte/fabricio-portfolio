@@ -3,7 +3,7 @@
     <header class="sticky top-0 z-40 border-b border-white/10 bg-black/90 backdrop-blur-md">
       <div class="mx-auto flex max-w-6xl items-center justify-between gap-3 px-5 py-3 sm:px-8">
         <NuxtLink :to="localePath('/panel')" class="flex items-center gap-2">
-          <img src="/brand/mark.png" alt="" class="h-8 w-8" width="32" height="32" />
+          <img src="/brand/fabricio-mark.svg" alt="" class="h-8 w-8" width="32" height="32" />
           <span class="font-display text-sm font-semibold text-signal">Panel</span>
         </NuxtLink>
         <nav class="hidden items-center gap-1 text-sm sm:flex">

@@ -4,6 +4,9 @@ Disallow: /agendar/enviado
 Disallow: /en/agendar/enviado
 Disallow: /pt/agendar/enviado
 Disallow: /zh/agendar/enviado
+Disallow: /panel
+Disallow: /ingresar
+Disallow: /c/
 Disallow: /images/*.mp4
 
 Sitemap: https://fabricioduarte.tech/sitemap.xml

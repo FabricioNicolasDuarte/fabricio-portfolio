@@ -20,6 +20,7 @@
     </div>
 
     <KprFooter v-if="!privateChrome" />
+    <JsonLd v-if="!privateChrome" :data="personLd" />
   </div>
 </template>
 
@@ -78,6 +79,8 @@ const alternateLinks = computed(() => {
   ]
 })
 
+const ogImage = `${origin}/images/og-whatsapp.jpg`
+
 useHead(() => ({
   htmlAttrs: {
     lang: LOCALE_META[locale.value]?.html || 'es-AR',
@@ -86,14 +89,49 @@ useHead(() => ({
   link: alternateLinks.value,
   meta: [
     { name: 'description', content: metaDescription.value },
+    { property: 'og:type', content: 'website' },
+    { property: 'og:site_name', content: 'Fabricio Duarte' },
     { property: 'og:title', content: t.value.meta.title },
     { property: 'og:description', content: metaDescription.value },
     { property: 'og:locale', content: LOCALE_META[locale.value]?.og || 'es_AR' },
+    { property: 'og:locale:alternate', content: 'en_US' },
+    { property: 'og:locale:alternate', content: 'pt_BR' },
+    { property: 'og:locale:alternate', content: 'zh_CN' },
     { property: 'og:url', content: canonicalUrl.value },
+    { property: 'og:image', content: ogImage },
+    { property: 'og:image:type', content: 'image/jpeg' },
+    { property: 'og:image:width', content: '1024' },
+    { property: 'og:image:height', content: '537' },
     { property: 'og:image:alt', content: t.value.meta.ogAlt },
+    { name: 'twitter:card', content: 'summary_large_image' },
     { name: 'twitter:title', content: t.value.meta.title },
     { name: 'twitter:description', content: metaDescription.value },
+    { name: 'twitter:image', content: ogImage },
   ],
+}))
+
+const personLd = computed(() => ({
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Fabricio Nicolás Duarte',
+  jobTitle: t.value.meta.jobTitle,
+  url: origin,
+  email: 'fabricioduarteoficial@gmail.com',
+  telephone: '+54-370-402-2201',
+  address: { '@type': 'PostalAddress', addressCountry: 'AR' },
+  alumniOf: [
+    { '@type': 'CollegeOrUniversity', name: 'Universidad Tecnológica Nacional — Facultad Regional Resistencia' },
+    { '@type': 'CollegeOrUniversity', name: 'Universidad del Gran Rosario' },
+  ],
+  knowsAbout: t.value.meta.knowsAbout,
+  sameAs: [
+    'https://www.linkedin.com/in/fabricionicolasduarte/',
+    'https://github.com/FabricioNicolasDuarte',
+    'https://agronys.com/',
+  ],
+  image: `${origin}/images/hero-portrait.jpg`,
+  worksFor: { '@type': 'Organization', name: 'ECOM Chaco', url: 'https://www.ecom.com.ar/' },
+  founder: { '@type': 'Organization', name: 'Agronys', url: 'https://agronys.com/' },
 }))
 
 function onGlobalKeydown(e) {

@@ -1,7 +1,7 @@
 <template>
   <main id="contenido" tabindex="-1" class="mx-auto max-w-3xl px-5 py-12 sm:px-8">
     <div class="flex items-center gap-3">
-      <img src="/brand/mark.png" alt="" class="h-10 w-10" width="40" height="40" />
+      <img src="/brand/fabricio-mark.svg" alt="" class="h-10 w-10" width="40" height="40" />
       <div>
         <p class="text-xs uppercase tracking-wider text-muted">Vista cliente</p>
         <p class="font-display text-sm font-semibold text-signal">Fabricio Duarte</p>

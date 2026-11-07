@@ -99,10 +99,13 @@ export default defineNuxtConfig({
         { name: 'theme-color', content: '#080808' },
       ],
       link: [
-        { rel: 'icon', type: 'image/png', href: '/brand/mark.png' },
-        { rel: 'apple-touch-icon', href: '/brand/mark.png' },
+        { rel: 'icon', href: '/favicon.ico', sizes: 'any' },
+        { rel: 'icon', type: 'image/svg+xml', href: '/brand/fabricio-mark.svg' },
+        { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/brand/favicon-32x32.png' },
+        { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/brand/favicon-16x16.png' },
+        { rel: 'apple-touch-icon', sizes: '180x180', href: '/brand/apple-touch-icon.png' },
         { rel: 'manifest', href: '/site.webmanifest' },
-        { rel: 'preload', href: '/brand/mark.png', as: 'image' },
+        { rel: 'preload', href: '/brand/fabricio-mark.svg', as: 'image' },
       ],
       script: [
         {

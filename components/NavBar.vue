@@ -2,7 +2,7 @@
   <header class="sticky top-0 z-50 border-b border-white/[0.08] bg-[#05080e]/85 backdrop-blur-xl shadow-[0_4px_24px_rgba(0,0,0,0.6)]">
     <div class="mx-auto flex max-w-6xl items-center justify-between gap-3 px-5 py-3 sm:px-8">
       <NuxtLink :to="localePath('/')" class="group flex shrink-0 items-center gap-2.5" :aria-label="t.nav.brand">
-        <img src="/brand/mark.png" alt="" class="h-8 w-8 transition-transform duration-300 group-hover:rotate-6" width="32" height="32" />
+        <img src="/brand/fabricio-mark.svg" alt="" class="h-8 w-8 transition-transform duration-300 group-hover:rotate-6" width="32" height="32" />
         <span class="hidden font-display text-sm font-semibold tracking-wide text-signal sm:inline" aria-hidden="true">{{ t.nav.brand }}</span>
       </NuxtLink>
       <nav class="hidden min-w-0 flex-1 items-center justify-center gap-1 text-sm sm:flex md:gap-2" :aria-label="t.nav.menu">
